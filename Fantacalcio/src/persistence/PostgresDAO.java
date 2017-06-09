@@ -17,16 +17,16 @@ import persistence.dao.UtenteDAOJdbc;
 import persistence.dao.Voto_giornataDAO;
 import persistence.dao.Voto_giornataDAOJdbc;
 
-public class MySQLDAO {
+public class PostgresDAO {
 	DataSource dataSource;
 
-	public MySQLDAO(String host, String databaseName, String port, String user, String password) {
+	public PostgresDAO(String host, String databaseName, String port, String user, String password) {
 		try {
 			Class.forName("org.postgresql.Driver").newInstance();
 			// questi vanno messi in file di configurazione!!!
 			dataSource = new DataSource("jdbc:postgresql://" + host + ":" + port + "/" + databaseName, user, password);
 		} catch (Exception e) {
-			System.err.println("MYSQLDAOFactory.class: failed to load MySQL JDBC driver\n" + e);
+			System.err.println("PostgresDAO.class: failed to load Postgres JDBC driver\n" + e);
 			e.printStackTrace();
 		}
 	}

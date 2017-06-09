@@ -36,8 +36,8 @@ public class DBManager {
 	}
 
 	private DBManager() {
-		////////no mysql
-		MySQLDAO sqlDAO = new MySQLDAO("horton.elephantsql.com", "xrfgprnz", "5432", "xrfgprnz", "ztrokF2S22uj8fpPDP6tj3nOFzt5dmr4");
+		
+		PostgresDAO sqlDAO = new PostgresDAO("horton.elephantsql.com", "xrfgprnz", "5432", "xrfgprnz", "ztrokF2S22uj8fpPDP6tj3nOFzt5dmr4");
 
 		campionato = sqlDAO.getCampionatoDAO();
 		giocatore_in_formazioneDAO = sqlDAO.getGiocatore_in_formazioneDAO();
