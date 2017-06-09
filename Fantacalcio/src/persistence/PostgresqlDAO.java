@@ -17,10 +17,10 @@ import persistence.dao.UtenteDAOJdbc;
 import persistence.dao.Voto_giornataDAO;
 import persistence.dao.Voto_giornataDAOJdbc;
 
-public class PostgresDAO {
+public class PostgresqlDAO {
 	DataSource dataSource;
 
-	public PostgresDAO(String host, String databaseName, String port, String user, String password) {
+	public PostgresqlDAO(String host, String databaseName, String port, String user, String password) {
 		try {
 			Class.forName("org.postgresql.Driver").newInstance();
 			// questi vanno messi in file di configurazione!!!

@@ -18,13 +18,8 @@ public class IdBroker {
 			id = result.getLong("id");
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				throw new RuntimeException(e.getMessage());
-			}
-		}
+		} 
+		
 		return id;
 	}
 

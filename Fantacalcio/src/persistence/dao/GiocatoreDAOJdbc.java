@@ -7,6 +7,7 @@ import java.util.List;
 
 import model.Giocatore;
 import persistence.DataSource;
+import persistence.IdBroker;
 
 public class GiocatoreDAOJdbc implements GiocatoreDAO {
 	private DataSource dataSource;
@@ -19,6 +20,8 @@ public class GiocatoreDAOJdbc implements GiocatoreDAO {
 	public void save(Giocatore giocatore){
 		Connection connection = this.dataSource.getConnection();
 		try {
+			Long id = IdBroker.getId(connection);
+			giocatore.setId(id);
 			String insert = "insert into giocatore(id, nome, cognome, ruolo, squadra, valore)"
 					+ " values (?, ?, ?, ?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
