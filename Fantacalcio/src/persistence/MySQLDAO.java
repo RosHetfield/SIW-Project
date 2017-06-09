@@ -14,8 +14,6 @@ import persistence.dao.SquadraDAO;
 import persistence.dao.SquadraDAOJdbc;
 import persistence.dao.UtenteDAO;
 import persistence.dao.UtenteDAOJdbc;
-import persistence.dao.Utente_campionatoDAO;
-import persistence.dao.Utente_campionatoDAOJdbc;
 import persistence.dao.Voto_giornataDAO;
 import persistence.dao.Voto_giornataDAOJdbc;
 
@@ -55,10 +53,6 @@ public class MySQLDAO {
 
 	public SquadraDAO getSquadraDAO() {
 		return new SquadraDAOJdbc(dataSource);
-	}
-
-	public Utente_campionatoDAO getUtente_campionatoDAO() {
-		return new Utente_campionatoDAOJdbc(dataSource);
 	}
 
 	public UtenteDAO getUtenteDAO() {

@@ -14,8 +14,10 @@ public class Utente implements Serializable {
 	String password;
 
 	// riferimenti
+	
+	
 
-	public Utente(String nome, String cognome, String email, String username, int telefono,String password) {
+	public Utente(String nome, String cognome, String email, String username,String password) {
 		super();
 		this.nome = nome;
 		this.cognome = cognome;
@@ -56,7 +58,7 @@ public class Utente implements Serializable {
 		return username;
 	}
 
-	public void setCredenziali(String username) {
+	public void setUsername(String username) {
 		this.username = username;
 	}
 

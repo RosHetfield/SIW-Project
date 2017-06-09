@@ -55,7 +55,7 @@ public class UtenteDAOJdbc implements UtenteDAO {
 			ResultSet result = statement.executeQuery();
 
 			if (result.next()) {
-				utente.setCredenziali(result.getString("Username"));
+				utente.setUsername(result.getString("Username"));
 				utente.setNome(result.getString("Nome"));
 				utente.setCognome(result.getString("Cognome"));
 				utente.setEmail(result.getString("email"));
@@ -88,7 +88,7 @@ public class UtenteDAOJdbc implements UtenteDAO {
 			while (result.next()) {
 				utente = new Utente();
 				
-				utente.setCredenziali(result.getString("Username"));
+				utente.setUsername(result.getString("Username"));
 				utente.setNome(result.getString("Nome"));
 				utente.setCognome(result.getString("Cognome"));
 				utente.setEmail(result.getString("email"));

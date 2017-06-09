@@ -22,9 +22,8 @@ public class Giocatore implements Serializable {
 		super();
 	}
 
-	public Giocatore(Long id, String nome, String cognome, String squadra, char ruolo, int valore) {
+	public Giocatore(String nome, String cognome, String squadra, char ruolo, int valore) {
 		super();
-		this.id = id;
 		this.nome = nome;
 		this.cognome = cognome;
 		this.squadra = squadra;

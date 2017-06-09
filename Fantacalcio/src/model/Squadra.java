@@ -1,6 +1,8 @@
 package model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Squadra implements Serializable {
 
@@ -13,14 +15,16 @@ public class Squadra implements Serializable {
 	int crediti;
 
 	// riferimenti
-	String utente;
-	String campionato;
+	Utente utente;
+	Campionato campionato;
+	private Set<Giocatore_in_rosa> giocatori;
 
 	public Squadra() {
 		super();
+		this.utente = new Utente();
+		this.campionato = new Campionato();
+		this.setGiocatori(new HashSet<Giocatore_in_rosa>());
 	}
-
-
 
 	public String getNome() {
 		return nome;
@@ -38,4 +42,19 @@ public class Squadra implements Serializable {
 		this.crediti = crediti;
 	}
 
+	public Set<Giocatore_in_rosa> getGiocatori() {
+		return giocatori;
+	}
+
+	public void setGiocatori(Set<Giocatore_in_rosa> giocatori) {
+		this.giocatori = giocatori;
+	}
+
+	public void addGiocatore(Giocatore_in_rosa giocatore) {
+		this.getGiocatori().add(giocatore);
+	}
+	
+	public void removeGiocatore(Giocatore_in_rosa giocatore) {
+		this.getGiocatori().remove(giocatore);
+	}
 }

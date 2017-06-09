@@ -7,7 +7,6 @@ import persistence.dao.Giocatore_in_rosaDAO;
 import persistence.dao.PartitaDAO;
 import persistence.dao.SquadraDAO;
 import persistence.dao.UtenteDAO;
-import persistence.dao.Utente_campionatoDAO;
 import persistence.dao.Voto_giornataDAO;
 
 public class DBManager {
@@ -24,7 +23,6 @@ public class DBManager {
 	private GiocatoreDAO giocatore;
 	private PartitaDAO partita;
 	private SquadraDAO squadra;
-	private Utente_campionatoDAO utente_campionato;
 	private UtenteDAO utente;
 	private Voto_giornataDAO voto_giornata;
 
@@ -47,7 +45,6 @@ public class DBManager {
 		giocatore = sqlDAO.getGiocatoreDAO();
 		partita = sqlDAO.getPartitaDAO();
 		squadra = sqlDAO.getSquadraDAO();
-		utente_campionato = sqlDAO.getUtente_campionatoDAO();
 		utente = sqlDAO.getUtenteDAO();
 		voto_giornata = sqlDAO.getVoto_giornataDAO();
 
@@ -75,10 +72,6 @@ public class DBManager {
 
 	public SquadraDAO getSquadra() {
 		return squadra;
-	}
-
-	public Utente_campionatoDAO getUtente_campionato() {
-		return utente_campionato;
 	}
 
 	public UtenteDAO getUtente() {

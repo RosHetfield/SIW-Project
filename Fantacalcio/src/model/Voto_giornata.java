@@ -27,17 +27,13 @@ public class Voto_giornata implements Serializable {
 	boolean goalPareggio;
 	
 	//riferimenti
-	int giocatore;
-
-	
-
-
-
+	private Giocatore giocatore;
 
 	public Voto_giornata(int giornata, double voto,double fantavoto, int goalFatto, int goalSubito, int goalSuRigore, int rigoreParato,
 			int rigoreSbagliato, int autorete, int assist, boolean ammonito, boolean espulso, boolean uscito,
 			boolean entrato, boolean goalVittoria, boolean goalPareggio) {
 		super();
+		this.giocatore = new Giocatore();
 		this.giornata = giornata;
 		this.voto = voto;
 		this.fantavoto = fantavoto;
@@ -58,6 +54,15 @@ public class Voto_giornata implements Serializable {
 
 	public Voto_giornata() {
 		super();
+		this.giocatore = new Giocatore();
+	}
+
+	public Giocatore getGiocatore() {
+		return giocatore;
+	}
+
+	public void setGiocatore(Giocatore giocatore) {
+		this.giocatore = giocatore;
 	}
 
 	public int getGiornata() {
