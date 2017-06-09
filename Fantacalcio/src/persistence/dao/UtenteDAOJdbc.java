@@ -29,6 +29,7 @@ public class UtenteDAOJdbc implements UtenteDAO {
 			statement.setString(5, utente.getPassword());
 
 			
+			
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
