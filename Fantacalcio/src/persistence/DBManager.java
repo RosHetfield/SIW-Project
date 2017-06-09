@@ -10,11 +10,11 @@ import persistence.dao.UtenteDAO;
 import persistence.dao.Voto_giornataDAO;
 
 public class DBManager {
-	// Host: www.freesqldatabase.com
-	// Database name: sql11154576
-	// Database user: sql11154576    ??????????????
-	// Database password: PsnjrjRPHw
-	// Port number: 3306
+	// Host: horton.elephantsql.com
+	// Database name: xrfgprnz
+	// Database user: xrfgprnz    
+	// Database password: ztrokF2S22uj8fpPDP6tj3nOFzt5dmr4
+	// Port number: 5432
 	private static DBManager instance = null;
 
 	private CampionatoDAO campionato;
@@ -36,8 +36,8 @@ public class DBManager {
 	}
 
 	private DBManager() {
-		//////////////////////////////////cambiare i param????
-		MySQLDAO sqlDAO = new MySQLDAO("sql11.freesqldatabase.com", "sql11154576", "3306", "sql11154576", "PsnjrjRPHw");
+		////////no mysql
+		MySQLDAO sqlDAO = new MySQLDAO("horton.elephantsql.com", "xrfgprnz", "5432", "xrfgprnz", "ztrokF2S22uj8fpPDP6tj3nOFzt5dmr4");
 
 		campionato = sqlDAO.getCampionatoDAO();
 		giocatore_in_formazioneDAO = sqlDAO.getGiocatore_in_formazioneDAO();
