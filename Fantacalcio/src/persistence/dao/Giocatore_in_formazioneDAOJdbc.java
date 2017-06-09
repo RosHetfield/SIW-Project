@@ -1,5 +1,8 @@
 package persistence.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import model.Giocatore_in_formazione;
@@ -14,8 +17,33 @@ public class Giocatore_in_formazioneDAOJdbc implements Giocatore_in_formazioneDA
 
 	@Override
 	public void save(Giocatore_in_formazione gif) {
-		// TODO Auto-generated method stub
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String insert = "INSERT INTO giocatore_in_formazione(giornata, campionato, squadra, giocatore, "
+					+ "titolare, entrato, uscito, n_formazione) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+			PreparedStatement statement = connection.prepareStatement(insert);
+			statement.setString(1, gif.get );
+			statement.setString(2, gif.getCA);
+			statement.setString(3, gif.getS);
+			statement.setString(4, gif.getEmail());
+			statement.setBoolean(5, gif.isTitolare());
+			statement.setBoolean(6, gif.isEntrato());
+			statement.setBoolean(7, gif.isUscito());
+			statement.setInt(8, gif.getN_formazione());
 
+			
+			
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+			
+		}
 	}
 
 	@Override

@@ -13,7 +13,7 @@ public class Giocatore implements Serializable {
 	String nome;
 	String cognome;
 	String squadra;
-	char ruolo;
+	String ruolo;
 	int valore;
 	
 	////riferimenti
@@ -22,7 +22,7 @@ public class Giocatore implements Serializable {
 		super();
 	}
 
-	public Giocatore(String nome, String cognome, String squadra, char ruolo, int valore) {
+	public Giocatore(String nome, String cognome, String squadra, String ruolo, int valore) {
 		super();
 		this.nome = nome;
 		this.cognome = cognome;
@@ -63,11 +63,11 @@ public class Giocatore implements Serializable {
 		this.squadra = squadra;
 	}
 
-	public char getRuolo() {
+	public String getRuolo() {
 		return ruolo;
 	}
 
-	public void setRuolo(char ruolo) {
+	public void setRuolo(String ruolo) {
 		this.ruolo = ruolo;
 	}
 
