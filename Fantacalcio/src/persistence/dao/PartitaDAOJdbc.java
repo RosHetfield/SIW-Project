@@ -1,5 +1,8 @@
 package persistence.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import model.Partita;
@@ -13,9 +16,25 @@ public class PartitaDAOJdbc implements PartitaDAO {
 	}
 
 	@Override
-	public int save(Partita partita) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void save(Partita partita) {
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String insert = "insert into partita(giornata, campionato) values (?, ?)";
+			PreparedStatement statement = connection.prepareStatement(insert);
+			statement.setInt(1, partita.getGiornata());		
+			statement.setString(2, partita.getCampionato().getNome());		
+
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+			
+		}
 	}
 
 	@Override

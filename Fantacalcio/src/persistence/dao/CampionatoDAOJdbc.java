@@ -1,5 +1,8 @@
 package persistence.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import model.Campionato;
@@ -14,8 +17,24 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 
 	@Override
 	public void save(Campionato campionato) {
-		// TODO Auto-generated method stub
-
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String insert = "insert into campionato(nome, password) values (?, ?)";
+			PreparedStatement statement = connection.prepareStatement(insert);
+			statement.setString(1, campionato.getNome());
+			statement.setString(2, campionato.getPassword());			
+			
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+			
+		}
 	}
 
 	@Override
