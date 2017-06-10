@@ -23,8 +23,8 @@ public class SquadraDAOJdbc implements SquadraDAO {
 			String insert ="insert into squadra(nome, utente, campionato, crediti) values (?, ?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setString(1, squadra.getNome());
-			//statement.setString(2, squadra.);
-			//statement.setString(3, squadra.);
+			statement.setString(2, squadra.getUtente().getUsername());
+			statement.setString(3, squadra.getCampionato().getNome());
 			statement.setInt(4, squadra.getCrediti());		
 		
 			

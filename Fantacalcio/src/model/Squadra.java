@@ -19,11 +19,30 @@ public class Squadra implements Serializable {
 	Campionato campionato;
 	private Set<Giocatore_in_rosa> giocatori;
 
+	//fare il costruttore... con parametri.................
+	
+	
 	public Squadra() {
 		super();
 		this.utente = new Utente();
 		this.campionato = new Campionato();
 		this.setGiocatori(new HashSet<Giocatore_in_rosa>());
+	}
+
+	public Utente getUtente() {
+		return utente;
+	}
+
+	public void setUtente(Utente utente) {
+		this.utente = utente;
+	}
+
+	public Campionato getCampionato() {
+		return campionato;
+	}
+
+	public void setCampionato(Campionato campionato) {
+		this.campionato = campionato;
 	}
 
 	public String getNome() {
