@@ -22,18 +22,10 @@ public class SquadraDAOJdbc implements SquadraDAO {
 			
 			String insert ="insert into squadra(nome, utente, campionato, crediti) values (?, ?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
-		/*	statement.setString(1, voto_giornata);
-			statement.setString(2, voto_giornata);
-			statement.setString(3, voto_giornata);
-			statement.setString(4, voto_giornata);
-			statement.setString(5, voto_giornata);
-			statement.setString(6, voto_giornata);
-			statement.setString(7, voto_giornata);
-			statement.setString(8, voto_giornata);
-			statement.setString(9, voto_giornata);
-			statement.setString(10, voto_giornata);*/
-
-		
+			statement.setString(1, squadra.getNome());
+			//statement.setString(2, squadra.);
+			//statement.setString(3, squadra.);
+			statement.setInt(4, squadra.getCrediti());		
 		
 			
 			statement.executeUpdate();
