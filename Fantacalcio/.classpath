@@ -33,5 +33,15 @@
 	<classpathentry kind="lib" path="lib/tomcat/tomcat-util.jar"/>
 	<classpathentry kind="lib" path="lib/tomcat/tomcat-websocket.jar"/>
 	<classpathentry kind="lib" path="lib/tomcat/websocket-api.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/activation.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-lang3-3.5.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jackson-annotations-2.0.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jackson-core-2.0.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jackson-databind-2.0.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javax.mail.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javax.servlet.jsp.jstl-api-1.2.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/org.restlet.lib.org.json-2.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
