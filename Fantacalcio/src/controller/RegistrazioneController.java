@@ -7,6 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import model.Utente;
+import persistence.DBManager;
+
 /**
  * Servlet implementation class RegistrazioneController
  */
@@ -25,8 +30,7 @@ public class RegistrazioneController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
 	}
 
 	/**
@@ -35,8 +39,26 @@ public class RegistrazioneController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getParameterNames().hasMoreElements()) {
 			
+			String jsString = request.getParameter("credenzialiRegistrazione");
 			
-			
+			if (jsString != null) {
+
+				ObjectMapper mapper = new ObjectMapper();
+
+				Utente utente = (Utente) mapper.readValue(
+						jsString, Utente.class);
+
+				DBManager.getInstance().getUtente().save(utente);
+
+				response.setStatus(HttpServletResponse.SC_OK);
+				
+				System.out.println(utente.getUsername());
+				System.out.println(utente.getNome());
+				System.out.println(utente.getCognome());
+				System.out.println(utente.getEmail());
+				System.out.println(utente.getPassword());
+
+			}
 			
 		}
 	}
