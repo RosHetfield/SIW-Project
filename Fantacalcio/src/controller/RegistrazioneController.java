@@ -37,6 +37,9 @@ public class RegistrazioneController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		System.out.println("########################################");
+
 		if (request.getParameterNames().hasMoreElements()) {
 			
 			String jsString = request.getParameter("utenteRegistrazione");
@@ -51,6 +54,7 @@ public class RegistrazioneController extends HttpServlet {
 				DBManager.getInstance().getUtente().save(utente);
 
 				response.setStatus(HttpServletResponse.SC_OK);
+				response.setContentType("text/html");
 				
 				System.out.println(utente.getUsername());
 				System.out.println(utente.getNome());
