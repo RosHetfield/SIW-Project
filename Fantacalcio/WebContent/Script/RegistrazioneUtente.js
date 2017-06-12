@@ -54,8 +54,12 @@ console.log(jsonUtente);
 
 			success : function(data) {
 				
-				window.alert("Registrazione effettuata!");
-				registrazione = true;
+				swal({
+					  title: "Errore!",
+					  text:"Impossibile completare la registrazione",
+					  confirmButtonText: "Riprova"
+					});
+				registrazione = false;
 			},
 
 			error : function(data) {
