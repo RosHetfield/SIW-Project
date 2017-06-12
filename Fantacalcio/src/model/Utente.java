@@ -7,22 +7,23 @@ public class Utente implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 8687792190967732576L;
+	
+	String username;
 	String nome;
 	String cognome;
 	String email;
-	String username;
 	String password;
 
 	// riferimenti
 	
 	
 
-	public Utente(String nome, String cognome, String email, String username,String password) {
+	public Utente(String username, String nome, String cognome, String email, String password) {
 		super();
+		this.username = username;
 		this.nome = nome;
 		this.cognome = cognome;
 		this.email = email;
-		this.username = username;
 		this.password=password;
 	}
 
@@ -30,6 +31,14 @@ public class Utente implements Serializable {
 		super();
 	}
 
+	public String getUsername() {
+		return username;
+	}
+	
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -52,14 +61,6 @@ public class Utente implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
 	}
 
 	public String getPassword() {

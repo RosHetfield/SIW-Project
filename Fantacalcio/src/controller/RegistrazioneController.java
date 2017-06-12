@@ -40,7 +40,7 @@ public class RegistrazioneController extends HttpServlet {
 		if (request.getParameterNames().hasMoreElements()) {
 			
 			String jsString = request.getParameter("utenteRegistrazione");
-			
+			System.out.println(jsString);
 			if (jsString != null) {
 
 				ObjectMapper mapper = new ObjectMapper();

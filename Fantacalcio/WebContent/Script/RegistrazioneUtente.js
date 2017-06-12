@@ -1,5 +1,4 @@
 
-$(document).ready(init);
 
 function Utente(username, nome, cognome, email, password) {
 	this.username = username;
@@ -10,7 +9,8 @@ function Utente(username, nome, cognome, email, password) {
 }
 
 function CreateUtente() {
-	var campi = $('formRegistrazione').find("input");
+	console.log("aaaaaaaaaaaaaaaaaaaaaaa");
+	var campi = $("#formRegistrazione").find("input");
 	var campo = campi.eq(0);
 	var username = campo.val();
 	
@@ -31,9 +31,9 @@ function CreateUtente() {
 }
 
 function aggiungiUtente() {
-	var utente = CreaUtente();
+	console.log("asdaagdahaghagjddd");
+	var utente = CreateUtente();
 	var registrazione = false;
-	
 	var jsonUtente = {
 			username : utente.username,
 			nome : utente.nome,
@@ -78,4 +78,5 @@ function aggiungiUtente() {
 
 		return Boolean(registrazione);
 }
+
 
