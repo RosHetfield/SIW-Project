@@ -38,7 +38,7 @@ public class RegistrazioneController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getParameterNames().hasMoreElements()) {
-			
+			 
 			String jsString = request.getParameter("utenteRegistrazione");
 			System.out.println(jsString);
 			if (jsString != null) {
