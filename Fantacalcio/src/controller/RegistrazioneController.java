@@ -54,7 +54,7 @@ public class RegistrazioneController extends HttpServlet {
 				DBManager.getInstance().getUtente().save(utente);
 
 				response.setStatus(HttpServletResponse.SC_OK);
-				response.setContentType("text/html");
+				response.setContentType("text/html"); 
 				
 				System.out.println(utente.getUsername());
 				System.out.println(utente.getNome());
