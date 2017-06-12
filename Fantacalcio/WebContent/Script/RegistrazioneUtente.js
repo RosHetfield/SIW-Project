@@ -33,6 +33,7 @@ function CreateUtente() {
 function aggiungiUtente() {
 	console.log("asdaagdahaghagjddd");
 	var utente = CreateUtente();
+	
 	var registrazione = false;
 	var jsonUtente = {
 			username : utente.username,
@@ -41,7 +42,7 @@ function aggiungiUtente() {
 			email : utente.email,
 			password : utente.password
 		};
-
+console.log(jsonUtente);
 		$.ajax({
 			async : false,
 			type : "POST",
@@ -53,12 +54,7 @@ function aggiungiUtente() {
 
 			success : function(data) {
 				
-				swal({
-					title: "Sfaccim!",
-					  text:"Impossibile completare la banana",
-					  type: "error",
-					  confirmButtonText: "O ver"
-				});
+				window.alert("Registrazione effettuata!");
 				registrazione = true;
 			},
 
@@ -79,4 +75,5 @@ function aggiungiUtente() {
 		return Boolean(registrazione);
 }
 
+$(document).ready();
 
