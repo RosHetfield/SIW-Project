@@ -58,8 +58,7 @@ console.log(jsonUtente);
 					  title: "Benvenuto!",
 					  text:"Registrazione effettuata con successo!",
 					  confirmButtonText: "OK",
-					  type: "success",
-					  closeOnConfirm : true
+					  type: "success"
 					});
 				registrazione = true;
 			},
