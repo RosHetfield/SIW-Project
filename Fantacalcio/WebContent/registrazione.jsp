@@ -6,17 +6,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
- 
-    
-    <!-- Bootstrap Core JavaScript -->
-    
-    <script src="js/bootstrap.min.js"></script>
-	<script src="js/sweetalert.min.js"></script>
-	<script src="Script/RegistrazioneUtente.js"></script>
-	
-    <!-- jQuery -->
-    
-    <script src="Script/jquery-3.1.1.min.js" type="text/javascript"></script>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
@@ -25,53 +14,15 @@
     <!-- Custom CSS -->
 	<link href="css/business-casual.css" rel="stylesheet"/>
 	    
-    <title>Fanta Bomber</title>
+    <title>FantaBomber - Registrazione</title>
 
 
 </head>
 
 <body>
 
-    <div class="brand">Fanta Bomber</div>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">Business Casual</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="#guida">Guida</a>
-                    </li>       
-                    <li>
-                        <a href="contatti.html">Contatti</a>
-                    </li>
-                    <li>
-                        <a href="registrazione.html">Registrati</a>
-                    </li>
-                    <li>
-                        <a href="login.html">Accedi</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+	<!-- Header/Navigation -->
+    <%@ include file = "../fragments/header.html" %>
 
     <div class="container">
     
@@ -175,31 +126,20 @@
     </div>
     <!-- /.container -->
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 text-center">
-                    <h3>Fanta Bomber</h3>
-					<p>&copy; 2017 Fanta Bomber. All rights reserved</p>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <h3>Chi siamo?</h3>
-					<p>
-						<a href="aboutus.html">Su di noi</a><br/>
-						<a href="map.html">Dove trovarci</a>
-					</p>
-                </div>
-                 <div class="col-lg-4 text-center">
-                    <h3>Contattaci</h3>
-					<p>Ritacco Giuseppe<br/>
-					<i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:giuseppe.ritacco93@gmail.com"> giuseppe.ritacco93@gmail.com</a><br/>
-					Bisignano Rosalbino<br/>
-					<i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:giuseppe.ritacco93@gmail.com"> giuseppe.ritacco93@gmail.com</a></p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    
+     <!--include footer -->
+ 	<%@ include file = "../fragments/footer.html" %>
 	
+	    
+    <!-- Bootstrap Core JavaScript -->
+    
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/sweetalert.min.js"></script>
+	<script src="Script/RegistrazioneUtente.js"></script>
+	
+    <!-- jQuery -->
+    
+    <script src="Script/jquery-3.1.1.min.js" type="text/javascript"></script>
 
 </body>
 

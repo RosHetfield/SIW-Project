@@ -14,16 +14,16 @@
     <!-- Custom CSS -->
 	<link href="css/business-casual.css" rel="stylesheet"/>
 
-    <title>Fanta Bomber</title>
+    <title>FantaBomber</title>
 
 </head>
 
 <body>
 
-    <div class="brand">Fanta Bomber</div>
+    
 
-    <!-- Navigation -->
-	 <%@ include file = "../fragments/navbar.html" %>
+    <!-- Header/Navigation -->
+	 <%@ include file = "../fragments/header.html" %>
 	
 
     <div class="container">
