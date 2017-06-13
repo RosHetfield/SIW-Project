@@ -1,0 +1,38 @@
+.label {
+	display: inline-block;
+	font-weight: 500;
+	padding: 2px 5px 1px;
+	line-height: 1.5384616;
+	border: 1px solid transparent;
+	text-transform: uppercase;
+	font-size: 10px;
+	letter-spacing: .1px;
+	border-radius: 2px;
+}
+
+.label {
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+}
+
+.label-1 {
+	background-color: #f44336;
+	color: #fff;
+}
+
+.label-2 {
+	background-color: #388e3c;
+	color: #fff;
+}
+
+.label-3 {
+	background-color: #4fc3f7;
+		color: #fff;
+}
+
+.label-4  {
+	background-color: #00838f;
+	color: #fff;
+}
