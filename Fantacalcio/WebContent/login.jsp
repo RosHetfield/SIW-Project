@@ -62,7 +62,7 @@
 							</div>
 							
 							<div class="col-xs-12 col-md-6">
-								Non hai un account? <a href="registrazione.html">Registrati</a>
+								Non hai un account? <a href="registrazione.jsp">Registrati</a>
 							</div>
 							
 						</div>
