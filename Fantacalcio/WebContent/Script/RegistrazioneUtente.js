@@ -55,11 +55,13 @@ console.log(jsonUtente);
 			success : function(data) {
 				
 				swal({
-					  title: "Errore!",
-					  text:"Impossibile completare la registrazione",
-					  confirmButtonText: "Riprova"
+					  title: "Benvenuto!",
+					  text:"Registrazione effettuata con successo!",
+					  confirmButtonText: "OK",
+					  type: "success",
+					  closeOnConfirm : true
 					});
-				registrazione = false;
+				registrazione = true;
 			},
 
 			error : function(data) {
