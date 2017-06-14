@@ -52,25 +52,6 @@ public class RegistrazioneController extends HttpServlet {
 						jsString, Utente.class);
 
 				Utente checkUtente = DBManager.getInstance().getUtente().findByPrimaryKey(utente.getUsername());
-			if(utente.getUsername()!=null){
-				
-				Utente result = DBManager.getInstance().getUtente()
-					.findByPrimaryKey(utente.getUsername());
-			if(result!=null){
-				if(result.getPassword().equals(utente.getPassword()))
-				{
-					
-				response.getWriter().print(0);
-				}
-				else
-				{
-					
-					response.getWriter().print(1);
-				}
-					
-			}
-			else
-			{
 				
 				if(checkUtente == null) {
 					DBManager.getInstance().getUtente().save(utente);
