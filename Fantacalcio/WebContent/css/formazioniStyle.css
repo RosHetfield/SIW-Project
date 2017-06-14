@@ -36,3 +36,54 @@
 	background-color: #00838f;
 	color: #fff;
 }
+
+
+
+
+
+
+.bg-slate-300 {
+	background-color: #90a4ae;
+	border-color: #90a4ae;
+	color: #fff;
+}
+
+
+
+
+
+
+
+
+
+.myButton {
+margin: .3rem;
+}
+
+
+.fs-24 {
+	font-size: 24px !important;
+}
+
+
+.fantaicon-ammonizione::before {
+
+	content: url(../img/gf.png);
+	color: #ff0;
+
+}
+
+.fantaicon-espulsione::before {
+	background-color: #fff;
+	content: "\e9a8";
+	color: #fff;
+}
+
+.fantaicon-t-shirt-out .path4::before {
+	content: "\ea56";
+	margin-left: -1em;
+	color: #000;
+}
+
+
+
