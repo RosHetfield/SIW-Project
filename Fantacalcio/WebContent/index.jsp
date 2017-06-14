@@ -182,6 +182,8 @@
         <!--include footer -->
  <%@ include file = "../fragments/footer.html" %>
 
+    <!-- jQuery -->  
+    <script src="Script/jquery-3.1.1.min.js" type="text/javascript"></script>
 
 <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
@@ -195,8 +197,6 @@
     </script>
 	
 
-    <!-- jQuery -->  
-    <script src="Script/jquery-3.1.1.min.js" type="text/javascript"></script>
     
 </body>
 </html>
