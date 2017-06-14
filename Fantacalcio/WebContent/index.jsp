@@ -9,7 +9,6 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/sweetalert.css" type="text/css" rel="stylesheet"/>
 
     <!-- Custom CSS -->
 	<link href="css/business-casual.css" rel="stylesheet"/>
@@ -78,7 +77,7 @@
         </div>
         
         
-        <div class="row">
+        <div class="row" id="guida">
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
@@ -187,8 +186,6 @@
 
 <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-	<script src="js/sweetalert.min.js"></script>
-	<script src="Script/RegistrazioneUtente.js"></script>
 	
 
     <!-- Script to Activate the Carousel -->

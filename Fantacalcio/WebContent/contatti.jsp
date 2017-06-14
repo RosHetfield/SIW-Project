@@ -9,7 +9,6 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/sweetalert.css" type="text/css" rel="stylesheet"/>
 
     <!-- Custom CSS -->
 	<link href="css/business-casual.css" rel="stylesheet"/>
@@ -24,11 +23,11 @@
 
     <div class="container">
     
-	        <div class="row">
+	        <div class="row" id="map">
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center"><strong>Sede legaele</strong>
+                    <h2 class="intro-text text-center"><strong>Sede legale</strong>
                     </h2>
                     <hr>
                 </div>
@@ -56,14 +55,14 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" id="contatto">
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
                     <h2 class="intro-text text-center"><strong>Contattaci</strong>
                     </h2>
                     <hr>
-                    <p>-------scrivici ancuna cosa tipo per segnalazioni.</p>
+                    <p>Inviaci un feedback o una segnalazione</p>
                     <form role="form">
                         <div class="row">
                             <div class="form-group col-lg-4">
@@ -128,8 +127,6 @@
 
 	<!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-	<script src="js/sweetalert.min.js"></script>
-	<script src="Script/RegistrazioneUtente.js"></script>
 
     <!-- jQuery -->  
     <script src="Script/jquery-3.1.1.min.js" type="text/javascript"></script>
