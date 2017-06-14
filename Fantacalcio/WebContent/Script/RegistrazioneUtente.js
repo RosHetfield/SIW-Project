@@ -1,5 +1,4 @@
 
-
 function Utente(username, nome, cognome, email, password) {
 	this.username = username;
 	this.nome = nome;
@@ -30,8 +29,8 @@ function CreateUtente() {
 	return utente;
 }
 
-function aggiungiUtente() {
-	console.log("asdaagdahaghagjddd");
+function registraUtente(form) {
+
 	var utente = CreateUtente();
 	
 	var registrazione = false;
@@ -73,6 +72,22 @@ console.log(jsonUtente);
 					  confirmButtonText: "Riprova"
 					});
 				registrazione = false;
+			},
+			statusCode: {
+				409: function() {
+					swal({
+						  title: "Username utilizzato!",
+						  text:"Impossibile completare la registrazione",
+						  type: "warning",
+						  confirmButtonText: "Riprova"
+						});
+					registrazione = false;
+					
+					form.Username.value='';
+					form.Username.focus();
+					form.Username.scrollIntoView();
+				}
+				
 			}
 
 		});

@@ -51,11 +51,17 @@ public class RegistrazioneController extends HttpServlet {
 				Utente utente = (Utente) mapper.readValue(
 						jsString, Utente.class);
 
-				DBManager.getInstance().getUtente().save(utente);
-
-				response.setStatus(HttpServletResponse.SC_OK);
-				response.setContentType("text/html"); 
+				Utente checkUtente = DBManager.getInstance().getUtente().findByPrimaryKey(utente.getUsername());
 				
+				if(checkUtente == null) {
+					DBManager.getInstance().getUtente().save(utente);
+					response.setStatus(HttpServletResponse.SC_OK);
+					response.setContentType("text/html"); 
+				}
+				else {
+					response.setStatus(HttpServletResponse.SC_CONFLICT);
+					response.setContentType("text/html"); 
+				}
 				System.out.println(utente.getUsername());
 				System.out.println(utente.getNome());
 				System.out.println(utente.getCognome());

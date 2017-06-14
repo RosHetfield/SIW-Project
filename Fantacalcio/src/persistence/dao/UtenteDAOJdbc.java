@@ -119,6 +119,7 @@ public class UtenteDAOJdbc implements UtenteDAO {
 	public void delete(Utente utente) {
 		Connection connection = this.dataSource.getConnection();
 		try {
+			
 			String insert = "delete from utente where username = ?";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setString(1, utente.getUsername() );

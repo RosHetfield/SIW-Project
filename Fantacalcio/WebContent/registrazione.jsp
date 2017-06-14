@@ -30,7 +30,7 @@
 				<div
 					class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 box">
 					<form id="formRegistrazione" class="register-form"
-						onsubmit="return aggiungiUtente()" action="index.html"
+						onsubmit="return registraUtente(this)" action="index.html"
 						method="POST">
 
 						<hr>
@@ -58,22 +58,22 @@
 								tabindex="3" required>
 						</div>
 						<div class="form-group">
-							<input type="email" name="email" id="email"
+							<input type="email" name="Email" id="Email"
 								class="form-control input-lg" placeholder="Email Address"
 								tabindex="4" required>
 						</div>
 						<div class="row">
 							<div class="col-xs-12 col-sm-6 col-md-6">
 								<div class="form-group">
-									<input type="password" name="password" id="password"
+									<input type="password" name="Password" id="Password"
 										class="form-control input-lg" placeholder="Password"
 										tabindex="6" required>
 								</div>
 							</div>
 							<div class="col-xs-12 col-sm-6 col-md-6">
 								<div class="form-group">
-									<input type="password" name="password_confirmation"
-										id="password_confirmation" class="form-control input-lg"
+									<input type="password" name="Password_confirmation"
+										id="Password_confirmation" class="form-control input-lg"
 										placeholder="Conferma Password" tabindex="7" required>
 								</div>
 							</div>
