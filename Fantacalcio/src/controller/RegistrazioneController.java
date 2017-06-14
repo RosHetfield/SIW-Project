@@ -66,7 +66,7 @@ public class RegistrazioneController extends HttpServlet {
 				System.out.println(utente.getNome());
 				System.out.println(utente.getCognome());
 				System.out.println(utente.getEmail());
-				System.out.println(utente.getPassword());
+				System.out.println(utente.getPassword()); 
 
 			}
 			
