@@ -30,7 +30,7 @@ public class RegistrazioneController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+
 	}
 
 	/**
@@ -38,33 +38,52 @@ public class RegistrazioneController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("########################################");
+		String jsString = request.getParameter("credenzialiUtente");
+		System.out.println("######################1");
 
-		if (request.getParameterNames().hasMoreElements()) {
-			 
-			String jsString = request.getParameter("utenteRegistrazione");
-			System.out.println(jsString);
-			if (jsString != null) {
+		if (jsString != null) {
+			ObjectMapper mapper = new ObjectMapper();
 
-				ObjectMapper mapper = new ObjectMapper();
+			Utente utente = (Utente) mapper.readValue(
+					jsString, Utente.class);
+		
+			System.out.println("######################");
+			System.out.println(utente.getUsername());
+			System.out.println(utente.getPassword());
 
-				Utente utente = (Utente) mapper.readValue(
-						jsString, Utente.class);
-
-				DBManager.getInstance().getUtente().save(utente);
-
-				response.setStatus(HttpServletResponse.SC_OK);
-				response.setContentType("text/html"); 
+			if(utente.getUsername()!=null){
 				
-				System.out.println(utente.getUsername());
-				System.out.println(utente.getNome());
-				System.out.println(utente.getCognome());
-				System.out.println(utente.getEmail());
-				System.out.println(utente.getPassword());
-
+				Utente result = DBManager.getInstance().getUtente()
+					.findByPrimaryKey(utente.getUsername());
+			if(result!=null){
+				if(result.getPassword().equals(utente.getPassword()))
+				{
+					
+				response.getWriter().print(0);
+				}
+				else
+				{
+					
+					response.getWriter().print(1);
+				}
+					
 			}
+			else
+			{
+				
+				response.getWriter().print(2);
+			}
+				
+				
+		}
+			else response.getWriter().print(2);
+			
+			
 			
 		}
+		
+		
+
 	}
 
 }
