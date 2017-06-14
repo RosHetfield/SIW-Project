@@ -23,10 +23,9 @@
 
     <!-- Header/Navigation -->
 	 <%@ include file = "../fragments/header.html" %>
-	
 
     <div class="container">
-
+	
         <div class="row">
             <div class="box">
                 <div class="col-lg-12 text-center">
