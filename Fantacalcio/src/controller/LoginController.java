@@ -13,16 +13,17 @@ import model.Utente;
 import persistence.DBManager;
 
 /**
- * Servlet implementation class RegistrazioneController
+ * Servlet implementation class LoginController
  */
-@WebServlet("/RegistrazioneController")
-public class RegistrazioneController extends HttpServlet {
+@WebServlet("/LoginController")
+public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public RegistrazioneController() {
+    public LoginController() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -37,13 +38,9 @@ public class RegistrazioneController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		System.out.println("########################################");
-
 		if (request.getParameterNames().hasMoreElements()) {
 			 
 			String jsString = request.getParameter("utenteRegistrazione");
-			System.out.println(jsString);
 			if (jsString != null) {
 
 				ObjectMapper mapper = new ObjectMapper();
@@ -51,36 +48,11 @@ public class RegistrazioneController extends HttpServlet {
 				Utente utente = (Utente) mapper.readValue(
 						jsString, Utente.class);
 
-				Utente checkUtente = DBManager.getInstance().getUtente().findByPrimaryKey(utente.getUsername());
-			if(utente.getUsername()!=null){
+				String user= DBManager.getInstance().getUtente().findByPrimaryKey(utente.getUsername()).getUsername();
+
+				response.setStatus(HttpServletResponse.SC_OK);
+				response.setContentType("text/html"); 
 				
-				Utente result = DBManager.getInstance().getUtente()
-					.findByPrimaryKey(utente.getUsername());
-			if(result!=null){
-				if(result.getPassword().equals(utente.getPassword()))
-				{
-					
-				response.getWriter().print(0);
-				}
-				else
-				{
-					
-					response.getWriter().print(1);
-				}
-					
-			}
-			else
-			{
-				
-				if(checkUtente == null) {
-					DBManager.getInstance().getUtente().save(utente);
-					response.setStatus(HttpServletResponse.SC_OK);
-					response.setContentType("text/html"); 
-				}
-				else {
-					response.setStatus(HttpServletResponse.SC_CONFLICT);
-					response.setContentType("text/html"); 
-				}
 				System.out.println(utente.getUsername());
 				System.out.println(utente.getNome());
 				System.out.println(utente.getCognome());
