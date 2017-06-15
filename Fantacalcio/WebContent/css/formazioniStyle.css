@@ -29,18 +29,13 @@
 
 .label-3 {
 	background-color: #4fc3f7;
-		color: #fff;
-}
-
-.label-4  {
-	background-color: #00838f;
 	color: #fff;
 }
 
-
-
-
-
+.label-4 {
+	background-color: #00838f;
+	color: #fff;
+}
 
 .bg-slate-300 {
 	background-color: #90a4ae;
@@ -48,60 +43,89 @@
 	color: #fff;
 }
 
-
-
-
-
-
-
-
-
 .myButton {
-margin: .3rem;
+	margin: .3rem;
 }
-
 
 .fs-24 {
-	font-size: 24px !important;
+	font-size: 34px;
 }
 
-
-
-
-
 .fantaicon-ammonizione::before {
-	content: url(../img/gf.png);
+	content: url(../img/icon/ammonizione.png);
+	margin-left: 0.1em;
+	margin-right: 0;
 }
 
 .fantaicon-espulsione::before {
-
-	content: "\e9a8";
+	content: url(../img/icon/espulsione.png);
+	margin-left: 0.1em;
+	margin-right: 0;
 }
 
 .fantaicon-assist::before {
+	content: url(../img/icon/assist.png);
+	margin-left: 0.1em;
+	margin-right: 0;
 }
 
 .fantaicon-goal-fatto::before {
-	content: url(../img/golfatto.png);
+	content: url(../img/icon/golfatto.png);
+	margin-left: 0.1em;
+	margin-right: 0;
 }
 
 .fantaicon-goal-subito::before {
-	content: url(../img/golsubito.png);
+	content: url(../img/icon/golsubito.png);
+	margin-left: 0.1em;
+	margin-right: 0;
 }
 
 .fantaicon-goal-rigore::before {
-	content: url(../img/rigoresegnato.png);
+	content: url(../img/icon/rigoresegnato.png);
+	margin-left: 0.1em;
+	margin-right: 0;
 }
+
+.fantaicon-autogol::before {
+	content: url(../img/icon/autogol.png);
+	margin-left: 0.1em;
+	margin-right: 0;
+}
+
+.fantaicon-gol-pareggio::before {
+	content: url(../img/icon/golpareggio.png);
+	margin-left: 0.1em;
+	margin-right: 0;
+}
+
+.fantaicon-gol-vittoria::before {
+	content: url(../img/icon/golvittoria.png);
+	margin-left: 0.1em;
+	margin-right: 0;
+}
+
+.fantaicon-rigore-parato::before {
+	content: url(../img/icon/rigoreparato.png);
+	margin-left: 0.1em;
+	margin-right: 0;
+}
+
 
 .fantaicon-rigore-sbagliato::before {
-	content: url(../img/rigoresbagliato.png);
+	content: url(../img/icon/rigoresbagliato.png);
+	margin-left: 0.1em;
+	margin-right: 0;
 }
 
-.fantaicon-t-shirt-out .path4::before {
-	content: "\ea56";
-	margin-left: -1em;
-	color: #000;
+.fantaicon-uscito ::before {
+	content: url(../img/icon/uscito.png);
+	margin-left: 0.1em;
+	margin-right: 0;
 }
 
-
-
+.fantaicon-entrato ::before {
+	content: url(../img/icon/uscito.png);
+	margin-left: 0.1em;
+	margin-right: 0;
+}
