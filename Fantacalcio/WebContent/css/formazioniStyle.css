@@ -66,17 +66,35 @@ margin: .3rem;
 }
 
 
+
+
+
 .fantaicon-ammonizione::before {
-
 	content: url(../img/gf.png);
-	color: #ff0;
-
 }
 
 .fantaicon-espulsione::before {
-	background-color: #fff;
+
 	content: "\e9a8";
-	color: #fff;
+}
+
+.fantaicon-assist::before {
+}
+
+.fantaicon-goal-fatto::before {
+	content: url(../img/golfatto.png);
+}
+
+.fantaicon-goal-subito::before {
+	content: url(../img/golsubito.png);
+}
+
+.fantaicon-goal-rigore::before {
+	content: url(../img/rigoresegnato.png);
+}
+
+.fantaicon-rigore-sbagliato::before {
+	content: url(../img/rigoresbagliato.png);
 }
 
 .fantaicon-t-shirt-out .path4::before {
