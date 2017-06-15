@@ -45,35 +45,23 @@ public class LoginController extends HttpServlet {
 		if (request.getParameterNames().hasMoreElements()) {
 
 			String jsString = request.getParameter("credenzialiUtente");
-			System.out.println(jsString);
+			System.out.println(jsString + " parametro");
 			if (jsString != null) {
 				ObjectMapper mapper = new ObjectMapper();
 
 				Utente utente = (Utente) mapper.readValue(jsString, Utente.class);
 				response.setContentType("text/html");
-				if (utente.getUsername() != null) {
-					Utente result = DBManager.getInstance().getUtente().findByPrimaryKey(utente.getUsername());
-					if (result != null) {
-						if (result.getPassword().equals(utente.getPassword())) {
-
-							response.getWriter().print(0);
-						} else {
-
-							response.getWriter().print(1);
-						}
-
-					} else {
-
-						response.getWriter().print(2);
-					}
-
-				} else
+				Utente result = DBManager.getInstance().getUtente().findByPrimaryKey(utente.getUsername());
+				System.out.println(result.getUsername() + " utende " + result.getPassword() + " passuord");
+				if (result.getUsername() != null) {
+					if (result.getPassword().equals(utente.getPassword())) 
+						response.getWriter().print(0);
+					else 
+						response.getWriter().print(1); 
+				} else {
 					response.getWriter().print(2);
-				System.out.println(utente.getUsername());
-				System.out.println(utente.getPassword()); 
-
+				}
 			}
-
 		}
 	}
 }

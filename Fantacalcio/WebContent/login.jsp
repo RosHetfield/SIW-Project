@@ -31,7 +31,7 @@
 				<div
 					class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 box">
 					<form id="formLogin" class="register-form"
-						onsubmit="return controlLoginUtente(this)" action="" method="POST">
+						onsubmit="return controlLoginUtente(this)" action="Home.jsp" method="POST">
 						<hr>
 						<h2 class="intro-text text-center"><strong>Login Cliente</strong></h2>
 						<hr>

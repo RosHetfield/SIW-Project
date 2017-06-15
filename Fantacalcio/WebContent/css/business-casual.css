@@ -48,7 +48,7 @@ hr {
 }
 
 .navbar-nav {
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-weight: 400;
     letter-spacing: 3px;
 }
@@ -111,6 +111,11 @@ footer p {
     margin: 0;
     padding: 50px 0;
 }
+.navbar-brand {
+	padding-top: 1.4em;
+}
+
+
 
 @media screen and (min-width:768px) {
     .brand {
@@ -138,7 +143,7 @@ footer p {
     .address-bar {
         display: inherit;
         margin: 0;
-        padding: 0 0 40px;
+        padding: 0 0 0px;
         text-align: center;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         text-transform: uppercase;
@@ -153,7 +158,7 @@ footer p {
     }
 
     .navbar-header {
-        display: none;
+        display: block;
     }
 
     .navbar {
@@ -167,11 +172,15 @@ footer p {
     }
 
     .nav>li>a {
-        padding: 35px;
+        padding: 2rem;
     }
+    
+    .nav>li>a.btn{
+		font-size: 0.8em;
+	}
 
     .navbar-nav>li>a {
-        line-height: normal;
+        line-height: 1;
     }
 
     .navbar-nav {
@@ -180,6 +189,8 @@ footer p {
         margin: 0 auto;
         table-layout: fixed;
         font-size: 1.25em;
+        padding-top: 0.4em;
+        padding-bottom: 0.2em;
     }
 }
 
