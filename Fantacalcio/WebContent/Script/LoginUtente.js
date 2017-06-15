@@ -1,4 +1,4 @@
-function Utente(username, password) {
+function Utente(username,nome,cognome,email, password) {
 	this.username = username;
 	this.password = password;
 }
@@ -14,8 +14,8 @@ function getCredenzialiForm() {
 	
 	campo = campi.eq(1);
 	var password = campo.val();
-	
-	var utente = new Utente(username, password);
+	var nome,cognome,email=null;
+	var utente = new Utente(username,nome,cognome,email, password);
 	return utente;
 }
 
@@ -92,6 +92,7 @@ function controlLoginUtente(form) {
 	return Boolean(successBoolean);
 }
 
+$(document).ready();
 
 
 
