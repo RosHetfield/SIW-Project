@@ -6,21 +6,21 @@
     </description>
   
   
-  <servlet>
-    <servlet-name>RegistrazioneController</servlet-name>
-    <servlet-class>controller.RegistrazioneController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>RegistrazioneController</servlet-name>
-    <url-pattern>/Registrazione</url-pattern>
-  </servlet-mapping>
-  
-    <servlet>
+<servlet>
     <servlet-name>LoginController</servlet-name>
     <servlet-class>controller.LoginController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginController</servlet-name>
     <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>RegistrazioneController</servlet-name>
+    <servlet-class>controller.RegistrazioneController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegistrazioneController</servlet-name>
+    <url-pattern>/Registrazione</url-pattern>
   </servlet-mapping>
 </web-app>
