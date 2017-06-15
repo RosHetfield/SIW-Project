@@ -30,8 +30,7 @@
 				<div
 					class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 box">
 					<form id="formRegistrazione" class="register-form"
-						onsubmit="return registraUtente(this)" action="index.jsp"
-						method="POST">
+						onsubmit="return registraUtente(this)" action="Home" method="POST">
 
 						<hr>
 						<h2 class="intro-text text-center"><strong>Registrazione</strong></h2>
