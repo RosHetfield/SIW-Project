@@ -44,12 +44,13 @@ public class LoginController extends HttpServlet {
 			throws ServletException, IOException {
 		if (request.getParameterNames().hasMoreElements()) {
 
-			String jsString = request.getParameter("credenzialiOperatore");
+			String jsString = request.getParameter("credenzialiUtente");
+			System.out.println(jsString);
 			if (jsString != null) {
 				ObjectMapper mapper = new ObjectMapper();
 
 				Utente utente = (Utente) mapper.readValue(jsString, Utente.class);
-
+				response.setContentType("text/html");
 				if (utente.getUsername() != null) {
 					Utente result = DBManager.getInstance().getUtente().findByPrimaryKey(utente.getUsername());
 					if (result != null) {
@@ -68,6 +69,8 @@ public class LoginController extends HttpServlet {
 
 				} else
 					response.getWriter().print(2);
+				System.out.println(utente.getUsername());
+				System.out.println(utente.getPassword()); 
 
 			}
 

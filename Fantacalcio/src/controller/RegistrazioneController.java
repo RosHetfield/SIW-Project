@@ -59,8 +59,8 @@ public class RegistrazioneController extends HttpServlet {
 					response.setContentType("text/html"); 
 				}
 				else {
-					response.setStatus(HttpServletResponse.SC_CONFLICT);
 					response.setContentType("text/html"); 
+					response.getWriter().print(1);
 				}
 				System.out.println(utente.getUsername());
 				System.out.println(utente.getNome());

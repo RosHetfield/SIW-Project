@@ -53,43 +53,38 @@ console.log(jsonUtente);
 
 			success : function(data) {
 				
-				swal({
+				/*swal({
 					  title: "Benvenuto!",
 					  text:"Registrazione effettuata con successo!",
 					  confirmButtonText: "OK",
 					  type: "success"
-					});
+					});*/
 				registrazione = true;
 			},
 
 			error : function(data) {
-
-				
-				swal({
-					  title: "Errore!",
-					  text:"Impossibile completare la registrazione",
-					  type: "error",
-					  confirmButtonText: "Riprova"
-					});
-				registrazione = false;
-			},
-			statusCode: {
-				409: function() {
+				if(data == 1) {
 					swal({
 						  title: "Username utilizzato!",
 						  text:"Impossibile completare la registrazione",
 						  type: "warning",
 						  confirmButtonText: "Riprova"
 						});
-					registrazione = false;
-					
-					form.Username.value='';
-					form.Username.focus();
-					form.Username.scrollIntoView();
 				}
-				
+				else {
+				swal({
+					  title: "Errore!",
+					  text:"Impossibile completare la registrazione",
+					  type: "error",
+					  confirmButtonText: "Riprova"
+					});
+				}
+				registrazione = false;
+				form.Username.value='';
+				form.Username.focus();
+				form.Username.scrollIntoView();
 			}
-
+			
 		});
 
 		return Boolean(registrazione);

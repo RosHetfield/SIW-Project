@@ -112,7 +112,7 @@
     
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/sweetalert.min.js"></script>
-	<script src="Script/RegistrazioneUtente.js"></script>
+	<script src="Script/LoginUtente.js"></script>
 	
 
 

@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.4">
-  <display-name>Servlet_JSP_5</display-name>
-  <description>
-      A JSP-based to project to use as a template for your own ones
-    </description>
-  
   
   <servlet>
     <servlet-name>RegistrazioneController</servlet-name>
@@ -15,9 +10,13 @@
     <url-pattern>/Registrazione</url-pattern>
   </servlet-mapping>
   
-    <servlet>
+  <servlet>
     <servlet-name>LoginController</servlet-name>
     <servlet-class>controller.LoginController</servlet-class>
+    <init-param>
+    	<param-name>loginURL</param-name>
+    	<param-value>/login.jsp</param-value>
+    </init-param>
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginController</servlet-name>
