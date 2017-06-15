@@ -14,7 +14,8 @@
 </head>
 <body>
 <%@ include file = "../fragments/navbar.html" %>
-	
+	<div style="height:50em">
+	</div>
 <%@ include file = "../fragments/footer.html" %>
 	<!-- jQuery -->
     <script src="Script/jquery-3.1.1.min.js" type="text/javascript"></script>
