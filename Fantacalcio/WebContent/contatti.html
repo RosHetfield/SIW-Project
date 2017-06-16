@@ -18,8 +18,8 @@
 
 <body>
 
-    <!-- Navigation -->
-	<%@ include file = "../fragments/header.html" %>
+   	<!-- Header/Navigation -->
+ 	<div id="headload"></div>
 
     <div class="container">
     
@@ -121,8 +121,8 @@
     </div>
     <!-- /.container -->
 
-   <!--include footer -->
-   <%@ include file = "../fragments/footer.html" %>
+      <!--include footer -->
+ 	<div id="footload"></div>
 
 
     <!-- jQuery -->  
@@ -130,7 +130,15 @@
     
 	<!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
+	
+		<script type="text/javascript">
+	$(function(){
+		$("#headload").load("fragments/header.html");
+	});
+	$(function(){
+		$("#footload").load("fragments/footer.html");
+	});
+	</script>
 
 </body>
 

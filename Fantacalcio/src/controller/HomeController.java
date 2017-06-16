@@ -30,7 +30,12 @@ public class HomeController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(!request.getParameterNames().hasMoreElements()) {
+			
 			String username = (String) request.getSession().getAttribute("Username");
+			response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+			response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+			response.setDateHeader("Expires", 0);
+			
 			if(username != null) {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("Home.jsp");
 				dispatcher.forward(request, response);
@@ -52,7 +57,11 @@ public class HomeController extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("Username", s);
 		}
-
+		
+		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); 
+		response.setHeader("Pragma", "no-cache"); 
+		response.setDateHeader("Expires", 0);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("Home.jsp");
 		dispatcher.forward(request, response);
 

@@ -2,6 +2,8 @@ package model;
 
 import java.io.Serializable;
 
+import util.MD5Util;
+
 public class Utente implements Serializable {
 	/**
 	 * 
@@ -68,6 +70,6 @@ public class Utente implements Serializable {
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		this.password = MD5Util.encrypt(password) + "_" + password;
 	}
 }

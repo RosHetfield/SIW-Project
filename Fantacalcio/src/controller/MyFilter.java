@@ -23,7 +23,7 @@ public class MyFilter implements Filter {
 			throws IOException, ServletException {
 		
 		HttpServletResponse res = (HttpServletResponse) response;
-		res.sendRedirect("404.jsp");
+		res.sendRedirect("404.html");
 	}
 
 	@Override
