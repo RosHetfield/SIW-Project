@@ -65,7 +65,6 @@ console.log(jsonUtente);
 						  type: "warning",
 						  confirmButtonText: "Riprova"
 						});
-					console.log(data);
 					registrazione = false;
 					form.Username.value='';
 					form.Username.focus();
