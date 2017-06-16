@@ -41,39 +41,39 @@ function registraCampionato(form) {
 			data : {
 				creazioneCampionato : JSON.stringify(jsonCampionato),
 			},
-
 			success : function(data) {
 				
-				/*swal({
-					  title: "Benvenuto!",
-					  text:"Registrazione effettuata con successo!",
-					  confirmButtonText: "OK",
-					  type: "success"
-					});*/
-				registrazione = true;
-			},
-
-			error : function(data) {
-				if(data == 1) {
+				
+				if(data == 0) {
+					registrazione = true;
+				}
+				else if(data == 1) {
 					swal({
-						  title: "Username utilizzato!",
-						  text:"Impossibile completare la registrazione",
+						  title: "Nome campionato utilizzato!",
+						  text:"Impossibile completare la creazione",
 						  type: "warning",
 						  confirmButtonText: "Riprova"
 						});
+					console.log(data);
+					registrazione = false;
+					form.Nome_Campionato.value='';
+					form.Nome_Campionato.focus();
 				}
-				else {
+			},
+
+			error : function(data) {
+				
 				swal({
 					  title: "Errore!",
-					  text:"Impossibile completare la registrazione",
+					  text:"Impossibile completare la creazione",
 					  type: "error",
 					  confirmButtonText: "Riprova"
 					});
-				}
+				
 				registrazione = false;
-				form.Username.value='';
-				form.Username.focus();
-				form.Username.scrollIntoView();
+				form.Nome_Campionato.value='';
+				form.Nome_Campionato.focus();
+				form.Nome_Campionato.scrollIntoView();
 			}
 			
 		});
