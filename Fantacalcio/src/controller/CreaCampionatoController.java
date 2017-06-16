@@ -41,7 +41,7 @@ public class CreaCampionatoController extends HttpServlet {
 		if (request.getParameterNames().hasMoreElements()) {
 			 
 			String jsString = request.getParameter("creazioneCampionato");
-			System.out.println(jsString);
+			System.out.println("simu ca.... "+jsString);
 			if (jsString != null) {
 
 				ObjectMapper mapper = new ObjectMapper();

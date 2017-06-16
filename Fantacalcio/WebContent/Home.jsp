@@ -21,7 +21,7 @@
     		<div class="row ">
 			<div class="col-lg-6 ">
 				<form id="formCreaCampionato" class="register-form box"
-					onsubmit="" action=""
+					onsubmit="return registraCampionato(this)" action=""
 					method="POST">
 					<hr>
 					<h2 class="intro-text text-center">
@@ -48,7 +48,7 @@
 					<div class="row text-center">
 
 						<div class="col-xs-12 col-md-12">
-							<input type="submit" id="login" value="Accedi"
+							<input type="submit" id="camp" value="Crea"
 								class="btn btn-default btn-lg" tabindex="3">
 
 						</div>
@@ -63,7 +63,7 @@
 		
 			<div class="col-lg-6  ">
 				<form id="formLogin" class="register-form box"
-					onsubmit="return controlLoginUtente(this)" action="Home"
+					onsubmit="" action=""
 					method="POST">
 					<hr>
 					<h2 class="intro-text text-center">
@@ -167,7 +167,7 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/sweetalert.min.js"></script>
-	<script src="Script/RegistrazioneUtente.js"></script>
+	<script src="Script/CreaCampionato.js"></script>
 	
 </body>
 </html>

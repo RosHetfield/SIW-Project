@@ -1,4 +1,4 @@
-function Campionato(NomeCampionato, password) {
+function Campionato(nomeCampionato, password) {
 	this.nomeCampionato = nomeCampionato;
 	this.password = password;
 //nomecreatore???
@@ -14,8 +14,8 @@ function CreaCampionato() {
 	campo = campi.eq(1);
 	var password = campo.val();
 	
-	var Campionato = new Campionato(nomeCampionato, password);
-	return Campionato;
+	var campionato = new Campionato(nomeCampionato, password);
+	return campionato;
 }
 
 
@@ -27,7 +27,7 @@ function registraCampionato(form) {
 	
 	var registrazione = false;
 	var jsonCampionato = {
-			nomeCampionato : campionato.nomeCampionato,
+			nome : campionato.nomeCampionato,
 			password : campionato.password
 		};
 
@@ -36,7 +36,7 @@ function registraCampionato(form) {
 		$.ajax({
 			async : true,
 			type : "POST",
-			url : "Registrazione",
+			url : "CreaCampionato",
 			datatype : "json",
 			data : {
 				creazioneCampionato : JSON.stringify(jsonCampionato),
