@@ -22,6 +22,7 @@ function CreaCampionato() {
 
 
 function registraCampionato(form) {
+	
 	var campionato = CreaCampionato();
 	
 	var registrazione = false;
