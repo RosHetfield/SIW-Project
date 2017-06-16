@@ -29,8 +29,17 @@ public class HomeController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		if(!request.getParameterNames().hasMoreElements()) {
+			String username = (String) request.getSession().getAttribute("Username");
+			if(username != null) {
+				RequestDispatcher dispatcher = request.getRequestDispatcher("Home.jsp");
+				dispatcher.forward(request, response);
+			}
+			else {
+				RequestDispatcher dispatcher = request.getRequestDispatcher("errore.jsp");
+				dispatcher.forward(request, response);
+			}
+		}
 	}
 
 	/**
@@ -42,8 +51,6 @@ public class HomeController extends HttpServlet {
 			String s = request.getParameter("Username");
 			HttpSession session = request.getSession();
 			session.setAttribute("Username", s);
-					
-
 		}
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("Home.jsp");
