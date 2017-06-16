@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,19 +12,20 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import model.Campionato;
+import model.Utente;
 import persistence.DBManager;
 
 /**
- * Servlet implementation class CreaCampionatoController
+ * Servlet implementation class LoginCampionatoController
  */
-@WebServlet("/CreaCampionatoController")
-public class CreaCampionatoController extends HttpServlet {
+@WebServlet("/LoginCampionatoController")
+public class LoginCampionatoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CreaCampionatoController() {
+    public LoginCampionatoController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,31 +42,28 @@ public class CreaCampionatoController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getParameterNames().hasMoreElements()) {
-			 
-			String jsString = request.getParameter("creazioneCampionato");
-			System.out.println("simu ca.... "+jsString);
-			if (jsString != null) {
 
+			String jsString = request.getParameter("credenzialiAmministratore");
+			System.out.println(jsString + " parametro");
+			if (jsString != null) {
 				ObjectMapper mapper = new ObjectMapper();
 
 				Campionato campionato = (Campionato) mapper.readValue(jsString, Campionato.class);
-				
-				System.out.println("check "+campionato.getNome());
-				Campionato checkCampionato = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato.getNome());
 				response.setContentType("text/html");
-			
-				if(checkCampionato.getNome() != null) {
-					response.getWriter().print(1);		
+				Campionato result = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato.getNome());
+//				System.out.println(result.getUsername() + " utende " + result.getPassword() + " passuord");
+				if (result.getNome() != null) {
+					if (result.getPassword().equals(campionato.getPassword())) 
+						response.getWriter().print(0);
+					else 
+						response.getWriter().print(1); 
+				} else {
+					response.getWriter().print(2);
 				}
-				else {
-					DBManager.getInstance().getCampionato().save(campionato);
-					response.setStatus(HttpServletResponse.SC_OK);
-				}
-				System.out.println(campionato.getNome());
-				System.out.println(campionato.getPassword()); 
-
+				
+				RequestDispatcher dispatcher = request.getRequestDispatcher("GestioneCampionato.html");
+				dispatcher.forward(request, response);
 			}
-			
 		}
 	}
 

@@ -7,7 +7,7 @@
 <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/sweetalert.css" type="text/css" rel="stylesheet"/>
-
+	<link href="css/sweetalert2.css" type="text/css" rel="stylesheet"/>
     <!-- Custom CSS -->
 	<link href="css/business-casual.css" rel="stylesheet"/>
 <title>FantaBomber - Home</title>
@@ -167,7 +167,9 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/sweetalert.min.js"></script>
+	<script src="js/sweetalert2.min.js"></script>
 	<script src="Script/CreaCampionato.js"></script>
+	<script src="Script/loginCampionato.js"></script>
 	
 </body>
 </html>

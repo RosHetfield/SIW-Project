@@ -2,10 +2,12 @@ package persistence.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
 import model.Campionato;
+import model.Utente;
 import persistence.DataSource;
 
 public class CampionatoDAOJdbc implements CampionatoDAO {
@@ -39,8 +41,32 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 
 	@Override
 	public Campionato findByPrimaryKey(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		Campionato campionato = new Campionato();
+		Connection connection = this.dataSource.getConnection();
+		try {
+			PreparedStatement statement;
+			String query = "select * from campionato where nome = ?";
+			statement = connection.prepareStatement(query);
+
+			statement.setString(1, id);
+
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+				campionato.setNome(result.getString("nome"));
+				campionato.setPassword(result.getString("password"));
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}
+
+		return campionato;	
 	}
 
 	@Override
