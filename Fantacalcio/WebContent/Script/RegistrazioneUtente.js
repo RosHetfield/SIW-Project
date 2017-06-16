@@ -24,6 +24,7 @@ function CreateUtente() {
 	
 	campo = campi.eq(4);
 	var password = campo.val();
+	//password = hex_sha1(password);
 	
 	var utente = new Utente(username, nome, cognome, email, password);
 	return utente;
@@ -53,32 +54,33 @@ console.log(jsonUtente);
 
 			success : function(data) {
 				
-				/*swal({
-					  title: "Benvenuto!",
-					  text:"Registrazione effettuata con successo!",
-					  confirmButtonText: "OK",
-					  type: "success"
-					});*/
-				registrazione = true;
-			},
-
-			error : function(data) {
-				if(data == 1) {
+				
+				if(data == 0) {
+					registrazione = true;
+				}
+				else if(data == 1) {
 					swal({
 						  title: "Username utilizzato!",
 						  text:"Impossibile completare la registrazione",
 						  type: "warning",
 						  confirmButtonText: "Riprova"
 						});
+					console.log(data);
+					registrazione = false;
+					form.Username.value='';
+					form.Username.focus();
 				}
-				else {
+			},
+
+			error : function(data) {
+				
 				swal({
 					  title: "Errore!",
 					  text:"Impossibile completare la registrazione",
 					  type: "error",
 					  confirmButtonText: "Riprova"
 					});
-				}
+				
 				registrazione = false;
 				form.Username.value='';
 				form.Username.focus();
