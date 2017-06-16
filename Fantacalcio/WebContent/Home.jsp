@@ -16,28 +16,23 @@
 <%@ include file = "../fragments/navbar.html" %>
 
 
-
-
-
-
-
     <div class="container">
     
-    		<div class="row">
-			<div class="col-xs-5 col-sm-6 col-md-5  box">
-				<form id="formLogin" class="register-form"
-					onsubmit="return controlLoginUtente(this)" action="Home"
+    		<div class="row ">
+			<div class="col-lg-6 ">
+				<form id="formCreaCampionato" class="register-form box"
+					onsubmit="" action=""
 					method="POST">
 					<hr>
 					<h2 class="intro-text text-center">
-						<strong>Login Cliente</strong>
+						<strong>Crea il tuo campionato</strong>
 					</h2>
 					<hr>
 
 					<div class="form-group">
-						<h3>Username</h3>
-						<input type="text" name="Username" id="Username"
-							class="form-control input-lg" placeholder="Username" tabindex="1"
+						<h3>Nome Campionato</h3>
+						<input type="text" name="Nome_Campionato" id="Nome_Campionato"
+							class="form-control input-lg" placeholder="Nome Campionato" tabindex="1"
 							required="required">
 					</div>
 
@@ -52,28 +47,22 @@
 					<hr class="colorgraph">
 					<div class="row text-center">
 
-						<div class="col-xs-12 col-md-6">
+						<div class="col-xs-12 col-md-12">
 							<input type="submit" id="login" value="Accedi"
 								class="btn btn-default btn-lg" tabindex="3">
 
-
 						</div>
 
-						<div class="col-xs-12 col-md-6">
-							Non hai un account? <a href="registrazione.jsp">Registrati</a>
-						</div>
-
+						
 					</div>
 				</form>
 			</div>
 		
 		
-							<div class="col-xs-2 col-sm-6 col-md-2  "></div>
-				
 		
 		
-			<div class="col-xs-5 col-sm-6 col-md-5  box">
-				<form id="formLogin" class="register-form"
+			<div class="col-lg-6  ">
+				<form id="formLogin" class="register-form box"
 					onsubmit="return controlLoginUtente(this)" action="Home"
 					method="POST">
 					<hr>
@@ -116,6 +105,50 @@
 			</div>
 		</div>
     
+    
+    
+    
+    
+    <div class="row">
+            <div class="box">
+                
+                	<hr>
+					<h2 class="intro-text text-center">
+						<strong>Campionati esistenti</strong>
+					</h2>
+					<hr>
+					
+					<div>
+					
+					
+					</div>
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Build a website
+                        <strong>worth visiting</strong>
+                    </h2>
+                    <hr>
+                     <div class="col-lg-4">
+                    <p>INSERIRE PUBBLICITA</p>
+                  	 </div>
+                  	  <div class="col-lg-4">
+                    <p>INSERIRE PUBBLICITA</p>
+                  	 </div>
+                  	  <div class="col-lg-4">
+                    <p>INSERIRE PUBBLICITA</p>
+                  	 </div>
+                </div>
+            </div>
+        </div>
     
 	</div>
 	
