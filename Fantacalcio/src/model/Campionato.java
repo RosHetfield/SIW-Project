@@ -30,8 +30,8 @@ public class Campionato implements Serializable {
 
 	public Campionato() {
 		super();
-		this.squadre = new HashSet<Squadra>();
-		this.partite = new HashSet<Partita>();
+		//this.squadre = new HashSet<Squadra>();
+		//this.partite = new HashSet<Partita>();
 	}
 
 	public String getNome() {

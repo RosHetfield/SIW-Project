@@ -40,12 +40,20 @@
     <servlet-name>LogoutController</servlet-name>
     <url-pattern>/Logout</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>CreaCampionatoController</servlet-name>
     <servlet-class>controller.CreaCampionatoController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>CreaCampionatoController</servlet-name>
     <url-pattern>/CreaCampionato</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>LoginCampionatoController</servlet-name>
+    <servlet-class>controller.LoginCampionatoController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginCampionatoController</servlet-name>
+    <url-pattern>/LoginCampionato</url-pattern>
   </servlet-mapping>
 </web-app>
