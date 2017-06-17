@@ -1,7 +1,10 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -35,7 +38,7 @@ public class GestioneCampionatoController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		doPost(request, response);
 	}
 
 	/**
@@ -52,11 +55,15 @@ public class GestioneCampionatoController extends HttpServlet {
 	
 		
 			Campionato camp = DBManager.getInstance().getCampionato().partecipantiCampionato(request.getParameter("Nome"));
+			System.out.println(camp.getSquadre().size());
 			for (Squadra ss : camp.getSquadre()) {
-				System.out.println(ss.getUtente().getUsername());
+				System.out.println(ss.getUtente().getNome());
 
 			}
+			
+			List<Utente> utenti = DBManager.getInstance().getCampionato().possibiliGiocatoti(request.getParameter("Nome"));
 			request.setAttribute("Campionato", camp);
+			request.setAttribute("PossibiliPartecipanti", utenti);
 			
 			response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); 
 			response.setHeader("Pragma", "no-cache"); 

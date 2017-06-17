@@ -37,8 +37,8 @@ public class DBManager {
 
 	private DBManager() {
 		
-		PostgresqlDAO sqlDAO = new PostgresqlDAO("horton.elephantsql.com", "xrfgprnz", "5432", "xrfgprnz", "ztrokF2S22uj8fpPDP6tj3nOFzt5dmr4");
-
+//		PostgresqlDAO sqlDAO = new PostgresqlDAO("horton.elephantsql.com", "xrfgprnz", "5432", "xrfgprnz", "ztrokF2S22uj8fpPDP6tj3nOFzt5dmr4");
+		PostgresqlDAO sqlDAO = new PostgresqlDAO("localhost", "5432","fantacalcio",  "postgres", "admin");
 		campionato = sqlDAO.getCampionatoDAO();
 		giocatore_in_formazioneDAO = sqlDAO.getGiocatore_in_formazioneDAO();
 		giocatore_in_rosaDAO = sqlDAO.getGiocatore_in_rosaDAO();

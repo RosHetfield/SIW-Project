@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
 
+import persistence.DBManager;
 import persistence.DataSource;
 
 public class CampionatoProxy extends Campionato {
@@ -33,11 +34,12 @@ public class CampionatoProxy extends Campionato {
 				statement.setString(1, getNome());
 
 				ResultSet result = statement.executeQuery();
-
 				while (result.next()) {
-					Squadra squadra= new Squadra();
+					Squadra squadra= new SquadraProxy(this.dataSource);
 					squadra.setNome(result.getString("Nome"));
-					squadra.setUtente((Utente)result.getObject("Utente"));
+					Utente utente = squadra.getUtente();
+					System.out.println("UTENDIIII " + utente.username + " " + utente.nome + " "+ utente.cognome);
+					squadra.setUtente(utente);
 					squadra.setCrediti(result.getInt("Crediti"));
 
 					s.add(squadra);

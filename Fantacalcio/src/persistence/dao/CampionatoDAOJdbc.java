@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -109,7 +110,6 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 				campionato = new CampionatoProxy(this.dataSource);
 				campionato.setNome(result.getString("nome"));
 				campionato.setPassword(result.getString("password"));
-				campionato.getSquadre();
 				
 			}
 		} catch (SQLException e) {
@@ -126,9 +126,38 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 	}
 
 	@Override
-	public List<String> possibiliGiocatoti(String nomeCampionato) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Utente> possibiliGiocatoti(String nomeCampionato) {
+		List<Utente> utenti = new ArrayList<Utente>();
+		Connection connection = this.dataSource.getConnection();
+		try {
+			PreparedStatement statement;
+			String query = "select u.* from utente as u except "
+					+ "select utente.* from utente, squadra where squadra.campionato = ? and utente.username = squadra.utente";
+			statement = connection.prepareStatement(query);
+
+			statement.setString(1, nomeCampionato);
+
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+				Utente utente = new Utente();
+				utente.setUsername(result.getString("Username"));
+				utente.setNome(result.getString("Nome"));
+				utente.setCognome(result.getString("Cognome"));
+				utente.setEmail(result.getString("Email"));
+				utenti.add(utente);
+				
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}
+		return utenti;	
 	}
 
 

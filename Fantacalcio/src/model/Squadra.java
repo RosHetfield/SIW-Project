@@ -17,6 +17,7 @@ public class Squadra implements Serializable {
 	// riferimenti
 	Utente utente;
 	Campionato campionato;
+	
 	private Set<Giocatore_in_rosa> giocatori;
 
 	//fare il costruttore... con parametri.................
@@ -24,9 +25,6 @@ public class Squadra implements Serializable {
 	
 	public Squadra() {
 		super();
-		this.utente = new Utente();
-		this.campionato = new Campionato();
-		this.setGiocatori(new HashSet<Giocatore_in_rosa>());
 	}
 
 	public Utente getUtente() {

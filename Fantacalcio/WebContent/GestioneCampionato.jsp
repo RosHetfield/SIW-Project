@@ -2,6 +2,8 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="model.Campionato"%>
+<%@ page import="model.Squadra"%>
+<%@ page import="model.Utente"%>
 <%@page import="java.util.List"%>
 
 <!DOCTYPE html>
@@ -52,23 +54,18 @@
 					<table id="tabellaPartecipanti" class="table table-striped table-bordered">
 						<thead class="bg-slate-300">
 							<tr>
+								<th>Username</th>
 								<th class="hidden-xs">Nome</th>
 								<th class="hidden-xs">Cognome</th>
-								<th>Username</th>
+								<th>Squadra</th>
 							</tr>
 						</thead>
-						<tfoot class="bg-slate-300">
-							<tr>
-								<th class="hidden-xs">Nome</th>
-								<th class="hidden-xs">Cognome</th>
-								<th>Username</th>
-							</tr>
-						</tfoot>
+			
 						<tbody>
 
 							<%
 								Campionato campionato = (Campionato) request.getAttribute("Campionato");
-								if (campionato.getSquadre() != null) {
+								if (campionato.getSquadre() == null) {
 							%>
 
 							<tr>
@@ -77,9 +74,10 @@
 							<%
 								} else {
 							%>
-							<c:forEach var="p" items="${campionato.getSquadre()}">
+							<c:forEach var="p" items="${Campionato.squadre}">
 
 								<tr>
+									<td>${p.utente.username}</td>
 									<td class="hidden-xs">${p.utente.nome}</td>
 									<td class="hidden-xs">${p.utente.cognome}</td>
 									<td>${p.nome}</td>
@@ -150,28 +148,21 @@
 				<table id="tabellaAggiungi" class="table table-striped table-bordered">
 					<thead class="bg-slate-300">
 						<tr>
+							<th>Username</th>
 							<th class="hidden-xs">Nome</th>
 							<th class="hidden-xs">Cognome</th>
-							<th>Username</th>
+							<th>Email</th>
 							<th></th>
 
 						</tr>
 					</thead>
-					<tfoot class="bg-slate-300">
-						<tr>
-							<th class="hidden-xs">Nome</th>
-							<th class="hidden-xs">Cognome</th>
-							<th>Username</th>
-							<th></th>
-
-						</tr>
-					</tfoot>
+				
 
 
 					<tbody>
 							<%
-								Campionato campionato1 = (Campionato) request.getAttribute("Campionato");
-								if (campionato1.getSquadre() != null) {
+								List<Utente> utenti = (List<Utente>) request.getAttribute("PossibiliPartecipanti");
+								if (utenti.size() == 0) {
 							%>
 
 							<tr>
@@ -180,13 +171,14 @@
 							<%
 								} else {
 							%>
-							<c:forEach var="p" items="${campionato1.getSquadre()}">
+							<c:forEach var="p" items="${PossibiliPartecipanti}">
 
 								<tr>
-									<td class="hidden-xs">${p.utente.nome}</td>
-									<td class="hidden-xs">${p.utente.cognome}</td>
-									<td>${p.nome}</td>
-									<td></td>
+									<td>${p.username}</td>
+									<td class="hidden-xs">${p.nome}</td>
+									<td class="hidden-xs">${p.cognome}</td>
+									<td>${p.email}</td>
+									<td>culo</td>
 								</tr>
 
 							</c:forEach>
@@ -226,18 +218,7 @@
 		});
 		
 	</script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('#tabellaPartecipanti').DataTable();
-		});
-	</script>
 	
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('#tabellaAggiungi').DataTable();
-		});
-	</script>
-
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
@@ -247,7 +228,18 @@
 		src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 	<script
 		src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
-
+</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#tabellaPartecipanti').DataTable();
+		});
+	</script>
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#tabellaAggiungi').DataTable();
+		});
+	</script>
 
 </body>
 </html>
