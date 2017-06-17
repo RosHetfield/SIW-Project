@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="model.Utente"%>
+<%@ page import="model.Campionato"%>
 <%@page import="java.util.List"%>
 
 <!DOCTYPE html>
@@ -67,8 +67,8 @@
 						<tbody>
 
 							<%
-								List<Utente> utenti = (List<Utente>) request.getAttribute("listaUtenti");
-								if (utenti.size() == 0) {
+								Campionato campionato = (Campionato) request.getAttribute("Campionato");
+								if (campionato.getSquadre() != null) {
 							%>
 
 							<tr>
@@ -77,12 +77,12 @@
 							<%
 								} else {
 							%>
-							<c:forEach var="p" items="${listaUtenti}">
+							<c:forEach var="p" items="${campionato.getSquadre()}">
 
 								<tr>
 									<td class="hidden-xs">${p.nome}</td>
-									<td class="hidden-xs">${p.cognome}</td>
-									<td>${p.username}</td>
+									<td class="hidden-xs">${p.crediti}</td>
+									<td>${p.utente}</td>
 								</tr>
 
 							</c:forEach>
@@ -170,8 +170,8 @@
 
 					<tbody>
 							<%
-								List<Utente> possibiliUtenti = (List<Utente>)request.getAttribute("listaPossibiliUtenti");
-								if (possibiliUtenti.size() == 0) {
+								Campionato campionato1 = (Campionato) request.getAttribute("Campionato");
+								if (campionato1.getSquadre() != null) {
 							%>
 
 							<tr>
@@ -180,14 +180,13 @@
 							<%
 								} else {
 							%>
-							<c:forEach var="p" items="${listaPossibiliUtenti}">
+							<c:forEach var="p" items="${campionato1.getSquadre()}">
 
-							<tr>
-							<td class="hidden-xs">${p.nome}</td>
-							<td class="hidden-xs">${p.cognome}</td>
-							<td>${p.username}</td>
-							<th>u buttun agg</th>
-							</tr>
+								<tr>
+									<td class="hidden-xs">${p.nome}</td>
+									<td class="hidden-xs">${p.crediti}</td>
+									<td>${p.utente}</td>
+								</tr>
 
 							</c:forEach>
 							<%

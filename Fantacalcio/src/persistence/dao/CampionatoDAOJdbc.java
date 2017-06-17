@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import model.Campionato;
+import model.CampionatoProxy;
 import model.Utente;
 import persistence.DataSource;
 
@@ -42,7 +43,7 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 
 	@Override
 	public Campionato findByPrimaryKey(String id) {
-		Campionato campionato = new Campionato();
+		Campionato campionato = null;
 		Connection connection = this.dataSource.getConnection();
 		try {
 			PreparedStatement statement;
@@ -54,6 +55,8 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 			ResultSet result = statement.executeQuery();
 
 			if (result.next()) {
+				
+				campionato = new CampionatoProxy(this.dataSource);
 				campionato.setNome(result.getString("nome"));
 				campionato.setPassword(result.getString("password"));
 			}
@@ -89,9 +92,37 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 	}
 
 	@Override
-	public List<String> partecipantiCampionato(String nomeCampionato) {
-		// TODO Auto-generated method stub
-		return null;
+	public Campionato partecipantiCampionato(String nomeCampionato) {
+		Campionato campionato = null;
+		Connection connection = this.dataSource.getConnection();
+		try {
+			PreparedStatement statement;
+			String query = "select * from campionato where nome = ?";
+			statement = connection.prepareStatement(query);
+
+			statement.setString(1, nomeCampionato);
+
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+				
+				campionato = new CampionatoProxy(this.dataSource);
+				campionato.setNome(result.getString("nome"));
+				campionato.setPassword(result.getString("password"));
+				campionato.getSquadre();
+				
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}
+
+		return campionato;	
 	}
 
 	@Override

@@ -48,11 +48,10 @@ public class GestioneCampionatoController extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("Username", s);
 			
-			List<Utente> utenti = DBManager.getInstance().getUtente().findAll();
-			request.setAttribute("listaUtenti", utenti);
-			request.setAttribute("listaPossibiliUtenti", utenti);
-			Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey("a");
-			session.setAttribute("Nome", camp);
+	
+		
+			Campionato camp = DBManager.getInstance().getCampionato().partecipantiCampionato(request.getParameter("Nome"));
+			request.setAttribute("Campionato", camp);
 			
 			response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); 
 			response.setHeader("Pragma", "no-cache"); 

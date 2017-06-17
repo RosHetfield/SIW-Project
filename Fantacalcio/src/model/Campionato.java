@@ -17,8 +17,8 @@ public class Campionato implements Serializable {
 	String password;
 	// riferimenti
 	
-	private Set<Squadra> squadre;
-	private Set<Partita> partite;
+	 Set<Squadra> squadre;
+	 Set<Partita> partite;
 	
 	public Campionato(String nome, String password) {
 		super();
@@ -30,8 +30,6 @@ public class Campionato implements Serializable {
 
 	public Campionato() {
 		super();
-		//this.squadre = new HashSet<Squadra>();
-		//this.partite = new HashSet<Partita>();
 	}
 
 	public String getNome() {

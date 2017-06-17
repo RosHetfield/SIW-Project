@@ -10,7 +10,7 @@ public interface CampionatoDAO {
 	public List<Campionato> findAll();       
 	public void update(Campionato campionato); //Update
 	public void delete(Campionato campionato); //Delete	
-	public List<String> partecipantiCampionato(String nomeCampionato);
+	public Campionato partecipantiCampionato(String nomeCampionato);
 	public List<String> possibiliGiocatoti(String nomeCampionato);
 
 }
