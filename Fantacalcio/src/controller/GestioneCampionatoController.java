@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Campionato;
+import model.Squadra;
 import model.Utente;
 import persistence.DBManager;
 
@@ -51,6 +52,10 @@ public class GestioneCampionatoController extends HttpServlet {
 	
 		
 			Campionato camp = DBManager.getInstance().getCampionato().partecipantiCampionato(request.getParameter("Nome"));
+			for (Squadra ss : camp.getSquadre()) {
+				System.out.println(ss.getUtente().getUsername());
+
+			}
 			request.setAttribute("Campionato", camp);
 			
 			response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); 

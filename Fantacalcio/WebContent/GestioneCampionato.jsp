@@ -80,9 +80,9 @@
 							<c:forEach var="p" items="${campionato.getSquadre()}">
 
 								<tr>
-									<td class="hidden-xs">${p.nome}</td>
-									<td class="hidden-xs">${p.crediti}</td>
-									<td>${p.utente}</td>
+									<td class="hidden-xs">${p.utente.nome}</td>
+									<td class="hidden-xs">${p.utente.cognome}</td>
+									<td>${p.nome}</td>
 								</tr>
 
 							</c:forEach>
@@ -183,9 +183,10 @@
 							<c:forEach var="p" items="${campionato1.getSquadre()}">
 
 								<tr>
-									<td class="hidden-xs">${p.nome}</td>
-									<td class="hidden-xs">${p.crediti}</td>
-									<td>${p.utente}</td>
+									<td class="hidden-xs">${p.utente.nome}</td>
+									<td class="hidden-xs">${p.utente.cognome}</td>
+									<td>${p.nome}</td>
+									<td></td>
 								</tr>
 
 							</c:forEach>
