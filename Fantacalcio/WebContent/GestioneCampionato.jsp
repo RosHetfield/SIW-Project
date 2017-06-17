@@ -1,6 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="model.Utente"%>
+<%@page import="java.util.List"%>
+
 <!DOCTYPE html>
 <html>
 <head>
+
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,33 +65,30 @@
 							</tr>
 						</tfoot>
 						<tbody>
-							<tr>
-								<td class="hidden-xs">Tiger Nixon</td>
-								<td class="hidden-xs">System Architect</td>
-								<td>Edinburghgghhh</td>
 
-							</tr>
-							<tr>
-								<td class="hidden-xs">Garrett Winters</td>
-								<td class="hidden-xs">Accountant</td>
-								<td>Tokyo</td>
+							<%
+								List<Utente> utenti = (List<Utente>) request.getAttribute("listaUtenti");
+								if (utenti.size() == 0) {
+							%>
 
-							</tr>
 							<tr>
-								<td class="hidden-xs">Ashton Cox</td>
-								<td class="hidden-xs">Junior Technical Author</td>
-								<td>San Francisco</td>
+								<td colspan="3">Nessun utente</td>
 							</tr>
-							<tr>
-								<td class="hidden-xs">Cedric Kelly</td>
-								<td class="hidden-xs">Senior Javascript Developer</td>
-								<td>Edinburgh</td>
-							</tr>
-							<tr>
-								<td class="hidden-xs">Airi Satou</td>
-								<td class="hidden-xs">Accountant</td>
-								<td>Tokyo</td>
-							</tr>
+							<%
+								} else {
+							%>
+							<c:forEach var="p" items="${listaUtenti}">
+
+								<tr>
+									<td class="hidden-xs">${p.Nome}</td>
+									<td class="hidden-xs">${p.Cognome}</td>
+									<td>${p.Username}</td>
+								</tr>
+
+							</c:forEach>
+							<%
+								}
+							%>
 						</tbody>
 					</table>
 				</div>
@@ -130,81 +134,83 @@
 				</div>
 			</div>
 		</div>
-		
-		
-		
-		
-			<!-- tabella aggiungi -->
-		
+
+
+
+
+		<!-- tabella aggiungi -->
+
 		<div class="col-lg-12 ">
-				<div class=" row box">
+			<div class=" row box">
 
-					<hr>
-					<h2 class="intro-text text-center">Aggiungi giocatore</h2>
-					<hr>
+				<hr>
+				<h2 class="intro-text text-center">Aggiungi giocatore</h2>
+				<hr>
 
-					<table id="example" class="table table-striped table-bordered">
-						<thead class="bg-slate-300">
-							<tr>
-								<th class="hidden-xs">Nome</th>
-								<th class="hidden-xs">Cognome</th>
-								<th>Username</th>
-								<th></th>
-								
-							</tr>
-						</thead>
-						<tfoot class="bg-slate-300">
-							<tr>
-								<th class="hidden-xs">Nome</th>
-								<th class="hidden-xs">Cognome</th>
-								<th>Username</th>
-								<th></th>
-								
-							</tr>
-						</tfoot>
-						<tbody>
-							<tr>
-								<td class="hidden-xs">Tiger Nixon</td>
-								<td class="hidden-xs">System Architect</td>
-								<td>Edinburghgghhh</td>
-								<th></th>
-								
+				<table id="example" class="table table-striped table-bordered">
+					<thead class="bg-slate-300">
+						<tr>
+							<th class="hidden-xs">Nome</th>
+							<th class="hidden-xs">Cognome</th>
+							<th>Username</th>
+							<th></th>
 
-							</tr>
-							<tr>
-								<td class="hidden-xs">Garrett Winters</td>
-								<td class="hidden-xs">Accountant</td>
-								<td>Tokyo</td>
-								<th></th>
-							</tr>
-							<tr>
-								<td class="hidden-xs">Ashton Cox</td>
-								<td class="hidden-xs">Junior Technical Author</td>
-								<td>San Francisco</td>
-								<th></th>
-							</tr>
-							<tr>
-								<td class="hidden-xs">Cedric Kelly</td>
-								<td class="hidden-xs">Senior Javascript Developer</td>
-								<td>Edinburgh</td>
-								<th></th>
-							</tr>
-							<tr>
-								<td class="hidden-xs">Airi Satou</td>
-								<td class="hidden-xs">Accountant</td>
-								<td>Tokyo</td>
-								<th></th>
-							</tr>
-						</tbody>
-					</table>
-				</div>
+						</tr>
+					</thead>
+					<tfoot class="bg-slate-300">
+						<tr>
+							<th class="hidden-xs">Nome</th>
+							<th class="hidden-xs">Cognome</th>
+							<th>Username</th>
+							<th></th>
+
+						</tr>
+					</tfoot>
+
+
+					<tbody>
+						<tr>
+							<td class="hidden-xs">Tiger Nixon</td>
+							<td class="hidden-xs">System Architect</td>
+							<td>Edinburghgghhh</td>
+							<th></th>
+
+
+						</tr>
+						<tr>
+							<td class="hidden-xs">Garrett Winters</td>
+							<td class="hidden-xs">Accountant</td>
+							<td>Tokyo</td>
+							<th></th>
+						</tr>
+						<tr>
+							<td class="hidden-xs">Ashton Cox</td>
+							<td class="hidden-xs">Junior Technical Author</td>
+							<td>San Francisco</td>
+							<th></th>
+						</tr>
+						<tr>
+							<td class="hidden-xs">Cedric Kelly</td>
+							<td class="hidden-xs">Senior Javascript Developer</td>
+							<td>Edinburgh</td>
+							<th></th>
+						</tr>
+						<tr>
+							<td class="hidden-xs">Airi Satou</td>
+							<td class="hidden-xs">Accountant</td>
+							<td>Tokyo</td>
+							<th></th>
+						</tr>
+					</tbody>
+				</table>
 			</div>
-		
-		
-		
-		
-		
-		
+		</div>
+
+
+
+
+
+
 	</div>
 
 
