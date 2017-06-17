@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
 import java.util.List;
 
 import model.Campionato;
@@ -86,5 +87,18 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 		// TODO Auto-generated method stub
 
 	}
+
+	@Override
+	public List<String> partecipantiCampionato(String nomeCampionato) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<String> possibiliGiocatoti(String nomeCampionato) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

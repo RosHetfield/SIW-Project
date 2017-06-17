@@ -49,7 +49,7 @@
 					<h2 class="intro-text text-center">Partecipanti</h2>
 					<hr>
 
-					<table id="example" class="table table-striped table-bordered">
+					<table id="tabellaPartecipanti" class="table table-striped table-bordered">
 						<thead class="bg-slate-300">
 							<tr>
 								<th class="hidden-xs">Nome</th>
@@ -147,7 +147,7 @@
 				<h2 class="intro-text text-center">Aggiungi giocatore</h2>
 				<hr>
 
-				<table id="example" class="table table-striped table-bordered">
+				<table id="tabellaAggiungi" class="table table-striped table-bordered">
 					<thead class="bg-slate-300">
 						<tr>
 							<th class="hidden-xs">Nome</th>
@@ -169,38 +169,30 @@
 
 
 					<tbody>
-						<tr>
-							<td class="hidden-xs">Tiger Nixon</td>
-							<td class="hidden-xs">System Architect</td>
-							<td>Edinburghgghhh</td>
-							<th></th>
+							<%
+								List<Utente> possibiliUtenti = (List<Utente>)request.getAttribute("listaPossibiliUtenti");
+								if (possibiliUtenti.size() == 0) {
+							%>
 
+							<tr>
+								<td colspan="3">Nessun utente</td>
+							</tr>
+							<%
+								} else {
+							%>
+							<c:forEach var="p" items="${listaPossibiliUtenti}">
 
-						</tr>
-						<tr>
-							<td class="hidden-xs">Garrett Winters</td>
-							<td class="hidden-xs">Accountant</td>
-							<td>Tokyo</td>
-							<th></th>
-						</tr>
-						<tr>
-							<td class="hidden-xs">Ashton Cox</td>
-							<td class="hidden-xs">Junior Technical Author</td>
-							<td>San Francisco</td>
-							<th></th>
-						</tr>
-						<tr>
-							<td class="hidden-xs">Cedric Kelly</td>
-							<td class="hidden-xs">Senior Javascript Developer</td>
-							<td>Edinburgh</td>
-							<th></th>
-						</tr>
-						<tr>
-							<td class="hidden-xs">Airi Satou</td>
-							<td class="hidden-xs">Accountant</td>
-							<td>Tokyo</td>
-							<th></th>
-						</tr>
+							<tr>
+							<td class="hidden-xs">${p.Nome}</td>
+							<td class="hidden-xs">${p.Cognome}</td>
+							<td>${p.Username}</td>
+							<th>u buttun agg</th>
+							</tr>
+
+							</c:forEach>
+							<%
+								}
+							%>
 					</tbody>
 				</table>
 			</div>
@@ -232,11 +224,17 @@
 				$("#footload").load("fragments/footer.html");
 			});
 		});
+		
 	</script>
-
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('#example').DataTable();
+			$('#tabellaPartecipanti').DataTable();
+		});
+	</script>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#tabellaAggiungi').DataTable();
 		});
 	</script>
 
