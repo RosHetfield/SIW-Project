@@ -51,18 +51,19 @@ public class LoginCampionatoController extends HttpServlet {
 				Campionato campionato = (Campionato) mapper.readValue(jsString, Campionato.class);
 				response.setContentType("text/html");
 				Campionato result = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato.getNome());
+				System.out.println(result.getNome());
 //				System.out.println(result.getUsername() + " utende " + result.getPassword() + " passuord");
 				if (result.getNome() != null) {
-					if (result.getPassword().equals(campionato.getPassword())) 
+					if (result.getPassword().equals(campionato.getPassword())) {
+//						response.setStatus(HttpServletResponse.SC_OK);
 						response.getWriter().print(0);
+						System.out.println("0");
+					}
 					else 
 						response.getWriter().print(1); 
 				} else {
 					response.getWriter().print(2);
 				}
-				
-				RequestDispatcher dispatcher = request.getRequestDispatcher("GestioneCampionato.html");
-				dispatcher.forward(request, response);
 			}
 		}
 	}

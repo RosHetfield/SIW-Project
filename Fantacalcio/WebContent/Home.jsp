@@ -8,6 +8,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/sweetalert.css" type="text/css" rel="stylesheet"/>
 	<link href="css/sweetalert2.css" type="text/css" rel="stylesheet"/>
+	<link href="css/modal.css" type="text/css" rel="stylesheet"/>
     <!-- Custom CSS -->
 	<link href="css/business-casual.css" rel="stylesheet"/>
 <title>FantaBomber - Home</title>
@@ -15,7 +16,55 @@
 <body>
 <%@ include file = "../fragments/navbar.html" %>
 
+	<div id="myModal" class="modal">
 
+  	<!-- Modal content -->
+  		< <!-- Modal content -->
+<div class="modal-content">
+
+  <div class="modal-body">
+    <form id="formLoginCampionato" class="register-form"
+					onsubmit="return loginCampionato()" action="GestioneCampionato"
+					method="POST">
+					<hr>
+					<h3 class="intro-text text-center">
+						<strong>Gestione Campionato</strong>
+					</h3>
+					<hr>
+
+					<div class="form-group">
+						<h4>Campionato</h4>
+						<input type="text" name="Nome" id="Nome"
+							class="form-control input-lg" placeholder="Campionato" tabindex="1"
+							required="required">
+					</div>
+
+					<h4>Password</h4>
+					<div class="form-group">
+						<input type="password" class="form-control input-lg" id="Password"
+							name="Password" placeholder="Password" tabindex="2"
+							required="required">
+					</div>
+
+
+					<hr class="colorgraph">
+					<div class="row text-center">
+
+						<div class="col-xs-12 col-md-6">
+							<input type="submit" id="login" value="Accedi"
+								class="btn btn-default btn-lg" tabindex="3">
+
+
+						</div>
+
+
+					</div>
+				</form>
+  </div>
+
+</div> 
+	
+	</div>
     <div class="container">
     
     		<div class="row ">
@@ -170,6 +219,6 @@
 	<script src="js/sweetalert2.min.js"></script>
 	<script src="Script/CreaCampionato.js"></script>
 	<script src="Script/loginCampionato.js"></script>
-	
+	<script src="Script/modal.js"></script>
 </body>
 </html>

@@ -80,9 +80,9 @@
 							<c:forEach var="p" items="${listaUtenti}">
 
 								<tr>
-									<td class="hidden-xs">${p.Nome}</td>
-									<td class="hidden-xs">${p.Cognome}</td>
-									<td>${p.Username}</td>
+									<td class="hidden-xs">${p.nome}</td>
+									<td class="hidden-xs">${p.cognome}</td>
+									<td>${p.username}</td>
 								</tr>
 
 							</c:forEach>
@@ -183,9 +183,9 @@
 							<c:forEach var="p" items="${listaPossibiliUtenti}">
 
 							<tr>
-							<td class="hidden-xs">${p.Nome}</td>
-							<td class="hidden-xs">${p.Cognome}</td>
-							<td>${p.Username}</td>
+							<td class="hidden-xs">${p.nome}</td>
+							<td class="hidden-xs">${p.cognome}</td>
+							<td>${p.username}</td>
 							<th>u buttun agg</th>
 							</tr>
 

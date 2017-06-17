@@ -1,88 +1,86 @@
+function Campionato(nome, password) {
+	this.nome = nome;
+	this.password = password;
+}
 
-function loginCampionato() {
-	
-	var login = false;
-	
-	swal({
-		html:
-		'<h3 style="text-transform:capitalize">Campionato</h3>'+
-		'<input id="swal-input1" class="swal2-input" autofocus placeholder="Campionato">' +
-		'<h3 style="text-transform:capitalize">Password</h3>'+
-		'<input id="swal-input2" class="swal2-input" placeholder="Password">',
-		 preConfirm: function() {
-		   return new Promise(function(resolve) {
-		   if (true) {
-		    resolve([
-		      document.getElementById('swal-input1').value,
-		      document.getElementById('swal-input2').value
-		    ]);
-		   }
-		  });
-		 }
-		 }).then(function(result) {
-			 
-			 var jsonCredenziali = {
-					nome : result[0],
-					password : result[1]
-			};
-			 
-			 console.log(jsonCredenziali);
-			 
-			 $.ajax({
-				 	
-					async : true,
-					type : "POST",
-					url : "LoginCampionato",
-					datatype : "json",
-					data : {
+function getCredenzialiForm() {
+	console.log("aaaaaaaaaaaaaaaaaaaaaaa");
+	var campi = $("#formLoginCampionato").find("input");
 
-						credenzialiAmministratore : JSON.stringify(jsonCredenziali),
+	var campo = campi.eq(0);
+	var nome = campo.val();
 
-					},
-					success : function(data) {
+	campo = campi.eq(1);
+	var password = campo.val();
+	var campionato = new Campionato(nome, password);
+	return campionato;
+}
 
-						if (data == 1) {
-							swal({
-								title : "Password errata!",
-								type : "error",
-								confirmButtonText : "Riprova"
-							});
-							form.Password.value = '';
-							form.Password.focus();
-							form.Password.select();
+function loginCampionato(form) {
+	console.log("bbbbbbbbbbbbbb");
 
-							login = false;
+	var successBoolean = false;
+	var credenziali = getCredenzialiForm();
+	var jsonCredenziali = {
+		nome : credenziali.nome,
+		password : credenziali.password
+	};
 
-						}
-						else if (data == 2) {
-							swal({
-								title : "Username errato!",
-								type : "error",
-								confirmButtonText : "Riprova"
-							});
-							form.Username.value = '';
-							form.Username.focus();
-							form.Username.select();
-							successBoolean = false;
-						} else if (data == 0) {
-							login = true;
-						}
+	$.ajax({
 
-					},
-					error : function(data) {
+		async : false,
+		type : "POST",
+		url : "LoginCampionato",
+		datatype : "json",
+		data : {
 
-						swal({
-							title : "Errore!",
-							text : "Impossibile completare il login.",
-							type : "error",
-							confirmButtonText : "Riprova"
-						});
+			credenzialiAmministratore : JSON.stringify(jsonCredenziali),
 
-					}
+		},
+		success : function(data) {
 
+			if (data == 1) {
+				swal({
+					title : "Password errata!",
+					type : "warning",
+					confirmButtonText : "Riprova"
 				});
-		});
-	return Boolean(login);
+				form.Password.value = '';
+				form.Password.focus();
+				form.Password.select();
+
+				successBoolean = false;
+
+			}
+			else if (data == 2) {
+				swal({
+					title : "Nome errato!",
+					type : "warning",
+					confirmButtonText : "Riprova"
+				});
+				form.Nome.value = '';
+				form.Nome.focus();
+				form.Nome.select();
+				successBoolean = false;
+			} else if (data == 0) {
+				successBoolean = true;
+			}
+
+		},
+		error : function(data) {
+
+			swal({
+				title : "Errore!",
+				text : "Impossibile completare il login.",
+				type : "error",
+				confirmButtonText : "Riprova"
+			});
+
+		}
+
+	});
+
+	return Boolean(successBoolean);
 }
 
 $(document).ready();
