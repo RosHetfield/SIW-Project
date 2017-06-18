@@ -11,7 +11,6 @@ function getCredenzialiForm() {
 	var username = campo.val();
 
 	campo = campi.eq(1);
-	document.getElementById('Password').value = hex_sha1(campo.val());
 	var password = campo.val();
 	
 	var nome, cognome, email = null;

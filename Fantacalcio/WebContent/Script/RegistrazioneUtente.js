@@ -24,11 +24,9 @@ function CreateUtente() {
 	var email = campo.val();
 	
 	campo = campi.eq(4);
-	document.getElementById('Password').value = hex_sha1(campo.val());
 	var password = campo.val();
 
 	campo = campi.eq(5);
-	document.getElementById('Password_confirmation').value = hex_sha1(campo.val());
 	var passwordCheck = campo;
 	
 	var utente = new Utente(username, nome, cognome, email, password);
