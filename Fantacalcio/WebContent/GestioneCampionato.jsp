@@ -69,7 +69,7 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 
 
 		<div class="col-lg-12 ">
-			<div class=" row box text-center"><hr><h2>Gestisci Campionato ${Campionato.nome}</h2><hr></div>
+			<div id="campionato" class=" row box text-center"><hr><h2>Gestisci Campionato ${Campionato.nome}</h2><hr></div>
 		</div>
 
 
@@ -198,13 +198,13 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 						<% } else { %> 
 						<c:forEach var="p" items="${PossibiliPartecipanti}">
 
-							<tr>
+							<tr id="${p.username}">
 								<td>${p.username}</td>
 								<td class="hidden-xs">${p.nome}</td>
 								<td class="hidden-xs">${p.cognome}</td>
 								<td class="hidden-xs">${p.email}</td>
 								<td class="text-center">
-									<button type="button" class="btn btn-sm btn-info "> Invita </button>
+									<input id="invita" type="submit" value="Invita" class="btn btn-info btn-sm" onclick="invita('${p.username}','${Campionato.nome}')">
 								</td>
 							</tr>
 
@@ -235,14 +235,13 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 			$(function() {
 				$("#footload").load("fragments/footer.html");
 			});
-		});
+	
 		
 	</script>
 
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
-
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script
 		src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
@@ -260,6 +259,7 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 			$('#tabellaAggiungi').DataTable();
 		});
 	</script>
+	<script src="Script/gestioneInviti.js"></script>
 
 </body>
 </html>
