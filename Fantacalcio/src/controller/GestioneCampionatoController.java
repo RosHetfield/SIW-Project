@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Campionato;
+import model.Invito;
 import model.Squadra;
 import model.Utente;
 import persistence.DBManager;
@@ -49,10 +50,12 @@ public class GestioneCampionatoController extends HttpServlet {
 	
 			Campionato camp = DBManager.getInstance().getCampionato().partecipantiCampionato(request.getParameter("Nome"));
 			
-			List<Utente> utenti = DBManager.getInstance().getCampionato().possibiliGiocatoti(request.getParameter("Nome"));
-		
+			List<Utente> utenti = DBManager.getInstance().getCampionato().possibiliGiocatori(request.getParameter("Nome"));
+			List<Invito> inviti = DBManager.getInstance().getInvito().findByCampionato(camp.getNome());
 			request.setAttribute("Campionato", camp);
+			System.out.println("aaaaaaaa " + camp.getNome());
 			request.setAttribute("PossibiliPartecipanti", utenti);
+			request.setAttribute("Inviti", inviti);
 			
 			response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); 
 			response.setHeader("Pragma", "no-cache"); 

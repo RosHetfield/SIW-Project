@@ -21,6 +21,7 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet" />
+	<link href="css/sweetalert.css" type="text/css" rel="stylesheet" />
 
 
 
@@ -243,23 +244,25 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="js/sweetalert.min.js"></script>
 	<script
 		src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 	<script
 		src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
-	</script>
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#tabellaPartecipanti').DataTable();
 		});
 	</script>
-	</script>
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#tabellaAggiungi').DataTable();
 		});
 	</script>
 	<script src="Script/gestioneInviti.js"></script>
+	
 
 </body>
 </html>

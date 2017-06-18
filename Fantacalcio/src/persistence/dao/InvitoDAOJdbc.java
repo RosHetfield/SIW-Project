@@ -62,7 +62,7 @@ public class InvitoDAOJdbc implements InvitoDAO {
 				invito = new Invito();
 				invito.setUtente(result.getString("utente"));
 				invito.setCampionato(result.getString("campionato"));
-				
+				invito.setPartecipazione(result.getBoolean("partecipazione"));
 				inviti.add(invito);
 			}
 		} catch (SQLException e) {
@@ -93,7 +93,7 @@ public class InvitoDAOJdbc implements InvitoDAO {
 				
 				invito.setUtente(result.getString("utente"));
 				invito.setCampionato(result.getString("campionato"));
-				
+				invito.setPartecipazione(result.getBoolean("partecipazione"));
 				inviti.add(invito);
 			}
 		} catch (SQLException e) {
@@ -133,8 +133,9 @@ public class InvitoDAOJdbc implements InvitoDAO {
 	}
 
 	@Override
-	public Invito findByCampionato(String campionato) {
-		Invito invito = null;
+	public List<Invito> findByCampionato(String campionato) {
+		List<Invito> inviti = new ArrayList<Invito>();
+		
 		Connection connection = this.dataSource.getConnection();
 		try {
 			PreparedStatement statement;
@@ -145,11 +146,12 @@ public class InvitoDAOJdbc implements InvitoDAO {
 
 			ResultSet result = statement.executeQuery();
 
-			if (result.next()) {
-				
-				invito = new Invito();
+			while (result.next()) {
+				Invito invito = new Invito();
 				invito.setUtente(result.getString("utente"));
 				invito.setCampionato(result.getString("campionato"));
+				invito.setPartecipazione(result.getBoolean("partecipazione"));
+				inviti.add(invito);
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
@@ -161,7 +163,7 @@ public class InvitoDAOJdbc implements InvitoDAO {
 			}
 		}
 
-		return invito;	
+		return inviti;	
 	}
 
 }

@@ -128,7 +128,7 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 //	select utente.* from utente, squadra where squadra.campionato = 'a'  and not exists (select s.utente from squadra as s, utente as u where s.utente = utente.username)
 
 	@Override
-	public List<Utente> possibiliGiocatoti(String nomeCampionato) {
+	public List<Utente> possibiliGiocatori(String nomeCampionato) {
 		List<Utente> utenti = new ArrayList<Utente>();
 		Connection connection = this.dataSource.getConnection();
 		try {

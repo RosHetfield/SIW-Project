@@ -11,14 +11,14 @@ function invita(u, c) {
 
 		async : true,
 		type : "POST",
-		url : "InvioInvitoController",
+		url : "InvioInvito",
 		datatype : "json",
 		data : {
 
 			invito : JSON.stringify(jsonInvito),
 
 		},
-		success : function() {
+		success : function(data) {
 
 			$('#' + u).find("#invita").prop('value','In Attesa');
 			$('#' + u).find("#invita").prop('disabled','true');
@@ -37,3 +37,4 @@ function invita(u, c) {
 	});
 
 }
+

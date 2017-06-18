@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,9 +51,15 @@ public class InvioInvitoController extends HttpServlet {
 				Invito invito = (Invito) mapper.readValue(jsString, Invito.class);
 				response.setContentType("text/html");
 				
-	
+				List<Invito> checkInvito = DBManager.getInstance().getInvito().findByCampionato(invito.getCampionato());
+				if(!checkInvito.contains(invito)) {
+				
 					DBManager.getInstance().getInvito().save(invito);
 					response.setStatus(HttpServletResponse.SC_OK);
+				}
+				else {
+					response.getWriter().print(1);
+				}
 				
 			}
 		}

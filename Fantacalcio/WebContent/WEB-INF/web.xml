@@ -72,5 +72,20 @@
     <servlet-name>LogoutAmministratoreController</servlet-name>
     <url-pattern>/LogoutAmministratore</url-pattern>
   </servlet-mapping>
-
+	 <servlet>
+    <servlet-name>InvioInvitoController</servlet-name>
+    <servlet-class>controller.InvioInvitoController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InvioInvitoController</servlet-name>
+    <url-pattern>/InvioInvito</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>InvitiController</servlet-name>
+    <servlet-class>controller.InvitiController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InvitiController</servlet-name>
+    <url-pattern>/Inviti</url-pattern>
+  </servlet-mapping>
 </web-app>

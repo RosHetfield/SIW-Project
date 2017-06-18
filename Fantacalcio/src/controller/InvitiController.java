@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -42,13 +44,12 @@ public class InvitiController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if (request.getParameterNames().hasMoreElements()) {
 			String username = (String) request.getSession().getAttribute("Username");
-			
+
+System.out.println(request.getAttribute("CampionatiUtente"));
 
 			if (username != null) {
-
-				response.setContentType("text/html");
+				System.out.println("MADONNA PUTTANA "+username);
 				List<Invito> result = DBManager.getInstance().getInvito().findByUtente(username);
 
 					request.setAttribute("Inviti", result);
@@ -61,7 +62,6 @@ public class InvitiController extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("errore.jsp");
 				dispatcher.forward(request, response);
 			}
-		}
 	}
 	
 

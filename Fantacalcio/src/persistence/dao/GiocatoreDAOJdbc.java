@@ -22,12 +22,11 @@ public class GiocatoreDAOJdbc implements GiocatoreDAO {
 		try {
 			Long id = IdBroker.getId(connection);
 			giocatore.setId(id);
-			String insert = "insert into giocatore(id, nome, cognome, ruolo, squadra, valore)"
-					+ " values (?, ?, ?, ?, ?, ?)";
+			String insert = "insert into giocatore(id, nome, ruolo, squadra, valore)"
+					+ " values (?, ?, ?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setLong(1, giocatore.getId());
 			statement.setString(2, giocatore.getNome());
-			statement.setString(3, giocatore.getCognome());
 			statement.setString(4,giocatore.getRuolo());
 			statement.setString(5, giocatore.getSquadra());
 			statement.setInt(6, giocatore.getValore());
