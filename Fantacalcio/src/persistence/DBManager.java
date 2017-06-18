@@ -4,6 +4,7 @@ import persistence.dao.CampionatoDAO;
 import persistence.dao.GiocatoreDAO;
 import persistence.dao.Giocatore_in_formazioneDAO;
 import persistence.dao.Giocatore_in_rosaDAO;
+import persistence.dao.InvitoDAO;
 import persistence.dao.PartitaDAO;
 import persistence.dao.SquadraDAO;
 import persistence.dao.UtenteDAO;
@@ -25,6 +26,7 @@ public class DBManager {
 	private SquadraDAO squadra;
 	private UtenteDAO utente;
 	private Voto_giornataDAO voto_giornata;
+	private InvitoDAO invito;
 
 	public static DBManager getInstance() {
 
@@ -47,6 +49,7 @@ public class DBManager {
 		squadra = sqlDAO.getSquadraDAO();
 		utente = sqlDAO.getUtenteDAO();
 		voto_giornata = sqlDAO.getVoto_giornataDAO();
+		invito=sqlDAO.getInvitoDAO();
 
 	}
 
@@ -80,6 +83,10 @@ public class DBManager {
 
 	public Voto_giornataDAO getVoto_giornata() {
 		return voto_giornata;
+	}
+
+	public InvitoDAO getInvito() {
+		return invito;
 	}
 
 }
