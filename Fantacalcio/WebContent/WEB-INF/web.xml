@@ -56,12 +56,20 @@
     <servlet-name>LoginCampionatoController</servlet-name>
     <url-pattern>/LoginCampionato</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>GestioneCampionatoController</servlet-name>
     <servlet-class>controller.GestioneCampionatoController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>GestioneCampionatoController</servlet-name>
     <url-pattern>/GestioneCampionato</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>LogoutAmministratoreController</servlet-name>
+    <servlet-class>controller.LogoutAmministratoreController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutAmministratoreController</servlet-name>
+    <url-pattern>/LogoutAmministratore</url-pattern>
   </servlet-mapping>
 </web-app>
