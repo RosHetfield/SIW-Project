@@ -124,6 +124,8 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 
 		return campionato;	
 	}
+	
+//	select utente.* from utente, squadra where squadra.campionato = 'a'  and not exists (select s.utente from squadra as s, utente as u where s.utente = utente.username)
 
 	@Override
 	public List<Utente> possibiliGiocatoti(String nomeCampionato) {
@@ -131,15 +133,14 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 		Connection connection = this.dataSource.getConnection();
 		try {
 			PreparedStatement statement;
-			String query = "select u.* from utente as u except "
-					+ "select utente.* from utente, squadra where squadra.campionato = ? and utente.username = squadra.utente";
+			String query = "select u.* from utente as u except select utente.* from utente, squadra where squadra.campionato = ? and utente.username = squadra.utente";
 			statement = connection.prepareStatement(query);
 
 			statement.setString(1, nomeCampionato);
 
 			ResultSet result = statement.executeQuery();
 
-			if (result.next()) {
+			while (result.next()) {
 				Utente utente = new Utente();
 				utente.setUsername(result.getString("Username"));
 				utente.setNome(result.getString("Nome"));

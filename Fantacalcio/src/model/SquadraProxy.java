@@ -37,6 +37,12 @@ public class SquadraProxy extends Squadra {
 				}
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
+			} finally {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					throw new RuntimeException(e.getMessage());
+				}
 			}
 			this.setUtente(utente);
 			return super.getUtente();

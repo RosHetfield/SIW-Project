@@ -46,6 +46,12 @@ public class CampionatoProxy extends Campionato {
 				}
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
+			} finally {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					throw new RuntimeException(e.getMessage());
+				}
 			}
 			this.setSquadre(s);
 			return super.getSquadre();

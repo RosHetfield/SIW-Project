@@ -195,7 +195,8 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 						<tr>
 							<td colspan="3">Nessun utente</td>
 						</tr>
-						<% } else { %> <c:forEach var="p" items="${PossibiliPartecipanti}">
+						<% } else { %> 
+						<c:forEach var="p" items="${PossibiliPartecipanti}">
 
 							<tr>
 								<td>${p.username}</td>
