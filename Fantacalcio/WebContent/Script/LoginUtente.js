@@ -11,7 +11,9 @@ function getCredenzialiForm() {
 	var username = campo.val();
 
 	campo = campi.eq(1);
+	document.getElementById('Password').value = hex_sha1(campo.val());
 	var password = campo.val();
+	
 	var nome, cognome, email = null;
 	var utente = new Utente(username, nome, cognome, email, password);
 	return utente;
@@ -62,14 +64,16 @@ function controlLoginUtente(form) {
 				form.Username.value = '';
 				form.Username.focus();
 				form.Username.select();
+				form.Password.value='';
 				successBoolean = false;
 			} else if (data == 0) {
+				form.Password.value='';
 				successBoolean = true;
 			}
 
 		},
 		error : function(data) {
-
+			form.Password.value='';
 			swal({
 				title : "Errore!",
 				text : "Impossibile completare il login.",

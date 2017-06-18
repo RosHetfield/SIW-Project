@@ -1,15 +1,16 @@
 
-function Utente(username, nome, cognome, email, password) {
+function Utente(username, nome, cognome, email, password, passwordCheck) {
 	this.username = username;
 	this.nome = nome;
 	this.cognome = cognome;
 	this.email = email;
 	this.password = password;
+	this.passwordCheck = passwordCheck;
 }
 
 function CreateUtente() {
-	console.log("aaaaaaaaaaaaaaaaaaaaaaa");
 	var campi = $("#formRegistrazione").find("input");
+	
 	var campo = campi.eq(0);
 	var username = campo.val();
 	
@@ -23,8 +24,12 @@ function CreateUtente() {
 	var email = campo.val();
 	
 	campo = campi.eq(4);
+	document.getElementById('Password').value = hex_sha1(campo.val());
 	var password = campo.val();
-	//password = hex_sha1(password);
+
+	campo = campi.eq(5);
+	document.getElementById('Password_confirmation').value = hex_sha1(campo.val());
+	var passwordCheck = campo;
 	
 	var utente = new Utente(username, nome, cognome, email, password);
 	return utente;
@@ -40,9 +45,10 @@ function registraUtente(form) {
 			nome : utente.nome,
 			cognome : utente.cognome,
 			email : utente.email,
-			password : utente.password
+			password : utente.password,
+			passwordCheck : utente.passwordCheck
 		};
-console.log(jsonUtente);
+	
 		$.ajax({
 			async : false,
 			type : "POST",
@@ -56,6 +62,8 @@ console.log(jsonUtente);
 				
 				
 				if(data == 0) {
+					form.Password.value='';
+					form.Password_confirmation.value='';
 					registrazione = true;
 				}
 				else if(data == 1) {
@@ -67,6 +75,8 @@ console.log(jsonUtente);
 						});
 					registrazione = false;
 					form.Username.value='';
+					form.Password.value='';
+					form.Password_confirmation.value='';
 					form.Username.focus();
 				}
 			},
@@ -82,6 +92,8 @@ console.log(jsonUtente);
 				
 				registrazione = false;
 				form.Username.value='';
+				form.Password.value='';
+				form.Password_confirmation.value='';
 				form.Username.focus();
 				form.Username.scrollIntoView();
 			}
