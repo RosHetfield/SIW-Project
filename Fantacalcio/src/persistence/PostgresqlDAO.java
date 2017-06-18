@@ -8,6 +8,8 @@ import persistence.dao.Giocatore_in_formazioneDAO;
 import persistence.dao.Giocatore_in_formazioneDAOJdbc;
 import persistence.dao.Giocatore_in_rosaDAO;
 import persistence.dao.Giocatore_in_rosaDAOJdbc;
+import persistence.dao.InvitoDAO;
+import persistence.dao.InvitoDAOJdbc;
 import persistence.dao.PartitaDAO;
 import persistence.dao.PartitaDAOJdbc;
 import persistence.dao.SquadraDAO;
@@ -62,6 +64,10 @@ public class PostgresqlDAO {
 	public Voto_giornataDAO getVoto_giornataDAO() {
 
 		return new Voto_giornataDAOJdbc(dataSource);
+	}
+
+	public InvitoDAO getInvitoDAO() {
+		return new InvitoDAOJdbc(dataSource);
 	}
 
 }

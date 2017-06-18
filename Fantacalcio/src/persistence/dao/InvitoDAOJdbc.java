@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -44,8 +45,8 @@ public class InvitoDAOJdbc implements InvitoDAO {
 	}
 
 	@Override
-	public Invito findByUtente(String utente) {
-		Invito invito = null;
+	public List<Invito> findByUtente(String utente) {
+		List<Invito> inviti = new ArrayList<Invito>();
 		Connection connection = this.dataSource.getConnection();
 		try {
 			PreparedStatement statement;
@@ -56,11 +57,13 @@ public class InvitoDAOJdbc implements InvitoDAO {
 
 			ResultSet result = statement.executeQuery();
 
-			if (result.next()) {
-				
+			while (result.next()) {
+				Invito invito= new Invito();
 				invito = new Invito();
 				invito.setUtente(result.getString("utente"));
 				invito.setCampionato(result.getString("campionato"));
+				
+				inviti.add(invito);
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
@@ -72,7 +75,7 @@ public class InvitoDAOJdbc implements InvitoDAO {
 			}
 		}
 
-		return invito;	
+		return inviti;	
 	}
 
 	@Override

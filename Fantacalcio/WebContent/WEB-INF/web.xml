@@ -72,4 +72,5 @@
     <servlet-name>LogoutAmministratoreController</servlet-name>
     <url-pattern>/LogoutAmministratore</url-pattern>
   </servlet-mapping>
+
 </web-app>
