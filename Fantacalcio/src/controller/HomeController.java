@@ -72,6 +72,7 @@ public class HomeController extends HttpServlet {
 			List<String> campionatiUtente=DBManager.getInstance().getUtente().getCampionati(s);
 			
 			request.setAttribute("CampionatiUtente", campionatiUtente);
+			session.setAttribute("CampionatiUtente", campionatiUtente);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("Home.jsp");
 			dispatcher.forward(request, response);
 		}

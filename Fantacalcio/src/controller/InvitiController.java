@@ -46,13 +46,13 @@ public class InvitiController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			String username = (String) request.getSession().getAttribute("Username");
 
-System.out.println(request.getAttribute("CampionatiUtente"));
 
 			if (username != null) {
 				System.out.println("MADONNA PUTTANA "+username);
 				List<Invito> result = DBManager.getInstance().getInvito().findByUtente(username);
 
 					request.setAttribute("Inviti", result);
+					request.setAttribute("CampionatiUtente", (List<String>)request.getSession().getAttribute("CampionatiUtente"));
 					RequestDispatcher dispatcher = request.getRequestDispatcher("Inviti.jsp");
 					dispatcher.forward(request, response);
 		
