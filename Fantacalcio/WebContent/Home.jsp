@@ -16,13 +16,17 @@
 <body>
 <%@ include file = "../fragments/navbar.html" %>
 
-	<div id="myModal" class="modal">
+<div id="myModal" class="modal">
 
-  	<!-- Modal content -->
-  		< <!-- Modal content -->
+ <!-- Modal content -->
+ < <!-- Modal content -->
 <div class="modal-content">
 
   <div class="modal-body">
+  <div class=close-container>
+    <span class="close">x</span>
+  </div>
+  <div>
     <form id="formLoginCampionato" class="register-form"
 					onsubmit="return loginCampionato()" action="GestioneCampionato"
 					method="POST">
@@ -35,31 +39,28 @@
 					<div class="form-group">
 						<h4>Campionato</h4>
 						<input type="text" name="Nome" id="Nome"
-							class="form-control input-lg" placeholder="Campionato" tabindex="1"
+							class="form-control input-md" placeholder="Campionato" tabindex="1"
 							required="required">
 					</div>
 
-					<h4>Password</h4>
 					<div class="form-group">
-						<input type="password" class="form-control input-lg" id="Password"
+					<h4>Password</h4>
+						<input type="password" class="form-control input-md" id="Password"
 							name="Password" placeholder="Password" tabindex="2"
 							required="required">
 					</div>
 
 
 					<hr class="colorgraph">
-					<div class="row text-center">
+					<div class="row text-center ">
 
-						<div class="col-xs-12 col-md-6">
+						
 							<input type="submit" id="login" value="Accedi"
 								class="btn btn-default btn-lg" tabindex="3">
 
-
-						</div>
-
-
 					</div>
 				</form>
+				</div>
   </div>
 
 </div> 

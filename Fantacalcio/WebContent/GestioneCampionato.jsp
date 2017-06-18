@@ -43,18 +43,18 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Amministratore</span> <span
+					<span class="sr-only">FantaBomber</span> <span
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
 				<!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-				<a class="navbar-brand">Amministratore</a>
+				<a class="navbar-brand">FantaBomber</a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a class="btn btn-sm btn-info " href="LogoutAministratore">Log Out</a>
+					<li><a class="btn btn-sm btn-info " href="LogoutAmministratore">Log Out</a>
 					</li>
 				</ul>
 			</div>
@@ -69,7 +69,7 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 
 
 		<div class="col-lg-12 ">
-			<div class=" row box text-center"><h2>${nome}</h2></div>
+			<div class=" row box text-center"><hr><h2>Gestisci Campionato ${Campionato.nome}</h2><hr></div>
 		</div>
 
 

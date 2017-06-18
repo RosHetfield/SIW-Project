@@ -42,7 +42,9 @@ public class LoginCampionatoController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getParameterNames().hasMoreElements()) {
-
+			String username = (String) request.getSession().getAttribute("Username");
+			System.out.println("SESSIONE" + username);
+			
 			String jsString = request.getParameter("credenzialiAmministratore");
 			System.out.println(jsString + " parametro");
 			if (jsString != null) {

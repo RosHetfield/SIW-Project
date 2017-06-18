@@ -31,10 +31,6 @@ public class LogoutAmministratoreController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (!request.getParameterNames().hasMoreElements()) {
 
-			HttpSession session = request.getSession();
-			session.removeAttribute("Username");
-			session.invalidate();
-//////////////////////////////////////////
 			RequestDispatcher dispatcher = request
 					.getRequestDispatcher("Home.jsp");
 			dispatcher.forward(request, response);

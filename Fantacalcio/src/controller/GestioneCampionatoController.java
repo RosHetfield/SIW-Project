@@ -47,10 +47,12 @@ public class GestioneCampionatoController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getParameterNames().hasMoreElements()) {
 
-			String s = request.getParameter("Username");
+			String username = (String) request.getSession().getAttribute("Username");
+			System.out.println("SESSIONE AMMINISTRATORE" + username);
 //			String c = request.getParameter("Nome");
-			HttpSession session = request.getSession();
-			session.setAttribute("Username", s);
+//			HttpSession session = request.getSession();
+//			session.setAttribute("Username", s);
+			
 			
 	
 		
