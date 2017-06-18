@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import persistence.DBManager;
 
 /**
  * Servlet implementation class HomeController
@@ -37,7 +40,10 @@ public class HomeController extends HttpServlet {
 			response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
 			response.setDateHeader("Expires", 0);
 			
+			List<String> campionatiUtente=DBManager.getInstance().getUtente().getCampionati(username);
+			
 			if(username != null) {
+				request.setAttribute("CampionatiUtente", campionatiUtente);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("Home.jsp");
 				dispatcher.forward(request, response);
 			}
@@ -57,14 +63,19 @@ public class HomeController extends HttpServlet {
 			String s = request.getParameter("Username");
 			HttpSession session = request.getSession();
 			session.setAttribute("Username", s);
+			
+			response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); 
+			response.setHeader("Pragma", "no-cache"); 
+			response.setDateHeader("Expires", 0);
+			
+			List<String> campionatiUtente=DBManager.getInstance().getUtente().getCampionati(s);
+			
+			request.setAttribute("CampionatiUtente", campionatiUtente);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("Home.jsp");
+			dispatcher.forward(request, response);
 		}
 		
-		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); 
-		response.setHeader("Pragma", "no-cache"); 
-		response.setDateHeader("Expires", 0);
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("Home.jsp");
-		dispatcher.forward(request, response);
+	
 
 	}
 	

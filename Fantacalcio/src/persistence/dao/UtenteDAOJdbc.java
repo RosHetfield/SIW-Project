@@ -4,9 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import model.Campionato;
 import model.Utente;
 import persistence.DataSource;
 
@@ -136,5 +138,37 @@ public class UtenteDAOJdbc implements UtenteDAO {
 			}
 			
 		}
+	}
+
+	@Override
+	public List<String> getCampionati(String username) {
+		List<String> campionati= new ArrayList<String>();
+		Connection connection = this.dataSource.getConnection();
+		try {
+			PreparedStatement statement;
+			String query = "select campionato from squadra where utente = ? ";
+			statement = connection.prepareStatement(query);
+
+			statement.setString(1, username);
+
+			ResultSet result = statement.executeQuery();
+
+			while (result.next()) {
+				String u=result.getString("Campionato");
+			
+				campionati.add(u);
+
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}
+
+		return campionati;	
 	}
 }

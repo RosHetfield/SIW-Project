@@ -72,12 +72,4 @@
     <servlet-name>LogoutAmministratoreController</servlet-name>
     <url-pattern>/LogoutAmministratore</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>CreaGiornataController</servlet-name>
-    <servlet-class>controller.CreaGiornataController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CreaGiornataController</servlet-name>
-    <url-pattern>/CreaGiornataController</url-pattern>
-  </servlet-mapping>
 </web-app>
