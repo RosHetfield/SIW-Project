@@ -30,9 +30,9 @@ public class LogoutAmministratoreController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (!request.getParameterNames().hasMoreElements()) {
-
+			
 			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("Home.jsp");
+					.getRequestDispatcher("HomeController");
 			dispatcher.forward(request, response);
 
 		}

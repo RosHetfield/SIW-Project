@@ -44,6 +44,7 @@ public class HomeController extends HttpServlet {
 			
 			if(username != null) {
 				request.setAttribute("CampionatiUtente", campionatiUtente);
+				request.setAttribute("Username", username);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("Home.jsp");
 				dispatcher.forward(request, response);
 			}

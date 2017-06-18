@@ -46,16 +46,7 @@ public class GestioneCampionatoController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getParameterNames().hasMoreElements()) {
-
-			String username = (String) request.getSession().getAttribute("Username");
-			System.out.println("SESSIONE AMMINISTRATORE" + username);
-//			String c = request.getParameter("Nome");
-//			HttpSession session = request.getSession();
-//			session.setAttribute("Username", s);
-			
-			
 	
-		
 			Campionato camp = DBManager.getInstance().getCampionato().partecipantiCampionato(request.getParameter("Nome"));
 			
 			List<Utente> utenti = DBManager.getInstance().getCampionato().possibiliGiocatoti(request.getParameter("Nome"));
