@@ -10,4 +10,6 @@ public interface GiocatoreDAO {
 	public void update(Giocatore giocatore); //Update
 	public void delete(Giocatore giocatore); //Delete	
 	public List<Giocatore> findAll(); 
+	public List<Giocatore> getGiocatoreRuolo(String Squadra,String ruolo);
+	
 }
