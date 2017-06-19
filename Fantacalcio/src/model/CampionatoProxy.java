@@ -16,6 +16,7 @@ public class CampionatoProxy extends Campionato {
 	 */
 	private static final long serialVersionUID = -6322010376829951188L;
 	 private DataSource dataSource;
+	 private boolean firstLoad = false;
 	 
 	 
 	 public CampionatoProxy(DataSource dataSource) {
@@ -23,7 +24,7 @@ public class CampionatoProxy extends Campionato {
 	}
 	 
 	 public Set<Squadra> getSquadre(){
-		 
+		 if(!firstLoad) {
 		 Set<Squadra> s= new HashSet<Squadra>();
 			Connection connection = this.dataSource.getConnection();
 			try {
@@ -38,7 +39,6 @@ public class CampionatoProxy extends Campionato {
 					Squadra squadra= new SquadraProxy(this.dataSource);
 					squadra.setNome(result.getString("Nome"));
 					Utente utente = squadra.getUtente();
-					System.out.println("UTENDIIII " + utente.username + " " + utente.nome + " "+ utente.cognome);
 					squadra.setUtente(utente);
 					squadra.setCrediti(result.getInt("Crediti"));
 
@@ -54,7 +54,9 @@ public class CampionatoProxy extends Campionato {
 				}
 			}
 			this.setSquadre(s);
-			return super.getSquadre();
+			firstLoad = true;
+		 }
+		return super.getSquadre();
 		 
 	 }
 	 
