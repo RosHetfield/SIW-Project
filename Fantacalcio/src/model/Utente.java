@@ -8,11 +8,12 @@ public class Utente implements Serializable {
 	 */
 	private static final long serialVersionUID = 8687792190967732576L;
 	
-	String username;
-	String nome;
-	String cognome;
-	String email;
-	String password;
+	private String username;
+	private String nome;
+	private String cognome;
+	private String email;
+	private String password;
+	private Boolean invito = false;
 
 	// riferimenti
 	
@@ -69,5 +70,13 @@ public class Utente implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Boolean getInvito() {
+		return invito;
+	}
+
+	public void setInvito(Boolean invito) {
+		this.invito = invito;
 	}
 }

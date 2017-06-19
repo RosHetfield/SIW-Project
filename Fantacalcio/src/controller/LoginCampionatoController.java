@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -58,8 +59,9 @@ public class LoginCampionatoController extends HttpServlet {
 				if (result.getNome() != null) {
 					if (result.getPassword().equals(campionato.getPassword())) {
 //						response.setStatus(HttpServletResponse.SC_OK);
+						HttpSession session = request.getSession();
+						session.setAttribute("NomeCampionato", campionato.getNome());
 						response.getWriter().print(0);
-						System.out.println("0");
 					}
 					else 
 						response.getWriter().print(1); 

@@ -32,13 +32,11 @@ public class HomeController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(!request.getParameterNames().hasMoreElements()) {
+		
+		if (!request.getParameterNames().hasMoreElements()) {
+
 			
 			String username = (String) request.getSession().getAttribute("Username");
-			
-			response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
-			response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
-			response.setDateHeader("Expires", 0);
 			
 			List<String> campionatiUtente=DBManager.getInstance().getUtente().getCampionati(username);
 			
@@ -53,6 +51,7 @@ public class HomeController extends HttpServlet {
 				dispatcher.forward(request, response);
 			}
 		}
+
 	}
 
 	/**
@@ -61,20 +60,20 @@ public class HomeController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getParameterNames().hasMoreElements()) {
 
-			String s = request.getParameter("Username");
-			HttpSession session = request.getSession();
-			session.setAttribute("Username", s);
+			HttpSession session = request.getSession(false);
+			String username  = (String)session.getAttribute("Username");
+			if(username != null) {
 			
-			response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); 
-			response.setHeader("Pragma", "no-cache"); 
-			response.setDateHeader("Expires", 0);
-			
-			List<String> campionatiUtente=DBManager.getInstance().getUtente().getCampionati(s);
+			List<String> campionatiUtente=DBManager.getInstance().getUtente().getCampionati((String)session.getAttribute("Username"));
 			
 			request.setAttribute("CampionatiUtente", campionatiUtente);
 			session.setAttribute("CampionatiUtente", campionatiUtente);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("Home.jsp");
 			dispatcher.forward(request, response);
+			} else{
+				RequestDispatcher dispatcher = request.getRequestDispatcher("errore.jsp");
+				dispatcher.forward(request, response);
+			}
 		}
 		
 	

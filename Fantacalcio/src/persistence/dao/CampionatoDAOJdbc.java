@@ -10,7 +10,9 @@ import java.util.List;
 
 import model.Campionato;
 import model.CampionatoProxy;
+import model.Invito;
 import model.Utente;
+import persistence.DBManager;
 import persistence.DataSource;
 
 public class CampionatoDAOJdbc implements CampionatoDAO {
@@ -146,6 +148,14 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 				utente.setNome(result.getString("Nome"));
 				utente.setCognome(result.getString("Cognome"));
 				utente.setEmail(result.getString("Email"));
+				Invito invito = DBManager.getInstance().getInvito().findByUtenteCampionato(utente.getUsername(),nomeCampionato);
+				if(invito != null) {
+					
+					utente.setInvito(true);
+				}
+				else {
+					utente.setInvito(false);
+				}
 				utenti.add(utente);
 				
 			}

@@ -1,11 +1,14 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -54,8 +57,11 @@ public class LoginController extends HttpServlet {
 				Utente result = DBManager.getInstance().getUtente().findByPrimaryKey(utente.getUsername());
 				System.out.println(result.getUsername() + " utende " + result.getPassword() + " passuord");
 				if (result.getUsername() != null) {
-					if (result.getPassword().equals(utente.getPassword())) 
+					if (result.getPassword().equals(utente.getPassword())) {
 						response.getWriter().print(0);
+						HttpSession session = request.getSession();
+						session.setAttribute("Username", utente.getUsername());
+					}
 					else 
 						response.getWriter().print(1); 
 				} else {

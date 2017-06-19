@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletResponseWrapper;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -29,12 +30,15 @@ public class LogoutAmministratoreController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if (!request.getParameterNames().hasMoreElements()) {
-			
+		if((String)request.getSession().getAttribute("NomeCampionato") != null) {
+			HttpSession session = request.getSession();
+			session.removeAttribute("NomeCampionato");
+			response.sendRedirect("Home");
+		}
+		else {
 			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("HomeController");
+					.getRequestDispatcher("errore.jsp");
 			dispatcher.forward(request, response);
-
 		}
 	}
 

@@ -205,7 +205,14 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 								<td class="hidden-xs">${p.cognome}</td>
 								<td class="hidden-xs">${p.email}</td>
 								<td class="text-center">
-									<input id="invita" type="submit" value="Invita" class="btn btn-info btn-sm" onclick="invita('${p.username}','${Campionato.nome}')">
+								<c:choose>
+									<c:when test="${p.invito}">
+										<input id="invita" type="submit" value="In Attesa" class="btn btn-info btn-sm" disabled="disabled">
+									</c:when>
+									<c:otherwise>
+										<input id="invita" type="submit" value="Invita" class="btn btn-info btn-sm" onclick="invita('${p.username}','${Campionato.nome}')">
+									</c:otherwise>
+								</c:choose>
 								</td>
 							</tr>
 

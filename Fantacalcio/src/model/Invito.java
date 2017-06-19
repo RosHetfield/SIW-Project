@@ -8,19 +8,12 @@ public class Invito implements Serializable{
 
 	private String utente;
 	private String campionato;
-	private boolean partecipazione;
 	
 	public Invito() { }
 	
 	public Invito(String utente, String campionato) {
 		this.utente = utente;
 		this.campionato = campionato;
-	}
-	
-	public Invito(String utente, String campionato, boolean partecipazione) {
-		this.utente = utente;
-		this.campionato = campionato;
-		this.partecipazione = partecipazione;
 	}
 
 	public String getUtente() {
@@ -39,11 +32,4 @@ public class Invito implements Serializable{
 		this.campionato = campionato;
 	}
 
-	public boolean isPartecipazione() {
-		return partecipazione;
-	}
-
-	public void setPartecipazione(boolean partecipazione) {
-		this.partecipazione = partecipazione;
-	}
 }

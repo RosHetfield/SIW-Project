@@ -11,6 +11,7 @@ import persistence.DataSource;
 
 public class SquadraProxy extends Squadra {
 	private DataSource dataSource;
+	private boolean firstLoad = false;
 	 
 	 
 	 public SquadraProxy(DataSource dataSource) {
@@ -18,6 +19,7 @@ public class SquadraProxy extends Squadra {
 	}
 	 
 	 public Utente getUtente() {
+		 if(!firstLoad) {
 		 	Utente utente = null;
 			Connection connection = this.dataSource.getConnection();
 			try {
@@ -45,7 +47,9 @@ public class SquadraProxy extends Squadra {
 				}
 			}
 			this.setUtente(utente);
-			return super.getUtente();
+			firstLoad = true;
+		 }
+		return super.getUtente();
 	 }
 	 
 
