@@ -68,8 +68,8 @@
   </div>
 
 </div> 
-	
 	</div>
+	<%@ include file="../fragments/homeNavbar.html" %>
     <div class="container">
     
     		<div class="row ">
