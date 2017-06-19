@@ -9,7 +9,7 @@ function caricaCampionato(c) {
 	$.ajax({
 
 		async : true,
-		type : "POST",
+		type : "GET",
 		url : "CaricaCampionato",
 		datatype : "json",
 		data : {

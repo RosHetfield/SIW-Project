@@ -9,6 +9,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 import model.Campionato;
+import model.CampionatoProxy;
+import model.Squadra;
+import model.SquadraProxy;
 import model.Utente;
 import persistence.DataSource;
 
@@ -170,5 +173,45 @@ public class UtenteDAOJdbc implements UtenteDAO {
 		}
 
 		return campionati;	
+	}
+
+	@Override
+	public Squadra getSquadraCampionato(String utente, String campionato) {
+		Squadra squadra = null;
+		Connection connection = this.dataSource.getConnection();
+		try {
+			PreparedStatement statement;
+			String query = "select utente campionato crediti from squadra where utente= ? and campionato= ?";
+			statement = connection.prepareStatement(query);
+
+			statement.setString(1, utente);
+			statement.setString(2, campionato);
+
+
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {				
+				
+				squadra= new SquadraProxy(this.dataSource);
+				squadra.setNome(result.getString("Nome"));
+//				squadra.setUtente(utente);
+//				squadra.setCampionato(result.getC);
+//				squadra.setGiocatori(giocatori);
+				squadra.setCrediti(result.getInt("crediti"));
+	
+
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}
+
+		return squadra;	
+		
 	}
 }

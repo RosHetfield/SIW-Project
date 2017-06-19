@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import model.Invito;
+import model.Squadra;
 import persistence.DBManager;
 
 /**
@@ -35,27 +36,26 @@ public class CaricaCampionato extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	if (request.getParameterNames().hasMoreElements()) {
 			
-			String jsString = (String) request.getAttribute("campionato");
+			String campionato = (String) request.getAttribute("campionato");
 			String utente=(String) request.getSession().getAttribute("Username");
 			
-			if (jsString != null && utente != null) {
+			if (campionato != null && utente != null) {
 
 				response.setContentType("text/html");
-				request.setAttribute("campionato", jsString);
 				
-			/*	String squadra=DBManager.getInstance().getSquadra().
-			/*	request.setAttribute("squadra", squadra);
+				request.setAttribute("campionato", campionato);
 				
+				Squadra squadra=DBManager.getInstance().getUtente().getSquadraCampionato(utente, campionato);
+				request.setAttribute("squadra", squadra);
 				
-				
-				if(!checkInvito.contains(invito)) {
-				
-					DBManager.getInstance().getInvito().save(invito);
+				if(squadra != null)
+				{
 					response.setStatus(HttpServletResponse.SC_OK);
 				}
-				else {
+				else
+				{
 					response.getWriter().print(1);
-				}*/
+				}
 				
 			}
 		}
@@ -65,7 +65,6 @@ public class CaricaCampionato extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
