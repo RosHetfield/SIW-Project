@@ -223,6 +223,7 @@
 	<script src="js/sweetalert.min.js"></script>
 	<script src="js/sweetalert2.min.js"></script>
 	<script src="Script/CreaCampionato.js"></script>
+	<script src="Script/caricaCampionato.js"></script>
 	<script src="Script/loginCampionato.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {

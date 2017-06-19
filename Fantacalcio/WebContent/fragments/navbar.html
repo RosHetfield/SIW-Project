@@ -18,7 +18,7 @@
 
 			<ul class="nav navbar-nav navbar-right">
 				
- 					<li>
+ 					<li id="home-btn">
                         <a href="Home">Home</a>
                     </li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -46,9 +46,11 @@
 
 						<li><a>Nessun campionato</a></li>
 
-						<% } else { %> <c:forEach var="p" items="${CampionatiUtente}">
+						<% } else { %> <c:forEach var="p" items="${CampionatiUtente}" >
 
-							<li><a>${p}</a></li>
+
+							
+							<li><a onclick="caricaCampionato('${p.username}'">${p}</a></li>
 
 						</c:forEach> <% } %> 
 					</ul></li>

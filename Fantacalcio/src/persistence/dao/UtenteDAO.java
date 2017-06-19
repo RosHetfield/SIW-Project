@@ -11,4 +11,5 @@ public interface UtenteDAO {
 	public void update(Utente utente); //Update
 	public void delete(Utente utente); //Delete	
 	public List<String> getCampionati(String username);
+	 
 }
