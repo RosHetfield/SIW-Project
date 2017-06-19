@@ -224,6 +224,11 @@
 	<script src="js/sweetalert2.min.js"></script>
 	<script src="Script/CreaCampionato.js"></script>
 	<script src="Script/loginCampionato.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#home-btn').css({'background-color': '#e7e7e7'});
+		});
+	</script>
 	<script src="Script/modal.js"></script>
 </body>
 </html>
