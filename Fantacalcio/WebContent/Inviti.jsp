@@ -33,17 +33,19 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 		
 		
 		
-		<div class="row  invito-Style" >
+		<c:forEach var="i" items="${Inviti}">
+			<div id="${i.utente}" class="row  invito-Style" >
 				<div class="col-lg-8  ">
-					<p>Username</p>
+					<p>Campionato "<i>${i.campionato}</i>"</p>
 				</div>
 				<div class="col-lg-2 text center ">
 					<button type="button" class="btn btn-lg btn-success "> Accetta </button>
 				</div>
 				<div class="col-lg-2 text-center">
-					<button type="button" class="btn btn-lg btn-danger"> Rifiuta </button>
+					<button type="button" class="btn btn-lg btn-danger" onclick="rifiutaInvito('${i.utente}','${i.campionato}','r','${i.utente}')"> Rifiuta </button>
 				</div>
-		</div>
+			</div>
+		</c:forEach>
 	
 	
 	
@@ -87,7 +89,7 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/sweetalert.min.js"></script>
 	<script src="js/sweetalert2.min.js"></script>
-	<script src="Script/CreaCampionato.js"></script>
+	<script src="Script/gestioneInviti.js"></script>
 	<script src="Script/loginCampionato.js"></script>
 	<script src="Script/modal.js"></script>
 </body>

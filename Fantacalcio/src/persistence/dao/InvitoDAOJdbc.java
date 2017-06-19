@@ -143,10 +143,11 @@ public class InvitoDAOJdbc implements InvitoDAO {
 		Connection connection = this.dataSource.getConnection();
 		try {
 			
-			String insert = "delete from invito where utente = ?";
+			String insert = "delete from invito where utente = ? and campionato = ?";
 			PreparedStatement statement = connection.prepareStatement(insert);
+			System.out.println(invito.getUtente() + " " + invito.getCampionato());
 			statement.setString(1, invito.getUtente());
-			
+			statement.setString(2, invito.getCampionato());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());

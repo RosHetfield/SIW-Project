@@ -1,7 +1,6 @@
-
+$(document).ready();
 function invita(u, c) {
 	
-	var successBoolean = false;
 	var jsonInvito = {
 			utente : u,
 			campionato : c
@@ -36,5 +35,41 @@ function invita(u, c) {
 
 	});
 
+}
+
+function rifiutaInvito(u, c, r, d) {
+	var jsonInvito = {
+			utente : u,
+			campionato : c,
+			
+	}
+	$.ajax({
+
+		async : true,
+		type : "POST",
+		url : "Inviti",
+		datatype : "json",
+		data : {
+
+			invito : JSON.stringify(jsonInvito),
+			risposta : JSON.stringify(r)
+		},
+		success : function(data) {
+			
+			$('#' + d).remove();
+		},
+		error : function() {
+			
+			swal({
+				title : "Errore!",
+				text : "Impossibile inviare l'invito.",
+				type : "error",
+				confirmButtonText : "Ok"
+			});
+
+		}
+
+	});
+	
 }
 
