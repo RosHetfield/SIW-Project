@@ -177,7 +177,7 @@ public class UtenteDAOJdbc implements UtenteDAO {
 
 	@Override
 	public Squadra getSquadraCampionato(String utente, String campionato) {
-		Squadra squadra = null;
+		Squadra squadra = new Squadra();
 		Connection connection = this.dataSource.getConnection();
 		try {
 			PreparedStatement statement;
@@ -192,13 +192,9 @@ public class UtenteDAOJdbc implements UtenteDAO {
 
 			if (result.next()) {				
 				
-				squadra= new SquadraProxy(this.dataSource);
-				squadra.setNome(result.getString("Nome"));
-//				squadra.setUtente(utente);
-//				squadra.setCampionato(result.getC);
-//				squadra.setGiocatori(giocatori);
+				squadra.setNome(result.getString("Utente"));
 				squadra.setCrediti(result.getInt("crediti"));
-	
+	//////////////
 
 			}
 		} catch (SQLException e) {
