@@ -56,7 +56,7 @@ public class GestioneCampionatoController extends HttpServlet {
 			String campionato = (String) session.getAttribute("NomeCampionato");
 			if (campionato != null) {
 
-				Campionato camp = DBManager.getInstance().getCampionato().partecipantiCampionato(campionato);
+				Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
 
 				List<Utente> utenti = DBManager.getInstance().getCampionato().possibiliGiocatori(campionato);
 				List<Invito> inviti = DBManager.getInstance().getInvito().findByCampionato(campionato);
