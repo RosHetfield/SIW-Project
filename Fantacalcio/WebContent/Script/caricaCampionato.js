@@ -28,11 +28,12 @@ function caricaCampionato(c) {
 				
 				var squadra=JSON.parse(data);
 
-				//$(document).ready(function() {
+				$(document).ready(function() {
 					// var price = $('<p>From $399.99</p>');
 					 console.log('cacacacacaca');
-						$("#divNavbarHome").load("fragments/homeNavbar.html");
-				//});
+						
+						$("#NavbarHome").load("fragments/homeNavbar.html")
+				});
 					
 			
 			}
