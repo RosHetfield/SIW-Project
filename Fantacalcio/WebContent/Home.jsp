@@ -69,7 +69,13 @@
 
 </div> 
 	</div>
-	<%@ include file="../fragments/homeNavbar.html" %>
+	
+	<div id="NavbarHome">
+	</div>
+    
+    
+    
+    
     <div class="container">
     
     		<div class="row ">

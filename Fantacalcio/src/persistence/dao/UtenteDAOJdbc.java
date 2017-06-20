@@ -181,7 +181,7 @@ public class UtenteDAOJdbc implements UtenteDAO {
 		Connection connection = this.dataSource.getConnection();
 		try {
 			PreparedStatement statement;
-			String query = "select utente crediti from squadra where utente= ? and campionato= ?";
+			String query = "select nome, crediti from squadra where utente= ? and campionato= ?";
 			statement = connection.prepareStatement(query);
 
 			statement.setString(1, utente);
@@ -192,10 +192,9 @@ public class UtenteDAOJdbc implements UtenteDAO {
 
 			if (result.next()) {				
 				
-				squadra.setNome(result.getString("Utente"));
+				squadra.setNome(result.getString("nome"));
 				squadra.setCrediti(result.getInt("crediti"));
-	//////////////
-
+	
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
