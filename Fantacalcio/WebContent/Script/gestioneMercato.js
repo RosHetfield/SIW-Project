@@ -32,3 +32,12 @@ function mercato() {
 	});
 	return Boolean(succ)
 }
+
+function apriMercato() {
+	if($('#apri_mercato').prop('checked')){
+    	alert("The ontoggle true event occured");
+    }
+    else {
+    	alert("The ontoggle false event occured");
+    }
+}

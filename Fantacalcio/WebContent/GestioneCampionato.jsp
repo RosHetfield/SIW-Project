@@ -127,8 +127,16 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 					<h2 class="intro-text text-center">Crea giornata</h2>
 						<button type="button" class="btn btn-primary" aria-label="Left Align" onclick="creaGiornata()">Crea</button>
 					<hr>
-
-
+					<br>
+					<div>
+					<h4>Apri mercato</h4>
+					<br>
+					<label class="switch">
+  						<input type="checkbox" onclick="apriMercato()" id="apri_mercato">
+  						<div class="slider round"></div>
+						
+					</label><br><br>
+					</div>
 
 				</div>
 
@@ -258,6 +266,8 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 	</script>
 	<script src="Script/gestioneInviti.js"></script>
 	<script src="Script/CreaGiornata.js"></script>
+	<script src="Script/gestioneMercato.js"></script>
+	
 
 </body>
 </html>
