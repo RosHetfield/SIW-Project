@@ -15,13 +15,14 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
-<link
-	href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css"
-	rel="stylesheet" />
-<link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	rel="stylesheet" />
-	<link href="css/sweetalert.css" type="text/css" rel="stylesheet" />
+
+
+<!-- Table CSS -->
+<link href="css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+
+
+<link href="css/sweetalert.css" type="text/css" rel="stylesheet" />
 
 
 
@@ -250,12 +251,12 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="js/sweetalert.min.js"></script>
-	<script
-		src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-	<script
-		src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+	
+	<!-- Table JavaScript library -->
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="js/jquery.dataTables.min.js"></script>
+	<script src="js/dataTables.bootstrap.min.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function() {

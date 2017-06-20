@@ -1,4 +1,12 @@
 
+function aggiungiNavbarSquadra(){
+	
+	console.log(campionato);
+	
+}
+
+
+
 function caricaCampionato(c) {
 	
 	var successBoolean = false;
@@ -25,7 +33,8 @@ function caricaCampionato(c) {
 				type : "error",
 				confirmButtonText : "Ok"
 			});
-			//$('#' + u).find("#invita").prop('value','In Attesa');
+			
+			aggiungiNavbarSquadra(data);
 			//$('#' + u).find("#invita").prop('disabled','true');
 		},
 		error : function() {

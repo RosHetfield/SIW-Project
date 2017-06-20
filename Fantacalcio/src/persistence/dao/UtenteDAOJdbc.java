@@ -181,7 +181,7 @@ public class UtenteDAOJdbc implements UtenteDAO {
 		Connection connection = this.dataSource.getConnection();
 		try {
 			PreparedStatement statement;
-			String query = "select utente campionato crediti from squadra where utente= ? and campionato= ?";
+			String query = "select utente crediti from squadra where utente= ? and campionato= ?";
 			statement = connection.prepareStatement(query);
 
 			statement.setString(1, utente);
