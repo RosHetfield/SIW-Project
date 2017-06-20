@@ -11,7 +11,6 @@ public interface CampionatoDAO {
 	public List<Campionato> findAll();       
 	public void update(Campionato campionato); //Update
 	public void delete(Campionato campionato); //Delete	
-	public Campionato partecipantiCampionato(String nomeCampionato);
 	public List<Utente> possibiliGiocatori(String nomeCampionato);
 
 }

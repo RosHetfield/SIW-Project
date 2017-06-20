@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -62,7 +63,9 @@ public class RegistrazioneController extends HttpServlet {
 				else {
 //					response.setContentType("text/html"); 
 					DBManager.getInstance().getUtente().save(utente);
-					response.setStatus(HttpServletResponse.SC_OK);
+					HttpSession session = request.getSession();
+					session.setAttribute("Username", utente.getUsername());
+					response.getWriter().print(0);
 				}
 				System.out.println(utente.getUsername());
 				System.out.println(utente.getNome());

@@ -94,38 +94,6 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 
 	}
 
-	@Override
-	public Campionato partecipantiCampionato(String nomeCampionato) {
-		Campionato campionato = null;
-		Connection connection = this.dataSource.getConnection();
-		try {
-			PreparedStatement statement;
-			String query = "select * from campionato where nome = ?";
-			statement = connection.prepareStatement(query);
-
-			statement.setString(1, nomeCampionato);
-
-			ResultSet result = statement.executeQuery();
-
-			if (result.next()) {
-				
-				campionato = new CampionatoProxy(this.dataSource);
-				campionato.setNome(result.getString("nome"));
-				campionato.setPassword(result.getString("password"));
-				
-			}
-		} catch (SQLException e) {
-			throw new RuntimeException(e.getMessage());
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				throw new RuntimeException(e.getMessage());
-			}
-		}
-
-		return campionato;	
-	}
 	
 //	select utente.* from utente, squadra where squadra.campionato = 'a'  and not exists (select s.utente from squadra as s, utente as u where s.utente = utente.username)
 
