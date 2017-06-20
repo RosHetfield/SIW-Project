@@ -61,6 +61,7 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 				
 				campionato = new CampionatoProxy(this.dataSource);
 				campionato.setNome(result.getString("nome"));
+				campionato.setMercato(result.getBoolean("mercato"));
 				campionato.setPassword(result.getString("password"));
 			}
 		} catch (SQLException e) {

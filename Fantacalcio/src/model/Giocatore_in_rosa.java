@@ -10,28 +10,31 @@ public class Giocatore_in_rosa implements Serializable {
 	private static final long serialVersionUID = -3407932458575761624L;
 
 	//riferimenti
-	private Giocatore giocatore;
-	private Squadra squadra;
+	private String giocatore;
+	private String squadra;
+	
+	public Giocatore_in_rosa(String giocatore, String squadra) {
+		this.giocatore = giocatore;
+		this.squadra = squadra;
+	}
 	
 	public Giocatore_in_rosa() {
 		super();
-		this.giocatore = new Giocatore();
-		this.squadra = new Squadra();
 	}
 
-	public Giocatore getGiocatore() {
+	public String getGiocatore() {
 		return giocatore;
 	}
 
-	public void setGiocatore(Giocatore giocatore) {
+	public void setGiocatore(String giocatore) {
 		this.giocatore = giocatore;
 	}
 
-	public Squadra getSquadra() {
+	public String getSquadra() {
 		return squadra;
 	}
 
-	public void setSquadra(Squadra squadra) {
+	public void setSquadra(String squadra) {
 		this.squadra = squadra;
 	}
 }

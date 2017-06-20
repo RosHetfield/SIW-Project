@@ -13,6 +13,7 @@ public class SquadraProxy extends Squadra {
 	private DataSource dataSource;
 	private boolean firstLoadUtente = false;
 	private boolean firstLoadCampionato = false;
+	private boolean firstLoadGiocatori = false;
 	 
 	 
 	 public SquadraProxy(DataSource dataSource) {
@@ -84,5 +85,38 @@ public class SquadraProxy extends Squadra {
 		return super.getCampionato();
 	 }
 	 
+		public Set<Giocatore_in_rosa> getGiocatori() {
+			if(!firstLoadGiocatori) {
+				 Set<Giocatore_in_rosa> giocatori= new HashSet<Giocatore_in_rosa>();
+					Connection connection = this.dataSource.getConnection();
+					try {
+						PreparedStatement statement;
+						String query = "select * from giocatore_in_rosa where squadra = ?";
+						statement = connection.prepareStatement(query);
+
+						statement.setString(1, getNome());
+
+						ResultSet result = statement.executeQuery();
+						while (result.next()) {
+							Giocatore_in_rosa giocatore = new Giocatore_in_rosa();
+							giocatore.setSquadra(result.getString("squadra"));
+							giocatore.setGiocatore(result.getString("giocatore"));
+
+							giocatori.add(giocatore);
+						}
+					} catch (SQLException e) {
+						throw new RuntimeException(e.getMessage());
+					} finally {
+						try {
+							connection.close();
+						} catch (SQLException e) {
+							throw new RuntimeException(e.getMessage());
+						}
+					}
+					this.setGiocatori(giocatori);
+					firstLoadGiocatori = true;
+				 }
+				return super.getGiocatori();
+		}
 
 }

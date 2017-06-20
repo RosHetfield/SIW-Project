@@ -231,6 +231,7 @@
 	<script src="Script/CreaCampionato.js"></script>
 	<script src="Script/caricaCampionato.js"></script>
 	<script src="Script/loginCampionato.js"></script>
+		<script src="Script/gestioneMercato.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#home-btn').css({'background-color': '#e7e7e7'});

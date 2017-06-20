@@ -88,12 +88,28 @@
     <servlet-name>InvitiController</servlet-name>
     <url-pattern>/Inviti</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>CreaPartitaController</servlet-name>
     <servlet-class>controller.CreaPartitaController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>CreaPartitaController</servlet-name>
     <url-pattern>/CreaPartita</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MercatoController</servlet-name>
+    <servlet-class>controller.MercatoController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MercatoController</servlet-name>
+    <url-pattern>/Mercato</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>GestioneMercatoController</servlet-name>
+    <servlet-class>controller.GestioneMercatoController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GestioneMercatoController</servlet-name>
+    <url-pattern>/GestioneMercato</url-pattern>
   </servlet-mapping>
 </web-app>

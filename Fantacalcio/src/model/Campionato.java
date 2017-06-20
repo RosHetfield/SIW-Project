@@ -15,6 +15,7 @@ public class Campionato implements Serializable {
 	
 	private String nome;
 	private String password;
+	private boolean mercato = true;
 	// riferimenti
 	
 	private Set<Squadra> squadre;
@@ -78,6 +79,14 @@ public class Campionato implements Serializable {
 	
 	public void addPartita(Partita partita) {
 		this.getPartite().add(partita);
+	}
+
+	public boolean isMercato() {
+		return mercato;
+	}
+
+	public void setMercato(boolean mercato) {
+		this.mercato = mercato;
 	}
 
 }

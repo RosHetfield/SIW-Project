@@ -27,7 +27,7 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 <link href="css/formazioniStyle.css" rel="stylesheet" />
 
 
-<title>FantaBomber - Amministratore</title>
+<title>FantaBomber - Gestione Campionato</title>
 
 </head>
 <body>
@@ -228,22 +228,12 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 	</div>
 
 
-	<!-- /.container -->
+<%@ include file = "../fragments/footer.html" %>
 
-
-	<div id="footload"></div>
 
 	<!-- jQuery -->
 	<script src="Script/jquery-3.1.1.min.js" type="text/javascript"></script>
 
-	<!--include header/footer -->
-	<script type="text/javascript">
-			$(function() {
-				$("#footload").load("fragments/footer.html");
-			});
-	
-		
-	</script>
 
 
 	<!-- Bootstrap Core JavaScript -->

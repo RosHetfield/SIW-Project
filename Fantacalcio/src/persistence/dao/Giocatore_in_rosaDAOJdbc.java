@@ -21,8 +21,8 @@ public class Giocatore_in_rosaDAOJdbc implements Giocatore_in_rosaDAO {
 		try {
 			String insert = "insert into giocatore_in_rosa (squadra, giocatore) values (?, ?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
-			statement.setString(1, gir.getSquadra().getNome());
-			statement.setLong(2, gir.getGiocatore().getId());
+			statement.setString(1, gir.getSquadra());
+			statement.setString(2, gir.getGiocatore());
 						
 			
 			statement.executeUpdate();

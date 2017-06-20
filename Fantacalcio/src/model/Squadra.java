@@ -11,12 +11,12 @@ public class Squadra implements Serializable {
 	 */
 	private static final long serialVersionUID = -3350928853887919277L;
 
-	String nome;
-	int crediti;
+	private String nome;
+	private int crediti;
 
 	// riferimenti
-	Utente utente;
-	Campionato campionato;
+	private Utente utente;
+	private Campionato campionato;
 	
 	private Set<Giocatore_in_rosa> giocatori;
 
@@ -74,4 +74,5 @@ public class Squadra implements Serializable {
 	public void removeGiocatore(Giocatore_in_rosa giocatore) {
 		this.getGiocatori().remove(giocatore);
 	}
+
 }
