@@ -31,7 +31,7 @@ function caricaCampionato(c) {
 				//$(document).ready(function() {
 					// var price = $('<p>From $399.99</p>');
 					 console.log('cacacacacaca');
-						$("#divNavbarHome").load("fragments/footer.html");
+						$("#divNavbarHome").load("fragments/homeNavbar.html");
 
 					
 				//});
