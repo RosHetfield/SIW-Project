@@ -16,15 +16,11 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
 
-
 <!-- Table CSS -->
 <link href="css/dataTables.bootstrap.min.css" rel="stylesheet" />
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
 
-
+<!-- sweetAlert CSS -->
 <link href="css/sweetalert.css" type="text/css" rel="stylesheet" />
-
-
 
 <!-- Custom CSS -->
 <link href="css/business-casual.css" rel="stylesheet" />

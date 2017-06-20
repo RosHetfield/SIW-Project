@@ -9,33 +9,35 @@ function aggiungiNavbarSquadra(){
 
 function caricaCampionato(c) {
 	
-	var successBoolean = false;
-	var jsonInvito = {
-			campionato : c
-	}
+	
 	
 	$.ajax({
 
 		async : true,
-		type : "GET",
+		type : "POST",
 		url : "CaricaCampionato",
 		datatype : "json",
 		data : {
 
-			invito : JSON.stringify(jsonInvito),
+			campionato : JSON.stringify(c),
 
 		},
 		success : function(data) {
 
+			console.log(data);
+			if (data == 0) {
 			swal({
 				title : "oooooooooo!",
 				text : "Ittttttttttttttt",
 				type : "error",
 				confirmButtonText : "Ok"
 			});
+			}
 			
-			aggiungiNavbarSquadra(data);
-			//$('#' + u).find("#invita").prop('disabled','true');
+			
+			var a= data['campionato'];
+			console.log(a);
+	
 		},
 		error : function() {
 			
