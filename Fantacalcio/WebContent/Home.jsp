@@ -81,7 +81,7 @@
     		<div class="row ">
 			<div class="col-lg-6 ">
 				<form id="formCreaCampionato" class="register-form box"
-					onsubmit="return registraCampionato(this)" action=""
+					onsubmit="return registraCampionato(this)" action="index.html"
 					method="POST">
 					<hr>
 					<h2 class="intro-text text-center">
@@ -98,7 +98,7 @@
 
 					<h3>Password</h3>
 					<div class="form-group">
-						<input type="password" class="form-control input-lg" id="Password"
+						<input type="password" name="Password_Campionato" class="form-control input-lg" id="Password"
 							name="Password" placeholder="Password" tabindex="2"
 							required="required">
 					</div>

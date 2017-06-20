@@ -4,7 +4,6 @@ function Campionato(nome, password) {
 }
 
 function getCredenzialiForm() {
-	console.log("aaaaaaaaaaaaaaaaaaaaaaa");
 	var campi = $("#formLoginCampionato").find("input");
 
 	var campo = campi.eq(0);
@@ -17,7 +16,6 @@ function getCredenzialiForm() {
 }
 
 function loginCampionato(form) {
-	console.log("bbbbbbbbbbbbbb");
 
 	var successBoolean = false;
 	var credenziali = getCredenzialiForm();
