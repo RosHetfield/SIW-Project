@@ -56,18 +56,18 @@ public class CaricaCampionato extends HttpServlet {
 				request.setAttribute("squadra", squadra);
 				
 				
-			//	ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-			//	String json = ow.writeValueAsString(squadra);				
+				ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+		    	String json = ow.writeValueAsString(squadra);				
 				
 				if(squadra != null)
-				{		
-					response.getWriter().print(0);
+				{						
+					request.getSession().setAttribute("squadra", squadra);////////////////////////////
+					response.getWriter().print(json);
 					response.setStatus(HttpServletResponse.SC_OK);
-					request.getSession().setAttribute("squadra", squadra);
 				}
 				else
 				{
-					response.getWriter().print(1);
+					response.getWriter().print(0);
 				}
 				
 			}

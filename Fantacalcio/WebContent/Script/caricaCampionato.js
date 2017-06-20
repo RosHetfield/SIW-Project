@@ -24,19 +24,29 @@ function caricaCampionato(c) {
 		},
 		success : function(data) {
 
-			console.log(data);
-			if (data == 0) {
-			swal({
-				title : "oooooooooo!",
-				text : "Ittttttttttttttt",
-				type : "error",
-				confirmButtonText : "Ok"
-			});
+			if (data != 0) {
+				
+				var squadra=JSON.parse(data);
+
+				//$(document).ready(function() {
+					// var price = $('<p>From $399.99</p>');
+					 console.log('cacacacacaca');
+						$("#divNavbarHome").load("fragments/footer.html");
+
+					
+				//});
+					
+			
 			}
 			
-			
-			var a= data['campionato'];
-			console.log(a);
+			else{
+				swal({
+					title : "oooooooooo!",
+					text : "Ittttttttttttttt",
+					type : "error",
+					confirmButtonText : "Ok"
+				});
+				}		
 	
 		},
 		error : function() {
