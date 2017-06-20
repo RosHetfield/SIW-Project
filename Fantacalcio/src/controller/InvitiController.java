@@ -16,6 +16,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import model.Campionato;
 import model.Invito;
+import model.Squadra;
+import model.SquadraProxy;
 import model.Utente;
 import persistence.DBManager;
 
@@ -101,15 +103,23 @@ public class InvitiController extends HttpServlet {
 				{
 					DBManager.getInstance().getInvito().delete(invito);
 				}
-				else if(jsRisposta.equals("a")){}
+				else if(risposta.equals("a")) {
+					String jsSquadra = (String) request.getParameter("squadra");
+					String squadra = (String) mapper.readValue(jsSquadra, String.class);
+					if(creaSquadra(invito, squadra)) {						
+						response.getWriter().print(0);
+						DBManager.getInstance().getInvito().delete(invito);
+					}
+					else {
+						response.getWriter().print(0);
+					}
+				}
 				
 				List<Invito> result = DBManager.getInstance().getInvito().findByUtente(username);
 
 				request.setAttribute("Inviti", result);
 				request.setAttribute("CampionatiUtente",
 						(List<String>) request.getSession().getAttribute("CampionatiUtente"));
-				RequestDispatcher dispatcher = request.getRequestDispatcher("Inviti.jsp");
-				dispatcher.forward(request, response);
 
 			}
 
@@ -119,6 +129,21 @@ public class InvitiController extends HttpServlet {
 			}
 		}
 	}
+	}
+	
+	private boolean creaSquadra(Invito invito,String squadra) {
+		Utente utente = DBManager.getInstance().getUtente().findByPrimaryKey(invito.getUtente());
+		Campionato campionato = DBManager.getInstance().getCampionato().findByPrimaryKey(invito.getCampionato());
+		Squadra s = new Squadra();
+		s.setNome(squadra);
+		s.setUtente(utente);
+		s.setCampionato(campionato);
+		s.setCrediti(300);
+		if(DBManager.getInstance().getSquadra().findByPrimaryKey(s.getNome()) != null) {
+			return false;
+		}
+		DBManager.getInstance().getSquadra().save(s);
+		return true;
 	}
 
 }

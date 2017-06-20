@@ -11,7 +11,8 @@ import persistence.DataSource;
 
 public class SquadraProxy extends Squadra {
 	private DataSource dataSource;
-	private boolean firstLoad = false;
+	private boolean firstLoadUtente = false;
+	private boolean firstLoadCampionato = false;
 	 
 	 
 	 public SquadraProxy(DataSource dataSource) {
@@ -19,7 +20,7 @@ public class SquadraProxy extends Squadra {
 	}
 	 
 	 public Utente getUtente() {
-		 if(!firstLoad) {
+		 if(!firstLoadUtente) {
 		 	Utente utente = null;
 			Connection connection = this.dataSource.getConnection();
 			try {
@@ -47,9 +48,40 @@ public class SquadraProxy extends Squadra {
 				}
 			}
 			this.setUtente(utente);
-			firstLoad = true;
+			firstLoadUtente = true;
 		 }
 		return super.getUtente();
+	 }
+	 
+	 public Campionato getCampionato() {
+		 if(!firstLoadCampionato) {
+		 	Campionato campionato = null;
+			Connection connection = this.dataSource.getConnection();
+			try {
+				PreparedStatement statement;
+				String query = "select campionato.* from campionato, squadra where squadra.nome = ? and campionato.nome=squadra.campionato";
+				statement = connection.prepareStatement(query);
+
+				statement.setString(1, getNome());
+
+				ResultSet result = statement.executeQuery();
+				if (result.next()) {
+					campionato = new Campionato();
+					campionato.setNome(result.getString("Nome"));
+				}
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			} finally {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					throw new RuntimeException(e.getMessage());
+				}
+			}
+			this.setCampionato(campionato);
+			firstLoadCampionato = true;
+		 }
+		return super.getCampionato();
 	 }
 	 
 
