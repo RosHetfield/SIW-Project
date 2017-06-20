@@ -100,7 +100,7 @@ function accettaInvito(u, c, r) {
 			data : {
 				invito : JSON.stringify(jsonInvito),
 				risposta : JSON.stringify(r),
-				squadra : JSON.stringify(inputValue),
+				squadra : JSON.stringify(inputValue)
 			},
 			success : function(data) {
 				if (data == 0) {

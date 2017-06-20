@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-pageEncoding="ISO-8859-1"%> <%@taglib
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%> <%@taglib
 uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> <%@ page
 import="model.Campionato"%> <%@ page import="model.Squadra"%> <%@ page
 import="model.Utente"%> <%@page import="java.util.List"%>
@@ -125,6 +125,7 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 				<div class="row box text-center">
 					<hr>
 					<h2 class="intro-text text-center">Crea giornata</h2>
+						<button type="button" class="btn btn-primary" aria-label="Left Align" onclick="creaGiornata()">Crea</button>
 					<hr>
 
 
@@ -140,7 +141,7 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 						<button class="btn btn-default btn-lg dropdown-toggle"
 							type="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false">
-							Giornata N° <span class="caret"></span>
+							Giornata NÂ° <span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu">
 							<li><a href="#">Action</a></li>
@@ -266,7 +267,7 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 		});
 	</script>
 	<script src="Script/gestioneInviti.js"></script>
-	
+	<script src="Script/CreaGiornata.js"></script>
 
 </body>
 </html>

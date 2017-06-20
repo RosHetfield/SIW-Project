@@ -2,10 +2,14 @@ package persistence.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
 import model.Partita;
+import model.PartitaProxy;
+import model.Squadra;
+import model.SquadraProxy;
 import persistence.DataSource;
 
 public class PartitaDAOJdbc implements PartitaDAO {
@@ -38,9 +42,34 @@ public class PartitaDAOJdbc implements PartitaDAO {
 	}
 
 	@Override
-	public Partita findByPrimaryKey(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Partita findByPrimaryKey(int id) {
+		Partita partita = null;
+		Connection connection = this.dataSource.getConnection();
+		try {
+			PreparedStatement statement;
+			String query = "select * from partita where giornata = ?";
+			statement = connection.prepareStatement(query);
+
+			statement.setInt(1, id);
+
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+				partita = new PartitaProxy(dataSource);
+				partita.setGiornata(result.getInt("giornata"));
+
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}
+
+		return partita;	
 	}
 
 	@Override
