@@ -94,7 +94,6 @@ public class InvitiController extends HttpServlet {
 			String username = (String) request.getSession().getAttribute("Username");
 
 			if (username != null) {
-				System.out.println("MADONNA PUTTANA " + username);
 				ObjectMapper mapper = new ObjectMapper();
 				
 				Invito invito = (Invito) mapper.readValue(jsInvito, Invito.class);
@@ -111,7 +110,7 @@ public class InvitiController extends HttpServlet {
 						DBManager.getInstance().getInvito().delete(invito);
 					}
 					else {
-						response.getWriter().print(0);
+						response.getWriter().print(1);
 					}
 				}
 				
@@ -132,6 +131,9 @@ public class InvitiController extends HttpServlet {
 	}
 	
 	private boolean creaSquadra(Invito invito,String squadra) {
+		if(DBManager.getInstance().getSquadra().findByPrimaryKey(squadra) != null) {
+			return false;
+		}
 		Utente utente = DBManager.getInstance().getUtente().findByPrimaryKey(invito.getUtente());
 		Campionato campionato = DBManager.getInstance().getCampionato().findByPrimaryKey(invito.getCampionato());
 		Squadra s = new Squadra();
@@ -139,9 +141,6 @@ public class InvitiController extends HttpServlet {
 		s.setUtente(utente);
 		s.setCampionato(campionato);
 		s.setCrediti(300);
-		if(DBManager.getInstance().getSquadra().findByPrimaryKey(s.getNome()) != null) {
-			return false;
-		}
 		DBManager.getInstance().getSquadra().save(s);
 		return true;
 	}

@@ -2,10 +2,13 @@ package persistence.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
 import model.Squadra;
+import model.SquadraProxy;
+import model.Utente;
 import persistence.DataSource;
 
 public class SquadraDAOJdbc implements SquadraDAO {
@@ -43,8 +46,33 @@ public class SquadraDAOJdbc implements SquadraDAO {
 
 	@Override
 	public Squadra findByPrimaryKey(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		Squadra squadra = null;
+		Connection connection = this.dataSource.getConnection();
+		try {
+			PreparedStatement statement;
+			String query = "select * from squadra where nome = ?";
+			statement = connection.prepareStatement(query);
+
+			statement.setString(1, id);
+
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+				squadra = new SquadraProxy(dataSource);
+				squadra.setNome(result.getString("nome"));
+
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}
+
+		return squadra;	
 	}
 
 	@Override
