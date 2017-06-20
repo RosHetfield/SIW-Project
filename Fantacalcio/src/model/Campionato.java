@@ -13,12 +13,12 @@ public class Campionato implements Serializable {
 	 */
 	private static final long serialVersionUID = -2476245844517669726L;
 	
-	String nome;
-	String password;
+	private String nome;
+	private String password;
 	// riferimenti
 	
-	 Set<Squadra> squadre;
-	 Set<Partita> partite;
+	private Set<Squadra> squadre;
+	private Set<Partita> partite;
 	
 	public Campionato(String nome, String password) {
 		super();

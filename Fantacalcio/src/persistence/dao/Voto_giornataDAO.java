@@ -10,4 +10,5 @@ public interface Voto_giornataDAO {
 	public List<Voto_giornata> findAll();       
 	public void update(Voto_giornata voto_giornata); //Update
 	public void delete(Voto_giornata voto_giornata); //Delete	
+	public int getUltimaGiornata();
 }

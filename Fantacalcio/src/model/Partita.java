@@ -19,15 +19,11 @@ public class Partita implements Serializable {
 	
 	public Partita() {
 		super();
-		this.campionato = new Campionato();
-		this.giocatori = new HashSet<Giocatore_in_formazione>();
 	}
 
 	public Partita(int giornata) {
 		super();
 		this.giornata = giornata;
-		this.campionato = new Campionato();
-		this.giocatori = new HashSet<Giocatore_in_formazione>();
 	}
 
 	public int getGiornata() {

@@ -2,6 +2,7 @@ package persistence.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -57,7 +58,9 @@ public class Voto_giornataDAOJdbc implements Voto_giornataDAO {
 			
 		}
 	}
-
+	
+	
+	
 	@Override
 	public Voto_giornata findByPrimaryKey(String id) {
 		// TODO Auto-generated method stub
@@ -80,6 +83,35 @@ public class Voto_giornataDAOJdbc implements Voto_giornataDAO {
 	public void delete(Voto_giornata voto_giornata) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public int getUltimaGiornata() {
+		int giornata = -1;
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String query = "select giornata from voto_giornata "
+					+ "where giornata=(select max(giornata) from voto_giornata)";
+			PreparedStatement statement = connection.prepareStatement(query);
+			ResultSet result = statement.executeQuery();
+			if (result.next()) {
+				giornata = result.getInt("giornata");
+			} else {
+				giornata = 0;				
+			}
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+			
+		}
+		
+		return giornata;
 	}
 
 }

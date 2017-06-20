@@ -88,4 +88,12 @@
     <servlet-name>InvitiController</servlet-name>
     <url-pattern>/Inviti</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>CreaPartitaController</servlet-name>
+    <servlet-class>controller.CreaPartitaController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreaPartitaController</servlet-name>
+    <url-pattern>/CreaPartita</url-pattern>
+  </servlet-mapping>
 </web-app>
