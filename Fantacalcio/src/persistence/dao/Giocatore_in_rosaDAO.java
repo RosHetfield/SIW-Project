@@ -2,6 +2,7 @@ package persistence.dao;
 
 import java.util.List;
 
+import model.Giocatore;
 import model.Giocatore_in_rosa;
 
 public interface Giocatore_in_rosaDAO {
@@ -10,4 +11,5 @@ public interface Giocatore_in_rosaDAO {
 	public void update(Giocatore_in_rosa gir); //Update
 	public void delete(Giocatore_in_rosa gir); //Delete	
 	public List<Giocatore_in_rosa> findAll(); 
+	public List<Giocatore> getGiocatoriInRosa(String squadra);
 }

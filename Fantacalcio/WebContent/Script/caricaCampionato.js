@@ -32,6 +32,7 @@ function caricaCampionato(c) {
 					// console.log('cacacacacaca');
 						
 						$("#NavbarHome").load("fragments/homeNavbar.html")
+					//	$('#btnSquadra').append("<a>asdasda</a>");
 				});
 					
 			

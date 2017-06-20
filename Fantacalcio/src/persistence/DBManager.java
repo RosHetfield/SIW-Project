@@ -57,11 +57,11 @@ public class DBManager {
 		return campionato;
 	}
 
-	public Giocatore_in_formazioneDAO getGiocatore_in_formazioneDAO() {
+	public Giocatore_in_formazioneDAO getGiocatore_in_formazione() {
 		return giocatore_in_formazioneDAO;
 	}
 
-	public Giocatore_in_rosaDAO getGiocatore_in_rosaDAO() {
+	public Giocatore_in_rosaDAO getGiocatore_in_rosa() {
 		return giocatore_in_rosaDAO;
 	}
 

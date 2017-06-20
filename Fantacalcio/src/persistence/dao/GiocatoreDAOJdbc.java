@@ -110,4 +110,10 @@ public class GiocatoreDAOJdbc implements GiocatoreDAO {
 		}
 		return giocatori;
 	}
+
+	@Override
+	public List<Giocatore> getGiocatoriSvincolati(String squadra) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
