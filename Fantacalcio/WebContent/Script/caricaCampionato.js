@@ -29,8 +29,7 @@ function caricaCampionato(c) {
 				var squadra=JSON.parse(data);
 
 				$(document).ready(function() {
-					// var price = $('<p>From $399.99</p>');
-					 console.log('cacacacacaca');
+					// console.log('cacacacacaca');
 						
 						$("#NavbarHome").load("fragments/homeNavbar.html")
 				});
