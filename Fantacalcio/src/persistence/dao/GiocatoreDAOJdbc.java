@@ -45,7 +45,7 @@ public class GiocatoreDAOJdbc implements GiocatoreDAO {
 	}
 
 	@Override
-	public Giocatore findByPrimaryKey(Long id) {
+	public Giocatore findByPrimaryKey(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
