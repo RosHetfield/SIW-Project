@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import model.Campionato;
@@ -74,12 +77,19 @@ public class GestioneMercatoController extends HttpServlet {
 					String giocatore = (String) mapper.readValue(jsGiocatore, String.class);
 					String risposta = (String) mapper.readValue(jsRisposta, String.class);
 					Giocatore g = DBManager.getInstance().getGiocatore().findByPrimaryKey(giocatore);
-					if (risposta.equals("t")) {
-						int res = inserisciInRosa(s, g);
-							response.getWriter().print(res);
+					JSONObject jsRes = new JSONObject();
+					try {
+						if (risposta.equals("t")) {
+							jsRes.put("status", inserisciInRosa(s, g));
+							jsRes.put("crediti", s.getCrediti());
+							response.getWriter().print(jsRes);
+						} else if (risposta.equals("f")) {
+							jsRes.put("status", rimuoviDaRosa(s, g));
+							jsRes.put("crediti", s.getCrediti());
+							response.getWriter().println(jsRes);
 						}
-					} else if (risposta.equals("f")) {
-						rimuoviDaRosa(s, g);
+					} catch (JSONException e) {
+						e.printStackTrace();
 					}
 
 				}
@@ -92,23 +102,24 @@ public class GestioneMercatoController extends HttpServlet {
 		if (squadra.getCrediti() - giocatore.getValore() < 0) {
 			return 1;
 		}
-		int cont_ruolo = DBManager.getInstance().getGiocatore_in_rosa().n_giocatoriRuolo(squadra.getNome(),giocatore.getRuolo());
-		
+		int cont_ruolo = DBManager.getInstance().getGiocatore_in_rosa().n_giocatoriRuolo(squadra.getNome(),
+				giocatore.getRuolo());
+
 		switch (giocatore.getRuolo()) {
 		case "P": {
-			if(cont_ruolo == 3) 
+			if (cont_ruolo == 3)
 				return 2;
 		}
 		case "D": {
-			if(cont_ruolo == 8)
+			if (cont_ruolo == 8)
 				return 3;
 		}
 		case "C": {
-			if(cont_ruolo == 8)
+			if (cont_ruolo == 8)
 				return 4;
 		}
 		case "A": {
-			if(cont_ruolo == 6)
+			if (cont_ruolo == 6)
 				return 5;
 		}
 		}
@@ -119,8 +130,12 @@ public class GestioneMercatoController extends HttpServlet {
 		return 0;
 	}
 
-	private void rimuoviDaRosa(Squadra squadra, Giocatore giocatore) {
-
+	private int rimuoviDaRosa(Squadra squadra, Giocatore giocatore) {
+		Giocatore_in_rosa gir = new Giocatore_in_rosa(giocatore.getNome(), squadra.getNome());
+		squadra.setCrediti(squadra.getCrediti() + giocatore.getValore());
+		DBManager.getInstance().getGiocatore_in_rosa().delete(gir);
+		DBManager.getInstance().getSquadra().update(squadra);
+		return 6;
 	}
 
 }

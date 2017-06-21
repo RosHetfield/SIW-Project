@@ -86,23 +86,50 @@ function rosa(g, r) {
 		url : "AperturaMercato",
 		datatype : "json",
 		data : {
-			giocatore : stringify(g),
+			giocatore : JSON.stringify(g),
 			risposta : JSON.stringify(r)
 		},
 		success : function(data) {
 			if (data == 0) {
-				swal({
-					title : "Mercato Aperto!",
-					type : "success",
-					confirmButtonText : "Ok"
-				});
+				
 			}
 			else if (data == 1) {
 				swal({
-					title : "Mercato Chiuso!",
-					type : "success",
+					title : "Numero massimo Portieri raggiunto!",
+					type : "warning",
 					confirmButtonText : "Ok"
 				});
+			}
+			else if (data == 2) {
+				swal({
+					title : "Numero massimo Difensori raggiunto!",
+					type : "warning",
+					confirmButtonText : "Ok"
+				});
+			}
+			else if (data == 3) { 
+				swal({
+					title : "Numero massimo Centrocampisti raggiunto!",
+					type : "warning",
+					confirmButtonText : "Ok"
+				});
+			}
+			else if (data == 4) {
+				swal({
+					title : "Numero massimo Attaccanti raggiunto!",
+					type : "warning",
+					confirmButtonText : "Ok"
+				});
+			}
+			else if (data == 5) {
+				swal({
+					title : "Numero massimo portieri raggiunto!",
+					type : "warning",
+					confirmButtonText : "Ok"
+				});
+			}
+			else if (data == 6) {
+				
 			}
 		},
 		error : function(data) {
