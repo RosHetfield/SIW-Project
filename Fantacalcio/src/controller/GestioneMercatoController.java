@@ -53,21 +53,22 @@ public class GestioneMercatoController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		if (request.getAttributeNames().hasMoreElements()) {
+System.out.println("ASSO " + request.getParameter("giocatore"));
+System.out.println("ASSO " + request.getParameter("risposta"));
+		if (request.getParameterNames().hasMoreElements()) {
 			response.setContentType("text/html");
 
 			String username = (String) request.getSession().getAttribute("Username");
-
+			System.out.println("PRIMA " + username);
 			if (username != null) {
 
-				System.out.println("Sessione Utente " + username);
+				System.out.println("Sessione UTENTE " + username);
 				String campionato = (String) request.getSession().getAttribute("campionato");
 				String squadra = (String) request.getSession().getAttribute("squadra");
 
 				if (campionato != null && squadra != null) {///// ??
-					System.out.println("Sessione Campionato uuuuu" + campionato);
-					System.out.println("Sessione Squadra uuuuu" + squadra);
+					System.out.println("Sessione CAMPIONATO uuuuu" + campionato);
+					System.out.println("Sessione SQUADRA uuuuu" + squadra);
 
 					Squadra s = DBManager.getInstance().getSquadra().findByPrimaryKey(squadra);
 					String jsGiocatore = request.getParameter("giocatore");
@@ -80,7 +81,9 @@ public class GestioneMercatoController extends HttpServlet {
 					JSONObject jsRes = new JSONObject();
 					try {
 						if (risposta.equals("t")) {
-							jsRes.put("status", inserisciInRosa(s, g));
+							int res = inserisciInRosa(s, g);
+							System.out.println("RISULTATO " + res);
+							jsRes.put("status", res);
 							jsRes.put("crediti", s.getCrediti());
 							response.getWriter().print(jsRes);
 						} else if (risposta.equals("f")) {
@@ -99,28 +102,31 @@ public class GestioneMercatoController extends HttpServlet {
 	}
 
 	private int inserisciInRosa(Squadra squadra, Giocatore giocatore) {
-		if (squadra.getCrediti() - giocatore.getValore() < 0) {
+		if ((squadra.getCrediti() - giocatore.getValore()) < 0) {
 			return 1;
 		}
-		int cont_ruolo = DBManager.getInstance().getGiocatore_in_rosa().n_giocatoriRuolo(squadra.getNome(),
-				giocatore.getRuolo());
-
+		int cont_ruolo = DBManager.getInstance().getGiocatore_in_rosa().n_giocatoriRuolo(squadra.getNome(),giocatore.getRuolo());
+		System.out.println("GGGGGGGGGGGGG");
 		switch (giocatore.getRuolo()) {
 		case "P": {
 			if (cont_ruolo == 3)
 				return 2;
+			break;
 		}
 		case "D": {
 			if (cont_ruolo == 8)
 				return 3;
+			break;
 		}
 		case "C": {
 			if (cont_ruolo == 8)
 				return 4;
+			break;
 		}
 		case "A": {
 			if (cont_ruolo == 6)
 				return 5;
+			break;
 		}
 		}
 		Giocatore_in_rosa gir = new Giocatore_in_rosa(giocatore.getNome(), squadra.getNome());
@@ -131,6 +137,7 @@ public class GestioneMercatoController extends HttpServlet {
 	}
 
 	private int rimuoviDaRosa(Squadra squadra, Giocatore giocatore) {
+		
 		Giocatore_in_rosa gir = new Giocatore_in_rosa(giocatore.getNome(), squadra.getNome());
 		squadra.setCrediti(squadra.getCrediti() + giocatore.getValore());
 		DBManager.getInstance().getGiocatore_in_rosa().delete(gir);

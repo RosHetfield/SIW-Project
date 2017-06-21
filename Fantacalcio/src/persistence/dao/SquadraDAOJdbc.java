@@ -60,7 +60,7 @@ public class SquadraDAOJdbc implements SquadraDAO {
 			if (result.next()) {
 				squadra = new SquadraProxy(dataSource);
 				squadra.setNome(result.getString("nome"));
-
+				squadra.setCrediti(result.getInt("crediti"));
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
