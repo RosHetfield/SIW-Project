@@ -112,12 +112,20 @@
     <servlet-name>GestioneMercatoController</servlet-name>
     <url-pattern>/GestioneMercato</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>AperturaMercatoController</servlet-name>
     <servlet-class>controller.AperturaMercatoController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AperturaMercatoController</servlet-name>
     <url-pattern>/AperturaMercato</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>FormazioneController</servlet-name>
+    <servlet-class>controller.FormazioneController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FormazioneController</servlet-name>
+    <url-pattern>/Formazione</url-pattern>
   </servlet-mapping>
 </web-app>

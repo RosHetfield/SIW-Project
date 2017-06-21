@@ -49,7 +49,7 @@ public class CaricaCampionato extends HttpServlet {
 				
 				request.getSession().setAttribute("campionato", campionato);
 				
-				Squadra squadra=DBManager.getInstance().getUtente().getSquadraCampionato(utente, campionato);
+				String squadra=DBManager.getInstance().getUtente().getSquadraCampionato(utente, campionato);
 				request.getSession().setAttribute("squadra", squadra);
 				
 				

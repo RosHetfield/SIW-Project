@@ -10,7 +10,6 @@ import java.util.List;
 
 import model.Campionato;
 import model.CampionatoProxy;
-import model.Squadra;
 import model.SquadraProxy;
 import model.Utente;
 import persistence.DataSource;
@@ -176,8 +175,8 @@ public class UtenteDAOJdbc implements UtenteDAO {
 	}
 
 	@Override
-	public Squadra getSquadraCampionato(String utente, String campionato) {
-		Squadra squadra = new Squadra();
+	public String getSquadraCampionato(String utente, String campionato) {
+		String squadra = new String();
 		Connection connection = this.dataSource.getConnection();
 		try {
 			PreparedStatement statement;
@@ -192,8 +191,7 @@ public class UtenteDAOJdbc implements UtenteDAO {
 
 			if (result.next()) {				
 				
-				squadra.setNome(result.getString("nome"));
-				squadra.setCrediti(result.getInt("crediti"));
+				squadra=result.getString("nome");
 	
 			}
 		} catch (SQLException e) {

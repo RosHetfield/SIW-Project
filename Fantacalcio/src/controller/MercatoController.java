@@ -53,12 +53,10 @@ public class MercatoController extends HttpServlet {
 				
 						
 						
-						Squadra s=(Squadra) request.getSession().getAttribute("squadra");
-						//String s="albinoleffe";
-						System.out.println(s.getNome()); 
+						String s=(String) request.getSession().getAttribute("squadra");
 
-						List<Giocatore> giocatoriInRosa = DBManager.getInstance().getGiocatore_in_rosa().getGiocatoriInRosa(s.getNome());
-						List<Giocatore> giocatoriSvincolati=DBManager.getInstance().getGiocatore().getGiocatoriSvincolati(s.getNome());						
+						List<Giocatore> giocatoriInRosa = DBManager.getInstance().getGiocatore_in_rosa().getGiocatoriInRosa(s);
+						List<Giocatore> giocatoriSvincolati=DBManager.getInstance().getGiocatore().getGiocatoriSvincolati(s);						
 						request.setAttribute("giocatoriInRosa", giocatoriInRosa);
 						request.setAttribute("giocatoriSvincolati", giocatoriSvincolati);
 
