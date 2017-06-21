@@ -49,9 +49,13 @@ public class FormazioneController extends HttpServlet {
 					String s=(String) request.getSession().getAttribute("squadra");
 					
 					List<Giocatore> giocatoriInRosa = DBManager.getInstance().getGiocatore_in_rosa().getGiocatoriInRosa(s);
-					//List<Giocatore> giocatoriInFormazione = DBManager.getInstance().getGiocatore_in_formazione().;
-					//request.setAttribute("giocatoriInRosa", giocatoriInRosa);
-					request.setAttribute("giocatoriInFormazione", giocatoriInRosa);
+					request.setAttribute("giocatoriInRosa", giocatoriInRosa);
+					
+int giornata=0;
+					List<Giocatore> giocatoriInFormazione = DBManager.getInstance().getGiocatore().getGiocatoriInFormazione(giornata);
+					request.setAttribute("giocatoriInFormazione", giocatoriInFormazione);
+					
+
 
 			
 					response.setContentType("text/html");

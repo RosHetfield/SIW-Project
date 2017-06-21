@@ -10,13 +10,15 @@ console.log("sono la caccaaaaaaa");
 		datatype : "json",
 		data : {},
 		success : function(data) {
-			console.log("sono la gggtthttrk");
 
-			if (data == 0) {
+			if (data == 1) {
+				console.log("sono in success con val 2");
 
 				succ = true;
 			}
-			if (data == 1) {
+			if (data == 0) {
+				console.log("sono in success con val 1");
+
 				swal({
 					title : "Attenzione!",
 					text : "Mercato Chiuso ",

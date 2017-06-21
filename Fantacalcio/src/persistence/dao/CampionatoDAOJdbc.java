@@ -26,10 +26,11 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 	public void save(Campionato campionato) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String insert = "insert into campionato(nome, password) values (?, ?)";
+			String insert = "insert into campionato(nome, password, mercato) values (?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setString(1, campionato.getNome());
-			statement.setString(2, campionato.getPassword());			
+			statement.setString(2, campionato.getPassword());
+			statement.setBoolean(3, campionato.isMercato());
 			
 			statement.executeUpdate();
 		} catch (SQLException e) {

@@ -12,5 +12,6 @@ public interface GiocatoreDAO {
 	public List<Giocatore> findAll(); 
 	public List<Giocatore> getGiocatoreRuolo(String Squadra,String ruolo);
 	public List<Giocatore> getGiocatoriSvincolati(String squadra);
+	public List<Giocatore> getGiocatoriInFormazione(int giornata);
 	
 }

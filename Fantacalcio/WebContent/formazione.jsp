@@ -30,7 +30,7 @@
 <link href="css/formazioniStyle.css" rel="stylesheet" />
 
 
-<title>FantaBomber - Mercato</title>
+<title>FantaBomber - Formazione</title>
 
 </head>
 
@@ -48,7 +48,7 @@
 				<div class="col-lg-12 ">
 
 					<hr>
-					<h2 class="intro-text text-center">Rosa</h2>
+					<h2 class="intro-text text-center">Formazione</h2>
 					<hr>
 
 					<table class="table " id="players_list">
@@ -66,18 +66,13 @@
 									class="visible-xs" data-toggle="tooltip" title="Squadra">S</span>
 								</td>
 
-
-								<td class=""><span class="hidden-xs"> Quotazione</span> <span
-									class="visible-xs" data-toggle="tooltip" title="Quotazione">Q</span>
-								</td>
-
 								<td class="text-center"></td>
 							</tr>
 
 							<%
-								List<Giocatore> inRosa = (List<Giocatore>) request.getAttribute("giocatoriInRosa");
+								List<Giocatore> inFormazione = (List<Giocatore>) request.getAttribute("giocatoriInFormazione");
 
-								if (inRosa.size() == 0) {
+								if (inFormazione.size() == 0) {
 							%>
 							<tr>
 								<td colspan="7">Nessun giocatore</td>
@@ -85,7 +80,7 @@
 							<%
 								} else {
 							%>
-							<c:forEach var="p" items="${giocatoriInRosa}">
+							<c:forEach var="p" items="${giocatoriInFormazione}">
 
 								<tr>
 
@@ -119,9 +114,6 @@
 									<td class=""><span class="" data-toggle="tooltip"
 										title="Squadra">${p.squadra} </span></td>
 
-									<td class=""><span class="" data-toggle="tooltip"
-										title="Valore">${p.valore} </span></td>
-
 									<td class="text-center"><span class=""
 										data-toggle="tooltip" title="Voto">6.00 </span></td>
 								</tr>
@@ -147,26 +139,25 @@
 
 
 
-		<!-- tabella aggiungi -->
+		<!-- tabella rosa -->
 
 		<div class=" row ">
 			<div class="  box ">
 				<div class=" col-lg-12 ">
 
 					<hr>
-					<h2 class="intro-text text-center">Aggiungi giocatore</h2>
+					<h2 class="intro-text text-center">Rosa</h2>
 					<hr>
 
 					<div class="row">
 
-						<table id="tabellaPartecipanti"
+						<table id="tabellaRosa"
 							class="table table-striped table-bordered">
 							<thead class="bg-slate-300">
 								<tr>
 									<th>Ruolo</th>
 									<th class="hidden-xs">Nome Calciatore</th>
 									<th class="hidden-xs">Squadra</th>
-									<th class="hidden-xs">Quotazione</th>
 									<th class="text-center"></th>
 								</tr>
 							</thead>
@@ -177,7 +168,7 @@
 
 
 
-								<c:forEach var="p" items="${giocatoriSvincolati}">
+								<c:forEach var="p" items="${giocatoriInRosa}">
 									<tr>
 
 										<c:choose>
@@ -207,8 +198,6 @@
 										<td class=""><span title="Nome">${p.nome}</span></td>
 
 										<td class=""><span title="Squadra">${p.squadra} </span></td>
-
-										<td class=""><span title="Valore">${p.valore} </span></td>
 
 										<td class="text-center"><span title="Voto">6.00 </span></td>
 									</tr>
@@ -314,10 +303,10 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('#tabellaPartecipanti').DataTable();
+			$('#tabellaRosa').DataTable();
 		});
 	</script>
-
+	
 
 </body>
 </html>

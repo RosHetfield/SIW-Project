@@ -198,4 +198,39 @@ public class GiocatoreDAOJdbc implements GiocatoreDAO {
 		}
 		return giocatori;
 	}
+
+	@Override
+	public List<Giocatore> getGiocatoriInFormazione(int giornata) {
+		Connection connection = this.dataSource.getConnection();
+		List<Giocatore> giocatori= new ArrayList<Giocatore>();
+		try {
+			Giocatore giocatore;
+			String query = "select g.nome, g.ruolo, g.squadra from giocatore as g, giocatore_in_rosa as gr,"
+					+ "giocatore_in_formazione as gf where gf.giornata = ? and gf.giocatore=gr.giocatore and"
+					+ " gr.giocatore= g.nome";
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setInt(1, giornata);
+			
+			ResultSet result = statement.executeQuery();
+			while (result.next()) {
+				giocatore = new Giocatore();
+				
+				giocatore.setNome(result.getString("nome"));
+				giocatore.setRuolo(result.getString("ruolo"));
+				giocatore.setSquadra(result.getString("squadra"));
+				
+				giocatori.add(giocatore);
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+			
+		}
+		return giocatori;
+	}
 }
