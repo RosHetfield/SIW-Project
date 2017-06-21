@@ -92,10 +92,10 @@ public class MercatoController extends HttpServlet {
 			String campionato = (String) request.getSession().getAttribute("campionato");
 			
 			if(campionato != null) {
-				System.out.println("Sessione Campionato " + campionato);
+				System.out.println("Sessione mmmmm " + campionato);
 				Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
 				if(camp.isMercato()) {
-					System.out.println("MADONNA PUTTANA1 " + username);
+					System.out.println("Mmmmmm " + username);
 					response.getWriter().print(0);
 					
 				} else {

@@ -46,21 +46,16 @@ public class FormazioneController extends HttpServlet {
 				Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
 				if(camp.isMercato()) {
 					
-					Squadra s=(Squadra) request.getSession().getAttribute("squadra");
-					//String s="albinoleffe";
-					System.out.println(s.getNome()); 
+					String s=(String) request.getSession().getAttribute("squadra");
+					
+					List<Giocatore> giocatoriInRosa = DBManager.getInstance().getGiocatore_in_rosa().getGiocatoriInRosa(s);
+					//List<Giocatore> giocatoriInFormazione = DBManager.getInstance().getGiocatore_in_formazione().;
+					//request.setAttribute("giocatoriInRosa", giocatoriInRosa);
+					request.setAttribute("giocatoriInFormazione", giocatoriInRosa);
 
-					List<Giocatore> giocatoriInRosa = DBManager.getInstance().getGiocatore_in_rosa().getGiocatoriInRosa(s.getNome());
-					List<Giocatore> giocatoriSvincolati=DBManager.getInstance().getGiocatore().getGiocatoriSvincolati(s.getNome());						
-					request.setAttribute("giocatoriInRosa", giocatoriInRosa);
-					request.setAttribute("giocatoriSvincolati", giocatoriSvincolati);
+			
 					response.setContentType("text/html");
-
-					
-					
-					
-					
-					RequestDispatcher dispatcher = request.getRequestDispatcher("mercato.jsp");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("formazione.jsp");
 					dispatcher.forward(request, response);
 					
 				} else {
@@ -81,8 +76,31 @@ public class FormazioneController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String username = (String) request.getSession().getAttribute("Username");
+
+		if (username != null) {
+			System.out.println("Sessione Utente " + username);
+			String campionato = (String) request.getSession().getAttribute("campionato");
+			
+			if(campionato != null) {
+				System.out.println("Sessione Campionato " + campionato);
+				Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
+				if(!camp.isMercato()) {
+					System.out.println("MADONNA PUTTANA1 " + username);
+					response.getWriter().print(0);
+					System.out.println("sono sotto la panca");
+					
+				} else {
+					response.getWriter().print(1);
+				}
+			
+			}
+
+		}
+		else {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("errore.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 
 }

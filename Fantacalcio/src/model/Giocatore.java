@@ -9,13 +9,12 @@ public class Giocatore implements Serializable {
 	 */
 	private static final long serialVersionUID = 438982547485614742L;
 
-	private Long id;
 	private String nome;
 	private String squadra;
 	private String ruolo;
 	private int valore;
-	
-	////riferimenti
+
+	//// riferimenti
 
 	public Giocatore() {
 		super();
@@ -29,14 +28,6 @@ public class Giocatore implements Serializable {
 		this.valore = valore;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public String getNome() {
 		return nome;
 	}
@@ -44,7 +35,6 @@ public class Giocatore implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
 
 	public String getSquadra() {
 		return squadra;

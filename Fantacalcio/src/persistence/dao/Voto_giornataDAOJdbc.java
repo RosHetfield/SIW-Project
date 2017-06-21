@@ -28,7 +28,7 @@ public class Voto_giornataDAOJdbc implements Voto_giornataDAO {
 			
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setInt(1, voto_giornata.getGiornata());
-			statement.setLong(2, voto_giornata.getGiocatore().getId());
+			statement.setString(2, voto_giornata.getGiocatore().getNome());
 			statement.setDouble(3, voto_giornata.getVoto());
 			statement.setDouble(4, voto_giornata.getFantavoto());
 			statement.setInt(5, voto_giornata.getGoalFatto());
