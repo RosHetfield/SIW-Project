@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import model.Campionato;
 import model.Giocatore;
+import model.Giocatore_in_rosa;
 import model.Invito;
 import model.Squadra;
 import persistence.DBManager;
@@ -22,64 +25,102 @@ import persistence.DBManager;
 @WebServlet("/GestioneMercatoController")
 public class GestioneMercatoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public GestioneMercatoController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public GestioneMercatoController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-		response.setContentType("text/html");
-		
-		String username = (String) request.getSession().getAttribute("Username");
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-		if (username != null) {
-			
-			System.out.println("Sessione Utente " + username);
-			String campionato = (String) request.getSession().getAttribute("campionato");
+		// doPost(request, response);
+	}
 
-			//String s=(String) request.getSession().getAttribute("squadra");
-			String s="albinoleffe";
-			System.out.println(s); 
-			
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-			
-			if(campionato != null) {/////
-				System.out.println("Sessione Campionato uuuuu" + campionato);		
-				
-				
-				List<Giocatore> giocatoriInRosa = DBManager.getInstance().getGiocatore_in_rosa().getGiocatoriInRosa(s);
-				
-				List<Giocatore> giocatoriSvincolati=DBManager.getInstance().getGiocatore().getGiocatoriSvincolati( s);
-				request.setAttribute("giocatoriInRosa", giocatoriInRosa);
-				request.setAttribute("giocatoriSvincolati", giocatoriSvincolati);
+		if (request.getAttributeNames().hasMoreElements()) {
+			response.setContentType("text/html");
 
-				
-				if(giocatoriInRosa!=null)
-					System.out.println("citemmmu");
-				RequestDispatcher dispatcher = request.getRequestDispatcher("mercato.jsp");
+			String username = (String) request.getSession().getAttribute("Username");
 
-				dispatcher.forward(request, response);
+			if (username != null) {
+
+				System.out.println("Sessione Utente " + username);
+				String campionato = (String) request.getSession().getAttribute("campionato");
+				String squadra = (String) request.getSession().getAttribute("squadra");
+
+				if (campionato != null && squadra != null) {///// ??
+					System.out.println("Sessione Campionato uuuuu" + campionato);
+					System.out.println("Sessione Squadra uuuuu" + squadra);
+
+					Squadra s = DBManager.getInstance().getSquadra().findByPrimaryKey(squadra);
+					String jsGiocatore = request.getParameter("giocatore");
+					String jsRisposta = request.getParameter("risposta");
+					// if jsRisposta & jsGiocatore != null??
+					ObjectMapper mapper = new ObjectMapper();
+					String giocatore = (String) mapper.readValue(jsGiocatore, String.class);
+					String risposta = (String) mapper.readValue(jsRisposta, String.class);
+					Giocatore g = DBManager.getInstance().getGiocatore().findByPrimaryKey(giocatore);
+					if (risposta.equals("t")) {
+						int res = inserisciInRosa(s, g);
+							response.getWriter().print(res);
+						}
+					} else if (risposta.equals("f")) {
+						rimuoviDaRosa(s, g);
+					}
+
+				}
+
 			}
-
 		}
-		else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("errore.jsp");
-			dispatcher.forward(request, response);
-		}	}
+	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+	private int inserisciInRosa(Squadra squadra, Giocatore giocatore) {
+		if (squadra.getCrediti() - giocatore.getValore() < 0) {
+			return 1;
+		}
+		int cont_ruolo = DBManager.getInstance().getGiocatore_in_rosa().n_giocatoriRuolo(squadra.getNome(),giocatore.getRuolo());
+		
+		switch (giocatore.getRuolo()) {
+		case "P": {
+			if(cont_ruolo == 3) 
+				return 2;
+		}
+		case "D": {
+			if(cont_ruolo == 8)
+				return 3;
+		}
+		case "C": {
+			if(cont_ruolo == 8)
+				return 4;
+		}
+		case "A": {
+			if(cont_ruolo == 6)
+				return 5;
+		}
+		}
+		Giocatore_in_rosa gir = new Giocatore_in_rosa(giocatore.getNome(), squadra.getNome());
+		squadra.setCrediti(squadra.getCrediti() - giocatore.getValore());
+		DBManager.getInstance().getGiocatore_in_rosa().save(gir);
+		DBManager.getInstance().getSquadra().update(squadra);
+		return 0;
+	}
+
+	private void rimuoviDaRosa(Squadra squadra, Giocatore giocatore) {
+
 	}
 
 }

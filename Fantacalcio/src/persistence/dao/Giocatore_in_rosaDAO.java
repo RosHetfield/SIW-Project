@@ -12,4 +12,5 @@ public interface Giocatore_in_rosaDAO {
 	public void delete(Giocatore_in_rosa gir); //Delete	
 	public List<Giocatore_in_rosa> findAll(); 
 	public List<Giocatore> getGiocatoriInRosa(String squadra);
+	public int n_giocatoriRuolo(String squadra, String ruolo);
 }

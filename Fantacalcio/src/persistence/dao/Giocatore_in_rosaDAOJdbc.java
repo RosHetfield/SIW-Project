@@ -102,6 +102,36 @@ public class Giocatore_in_rosaDAOJdbc implements Giocatore_in_rosaDAO {
 		return giocatori;
 		
 	}
+
+	@Override
+	public int n_giocatoriRuolo(String squadra, String ruolo) {
+		int count = -1;
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String query = "select count(*) from giocatore_in_rosa as g, giocatore, squadra"
+					+ "where g.squadra = squadra.nome and g.giocatore = giocatore.nome "
+					+ "and giocatore.ruolo = ? and squadra.nome = ?";
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setString(1, ruolo);
+			statement.setString(1, squadra);
+			ResultSet result = statement.executeQuery();
+			if (result.next()) {
+				count = result.getInt("giornata");
+			} 
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+			
+		}
+		
+		return count;
+	}
 	
 
 }
