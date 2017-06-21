@@ -67,8 +67,37 @@ public class GiocatoreDAOJdbc implements GiocatoreDAO {
 
 	@Override
 	public List<Giocatore> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Connection connection = this.dataSource.getConnection();
+		List<Giocatore> giocatori = new ArrayList<Giocatore>();
+		try {
+			Giocatore giocatore;
+			PreparedStatement statement;
+			String query = "select * from giocatore ";
+
+			statement = connection.prepareStatement(query);
+
+			ResultSet result = statement.executeQuery();
+			while (result.next()) {
+				giocatore = new Giocatore();
+
+				giocatore.setNome(result.getString("Nome"));
+				giocatore.setRuolo(result.getString("Ruolo"));
+				giocatore.setSquadra(result.getString("Squadra"));
+				giocatore.setValore(result.getInt("Valore"));
+
+				giocatori.add(giocatore);
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+
+		}
+		return giocatori;
 	}
 
 	@Override
@@ -90,7 +119,6 @@ public class GiocatoreDAOJdbc implements GiocatoreDAO {
 			while (result.next()) {
 				giocatore = new Giocatore();
 
-				giocatore.setId(result.getLong("Id"));
 				giocatore.setNome(result.getString("Nome"));
 				giocatore.setRuolo(result.getString("Ruolo"));
 				giocatore.setSquadra(result.getString("Squadra"));
@@ -113,7 +141,36 @@ public class GiocatoreDAOJdbc implements GiocatoreDAO {
 
 	@Override
 	public List<Giocatore> getGiocatoriSvincolati(String squadra) {
-		// TODO Auto-generated method stub
-		return null;
+		Connection connection = this.dataSource.getConnection();
+		List<Giocatore> giocatori= new ArrayList<Giocatore>();
+		try {
+			Giocatore giocatore;
+			String query = "select g.nome, g.ruolo, g.valore, g.squadra from giocatore as g where not exists "
+					+ "(select * from giocatore_in_rosa as gf where  gf.squadra = ? and g.nome = gf.giocatore) ";
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setString(1, squadra);
+			
+			ResultSet result = statement.executeQuery();
+			while (result.next()) {
+				giocatore = new Giocatore();
+				
+				giocatore.setNome(result.getString("nome"));
+				giocatore.setRuolo(result.getString("ruolo"));
+				giocatore.setSquadra(result.getString("squadra"));
+				giocatore.setValore(result.getInt("valore"));
+				
+				giocatori.add(giocatore);
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+			
+		}
+		return giocatori;
 	}
 }

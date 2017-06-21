@@ -73,11 +73,11 @@ public class Giocatore_in_rosaDAOJdbc implements Giocatore_in_rosaDAO {
 		List<Giocatore> giocatori= new ArrayList<Giocatore>();
 		try {
 			Giocatore giocatore;
-			PreparedStatement statement;
-			String query = "select g.nome, g.ruolo, g.valore, g.squadra from giocatore as g where"
-					+ " not exists(select * from giocatore_in_formazione as gf where g.nome=gf.giocatore) ";
-			////////////////
-			statement = connection.prepareStatement(query);
+			String query = "select g.nome, g.ruolo, g.valore, g.squadra from giocatore as g,giocatore_in_rosa as gf"
+					+ " where  gf.squadra = ? and g.nome = gf.giocatore ";
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setString(1, squadra);
+			
 			ResultSet result = statement.executeQuery();
 			while (result.next()) {
 				giocatore = new Giocatore();

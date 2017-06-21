@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Campionato;
+import model.Giocatore;
 import model.Invito;
+import model.Squadra;
 import persistence.DBManager;
 
 /**
@@ -47,7 +49,24 @@ public class MercatoController extends HttpServlet {
 					Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
 					if(camp.isMercato()) {
 						System.out.println("MADONNA PUTTANA " + username);
-						RequestDispatcher dispatcher = request.getRequestDispatcher("mercato.html");
+						
+				
+						
+						
+						Squadra s=(Squadra) request.getSession().getAttribute("squadra");
+						//String s="albinoleffe";
+						System.out.println(s.getNome()); 
+
+						List<Giocatore> giocatoriInRosa = DBManager.getInstance().getGiocatore_in_rosa().getGiocatoriInRosa(s.getNome());
+						List<Giocatore> giocatoriSvincolati=DBManager.getInstance().getGiocatore().getGiocatoriSvincolati(s.getNome());						
+						request.setAttribute("giocatoriInRosa", giocatoriInRosa);
+						request.setAttribute("giocatoriSvincolati", giocatoriSvincolati);
+
+						
+						
+						
+						
+						RequestDispatcher dispatcher = request.getRequestDispatcher("mercato.jsp");
 						dispatcher.forward(request, response);
 						
 					} else {

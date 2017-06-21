@@ -36,12 +36,9 @@ public class CaricaCampionato extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	if (request.getParameterNames().hasMoreElements()) {
 			
-		
+		String utente = (String) request.getSession().getAttribute("Username");
 	
 		String jsString= request.getParameter("campionato");
-
-		String utente = (String) request.getSession().getAttribute("Username");
-
 		ObjectMapper mapper = new ObjectMapper();
 		String  campionato = (String) mapper.readValue(jsString,String.class);
 	
@@ -53,7 +50,7 @@ public class CaricaCampionato extends HttpServlet {
 				request.getSession().setAttribute("campionato", campionato);
 				
 				Squadra squadra=DBManager.getInstance().getUtente().getSquadraCampionato(utente, campionato);
-				request.setAttribute("squadra", squadra);
+				request.getSession().setAttribute("squadra", squadra);
 				
 				
 				ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
