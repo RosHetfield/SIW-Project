@@ -97,7 +97,7 @@ function rosa(g, r) {
 			if (res.status == 0) {
 				console.log("ok");
 				$('#' + g).find("#aggiungi").remove();
-				$('#' + g).find(".text-center").append(rimuovi);
+				$('#' + g).find(".text-center").remove();
 				$('#players_list').append($('#' + g));
 				swal({
 					title : "Giocatore aggiunto!",
