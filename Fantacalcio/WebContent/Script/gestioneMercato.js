@@ -97,7 +97,9 @@ function rosa(g, r) {
 			if (res.status == 0) {
 				console.log("ok");
 				$('#' + g).find("#aggiungi").remove();
-				$('#' + g).find(".text-center").remove();
+				var table = $('#tabellaPartecipanti').DataTable();
+				table.row('#' + u).remove().draw( false );
+//				$('#' + g).find(".text-center").remove();
 				$('#players_list').append($('#' + g));
 				swal({
 					title : "Giocatore aggiunto!",
@@ -162,4 +164,13 @@ function rosa(g, r) {
 			});
 		}
 	});
+}
+
+function deleteRow() {
+	
+	 
+ 
+    $('#' + u).find("#invita").click( function () {
+        table.row('.selected').remove().draw( false );
+    } );
 }
