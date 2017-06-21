@@ -132,7 +132,14 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 					<h4>Apri mercato</h4>
 					<br>
 					<label class="switch">
-  						<input type="checkbox" onclick="apriMercato()" id="apri_mercato">
+						<c:choose>
+							<c:when test="${Campionato.mercato}">
+		  						<input type="checkbox" checked onclick="aperturaMercato()" id="mercato">
+							</c:when>
+							<c:otherwise>
+								<input type="checkbox"  onclick="aperturaMercato()" id="mercato">
+							</c:otherwise>
+						</c:choose>
   						<div class="slider round"></div>
 						
 					</label><br><br>

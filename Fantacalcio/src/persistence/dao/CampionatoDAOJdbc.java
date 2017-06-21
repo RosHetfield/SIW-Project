@@ -85,7 +85,26 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 
 	@Override
 	public void update(Campionato campionato) {
-		// TODO Auto-generated method stub
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String update = "update campionato set nome = ?, password = ?, mercato = ? "
+					+ "where nome = ?";
+			PreparedStatement statement = connection.prepareStatement(update);
+			statement.setString(1, campionato.getNome());
+			statement.setString(2, campionato.getPassword());			
+			statement.setBoolean(3, campionato.isMercato());
+			statement.setString(4, campionato.getNome());
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+			
+		}
 
 	}
 

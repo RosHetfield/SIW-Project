@@ -38,10 +38,10 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 					<p>Campionato "<i>${i.campionato}</i>"</p>
 				</div>
 				<div class="col-lg-2 text center ">
-					<button type="button" class="btn btn-lg btn-success " onclick="accettaInvito('${i.utente}','${i.campionato}','a','${i.utente}')"> Accetta </button>
+					<button type="button" class="btn btn-lg btn-success " onclick="accettaInvito('${i.utente}','${i.campionato}','a')"> Accetta </button>
 				</div>
 				<div class="col-lg-2 text-center">
-					<button type="button" class="btn btn-lg btn-danger" onclick="rifiutaInvito('${i.utente}','${i.campionato}','r','${i.utente}')"> Rifiuta </button>
+					<button type="button" class="btn btn-lg btn-danger" onclick="rifiutaInvito('${i.utente}','${i.campionato}','r')"> Rifiuta </button>
 				</div>
 			</div>
 		</c:forEach>

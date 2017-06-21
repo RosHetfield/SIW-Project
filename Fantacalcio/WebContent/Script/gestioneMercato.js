@@ -1,9 +1,7 @@
 
-
 function mercato() {
-	
+
 	var succ = false;
-	console.log("eeeeee");
 	$.ajax({
 
 		async : false,
@@ -12,11 +10,11 @@ function mercato() {
 		datatype : "json",
 		data : {},
 		success : function(data) {
-			if(data == 0) {
-				
+			if (data == 0) {
+
 				succ = true;
 			}
-			 if(data == 1) {
+			if (data == 1) {
 				swal({
 					title : "Attenzione!",
 					text : "Mercato Chiuso ",
@@ -33,11 +31,87 @@ function mercato() {
 	return Boolean(succ)
 }
 
-function apriMercato() {
-	if($('#apri_mercato').prop('checked')){
-    	alert("The ontoggle true event occured");
-    }
-    else {
-    	alert("The ontoggle false event occured");
-    }
+function aperturaMercato() {
+	
+	if($('#mercato').prop("checked")) {
+		var r = 't';
+	}
+	else {
+		var r = 'f';
+	}
+	
+	$.ajax({
+
+		async : true,
+		type : "POST",
+		url : "AperturaMercato",
+		datatype : "json",
+		data : {
+			risposta : JSON.stringify(r)
+		},
+		success : function(data) {
+			if (data == 0) {
+				swal({
+					title : "Mercato Aperto!",
+					type : "success",
+					confirmButtonText : "Ok"
+				});
+			}
+			else if (data == 1) {
+				swal({
+					title : "Mercato Chiuso!",
+					type : "success",
+					confirmButtonText : "Ok"
+				});
+			}
+		},
+		error : function(data) {
+			swal({
+				title : "Errore!",
+				text : "Impossibile completare l'operazione",
+				type : "error",
+				confirmButtonText : "Ok"
+			});
+		}
+	});
+}
+
+function rosa(g, r) {
+	
+	
+	$.ajax({
+
+		async : true,
+		type : "POST",
+		url : "AperturaMercato",
+		datatype : "json",
+		data : {
+			giocatore : stringify(g),
+			risposta : JSON.stringify(r)
+		},
+		success : function(data) {
+			if (data == 0) {
+				swal({
+					title : "Mercato Aperto!",
+					type : "success",
+					confirmButtonText : "Ok"
+				});
+			}
+			else if (data == 1) {
+				swal({
+					title : "Mercato Chiuso!",
+					type : "success",
+					confirmButtonText : "Ok"
+				});
+			}
+		},
+		error : function(data) {
+			swal({
+				title : "Errore!",
+				text : "Impossibile completare l'operazione",
+				type : "error",
+				confirmButtonText : "Ok"
+			});
+		}
+	});
 }
