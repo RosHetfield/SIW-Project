@@ -105,19 +105,23 @@ public class Giocatore_in_rosaDAOJdbc implements Giocatore_in_rosaDAO {
 
 	@Override
 	public int n_giocatoriRuolo(String squadra, String ruolo) {
-		int count = -1;
+		int count = 0;
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String query = "select count(*) from giocatore_in_rosa as g, giocatore, squadra"
+			String query = "select count(*) as c from giocatore_in_rosa as g, giocatore, squadra "
 					+ "where g.squadra = squadra.nome and g.giocatore = giocatore.nome "
 					+ "and giocatore.ruolo = ? and squadra.nome = ?";
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setString(1, ruolo);
-			statement.setString(1, squadra);
+			statement.setString(2, squadra);
+			System.out.println("CRISTO");
 			ResultSet result = statement.executeQuery();
+			System.out.println("CRISTO GESU");
 			if (result.next()) {
-				count = result.getInt("giornata");
-			} 
+				count = result.getInt("count");
+				System.out.println("DIO");
+			}
+			
 			
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());

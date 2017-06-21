@@ -87,7 +87,7 @@
 							%>
 							<c:forEach var="p" items="${giocatoriInRosa}">
 
-								<tr>
+								<tr id="${p.nome}">
 
 									<c:choose>
 										<c:when test="${p.ruolo == 'P'}">
@@ -122,8 +122,9 @@
 									<td class=""><span class="" data-toggle="tooltip"
 										title="Valore">${p.valore} </span></td>
 
-									<td class="text-center"><span class=""
-										data-toggle="tooltip" title="Voto">6.00 </span></td>
+									<td class="text-center">
+										<input id="rimuovi" type="submit" value="Rimuovi" class="btn btn-danger btn-sm" onclick="rosa('${p.nome}','f')">
+									</td>
 								</tr>
 							</c:forEach>
 							<%
@@ -178,7 +179,7 @@
 
 
 								<c:forEach var="p" items="${giocatoriSvincolati}">
-									<tr>
+									<tr id = "${p.nome}">
 
 										<c:choose>
 											<c:when test="${p.ruolo == 'P'}">
@@ -210,7 +211,9 @@
 
 										<td class=""><span title="Valore">${p.valore} </span></td>
 
-										<td class="text-center"><span title="Voto">6.00 </span></td>
+										<td class="text-center">
+											<input id="aggiungi" type="submit" value="Aggiungi" class="btn btn-primary btn-sm" onclick="rosa('${p.nome}','t')">
+										</td>
 									</tr>
 								</c:forEach>
 
@@ -322,6 +325,6 @@
 			$('#tabellaAggiungi2').DataTable();
 		});
 	</script>
-
+  <script src="Script/gestioneMercato.js"></script>
 </body>
 </html>

@@ -78,58 +78,77 @@ function aperturaMercato() {
 
 function rosa(g, r) {
 	
-	
+	var aggiungi = $('<input id="aggiungi" type="submit" value="Aggiungi" class="btn btn-primary btn-sm" onclick="rosa(\'${p.nome}\',\'t\')">');
+	var rimuovi = $('<input id="rimuovi" type="submit" value="Rimuovi" class="btn btn-danger btn-sm" onclick="rosa(\'${p.nome}\',\'f\')">')
 	$.ajax({
 
-		async : true,
+		async : false,
 		type : "POST",
-		url : "AperturaMercato",
+		url : "GestioneMercato",
 		datatype : "json",
 		data : {
 			giocatore : JSON.stringify(g),
 			risposta : JSON.stringify(r)
 		},
 		success : function(data) {
-			if (data == 0) {
-				
+			
+			var res = JSON.parse(data);
+			
+			if (res.status == 0) {
+				console.log("ok");
+				$('#' + g).find("#aggiungi").remove();
+				$('#' + g).find(".text-center").append(rimuovi);
+				$('#players_list').append($('#' + g));
+				swal({
+					title : "Giocatore aggiunto!",
+					type : "success",
+					confirmButtonText : "Ok"
+				});
 			}
-			else if (data == 1) {
+			else if (res.status == 1) {
+				swal({
+					title : "Crediti insufficenti!",
+					type : "warning",
+					confirmButtonText : "Ok"
+				});
+			}
+			else if (res.status == 2) {
 				swal({
 					title : "Numero massimo Portieri raggiunto!",
 					type : "warning",
 					confirmButtonText : "Ok"
 				});
 			}
-			else if (data == 2) {
+			else if (res.status == 3) {
 				swal({
 					title : "Numero massimo Difensori raggiunto!",
 					type : "warning",
 					confirmButtonText : "Ok"
 				});
 			}
-			else if (data == 3) { 
+			else if (res.status == 4) { 
 				swal({
 					title : "Numero massimo Centrocampisti raggiunto!",
 					type : "warning",
 					confirmButtonText : "Ok"
 				});
 			}
-			else if (data == 4) {
+			else if (res.status == 5) {
 				swal({
 					title : "Numero massimo Attaccanti raggiunto!",
 					type : "warning",
 					confirmButtonText : "Ok"
 				});
 			}
-			else if (data == 5) {
+			else if (res.status == 6) {
+				$('#' + g).find("#rimuovi").remove();
+				$('#' + g).find(".text-center").append(aggiungi);
+				$('#tabellaPartecipanti').append($('#' + g));
 				swal({
-					title : "Numero massimo portieri raggiunto!",
-					type : "warning",
+					title : "Giocatore rimosso!",
+					type : "success",
 					confirmButtonText : "Ok"
 				});
-			}
-			else if (data == 6) {
-				
 			}
 		},
 		error : function(data) {
