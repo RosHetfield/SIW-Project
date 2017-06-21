@@ -83,8 +83,28 @@ public class SquadraDAOJdbc implements SquadraDAO {
 
 	@Override
 	public void update(Squadra squadra) {
-		// TODO Auto-generated method stub
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String update = "update squadra set nome = ?, utente = ?, campionato = ?, crediti = ?"
+					+ "where nome = ?";
+			PreparedStatement statement = connection.prepareStatement(update);
+			statement.setString(1, squadra.getNome());
+			statement.setString(2, squadra.getUtente().getUsername());			
+			statement.setString(3, squadra.getCampionato().getNome());
+			statement.setInt(4, squadra.getCrediti());
+			statement.setString(5, squadra.getNome());
 
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+			
+		}
 	}
 
 	@Override

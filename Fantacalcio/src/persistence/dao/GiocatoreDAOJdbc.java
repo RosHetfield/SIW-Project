@@ -46,8 +46,36 @@ public class GiocatoreDAOJdbc implements GiocatoreDAO {
 
 	@Override
 	public Giocatore findByPrimaryKey(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		Giocatore giocatore = new Giocatore();
+		Connection connection = this.dataSource.getConnection();
+		try {
+			PreparedStatement statement;
+			String query = "select * from giocatore where nome = ?";
+			statement = connection.prepareStatement(query);
+
+			statement.setString(1, id);
+
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+				giocatore.setNome(result.getString("nome"));
+				giocatore.setRuolo(result.getString("ruolo"));
+				giocatore.setSquadra(result.getString("squadra"));
+				giocatore.setValore(result.getInt("valore"));
+
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}
+
+		return giocatore;	
+		
 	}
 
 	@Override
