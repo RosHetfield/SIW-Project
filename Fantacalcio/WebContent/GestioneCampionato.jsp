@@ -157,7 +157,7 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 							<br>
 							<label class="switch">
 								<c:choose>
-									<c:when test="${Campionato.mercato}">
+									<c:when test="${partita.aggiungiFormazione}">
 				  						<input type="checkbox" checked onclick="aperturaFormazione()" id="formazione_id">
 									</c:when>
 									<c:otherwise>

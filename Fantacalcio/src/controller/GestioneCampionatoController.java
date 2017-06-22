@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 
 import model.Campionato;
 import model.Invito;
+import model.Partita;
 import model.Squadra;
 import model.Utente;
 import persistence.DBManager;
@@ -60,10 +61,12 @@ public class GestioneCampionatoController extends HttpServlet {
 
 				List<Utente> utenti = DBManager.getInstance().getCampionato().possibiliGiocatori(campionato);
 				List<Invito> inviti = DBManager.getInstance().getInvito().findByCampionato(campionato);
+				Partita partita=DBManager.getInstance().getPartita().getPartitaGiocabile();
+				request.setAttribute("partita", partita);
 				request.setAttribute("Campionato", camp);
-				System.out.println("aaaaaaaa " + campionato);
 				request.setAttribute("PossibiliPartecipanti", utenti);
 				request.setAttribute("Inviti", inviti);
+				
 
 				RequestDispatcher dispatcher = request.getRequestDispatcher("GestioneCampionato.jsp");
 				dispatcher.forward(request, response);

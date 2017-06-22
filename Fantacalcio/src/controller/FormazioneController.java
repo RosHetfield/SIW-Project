@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Campionato;
 import model.Giocatore;
+import model.Partita;
 import model.Squadra;
 import persistence.DBManager;
 
@@ -90,7 +91,8 @@ public class FormazioneController extends HttpServlet {
 			
 			if(campionato != null) {
 				Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
-				int giornata=DBManager.getInstance().getPartita().getGiornataGiocabile();
+				Partita partita=DBManager.getInstance().getPartita().getPartitaGiocabile();
+				int giornata=partita.getGiornata();
 				request.getSession().setAttribute("giornata", giornata);
 
 				if(!camp.isMercato()) {

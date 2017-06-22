@@ -91,19 +91,20 @@ public class PartitaDAOJdbc implements PartitaDAO {
 	}
 
 	@Override
-	public int getGiornataGiocabile() {
-		int giornata=-1;
+	public Partita getPartitaGiocabile() {
 		Connection connection = this.dataSource.getConnection();
+		Partita partita=null;
 		try {
 			PreparedStatement statement;
-			String query = "select giornata from partita where \"aggiungiFormazione\"=true ";
+			String query = "select * from partita where \"aggiungiFormazione\"=true ";
 			statement = connection.prepareStatement(query);
 
 			ResultSet result = statement.executeQuery();
 
 			if (result.next()) {
-				
-				giornata=result.getInt("giornata");
+				partita=new Partita();
+				partita.setAggiungiFormazione(result.getBoolean("aggiungiFormazione"));
+				partita.setGiornata(result.getInt("giornata"));
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
@@ -115,7 +116,7 @@ public class PartitaDAOJdbc implements PartitaDAO {
 			}
 		}
 
-		return giornata;	
+		return partita;	
 	}
 
 }

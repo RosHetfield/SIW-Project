@@ -12,6 +12,7 @@ public class Partita implements Serializable {
 	private static final long serialVersionUID = -5625289563782535476L;
 
 	private int giornata;
+	private boolean aggiungiFormazione;
 	
 	//riferimenti
 	private Campionato campionato;
@@ -21,9 +22,10 @@ public class Partita implements Serializable {
 		super();
 	}
 
-	public Partita(int giornata) {
+	public Partita(int giornata,boolean aggiungiFormazione) {
 		super();
 		this.giornata = giornata;
+		this.aggiungiFormazione=aggiungiFormazione;
 	}
 
 	public int getGiornata() {
@@ -56,6 +58,14 @@ public class Partita implements Serializable {
 	
 	public void removeGiocatore(Giocatore_in_formazione giocatore) {
 		this.getGiocatori().add(giocatore);
+	}
+
+	public boolean isAggiungiFormazione() {
+		return aggiungiFormazione;
+	}
+
+	public void setAggiungiFormazione(boolean aggiungiFormazione) {
+		this.aggiungiFormazione = aggiungiFormazione;
 	}
 
 }
