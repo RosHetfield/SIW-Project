@@ -122,32 +122,74 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 
 
 			<div class="col-lg-3 ">
-				<div class="row box text-center">
-					<hr>
-					<h2 class="intro-text text-center">Crea giornata</h2>
-						<button type="button" class="btn btn-primary" aria-label="Left Align" onclick="creaGiornata()">Crea</button>
-					<hr>
+				<div class="row">
+				<div class="  text-center">
+					<div class="box">
+						<hr>
+						<h2 class="intro-text text-center">Crea giornata</h2>
+							<button type="button" class="btn btn-primary" aria-label="Left Align" onclick="creaGiornata()">Crea</button>
+						<hr>
 					<br>
-					<div>
-					<h4>Apri mercato</h4>
-					<br>
-					<label class="switch">
-						<c:choose>
-							<c:when test="${Campionato.mercato}">
-		  						<input type="checkbox" checked onclick="aperturaMercato()" id="mercato">
-							</c:when>
-							<c:otherwise>
-								<input type="checkbox"  onclick="aperturaMercato()" id="mercato">
-							</c:otherwise>
-						</c:choose>
-  						<div class="slider round"></div>
-						
-					</label><br><br>
 					</div>
 
+
+
+						<div class="box">
+							<h4>Apri mercato</h4>
+							<br>
+							<label class="switch">
+								<c:choose>
+									<c:when test="${Campionato.mercato}">
+				  						<input type="checkbox" checked onclick="aperturaMercato()" id="mercato">
+									</c:when>
+									<c:otherwise>
+										<input type="checkbox"  onclick="aperturaMercato()" id="mercato">
+									</c:otherwise>
+								</c:choose>
+		  						<div class="slider round"></div>
+								
+							</label><br><br>
+						</div>
+
+
+						<div class="box">
+							<h4>Inserisci formazione</h4>
+							<br>
+							<label class="switch">
+								<c:choose>
+									<c:when test="${Campionato.mercato}">
+				  						<input type="checkbox" checked onclick="aperturaFormazione()" id="formazione_id">
+									</c:when>
+									<c:otherwise>
+										<input type="checkbox"  onclick="aperturaFormazione()" id="formazione_id">
+									</c:otherwise>
+								</c:choose>
+		  						<div class="slider round"></div>
+								
+							</label><br><br>
+						</div>
+
+
+				</div>
 				</div>
 
-				<div class="row box text-center">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<div class="row ">
+						<div class="box text-center">
+
 					<hr>
 					<h2 class="intro-text text-center">Calcola Giornata</h2>
 					<hr>
@@ -169,6 +211,7 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 						<button type="button" class="btn btn-default"
 							aria-label="Left Align">Calcola</button>
 					</div>
+				</div>
 				</div>
 			</div>
 		</div>
@@ -274,6 +317,8 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 	<script src="Script/gestioneInviti.js"></script>
 	<script src="Script/CreaGiornata.js"></script>
 	<script src="Script/gestioneMercato.js"></script>
+	<script src="Script/gestioneFormazione.js"></script>
+	
 	
 
 </body>

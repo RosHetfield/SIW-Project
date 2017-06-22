@@ -41,3 +41,53 @@ function checkFormazione() {
 	});
 	return Boolean(succ)
 }
+
+
+
+
+
+function aperturaFormazione() {
+	
+	if($('#formazione_id').prop("checked")) {
+		var r = 't';
+	}
+	else {
+		var r = 'f';
+	}
+	
+	$.ajax({
+
+		async : true,
+		type : "POST",
+		url : "AperturaFormazione",
+		datatype : "json",
+		data : {
+			risposta : JSON.stringify(r)
+		},
+		success : function(data) {
+			if (data == 0) {
+				swal({
+					title : "Formazione Aperto!",
+					type : "success",
+					confirmButtonText : "Ok"
+				});
+			}
+			else if (data == 1) {
+				swal({
+					title : "Formazione Chiuso!",
+					type : "success",
+					confirmButtonText : "Ok"
+				});
+			}
+		},
+		error : function(data) {
+			swal({
+				title : "Errore!",
+				text : "Impossibile completare l'operazione",
+				type : "error",
+				confirmButtonText : "Ok"
+			});
+		}
+	});
+}
+

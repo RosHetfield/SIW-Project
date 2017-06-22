@@ -120,7 +120,7 @@
     <servlet-name>AperturaMercatoController</servlet-name>
     <url-pattern>/AperturaMercato</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>FormazioneController</servlet-name>
     <servlet-class>controller.FormazioneController</servlet-class>
   </servlet>
@@ -128,4 +128,12 @@
     <servlet-name>FormazioneController</servlet-name>
     <url-pattern>/Formazione</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>AperturaFormazioneController</servlet-name>
+    <servlet-class>controller.AperturaFormazioneController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AperturaFormazioneController</servlet-name>
+    <url-pattern>/AperturaFormazione</url-pattern>
+  </servlet-mapping>  
 </web-app>
