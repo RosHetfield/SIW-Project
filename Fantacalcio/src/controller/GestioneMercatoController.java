@@ -129,7 +129,7 @@ System.out.println("ASSO " + request.getParameter("risposta"));
 			break;
 		}
 		}
-		
+//		inserire contrololo??????
 		Giocatore_in_rosa gir = new Giocatore_in_rosa();
 		gir.setNomeGiocatore(giocatore.getNome());
 		gir.setSquadra(squadra.getNome());

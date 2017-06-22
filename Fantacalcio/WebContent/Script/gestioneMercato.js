@@ -76,7 +76,7 @@ function aperturaMercato() {
 	});
 }
 
-function rosa(g,s,ru,v,r) {
+function rosa(g,r) {
 	$(document).ready(function(){
 	var aggiungi = "<input id=\"aggiungi\" type=\"submit\" value=\"Aggiungi\" class=\"btn btn-primary btn-sm\" onclick=\"rosa(\''+g+'\',\'t\')";
 	var rimuovi = $('<input id="rimuovi" type="submit" value="Rimuovi" class="btn btn-danger btn-sm" onclick="rosa(\''+g+'\',\'f\')">')
@@ -95,19 +95,22 @@ function rosa(g,s,ru,v,r) {
 			var res = JSON.parse(data);
 			
 			if (res.status == 0) {
-				console.log("ok");
-				$('#' + g).find("#aggiungi").remove();
-				var table = $('#tabellaPartecipanti').DataTable();
-				table.row('#' + g).remove().draw( false );
+				//console.log("ok");
+				//$('#' + g).find("#aggiungi").remove();
+				//var table = $('#tabellaPartecipanti').DataTable();
+				//table.row('#' + g).remove().draw( false );
 //				$('#' + g).find(".text-center").remove();
-				$('#players_list').append($('#' + g));
+//				$('#players_list').append($('#' + g));
 				swal({
-					title : "Giocatore aggiunto!",
+					title : "Giocatore " + g + " aggiunto!",
 					type : "success",
 					confirmButtonText : "Ok",
-					text: res.crediti
+					text: "Crediti rimanenti: " + res.crediti
 				
 				});
+				setTimeout(function (){
+					location.href = "Mercato";
+				}, 2000);
 			}
 			else if (res.status == 1) {
 				swal({
@@ -145,22 +148,26 @@ function rosa(g,s,ru,v,r) {
 				});
 			}
 			else if (res.status == 6) {
-				var table = $('#players_list');
-				table.find("#"+g).remove();
+				//var table = $('#players_list');
+				//table.find("#"+g).remove();
 //				$('#' + g).find(".text-center").append(aggiungi);
 //				$('#tabellaPartecipanti').append($('#' + g));
-				var t=$('#tabellaPartecipanti').DataTable();
+				//var t=$('#tabellaPartecipanti').DataTable();
 				
-				t.row.add([
-					ru, g, s, v, aggiungi
-				]).draw(true);
+				//t.row.add([
+				//	ru, g, s, v, aggiungi
+				//]).draw(true);
 				//table.find('.sorting_1 td:last').remove();
 				//$('#'+g + '> tbody:last-child').append(aggiungi);
 				swal({
-					title : "Giocatore rimosso!",
+					title : "Giocatore " + g + " rimosso!",
 					type : "success",
-					confirmButtonText : "Ok"
+					confirmButtonText : "Ok",
+					text: "Crediti rimanenti: " + res.crediti
 				});
+				setTimeout(function (){
+					location.href = "Mercato";
+				}, 2000);
 			}
 		},
 		error : function(data) {

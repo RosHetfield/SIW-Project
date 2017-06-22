@@ -124,7 +124,7 @@
 
 									<td class="text-center">
 										<input id="rimuovi" type="submit" value="Rimuovi" class="btn btn-danger btn-sm" 
-										onclick="rosa('${p.nome}','${p.squadra}','${p.ruolo}','${p.valore}', 'f')">
+										onclick="rosa('${p.nome}', 'f')">
 									</td>
 								</tr>
 							</c:forEach>
@@ -214,7 +214,7 @@
 
 										<td class="text-center">
 											<input id="aggiungi" type="submit" value="Aggiungi" 
-											class="btn btn-primary btn-sm" onclick="rosa('${p.nome}','${p.squadra}','${p.ruolo}','${p.valore}', 't')">
+											class="btn btn-primary btn-sm" onclick="rosa('${p.nome}', 't')">
 										</td>
 									</tr>
 								</c:forEach>
