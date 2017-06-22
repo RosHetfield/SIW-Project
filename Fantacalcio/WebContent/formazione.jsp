@@ -107,6 +107,7 @@
 											<td class="valign-top" colspan="3"><span
 												class="label label-4">${p.giocatoreInRosa.giocatore.ruolo}</span><br
 												class="visible-xs"></td>
+												
 										</c:when>
 									</c:choose>
 
