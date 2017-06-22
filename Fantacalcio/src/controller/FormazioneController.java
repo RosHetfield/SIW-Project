@@ -51,7 +51,9 @@ public class FormazioneController extends HttpServlet {
 					List<Giocatore> giocatoriInRosa = DBManager.getInstance().getGiocatore_in_rosa().getGiocatoriInRosa(s);
 					request.setAttribute("giocatoriInRosa", giocatoriInRosa);
 					
-int giornata=0;
+					int giornata= (int)request.getSession().getAttribute("giornata");
+					request.getSession().removeAttribute("giornata");
+					
 					List<Giocatore> giocatoriInFormazione = DBManager.getInstance().getGiocatore().getGiocatoriInFormazione(giornata);
 					request.setAttribute("giocatoriInFormazione", giocatoriInFormazione);
 					
@@ -81,21 +83,30 @@ int giornata=0;
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = (String) request.getSession().getAttribute("Username");
+		System.out.println("sono in do post");
 
 		if (username != null) {
-			System.out.println("Sessione Utente " + username);
 			String campionato = (String) request.getSession().getAttribute("campionato");
 			
 			if(campionato != null) {
-				System.out.println("Sessione Campionato " + campionato);
 				Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
+				int giornata=DBManager.getInstance().getPartita().getGiornataGiocabile();
+				request.getSession().setAttribute("giornata", giornata);
+
 				if(!camp.isMercato()) {
-					System.out.println("MADONNA PUTTANA1 " + username);
+					if(giornata !=-1){
+					response.getWriter().print(2);
+						System.out.println("caso 2");
+					}
+					else{
 					response.getWriter().print(0);
-					System.out.println("sono sotto la panca");
-					
+					System.out.println("caso 0");
+
+					}
 				} else {
 					response.getWriter().print(1);
+					System.out.println("caso 1");
+
 				}
 			
 			}

@@ -1,6 +1,5 @@
-
 function checkFormazione() {
-console.log("sono la caccaaaaaaa");
+	console.log("sono la caccaaaaaaa");
 	var succ = false;
 	$.ajax({
 
@@ -12,12 +11,10 @@ console.log("sono la caccaaaaaaa");
 		success : function(data) {
 
 			if (data == 1) {
-				console.log("sono in success con val 2");
 
 				succ = true;
 			}
 			if (data == 0) {
-				console.log("sono in success con val 1");
 
 				swal({
 					title : "Attenzione!",
@@ -27,6 +24,16 @@ console.log("sono la caccaaaaaaa");
 				});
 				success = false;
 			}
+			if (data == 2) {
+				swal({
+					title : "Attenzione!",
+					text : "Inserimento formazione Chiuso ",
+					type : "error",
+					confirmButtonText : "Ok"
+				});
+				success = false;
+
+			}
 		},
 		error : function(data) {
 			succ = false;
@@ -34,5 +41,3 @@ console.log("sono la caccaaaaaaa");
 	});
 	return Boolean(succ)
 }
-
-

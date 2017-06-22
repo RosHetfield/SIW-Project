@@ -90,4 +90,32 @@ public class PartitaDAOJdbc implements PartitaDAO {
 		return null;
 	}
 
+	@Override
+	public int getGiornataGiocabile() {
+		int giornata=-1;
+		Connection connection = this.dataSource.getConnection();
+		try {
+			PreparedStatement statement;
+			String query = "select giornata from partita where \"aggiungiFormazione\"=true ";
+			statement = connection.prepareStatement(query);
+
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+				
+				giornata=result.getInt("giornata");
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}
+
+		return giornata;	
+	}
+
 }

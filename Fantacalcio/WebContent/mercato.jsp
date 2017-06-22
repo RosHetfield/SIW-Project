@@ -123,7 +123,8 @@
 										title="Valore">${p.valore} </span></td>
 
 									<td class="text-center">
-										<input id="rimuovi" type="submit" value="Rimuovi" class="btn btn-danger btn-sm" onclick="rosa('${p.nome}','f')">
+										<input id="rimuovi" type="submit" value="Rimuovi" class="btn btn-danger btn-sm" 
+										onclick="rosa('${p.nome}','${p.squadra}','${p.ruolo}','${p.valore}', 'f')">
 									</td>
 								</tr>
 							</c:forEach>
@@ -212,7 +213,8 @@
 										<td class=""><span title="Valore">${p.valore} </span></td>
 
 										<td class="text-center">
-											<input id="aggiungi" type="submit" value="Aggiungi" class="btn btn-primary btn-sm" onclick="rosa('${p.nome}','t')">
+											<input id="aggiungi" type="submit" value="Aggiungi" 
+											class="btn btn-primary btn-sm" onclick="rosa('${p.nome}','${p.squadra}','${p.ruolo}','${p.valore}', 't')">
 										</td>
 									</tr>
 								</c:forEach>
@@ -318,7 +320,17 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('#tabellaPartecipanti').DataTable();
+			$('#tabellaPartecipanti').DataTable({
+				
+				"responsive" : true,
+				"aPaginationType" : "full_numbers",
+				"columnDefs" : [{
+					"targets" : -1,
+					"data" : null,
+					"defaultContent":"<input id=\"aggiungi\" type=\"submit\" value=\"Aggiungi\" class=\"btn btn-primary btn-sm\"">"
+				}]
+			})
+			;
 		});
 	</script>
 	

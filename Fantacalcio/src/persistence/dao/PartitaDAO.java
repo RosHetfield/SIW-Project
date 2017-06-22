@@ -9,5 +9,6 @@ public interface PartitaDAO {
 	public Partita findByPrimaryKey(int id);     // Retrieve
 	public void update(Partita partita); //Update
 	public void delete(Partita partita); //Delete	
-	public List<Partita> findAll(); 
+	public List<Partita> findAll();
+	public int getGiornataGiocabile(); 
 }
