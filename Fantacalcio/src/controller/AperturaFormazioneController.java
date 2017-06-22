@@ -52,17 +52,24 @@ public class AperturaFormazioneController extends HttpServlet {
 
 					String apertura = (String) mapper.readValue(jsString, String.class);
 					response.setContentType("text/html");
-					/*Partita part = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
+					Partita part = DBManager.getInstance().getPartita().getPartitaGiocabile(campionato);
+					if(part != null){
 					if(apertura.equals("t")) {
-						//part.setMercato(true);
-						DBManager.getInstance().getCampionato().update(camp);
+						part.setAggiungiFormazione(true);
+						DBManager.getInstance().getPartita().update(part);
 						response.getWriter().println(0);
 					}
 					else if(apertura.equals("f")) {
-					//	part.setMercato(false);
-						DBManager.getInstance().getCampionato().update(camp);
+						part.setAggiungiFormazione(false);
+						DBManager.getInstance().getPartita().update(part);
 						response.getWriter().println(1);
-					}*/
+					}
+					}
+					else{
+						System.out.println("non esiste nessuna partita");
+						response.getWriter().println(2);
+						
+					}
 				}
 			}
 		}

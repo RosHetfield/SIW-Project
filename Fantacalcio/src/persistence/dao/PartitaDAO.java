@@ -6,9 +6,9 @@ import model.Partita;
 
 public interface PartitaDAO {
 	public void save(Partita partita);  // Create
-	public Partita findByPrimaryKey(int id);     // Retrieve
+	public Partita findByPrimaryKey(int giornata, String campionato);     // Retrieve
 	public void update(Partita partita); //Update
 	public void delete(Partita partita); //Delete	
 	public List<Partita> findAll();
-	public Partita getPartitaGiocabile(); 
+	public Partita getPartitaGiocabile(String campionato); 
 }

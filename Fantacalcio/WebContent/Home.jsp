@@ -166,25 +166,6 @@
 		</div>
     
     
-    
-    
-    
-    <div class="row">
-            <div class="box">
-                
-                	<hr>
-					<h2 class="intro-text text-center">
-						<strong>Campionati esistenti</strong>
-					</h2>
-					<hr>
-					
-					<div>
-					
-					
-					</div>
-            </div>
-        </div>
-        
         
         
         

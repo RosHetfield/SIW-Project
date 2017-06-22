@@ -91,7 +91,7 @@ public class FormazioneController extends HttpServlet {
 			
 			if(campionato != null) {
 				Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
-				Partita partita=DBManager.getInstance().getPartita().getPartitaGiocabile();
+				Partita partita=DBManager.getInstance().getPartita().getPartitaGiocabile(campionato);
 				int giornata=partita.getGiornata();
 				request.getSession().setAttribute("giornata", giornata);
 

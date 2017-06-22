@@ -71,14 +71,23 @@ function aperturaFormazione() {
 					type : "success",
 					confirmButtonText : "Ok"
 				});
+
 			}
-			else if (data == 1) {
+			 if (data == 1) {
 				swal({
 					title : "Formazione Chiuso!",
 					type : "success",
 					confirmButtonText : "Ok"
 				});
 			}
+			 if (data == 2) {
+					swal({
+						title : "Mercato Aperto!",
+						text : "Inserisci alla chiusura del mercato",
+						type : "error",
+						confirmButtonText : "Ok"
+					});
+				}
 		},
 		error : function(data) {
 			swal({

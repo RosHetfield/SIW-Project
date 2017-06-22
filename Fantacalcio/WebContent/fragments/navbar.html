@@ -17,40 +17,27 @@
 			id="bs-example-navbar-collapse-1">
 
 			<ul class="nav navbar-nav navbar-right">
-				
- 					<li id="home-btn">
-                        <a href="Home">Home</a>
-                    </li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">${Username} <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a id="gestioneCampionato" href="#" onclick="">Gestione
-								Campionato</a></li>
-						<li><a href="Inviti">Inviti</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="#">Separated link</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a >One more separated link</a></li>
-					</ul></li>
+
+				<li id="home-btn"><a href="Home">Home</a></li>
+
 
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
 					aria-expanded="false">Campionati <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 
-						<% List<String> campionati = (List<String>)
+						<% List
+						<String> campionati = (List<String>)
 						request.getAttribute("CampionatiUtente"); if
 						(campionati.isEmpty()) { %>
 
 						<li><a>Nessun campionato</a></li>
 
-						<% } else { %> <c:forEach var="p" items="${CampionatiUtente}" >
+						<% } else { %> <c:forEach var="p" items="${CampionatiUtente}">
 
 
 							<li><a onclick="caricaCampionato('${p}') ">${p}</a></li>
-							
+
 
 						</c:forEach> <% } %> 
 					</ul></li>
@@ -58,28 +45,20 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">Squadra <span class="caret"></span></a>
+					aria-expanded="false">${Username} <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="Mercato" onclick="return mercato()">Mercato</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
+						<li><a id="gestioneCampionato" href="#" onclick="">Gestione
+								Campionato</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="#">Separated link</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="#">One more separated link</a></li>
+						<li><a href="Inviti">Inviti</a></li>
+
 					</ul></li>
+
+
+
+
 				<li><a class="btn btn-sm btn-info " href="Logout">Log Out</a></li>
 			</ul>
 		</div>

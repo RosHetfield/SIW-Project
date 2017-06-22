@@ -60,7 +60,7 @@ public class CreaPartitaController extends HttpServlet {
 					JSONObject jsRes = new JSONObject();
 					try {
 						jsRes.put("giornata", ultima_giornata);
-						if (DBManager.getInstance().getPartita().findByPrimaryKey(ultima_giornata) != null) {
+						if (DBManager.getInstance().getPartita().findByPrimaryKey(ultima_giornata, camp.getNome()) != null) {
 							jsRes.put("status", 1);
 							response.getWriter().print(jsRes);
 						} else {
