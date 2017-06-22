@@ -26,7 +26,7 @@ public class PartitaDAOJdbc implements PartitaDAO {
 			String insert = "insert into partita(giornata, campionato) values (?, ?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setInt(1, partita.getGiornata());		
-			statement.setString(2, partita.getCampionato().getNome());		
+			statement.setString(2, partita.getCampionato());		
 
 			statement.executeUpdate();
 		} catch (SQLException e) {

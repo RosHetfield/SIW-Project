@@ -22,10 +22,10 @@ public class Giocatore_in_formazioneDAOJdbc implements Giocatore_in_formazioneDA
 			String insert = "INSERT INTO giocatore_in_formazione(giornata, campionato, squadra, giocatore, "
 					+ "titolare, entrato, uscito, n_formazione) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
-			statement.setInt(1, gif.getPartita().getGiornata());
-			statement.setString(2, gif.getPartita().getCampionato().getNome());
-			statement.setString(3, gif.getGiocatore().getSquadra());
-			statement.setString(4, gif.getGiocatore().getGiocatore());
+			statement.setInt(1, gif.getGiornata());
+			statement.setString(2, gif.getCampionato());
+			statement.setString(3, gif.getGiocatoreInRosa().getSquadra());
+			statement.setString(4, gif.getGiocatoreInRosa().getGiocatore().getNome());
 			statement.setBoolean(5, gif.isTitolare());
 			statement.setBoolean(6, gif.isEntrato());
 			statement.setBoolean(7, gif.isUscito());

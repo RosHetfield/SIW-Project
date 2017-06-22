@@ -327,7 +327,7 @@
 				"columnDefs" : [{
 					"targets" : -1,
 					"data" : null,
-					"defaultContent":"<input id=\"aggiungi\" type=\"submit\" value=\"Aggiungi\" class=\"btn btn-primary btn-sm\"">"
+					"defaultContent":"<input id=\"aggiungi\" type=\"submit\" value=\"Aggiungi\" class=\"btn btn-primary btn-sm\">"
 				}]
 			})
 			;
