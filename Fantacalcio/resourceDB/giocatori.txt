@@ -1,0 +1,1029 @@
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DZEKO','A','Roma','37');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MERTENS','A','Napoli','34');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('INSIGNE','A','Napoli','34');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('HIGUAIN','A','Juventus','34');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GOMEZ A','C','Atalanta','32');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BELOTTI','A','Torino','32');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('IMMOBILE','A','Lazio','31');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DYBALA','A','Juventus','30');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CALLEJON','A','Napoli','29');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ICARDI','A','Inter','29');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SALAH','A','Roma','29');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('KEITA B','A','Lazio','26');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('HAMSIK','C','Napoli','26');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BORRIELLO','A','Cagliari','23');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('NAINGGOLAN','C','Roma','23');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('EL SHAARAWY','A','Roma','23');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PERISIC','C','Inter','22');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('QUAGLIARELLA','A','Sampdoria','22');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MURIEL','A','Sampdoria','21');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('KALINIC','A','Fiorentina','21');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('IAGO FALQUE','A','Torino','21');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DEFREL','A','Sassuolo','21');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('LJAJIC','A','Torino','21');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CANDREVA','C','Inter','20');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ZAPATA D','A','Udinese','20');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PJANIC','C','Juventus','19');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('FELIPE ANDERSON','C','Lazio','19');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BACCA','A','Milan','19');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PEROTTI','C','Roma','18');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SUSO','C','Milan','18');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MANDZUKIC','A','Juventus','17');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ILICIC','C','Fiorentina','17');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BERARDI','A','Sassuolo','17');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('STROOTMAN','C','Roma','17');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('THEREAU','A','Udinese','17');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SCHICK','A','Sampdoria','17');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CONTI','D','Atalanta','16');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ZIELINSKI','C','Napoli','16');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('FALCINELLI','A','Crotone','16');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DESTRO','A','Bologna','16');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ACERBI','D','Sassuolo','16');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BASELLI','C','Torino','15');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('EDER','A','Inter','15');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('INGLESE','A','Chievo','15');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BIRSA','C','Chievo','15');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SZCZESNY','P','Roma','15');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('POLITANO','A','Sassuolo','15');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('KHEDIRA','C','Juventus','15');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('LAPADULA','A','Milan','15');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BORJA VALERO','C','Fiorentina','14');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('RISPOLI','D','Palermo','14');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('REINA','P','Napoli','14');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BERNARDESCHI','C','Fiorentina','14');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PETAGNA','A','Atalanta','14');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SAU','A','Cagliari','14');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DONNARUMMA G','P','Milan','13');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('LULIC','C','Lazio','13');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MILIK','A','Napoli','13');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CORDAZ','P','Crotone','13');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BUFFON','P','Juventus','13');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CALDARA','D','Atalanta','13');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MASIELLO A','D','Atalanta','13');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('VERDI','C','Bologna','13');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BANEGA','C','Inter','13');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CAPRARI','A','Pescara','13');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('FARIAS','A','Cagliari','13');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CONSIGLI','P','Sassuolo','13');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('FREULER','C','Atalanta','13');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CASTRO','C','Chievo','13');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('JOAO MARIO','C','Inter','13');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PELLISSIER','A','Chievo','13');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('HANDANOVIC','P','Inter','13');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('FAZIO','D','Roma','13');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BABACAR','A','Fiorentina','13');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PAVOLETTI','A','Napoli','13');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CUADRADO','C','Juventus','12');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SIMEONE','A','Genoa','12');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DEULOFEU','A','Milan','12');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('KOULIBALY','D','Napoli','12');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('KESSIE','C','Atalanta','12');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CROCE','C','Empoli','12');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DE ROSSI','C','Roma','12');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PELLEGRINI','C','Sassuolo','12');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('JOAO PEDRO','C','Cagliari','12');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BRUNO FERNANDES','C','Sampdoria','12');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ALEX SANDRO','D','Juventus','12');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BONUCCI','D','Juventus','12');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MILINKOVIC-SAVIC','C','Lazio','12');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ALLAN','C','Napoli','12');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('NESTOROVSKI','A','Palermo','12');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DE VRIJ','D','Lazio','11');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('KURTIC','C','Atalanta','11');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('LAZOVIC','C','Genoa','11');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BONAVENTURA','C','Milan','11');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SAPONARA','C','Fiorentina','11');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('FERRARI G','D','Crotone','11');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SPINAZZOLA','C','Atalanta','11');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BIGLIA','C','Lazio','11');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PAROLO','C','Lazio','11');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('TELLO C','C','Fiorentina','11');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('VECINO','C','Fiorentina','11');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PASALIC','C','Milan','10');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BERISHA','P','Atalanta','10');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PASQUAL','D','Empoli','10');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MARCHISIO','C','Juventus','10');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('JORGINHO','C','Napoli','10');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BENALI','C','Pescara','10');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BADU','C','Udinese','10');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('LINETTY','C','Sampdoria','10');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CRISTANTE','C','Atalanta','10');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PERICA','A','Udinese','10');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MACCARONE','A','Empoli','10');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SKORUPSKI','P','Empoli','10');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SILVESTRE','D','Sampdoria','10');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('TOLOI','D','Atalanta','10');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DI FRANCESCO F','C','Bologna','10');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('JANKTO','C','Udinese','10');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DIAMANTI','C','Palermo','10');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BRUNO PERES','D','Roma','10');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MANOLAS','D','Roma','10');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('LAXALT','C','Genoa','10');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MATRI','A','Sassuolo','10');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BAHEBECK','A','Pescara','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('EMERSON','D','Roma','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('KREJCI','C','Bologna','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('IONITA','C','Cagliari','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('TORREIRA','C','Sampdoria','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('WIDMER','D','Udinese','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ALBIOL','D','Napoli','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GHOULAM','D','Napoli','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CECCHERINI','D','Crotone','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BROZOVIC','C','Inter','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PAREDES','C','Roma','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ROHDEN','C','Crotone','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PRAET','C','Sampdoria','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ZAPPACOSTA','D','Torino','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('D_AMBROSIO','D','Inter','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('TAIDER','C','Bologna','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BENASSI','C','Torino','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('FOFANA','C','Udinese','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('TROTTA','A','Crotone','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('HYSAJ','D','Napoli','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GAGLIARDINI','C','Inter','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('OCAMPOS','C','Milan','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('EL KADDOURI','C','Empoli','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BADELJ','C','Fiorentina','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BARRETO E','C','Sampdoria','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DE PAUL','C','Udinese','9');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GABIGOL','A','Inter','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('IEMMELLO','A','Sassuolo','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('TATARUSANU','P','Fiorentina','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BASTA','D','Lazio','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ISLA','D','Cagliari','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BARBERIS','C','Crotone','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MORETTI','D','Torino','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('RUDIGER','D','Roma','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ZAMPANO F','D','Pescara','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BENATIA','D','Juventus','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CHIELLINI','D','Juventus','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('KONDOGBIA','C','Inter','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MEMUSHAJ','C','Pescara','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BRUNO HENRIQUE','C','Palermo','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('NALINI','A','Crotone','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PALLADINO','A','Genoa','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MIRANTE','P','Bologna','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ROMAGNOLI A','D','Milan','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('LICHTSTEINER','D','Juventus','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MARTELLA','D','Crotone','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('TACHTSIDIS','C','Cagliari','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('RAFAEL','P','Cagliari','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SORRENTINO','P','Chievo','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('VIVIANO','P','Sampdoria','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('KARNEZIS','P','Udinese','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ASTORI','D','Fiorentina','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DANILO','D','Udinese','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MIRANDA','D','Inter','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('STOIAN','C','Crotone','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BOYE','A','Torino','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MEGGIORINI','A','Chievo','8');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DANI ALVES','D','Juventus','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ROSI','D','Crotone','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PISACANE','D','Cagliari','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CHOCHEV','C','Palermo','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('FERNANDEZ M','C','Milan','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('TOTTI','A','Roma','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PANDEV','A','Genoa','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('FELIPE','D','Udinese','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SKRINIAR','D','Sampdoria','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('KRUNIC','C','Empoli','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('RIGONI','C','Genoa','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('KUCKA','C','Milan','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('HALLFREDSSON','C','Udinese','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BARRECA','D','Torino','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PALETTA','D','Milan','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DUNCAN','C','Sassuolo','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PUCCIARELLI','A','Empoli','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('LAMANNA','P','Genoa','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('RODRIGUEZ GO','D','Fiorentina','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BARZAGLI','D','Juventus','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ASAMOAH','C','Juventus','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ALVAREZ R','C','Sampdoria','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MIGUEL VELOSO','C','Genoa','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('RAGUSA','A','Sassuolo','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CHIESA','A','Fiorentina','7');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('HART','P','Torino','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('VIVIANI','C','Bologna','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('LUIS ALBERTO','A','Lazio','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DE SILVESTRI','D','Torino','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('HOEDT','D','Lazio','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MURRU','D','Cagliari','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ROSSETTINI','D','Torino','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('D_ALESSANDRO','C','Atalanta','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DI GENNARO D','C','Cagliari','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MEDEL','C','Inter','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('VERRE','C','Pescara','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GRENIER','C','Roma','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('THIAM','A','Empoli','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ALEESAMI','D','Palermo','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('FLORENZI','D','Roma','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SAMIR','D','Udinese','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('COSTA','D','Empoli','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('KRAFTH','D','Bologna','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CRISETIG','C','Crotone','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('LEMINA','C','Juventus','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BRUGMAN','C','Pescara','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SENSI','C','Sassuolo','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ACQUAH','C','Torino','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SIMY','A','Crotone','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PALOSCHI','A','Atalanta','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('REGINI','D','Sampdoria','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CIONEK','D','Palermo','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GOLDANIGA','D','Palermo','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GOBBI','D','Chievo','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MAIETTA','D','Bologna','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DIAWARA','C','Napoli','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BARELLA','C','Cagliari','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('HILJEMARK','C','Genoa','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('LUKAKU','D','Lazio','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('LIROLA','D','Sassuolo','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PELUSO','D','Sassuolo','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('TOROSIDIS','D','Bologna','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('RUGANI','D','Juventus','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CACCIATORE','D','Chievo','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('RINCON','C','Juventus','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DE GUZMAN','C','Chievo','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('AQUILANI','C','Sassuolo','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('KUMS','C','Udinese','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ITURBE','A','Torino','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MCHEDLIDZE','A','Empoli','6');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MILIC','D','Fiorentina','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('TAARABT','C','Genoa','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('STRAKOSHA','P','Lazio','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BERESZYNSKI','D','Sampdoria','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ANDELKOVIC','D','Palermo','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DE SCIGLIO','D','Milan','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ANSALDI','D','Inter','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BURDISSO','D','Genoa','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('IZZO','D','Genoa','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SAMPIRISI','D','Crotone','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GAMBERINI','D','Chievo','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GASTALDELLO','D','Bologna','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SANCHEZ','C','Fiorentina','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MURIC','C','Pescara','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PJACA','A','Juventus','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MAXI LOPEZ','A','Torino','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('FULIGNATI','P','Palermo','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('WALLACE','D','Lazio','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CANNAVARO','D','Sassuolo','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MASINA','D','Bologna','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('RADOVANOVIC','C','Chievo','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('NTCHAM','C','Genoa','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('STURARO','C','Juventus','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BERTOLACCI','C','Milan','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GRASSI','C','Atalanta','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('VALDIFIORI','C','Torino','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MITRITA','C','Pescara','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('LOCATELLI M','C','Milan','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ROG','C','Napoli','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MARCHETTI','P','Lazio','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ANGELLA','D','Udinese','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ZAPATA C','D','Milan','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('RADU','D','Lazio','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ANDREOLLI','D','Inter','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BELLUSCI','D','Empoli','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('LAURINI','D','Empoli','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BRUNO ALVES','D','Cagliari','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DONSAH','C','Bologna','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('IZCO','C','Chievo','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DIOUSSE','C','Empoli','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MISSIROLI','C','Sassuolo','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BASTIEN','C','Chievo','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('JUAN JESUS','D','Roma','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CHIRICHES','D','Napoli','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MUNOZ','D','Genoa','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PADOIN','C','Cagliari','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CATALDI','C','Genoa','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MAGNANELLI','C','Sassuolo','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GILARDINO','A','Pescara','5');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GOLLINI','P','Atalanta','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('OLIVERA M','D','Fiorentina','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('JOSE_SOSA','C','Milan','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MUNTARI','C','Pescara','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BIRASCHI','D','Genoa','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ZUKANOVIC','D','Atalanta','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('VANGIONI','D','Milan','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GENTILETTI','D','Genoa','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DAINELLI','D','Chievo','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MBAYE','D','Bologna','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('HETEMAJ','C','Chievo','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MAZZITELLI','C','Sassuolo','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CERRI','A','Pescara','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PUGGIONI','P','Sampdoria','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CAMPAGNARO','D','Pescara','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ABATE','D','Milan','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MURILLO','D','Inter','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SANTON','D','Inter','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SPOLLI','D','Chievo','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('NAGY','C','Bologna','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('TONEV','C','Crotone','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GIACCHERINI','C','Napoli','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BALIC','C','Udinese','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MURGIA','C','Lazio','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ZAJC','C','Empoli','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MARILUNGO','A','Empoli','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PERIN','P','Genoa','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('STRINIC','D','Napoli','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CALABRIA','D','Milan','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CESAR','D','Chievo','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('HONDA','C','Milan','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GAZZI','C','Palermo','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('OBI','C','Torino','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('FARAGO','C','Cagliari','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DA COSTA','P','Bologna','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('FIORILLO','P','Pescara','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BIRAGHI','D','Pescara','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CAPEZZI','C','Crotone','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GAKPE','C','Chievo','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DJURICIC','C','Sampdoria','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PALACIO','A','Inter','4');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CRISTOFORO','C','Fiorentina','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DELL_ORCO','D','Sassuolo','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('COFIE','C','Genoa','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MONTOLIVO','C','Milan','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('KEAN','A','Juventus','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('RICCI','A','Sassuolo','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('TRAJKOVSKI','A','Palermo','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GOMEZ G','D','Milan','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MOLINARO','D','Torino','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GONZALEZ G','D','Palermo','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('NAGATOMO','D','Inter','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SALAMON','D','Cagliari','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BRUNO','C','Pescara','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BIONDINI','C','Sassuolo','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('OKWONKWO','C','Bologna','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ACOSTY','A','Crotone','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BUDIMIR','A','Sampdoria','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DJORDJEVIC','A','Lazio','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('NETO','P','Juventus','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BOVO','D','Pescara','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('FORNASIER','D','Pescara','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PULGAR','C','Bologna','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DESSENA','C','Cagliari','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('NINKOVIC','C','Genoa','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CRECCO','C','Lazio','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PETKOVIC','A','Bologna','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PINILLA','A','Genoa','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('VESELI','D','Empoli','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GAZZOLA','D','Sassuolo','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('TOMOVIC','D','Fiorentina','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ANTONELLI','D','Milan','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PATRIC','D','Lazio','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('FREY','D','Chievo','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MOUNIER','C','Atalanta','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('JAJALO','C','Palermo','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MATOS','A','Udinese','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MELCHIORRI','A','Cagliari','3');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('HELANDER','D','Bologna','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('LOMBARDI','A','Lazio','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MIANGUE','D','Cagliari','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ADNAN','D','Udinese','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('HEURTAUX','D','Udinese','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MAKSIMOVIC','D','Napoli','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CASTAN','D','Torino','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('TONELLI','D','Napoli','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BUCHEL','C','Empoli','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PALOMBO','C','Sampdoria','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SALA','C','Sampdoria','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('EWANDRO','A','Udinese','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SUNJIC','D','Palermo','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DE MAIO','D','Fiorentina','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('LETSCHERT','D','Sassuolo','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('AVELAR','D','Torino','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ANTEI','D','Sassuolo','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('RAIMONDI','D','Atalanta','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BASTONI','D','Atalanta','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ADJAPONG','D','Sassuolo','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('OIKONOMOU','D','Bologna','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MAURI J','C','Empoli','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GUSTAFSON','C','Torino','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DEPAOLI','C','Chievo','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('HAN','A','Cagliari','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SALLAI','A','Palermo','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BALOGH','A','Palermo','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SECULIN','P','Chievo','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SCUFFET','P','Udinese','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SALCEDO','D','Fiorentina','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BASTOS','D','Lazio','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PAVLOVIC','D','Sampdoria','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BARBA','D','Empoli','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DIMARCO','D','Empoli','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CEPPITELLI','D','Cagliari','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('RIZZO','C','Bologna','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('RIGONI N','C','Chievo','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('LUCAS EVANGELISTA','C','Udinese','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('EMBALO','C','Palermo','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('YAO','D','Inter','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BRIVIO','D','Genoa','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MIGLIACCIO','C','Atalanta','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ALISSON','P','Roma','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MANDRAGORA','C','Juventus','2');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SAINSBURY','D','Inter','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('KONKO','D','Atalanta','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CUBAS','C','Pescara','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('STEFAN SILVA','A','Palermo','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('HAGI','A','Fiorentina','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MAZZINI','P','Atalanta','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('FESTA','P','Crotone','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PELAGOTTI','P','Empoli','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PUGLIESI','P','Empoli','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CARRIZO','P','Inter','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('AUDERO','P','Juventus','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MARSON','P','Palermo','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PEGOLO','P','Sassuolo','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('POMINI','P','Sassuolo','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('AMUZIE','D','Sampdoria','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DUSSENNE','D','Crotone','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('VITTURINI','D','Pescara','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MORGANELLA','D','Palermo','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('COSIC','D','Empoli','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SARDO','D','Chievo','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DRAME','D','Atalanta','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CIGARINI','C','Sampdoria','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MATHEUS PEREIRA','C','Juventus','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('LODI','C','Udinese','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('LUKIC','C','Torino','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BEGHETTO','C','Genoa','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('COULIBALY','C','Pescara','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SADIQ','A','Bologna','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('COLOMBO','P','Cagliari','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('STORARI','P','Milan','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SEPE','P','Napoli','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('POSAVEC','P','Palermo','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PERISAN','P','Udinese','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SIMIC L','D','Sampdoria','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CARLAO','D','Torino','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MESBAH','D','Crotone','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DODO','D','Sampdoria','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CRESCENZI','D','Pescara','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CLAITON','D','Crotone','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DEIOLA','C','Cagliari','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('TELLO A','C','Empoli','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CABEZAS','C','Atalanta','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PEPE','C','Pescara','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MELEGONI','C','Atalanta','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('KOTNIK','C','Crotone','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('VALENCIA','C','Bologna','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SCAMACCA','A','Sassuolo','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('RANEGIE','A','Udinese','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PESIC','A','Atalanta','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('LO FASO','A','Palermo','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SARR','P','Bologna','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('VARGIC','P','Lazio','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('RAFAEL CABRAL','P','Napoli','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ALDEGANI','P','Pescara','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('LOBONT','P','Roma','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DRAGOWSKI','P','Fiorentina','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BRESSAN','P','Chievo','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('COPPOLA D','P','Torino','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SATALINO','P','Fiorentina','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('FALCONE','P','Sampdoria','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GABRIEL SILVA','D','Udinese','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('HATEBOER','D','Atalanta','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('FARAONI','D','Udinese','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('AJETI','D','Torino','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MARIO RUI','D','Roma','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PEZZELLA','D','Palermo','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('VITIELLO','D','Palermo','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ZAMBELLI','D','Empoli','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CAPUANO','D','Cagliari','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BIABIANY','C','Inter','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('DIAKHATE','C','Fiorentina','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GERSON','C','Roma','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('KASTANOS','C','Pescara','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('SPORTIELLO','P','Fiorentina','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ZIMA','P','Genoa','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BERNI','P','Inter','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GABRIEL','P','Cagliari','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('BIZZARRI','P','Pescara','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PADELLI','P','Torino','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PLIZZARI','P','Milan','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CUCCHIETTI','P','Torino','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('RUBINHO','P','Genoa','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CROSTA','P','Cagliari','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('ORBAN','D','Genoa','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('VERMAELEN','D','Roma','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('RAJKOVIC','D','Palermo','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MATTIELLO','D','Juventus','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('CODA','D','Pescara','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MAGGIO','D','Napoli','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('STENDARDO','D','Pescara','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('GNOUKOURI','C','Udinese','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('POLI','C','Milan','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('MOROSINI','C','Genoa','1');
+
+INSERT INTO giocatore (Nome,Ruolo,Squadra,Valore) VALUES ('PELLEGRI','A','Genoa','1');
+
+
