@@ -23,10 +23,11 @@ public class PartitaDAOJdbc implements PartitaDAO {
 	public void save(Partita partita) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String insert = "insert into partita(giornata, campionato) values (?, ?)";
+			String insert = "insert into partita(giornata, campionato, \"aggiungiFormazione\") values (?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setInt(1, partita.getGiornata());		
 			statement.setString(2, partita.getCampionato());		
+			statement.setBoolean(3, partita.isAggiungiFormazione());
 
 			statement.executeUpdate();
 		} catch (SQLException e) {
@@ -42,22 +43,24 @@ public class PartitaDAOJdbc implements PartitaDAO {
 	}
 
 	@Override
-	public Partita findByPrimaryKey(int id) {
+	public Partita findByPrimaryKey(int giornata, String Campionato) {
 		Partita partita = null;
 		Connection connection = this.dataSource.getConnection();
 		try {
 			PreparedStatement statement;
-			String query = "select * from partita where giornata = ?";
+			String query = "select * from partita where giornata = ? and campionato = ?";
 			statement = connection.prepareStatement(query);
 
-			statement.setInt(1, id);
+			statement.setInt(1, giornata);
+			statement.setString(2, Campionato);
 
 			ResultSet result = statement.executeQuery();
 
 			if (result.next()) {
 				partita = new PartitaProxy(dataSource);
 				partita.setGiornata(result.getInt("giornata"));
-
+				partita.setAggiungiFormazione(result.getBoolean("aggiungiFormazione"));
+//////////////////////////////////////////
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
@@ -74,8 +77,29 @@ public class PartitaDAOJdbc implements PartitaDAO {
 
 	@Override
 	public void update(Partita partita) {
-		// TODO Auto-generated method stub
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String update = "update partita set giornata = ?, campionato = ?, \"aggiungiFormazione\" = ? where giornata = ? "
+					+ "and campionato = ?";
+			PreparedStatement statement = connection.prepareStatement(update);
+			statement.setInt(1, partita.getGiornata());
+			statement.setString(2, partita.getCampionato());
+			statement.setBoolean(3, partita.isAggiungiFormazione());			
+			statement.setInt(4, partita.getGiornata());
+			statement.setString(5, partita.getCampionato());
+			
 
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+			
+		}
 	}
 
 	@Override
@@ -91,13 +115,14 @@ public class PartitaDAOJdbc implements PartitaDAO {
 	}
 
 	@Override
-	public Partita getPartitaGiocabile() {
+	public Partita getPartitaGiocabile(String campionato) {
 		Connection connection = this.dataSource.getConnection();
 		Partita partita=null;
 		try {
 			PreparedStatement statement;
-			String query = "select * from partita where \"aggiungiFormazione\"=true ";
+			String query = "select * from partita where \"aggiungiFormazione\"=true and campionato = ?";
 			statement = connection.prepareStatement(query);
+			statement.setString(1, campionato);
 
 			ResultSet result = statement.executeQuery();
 
@@ -105,6 +130,7 @@ public class PartitaDAOJdbc implements PartitaDAO {
 				partita=new Partita();
 				partita.setAggiungiFormazione(result.getBoolean("aggiungiFormazione"));
 				partita.setGiornata(result.getInt("giornata"));
+				//////////////////
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());

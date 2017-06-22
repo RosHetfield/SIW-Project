@@ -155,6 +155,8 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 						<div class="box">
 							<h4>Inserisci formazione</h4>
 							<br>
+							
+						<c:if  test="${!Campionato.mercato}">							
 							<label class="switch">
 								<c:choose>
 									<c:when test="${partita.aggiungiFormazione}">
@@ -166,7 +168,13 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 								</c:choose>
 		  						<div class="slider round"></div>
 								
-							</label><br><br>
+							</label>
+						
+						</c:if>
+					
+				
+							
+							
 						</div>
 
 

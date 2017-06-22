@@ -320,17 +320,7 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('#tabellaPartecipanti').DataTable({
-				
-				"responsive" : true,
-				"aPaginationType" : "full_numbers",
-				"columnDefs" : [{
-					"targets" : -1,
-					"data" : null,
-					"defaultContent":"<input id=\"aggiungi\" type=\"submit\" value=\"Aggiungi\" class=\"btn btn-primary btn-sm\">"
-				}]
-			})
-			;
+			$('#tabellaPartecipanti').DataTable();
 		});
 	</script>
 	

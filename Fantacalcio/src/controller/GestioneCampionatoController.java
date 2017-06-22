@@ -61,7 +61,7 @@ public class GestioneCampionatoController extends HttpServlet {
 
 				List<Utente> utenti = DBManager.getInstance().getCampionato().possibiliGiocatori(campionato);
 				List<Invito> inviti = DBManager.getInstance().getInvito().findByCampionato(campionato);
-				Partita partita=DBManager.getInstance().getPartita().getPartitaGiocabile();
+				Partita partita=DBManager.getInstance().getPartita().getPartitaGiocabile(campionato);
 				request.setAttribute("partita", partita);
 				request.setAttribute("Campionato", camp);
 				request.setAttribute("PossibiliPartecipanti", utenti);
