@@ -22,10 +22,12 @@ public class Giocatore_in_rosaProxy extends Giocatore_in_rosa {
 			Connection connection = this.dataSource.getConnection();
 			try {
 				PreparedStatement statement;
-				String query = "select giocatore.* from giocatore, giocatore_in_rosa as gir where gir.squadra = ? and gir.giocatore=giocatore.nome";
+				String query = "select giocatore.* from giocatore, giocatore_in_rosa as gir "
+						+ "where gir.squadra = ? and gir.giocatore=giocatore.nome and gir.giocatore = ?";
 				statement = connection.prepareStatement(query);
 
 				statement.setString(1, getSquadra());
+				statement.setString(2, getNomeGiocatore());
 
 				ResultSet result = statement.executeQuery();
 				if (result.next()) {
@@ -34,6 +36,7 @@ public class Giocatore_in_rosaProxy extends Giocatore_in_rosa {
 					giocatore.setSquadra(result.getString("squadra"));
 					giocatore.setRuolo(result.getString("ruolo"));
 					giocatore.setValore(result.getInt("valore"));
+					System.out.println("GIOCATORE ROSA " + result.getString("nome") + " "+ result.getString("ruolo"));
 				}
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());

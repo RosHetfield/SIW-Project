@@ -24,8 +24,8 @@ public class Giocatore_in_formazioneDAOJdbc implements Giocatore_in_formazioneDA
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setInt(1, gif.getGiornata());
 			statement.setString(2, gif.getCampionato());
-			statement.setString(3, gif.getGiocatoreInRosa().getSquadra());
-			statement.setString(4, gif.getGiocatoreInRosa().getGiocatore().getNome());
+			statement.setString(3, gif.getSquadraGiocatoreRosa());
+			statement.setString(4, gif.getNomeGiocatoreRosa());
 			statement.setBoolean(5, gif.isTitolare());
 			statement.setBoolean(6, gif.isEntrato());
 			statement.setBoolean(7, gif.isUscito());

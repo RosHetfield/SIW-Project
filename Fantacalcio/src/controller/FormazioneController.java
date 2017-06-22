@@ -1,7 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Campionato;
 import model.Giocatore;
+import model.Giocatore_in_formazione;
+import model.Giocatore_in_rosa;
 import model.Partita;
 import model.Squadra;
 import persistence.DBManager;
@@ -48,18 +52,28 @@ public class FormazioneController extends HttpServlet {
 				if(camp.isMercato()) {
 					
 					String s=(String) request.getSession().getAttribute("squadra");
+					Squadra  squadra = DBManager.getInstance().getSquadra().findByPrimaryKey(s);
+					Set<Giocatore_in_rosa> giocatoriInRosa = squadra.getGiocatoriInRosa();
 					
-					List<Giocatore> giocatoriInRosa = DBManager.getInstance().getGiocatore_in_rosa().getGiocatoriInRosa(s);
+//					List<Giocatore> giocatoriInRosa = DBManager.getInstance().getGiocatore_in_rosa().getGiocatoriInRosa(s);
 					request.setAttribute("giocatoriInRosa", giocatoriInRosa);
 					
 					int giornata= (int)request.getSession().getAttribute("giornata");
 					request.getSession().removeAttribute("giornata");
 					
-					List<Giocatore> giocatoriInFormazione = DBManager.getInstance().getGiocatore().getGiocatoriInFormazione(giornata);
-					request.setAttribute("giocatoriInFormazione", giocatoriInFormazione);
+					Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata, campionato);
 					
-
-
+//					Set<Giocatore_in_formazione> giocatoriFormazione = new HashSet<Giocatore_in_formazione>();
+					
+//					for(Giocatore_in_formazione g : partita.getGiocatoriInFormazione()) {
+//						System.out.println("GGGGG " + g.getGiocatoreInRosa());
+////						if(g.getGiocatoreInRosa().getSquadra().equals(squadra)) {
+////							giocatoriFormazione.add(g);
+////						}
+//					}
+					
+					Set<Giocatore_in_formazione> giocatoriInFormazione = partita.getGiocatoriPerSquadra(squadra.getNome());
+					request.setAttribute("giocatoriInFormazione", giocatoriInFormazione);
 			
 					response.setContentType("text/html");
 					RequestDispatcher dispatcher = request.getRequestDispatcher("formazione.jsp");

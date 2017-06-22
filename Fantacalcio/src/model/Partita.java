@@ -17,6 +17,7 @@ public class Partita implements Serializable {
 	//riferimenti
 	private String campionato;
 	private Set<Giocatore_in_formazione> giocatori;
+	private Set<Giocatore_in_formazione> giocatoriSquadra;
 	
 	public Partita() {
 		super();
@@ -70,13 +71,14 @@ public class Partita implements Serializable {
 	}
 
 	public Set<Giocatore_in_formazione> getGiocatoriPerSquadra(String squadra) {
-		Set<Giocatore_in_formazione> giocatoriFormazione = new HashSet<Giocatore_in_formazione>();
-		for(Giocatore_in_formazione g : getGiocatoriInFormazione()) {
-			if(g.getGiocatoreInRosa().getSquadra().equals(squadra)) {
-				giocatoriFormazione.add(g);
-			}
-		}
-		return giocatoriFormazione;
+		return giocatoriSquadra;
+	}
+
+	public void setGiocatoriPerSquadra(Set<Giocatore_in_formazione> giocatori) {
+//		if(!giocatoriSquadra.isEmpty()) {
+//			this.giocatoriSquadra.clear();			
+//		}
+		this.giocatoriSquadra = giocatori;
 	}
 
 }

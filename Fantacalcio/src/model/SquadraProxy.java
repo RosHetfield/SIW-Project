@@ -85,38 +85,39 @@ public class SquadraProxy extends Squadra {
 		return super.getCampionato();
 	 }
 	 
-//		public Set<Giocatore_in_rosa> getGiocatori() {
-//			if(!firstLoadGiocatori) {
-//				 Set<Giocatore_in_rosa> giocatori= new HashSet<Giocatore_in_rosa>();
-//					Connection connection = this.dataSource.getConnection();
-//					try {
-//						PreparedStatement statement;
-//						String query = "select * from giocatore_in_rosa where squadra = ?";
-//						statement = connection.prepareStatement(query);
-//
-//						statement.setString(1, getNome());
-//
-//						ResultSet result = statement.executeQuery();
-//						while (result.next()) {
-//							Giocatore_in_rosa giocatore = new Giocatore_in_rosa();
-//							giocatore.setSquadra(result.getString("squadra"));
-//							giocatore.setGiocatore(result.getString("giocatore"));
-//
-//							giocatori.add(giocatore);
-//						}
-//					} catch (SQLException e) {
-//						throw new RuntimeException(e.getMessage());
-//					} finally {
-//						try {
-//							connection.close();
-//						} catch (SQLException e) {
-//							throw new RuntimeException(e.getMessage());
-//						}
-//					}
-//					this.setGiocatori(giocatori);
-//					firstLoadGiocatori = true;
-//				 }
-//				return super.getGiocatori();
-//		}
+		public Set<Giocatore_in_rosa> getGiocatoriInRosa() {
+			if(!firstLoadGiocatori) {
+				 Set<Giocatore_in_rosa> giocatori= new HashSet<Giocatore_in_rosa>();
+					Connection connection = this.dataSource.getConnection();
+					try {
+						PreparedStatement statement;
+						String query = "select gir.* from giocatore_in_rosa as gir where gir.squadra = ?";
+						statement = connection.prepareStatement(query);
+
+						statement.setString(1, getNome());
+
+						ResultSet result = statement.executeQuery();
+						while (result.next()) {
+							Giocatore_in_rosa giocatore = new Giocatore_in_rosaProxy(dataSource);
+							giocatore.setSquadra(result.getString("squadra"));
+							giocatore.setNomeGiocatore(result.getString("giocatore"));
+//							giocatore.getGiocatore();
+							System.out.println("GIOCATORE ROSA SQUADRA " + result.getString("squadra") + " "+ result.getString("giocatore"));
+							giocatori.add(giocatore);
+						}
+					} catch (SQLException e) {
+						throw new RuntimeException(e.getMessage());
+					} finally {
+						try {
+							connection.close();
+						} catch (SQLException e) {
+							throw new RuntimeException(e.getMessage());
+						}
+					}
+					this.setGiocatoriInRosa(giocatori);
+					firstLoadGiocatori = true;
+				 }
+				return super.getGiocatoriInRosa();
+		}
 
 }

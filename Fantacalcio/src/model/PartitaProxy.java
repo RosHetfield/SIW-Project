@@ -24,7 +24,7 @@ public class PartitaProxy extends Partita {
 			Connection connection = this.dataSource.getConnection();
 			try {
 				PreparedStatement statement;
-				String query = "select p.giornata, p.campionato from partita as p, giocatore_in_formazione as gif "
+				String query = "select gif.* from partita as p, giocatore_in_formazione as gif "
 						+ "where p.giornata = gif.giornata and p.campionato = gif.campionato and p.giornata = ? and p.campionato = ?";
 				statement = connection.prepareStatement(query);
 
@@ -37,8 +37,10 @@ public class PartitaProxy extends Partita {
 					Giocatore_in_formazione giocatore = new Giocatore_in_formazioneProxy(dataSource);
 					giocatore.setGiornata(result.getInt("giornata"));
 					giocatore.setCampionato(result.getString("campionato"));
+					giocatore.setNomeGiocatoreRosa(result.getString("giocatore"));
+					giocatore.setSquadraGiocatoreRosa(result.getString("squadra"));
 					giocatore.getGiocatoreInRosa();
-					
+					System.out.println("GIOCATORE ROSA FORMAZIONE SQUADRA " +result.getInt("giornata") + " "+giocatore.getGiocatoreInRosa());
 					giocatori.add(giocatore);
 				}
 				
@@ -57,4 +59,15 @@ public class PartitaProxy extends Partita {
 		return super.getGiocatoriInFormazione();
 		 
 	 }
+	
+	public Set<Giocatore_in_formazione> getGiocatoriPerSquadra(String squadra) {
+		Set<Giocatore_in_formazione> giocatoriFormazione = new HashSet<Giocatore_in_formazione>();
+		for(Giocatore_in_formazione g : getGiocatoriInFormazione()) {
+			if(g.getGiocatoreInRosa().getSquadra().equals(squadra)) {
+				giocatoriFormazione.add(g);
+			}
+		}
+		this.setGiocatoriPerSquadra(giocatoriFormazione);
+		return super.getGiocatoriPerSquadra(squadra);
+	}
 }

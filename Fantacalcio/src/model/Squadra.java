@@ -59,20 +59,20 @@ public class Squadra implements Serializable {
 		this.crediti = crediti;
 	}
 
-	public Set<Giocatore_in_rosa> getGiocatori() {
+	public Set<Giocatore_in_rosa> getGiocatoriInRosa() {
 		return giocatori;
 	}
 
-	public void setGiocatori(Set<Giocatore_in_rosa> giocatori) {
+	public void setGiocatoriInRosa(Set<Giocatore_in_rosa> giocatori) {
 		this.giocatori = giocatori;
 	}
 
 	public void addGiocatore(Giocatore_in_rosa giocatore) {
-		this.getGiocatori().add(giocatore);
+		this.getGiocatoriInRosa().add(giocatore);
 	}
 	
 	public void removeGiocatore(Giocatore_in_rosa giocatore) {
-		this.getGiocatori().remove(giocatore);
+		this.getGiocatoriInRosa().remove(giocatore);
 	}
 
 }

@@ -59,6 +59,7 @@ public class PartitaDAOJdbc implements PartitaDAO {
 			if (result.next()) {
 				partita = new PartitaProxy(dataSource);
 				partita.setGiornata(result.getInt("giornata"));
+				partita.setCampionato(result.getString("campionato"));
 				partita.setAggiungiFormazione(result.getBoolean("aggiungiFormazione"));
 //////////////////////////////////////////
 			}
