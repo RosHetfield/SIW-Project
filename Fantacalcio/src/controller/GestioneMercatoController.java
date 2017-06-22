@@ -129,7 +129,10 @@ System.out.println("ASSO " + request.getParameter("risposta"));
 			break;
 		}
 		}
-		Giocatore_in_rosa gir = new Giocatore_in_rosa(giocatore.getNome(), squadra.getNome());
+		
+		Giocatore_in_rosa gir = new Giocatore_in_rosa();
+		gir.setNomeGiocatore(giocatore.getNome());
+		gir.setSquadra(squadra.getNome());
 		squadra.setCrediti(squadra.getCrediti() - giocatore.getValore());
 		DBManager.getInstance().getGiocatore_in_rosa().save(gir);
 		DBManager.getInstance().getSquadra().update(squadra);
@@ -137,8 +140,9 @@ System.out.println("ASSO " + request.getParameter("risposta"));
 	}
 
 	private int rimuoviDaRosa(Squadra squadra, Giocatore giocatore) {
-		
-		Giocatore_in_rosa gir = new Giocatore_in_rosa(giocatore.getNome(), squadra.getNome());
+		Giocatore_in_rosa gir = new Giocatore_in_rosa();
+		gir.setNomeGiocatore(giocatore.getNome());
+		gir.setSquadra(squadra.getNome());
 		squadra.setCrediti(squadra.getCrediti() + giocatore.getValore());
 		DBManager.getInstance().getGiocatore_in_rosa().delete(gir);
 		DBManager.getInstance().getSquadra().update(squadra);

@@ -12,19 +12,21 @@ public class Partita implements Serializable {
 	private static final long serialVersionUID = -5625289563782535476L;
 
 	private int giornata;
-	private boolean aggiungiFormazione;
+	private boolean aggiungiFormazione = true;
 	
 	//riferimenti
-	private Campionato campionato;
+	private String campionato;
 	private Set<Giocatore_in_formazione> giocatori;
+	private Set<Giocatore_in_formazione> giocatoriSquadra;
 	
 	public Partita() {
 		super();
 	}
 
-	public Partita(int giornata,boolean aggiungiFormazione) {
+	public Partita(int giornata, String campionato, boolean aggiungiFormazione) {
 		super();
 		this.giornata = giornata;
+		this.campionato = campionato;
 		this.aggiungiFormazione=aggiungiFormazione;
 	}
 
@@ -36,28 +38,28 @@ public class Partita implements Serializable {
 		this.giornata = giornata;
 	}
 
-	public Campionato getCampionato() {
+	public String getCampionato() {
 		return campionato;
 	}
 
-	public void setCampionato(Campionato campionato) {
+	public void setCampionato(String campionato) {
 		this.campionato = campionato;
 	}
 
-	public Set<Giocatore_in_formazione> getGiocatori() {
+	public Set<Giocatore_in_formazione> getGiocatoriInFormazione() {
 		return giocatori;
 	}
 
-	public void setGiocatori(Set<Giocatore_in_formazione> giocatori) {
+	public void setGiocatoriInFormazione(Set<Giocatore_in_formazione> giocatori) {
 		this.giocatori = giocatori;
 	}
 	
-	public void addGiocatore(Giocatore_in_formazione giocatore) {
-		this.getGiocatori().add(giocatore);
+	public void addGiocatoreInFormazione(Giocatore_in_formazione giocatore) {
+		this.getGiocatoriInFormazione().add(giocatore);
 	}
 	
-	public void removeGiocatore(Giocatore_in_formazione giocatore) {
-		this.getGiocatori().add(giocatore);
+	public void removeGiocatoreInFormazione(Giocatore_in_formazione giocatore) {
+		this.getGiocatoriInFormazione().add(giocatore);
 	}
 
 	public boolean isAggiungiFormazione() {
@@ -66,6 +68,17 @@ public class Partita implements Serializable {
 
 	public void setAggiungiFormazione(boolean aggiungiFormazione) {
 		this.aggiungiFormazione = aggiungiFormazione;
+	}
+
+	public Set<Giocatore_in_formazione> getGiocatoriPerSquadra(String squadra) {
+		return giocatoriSquadra;
+	}
+
+	public void setGiocatoriPerSquadra(Set<Giocatore_in_formazione> giocatori) {
+//		if(!giocatoriSquadra.isEmpty()) {
+//			this.giocatoriSquadra.clear();			
+//		}
+		this.giocatoriSquadra = giocatori;
 	}
 
 }

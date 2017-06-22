@@ -26,7 +26,7 @@ public class PartitaDAOJdbc implements PartitaDAO {
 			String insert = "insert into partita(giornata, campionato, \"aggiungiFormazione\") values (?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setInt(1, partita.getGiornata());		
-			statement.setString(2, partita.getCampionato().getNome());	
+			statement.setString(2, partita.getCampionato());		
 			statement.setBoolean(3, partita.isAggiungiFormazione());
 
 			statement.executeUpdate();
@@ -59,6 +59,7 @@ public class PartitaDAOJdbc implements PartitaDAO {
 			if (result.next()) {
 				partita = new PartitaProxy(dataSource);
 				partita.setGiornata(result.getInt("giornata"));
+				partita.setCampionato(result.getString("campionato"));
 				partita.setAggiungiFormazione(result.getBoolean("aggiungiFormazione"));
 //////////////////////////////////////////
 			}
@@ -79,13 +80,14 @@ public class PartitaDAOJdbc implements PartitaDAO {
 	public void update(Partita partita) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update = "update partita set giornata = ?, \"aggiungiFormazione\" = ? where giornata = ? "
+			String update = "update partita set giornata = ?, campionato = ?, \"aggiungiFormazione\" = ? where giornata = ? "
 					+ "and campionato = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setInt(1, partita.getGiornata());
-			statement.setBoolean(2, partita.isAggiungiFormazione());			
-			statement.setInt(3, partita.getGiornata());
-			statement.setString(4, partita.getCampionato().getNome());
+			statement.setString(2, partita.getCampionato());
+			statement.setBoolean(3, partita.isAggiungiFormazione());			
+			statement.setInt(4, partita.getGiornata());
+			statement.setString(5, partita.getCampionato());
 			
 
 			statement.executeUpdate();

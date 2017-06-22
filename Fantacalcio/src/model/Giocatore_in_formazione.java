@@ -16,23 +16,26 @@ public class Giocatore_in_formazione implements Serializable {
 	
 	//riferimenti
 	
-	private Partita partita;
-	private Giocatore_in_rosa giocatore;
+	private int giornata;
+	private String campionato;
+	private Giocatore_in_rosa giocatoreRosa;
+	private String nomeGiocatoreRosa;
+	private String squadraGiocatoreRosa;
 	
 	public Giocatore_in_formazione() {
 		super();
-		this.partita = new Partita();
-		this.giocatore = new Giocatore_in_rosa();
 	}
 
-	public Giocatore_in_formazione(boolean titolare, boolean entrato, boolean uscito, int n_formazione) {
+	public Giocatore_in_formazione(String nomeGiocatoreRosa, String squadraGiocatoreRosa, int giornata, String campionato, boolean titolare, boolean entrato, boolean uscito, int n_formazione) {
 		super();
+		this.giornata = giornata;
+		this.campionato = campionato;
 		this.titolare = titolare;
 		this.entrato = entrato;
 		this.uscito = uscito;
 		this.n_formazione = n_formazione;
-		this.partita = new Partita();
-		this.giocatore = new Giocatore_in_rosa();
+		this.nomeGiocatoreRosa = nomeGiocatoreRosa;
+		this.squadraGiocatoreRosa = squadraGiocatoreRosa;
 	}
 
 	public boolean isTitolare() {
@@ -67,19 +70,43 @@ public class Giocatore_in_formazione implements Serializable {
 		this.n_formazione = n_formazione;
 	}
 
-	public Partita getPartita() {
-		return partita;
-	}
-
-	public void setPartita(Partita partita) {
-		this.partita = partita;
-	}
-
-	public Giocatore_in_rosa getGiocatore() {
-		return giocatore;
+	public Giocatore_in_rosa getGiocatoreInRosa() {
+		return giocatoreRosa;
 	}
 
 	public void setGiocatore(Giocatore_in_rosa giocatore) {
-		this.giocatore = giocatore;
+		this.giocatoreRosa = giocatore;
+	}
+
+	public int getGiornata() {
+		return giornata;
+	}
+
+	public void setGiornata(int giornata) {
+		this.giornata = giornata;
+	}
+
+	public String getCampionato() {
+		return campionato;
+	}
+
+	public void setCampionato(String campionato) {
+		this.campionato = campionato;
+	}
+
+	public String getNomeGiocatoreRosa() {
+		return nomeGiocatoreRosa;
+	}
+
+	public void setNomeGiocatoreRosa(String nomeGiocatoreRosa) {
+		this.nomeGiocatoreRosa = nomeGiocatoreRosa;
+	}
+
+	public String getSquadraGiocatoreRosa() {
+		return squadraGiocatoreRosa;
+	}
+
+	public void setSquadraGiocatoreRosa(String squadraGiocatoreRosa) {
+		this.squadraGiocatoreRosa = squadraGiocatoreRosa;
 	}
 }

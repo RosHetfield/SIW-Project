@@ -27,7 +27,7 @@ public class Giocatore_in_rosaDAOJdbc implements Giocatore_in_rosaDAO {
 			String insert = "insert into giocatore_in_rosa (squadra, giocatore) values (?, ?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setString(1, gir.getSquadra());
-			statement.setString(2, gir.getGiocatore());
+			statement.setString(2, gir.getNomeGiocatore());
 						
 			
 			statement.executeUpdate();
@@ -63,7 +63,7 @@ public class Giocatore_in_rosaDAOJdbc implements Giocatore_in_rosaDAO {
 			String insert = "delete from giocatore_in_rosa where squadra = ? and giocatore = ?";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setString(1, gir.getSquadra());
-			statement.setString(2, gir.getGiocatore());
+			statement.setString(2, gir.getNomeGiocatore());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
