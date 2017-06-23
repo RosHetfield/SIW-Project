@@ -157,6 +157,7 @@
 
 					<hr>
 					<h2 class="intro-text text-center">Aggiungi giocatore</h2>
+					<h3 class="intro-text text-center">  Crediti: <b>${crediti }</b></h3>
 					<hr>
 
 					<div class="row">
