@@ -14,4 +14,5 @@ public interface Giocatore_in_rosaDAO {
 	public List<Giocatore> getGiocatoriInRosa(String squadra); //toliere
 	public int n_giocatoriRuolo(String squadra, String ruolo);
 	public void updateAll(String squadra, boolean completo);
+	public boolean isSquadraCompleta(String squadra);
 }

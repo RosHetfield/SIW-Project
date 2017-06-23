@@ -99,20 +99,26 @@ public class FormazioneController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = (String) request.getSession().getAttribute("Username");
 		System.out.println("sono in do post");
-
+		response.setContentType("text/html");
 		if (username != null) {
 			String campionato = (String) request.getSession().getAttribute("campionato");
-			
-			if(campionato != null) {
+			String squadra = (String) request.getSession().getAttribute("squadra");
+			if(campionato != null && squadra != null) {
 				Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
 				Partita partita=DBManager.getInstance().getPartita().getPartitaGiocabile(campionato);
 				int giornata=partita.getGiornata();
 				request.getSession().setAttribute("giornata", giornata);
 
 				if(!camp.isMercato()) {
-					if(giornata !=-1){
-					response.getWriter().print(0);
-						System.out.println("caso 0");
+					if(giornata !=-1 ) {
+						if(DBManager.getInstance().getGiocatore_in_rosa().isSquadraCompleta(squadra)){							
+							response.getWriter().print(0);
+							System.out.println("caso 0");
+						}
+						else {
+							response.getWriter().print(3);
+							System.out.println("caso 3");
+						}
 					}
 					else{
 					response.getWriter().print(1);

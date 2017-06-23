@@ -138,7 +138,7 @@
 				</div>
 			</div>
 			
-			<button type="button" class="btn btn-primary btn-block">Salva rosa</button>
+			<button type="button" class="btn btn-primary btn-block" onclick="salvaRosa()">Salva rosa</button>
 			
 			
 		</div>

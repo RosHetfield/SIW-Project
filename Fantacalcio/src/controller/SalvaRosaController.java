@@ -49,8 +49,8 @@ public class SalvaRosaController extends HttpServlet {
 
 			if (campionato != null && squadra != null) {
 				boolean completa = isCompleta(squadra);
-				DBManager.getInstance().getGiocatore_in_rosa().updateAll(squadra, completa);
 				if(completa) {
+					DBManager.getInstance().getGiocatore_in_rosa().updateAll(squadra, completa);
 					response.getWriter().println(0);
 				} else {
 					response.getWriter().println(1);

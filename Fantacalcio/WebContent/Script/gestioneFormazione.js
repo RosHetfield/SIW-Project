@@ -3,13 +3,13 @@ function checkFormazione() {
 	var succ = false;
 	$.ajax({
 
-		async : false,
+		async : true,
 		type : "POST",
 		url : "Formazione",
 		datatype : "json",
 		data : {},
 		success : function(data) {
-
+			var res = JSON.parse(data);
 			if (data == 1) {
 
 				swal({
@@ -20,11 +20,11 @@ function checkFormazione() {
 				});
 				succ = false;
 			}
-			else if (data == 0) {
+			if (data == 0) {
 				console.log("aviss i trasr")
 				succ = true;
 			}
-			else if (data == 2) {
+			if (data == 2) {
 				swal({
 					title : "Attenzione!",
 					text : "Inserimento formazione Chiuso ",
@@ -33,6 +33,16 @@ function checkFormazione() {
 				});
 				succ = false;
 
+			}
+			if (data == 3) {
+				console.log("dda");
+				swal({
+					title : "Attenzione!",
+					text : "Rosa non completa",
+					type : "error",
+					confirmButtonText : "Ok"
+				});
+				succ = false;
 			}
 		},
 		error : function(data) {

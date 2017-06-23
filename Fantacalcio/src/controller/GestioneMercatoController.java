@@ -146,6 +146,7 @@ System.out.println("ASSO " + request.getParameter("risposta"));
 		squadra.setCrediti(squadra.getCrediti() + giocatore.getValore());
 		DBManager.getInstance().getGiocatore_in_rosa().delete(gir);
 		DBManager.getInstance().getSquadra().update(squadra);
+		DBManager.getInstance().getGiocatore_in_rosa().updateAll(squadra.getNome(), false);
 		return 6;
 	}
 

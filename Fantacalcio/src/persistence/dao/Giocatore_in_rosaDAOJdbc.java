@@ -172,6 +172,8 @@ public class Giocatore_in_rosaDAOJdbc implements Giocatore_in_rosaDAO {
 		
 		return count;
 	}
+	
+	
 
 	@Override
 	public void updateAll(String squadra, boolean completo) {
@@ -194,6 +196,32 @@ public class Giocatore_in_rosaDAOJdbc implements Giocatore_in_rosaDAO {
 		}
 
 		
+	}
+
+	@Override
+	public boolean isSquadraCompleta(String squadra) {
+		boolean completa = false;
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String query = "select distinct completo from giocatore_in_rosa where squadra = ?";
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setString(1, squadra);
+			
+			ResultSet result = statement.executeQuery();
+			
+			if(result.next()) {
+				completa = result.getBoolean("completo");
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}			
+		return completa;
 	}
 	
 

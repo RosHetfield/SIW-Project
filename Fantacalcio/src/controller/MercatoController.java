@@ -88,7 +88,7 @@ public class MercatoController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = (String) request.getSession().getAttribute("Username");
-
+		response.setContentType("text/html");
 		if (username != null) {
 			System.out.println("Sessione Utente " + username);
 			String campionato = (String) request.getSession().getAttribute("campionato");
