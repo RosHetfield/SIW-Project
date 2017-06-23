@@ -81,7 +81,7 @@
     		<div class="row ">
 			<div class="col-lg-6 ">
 				<form id="formCreaCampionato" class="register-form box"
-					onsubmit="return registraCampionato(this)" action="index.html"
+					onsubmit="return registraCampionato(this)" action="LoginCampionato"
 					method="POST">
 					<hr>
 					<h2 class="intro-text text-center">

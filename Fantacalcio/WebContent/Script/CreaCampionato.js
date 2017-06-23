@@ -1,7 +1,6 @@
 function Campionato(nome, password) {
 	this.nome = nome;
 	this.password = password;
-//nomecreatore???
 }
 
 
@@ -44,14 +43,9 @@ function registraCampionato(form) {
 			},
 			success : function(data) {
 				 if(data == 0) {
-					 swal({
-						  title: "campionato creato!",
-						  text:"Completa le operazioni nella sezione dedicata",
-						  type: "success",
-						  confirmButtonText: "Ok"
-						});
-						form.Nome_Campionato.value='';
-						form.Password_Campionato.value='';
+					
+					 console.log("sono qua con "+data);
+						 return true;
 				 }
 				
 				 if(data == 1) {
@@ -62,9 +56,10 @@ function registraCampionato(form) {
 						  confirmButtonText: "Riprova"
 						});
 					console.log(data);
-					registrazione = false;
 					form.Nome_Campionato.value='';
 					form.Nome_Campionato.focus();
+					return false;
+					 
 				}
 			},
 
@@ -77,15 +72,15 @@ function registraCampionato(form) {
 					  confirmButtonText: "Riprova"
 					});
 				
-				registrazione = false;
 				form.Nome_Campionato.value='';
 				form.Nome_Campionato.focus();
 				form.Nome_Campionato.scrollIntoView();
+				return false;
 			}
 			
 		});
 
-		return Boolean(registrazione);
+		
 }
 
 $(document).ready();

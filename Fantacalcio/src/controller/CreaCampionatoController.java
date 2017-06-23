@@ -46,25 +46,26 @@ public class CreaCampionatoController extends HttpServlet {
 
 				ObjectMapper mapper = new ObjectMapper();
 				Campionato campionato = (Campionato) mapper.readValue(jsString, Campionato.class);
-				System.out.println("check "+campionato.getNome());
 				
 				Campionato checkCampionato = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato.getNome());
 				response.setContentType("text/html");
-			System.out.println("campionatoo "+checkCampionato);
+				
+				System.out.println("campionato passato "+campionato);
+				System.out.println("campionato corrispondente in db  "+checkCampionato);
 				
 				if(checkCampionato == null) {
 					
 					DBManager.getInstance().getCampionato().save(campionato);
 					response.getWriter().print(0);
 					response.setStatus(HttpServletResponse.SC_OK);
+					request.getSession().setAttribute("campionato", campionato.getNome());
 							
 				}
 				else {
 					System.out.println("campionatoo "+checkCampionato);
 					response.getWriter().print(1);
 				}
-				System.out.println(campionato.getNome());
-				System.out.println(campionato.getPassword()); 
+				
 
 			}
 			
