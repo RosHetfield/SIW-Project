@@ -78,8 +78,8 @@ function aperturaMercato() {
 
 function rosa(g,r) {
 	$(document).ready(function(){
-	var aggiungi = "<input id=\"aggiungi\" type=\"submit\" value=\"Aggiungi\" class=\"btn btn-primary btn-sm\" onclick=\"rosa(\''+g+'\',\'t\')";
-	var rimuovi = $('<input id="rimuovi" type="submit" value="Rimuovi" class="btn btn-danger btn-sm" onclick="rosa(\''+g+'\',\'f\')">')
+//	var aggiungi = "<input id=\"aggiungi\" type=\"submit\" value=\"Aggiungi\" class=\"btn btn-primary btn-sm\" onclick=\"rosa(\''+g+'\',\'t\')";
+//	var rimuovi = $('<input id="rimuovi" type="submit" value="Rimuovi" class="btn btn-danger btn-sm" onclick="rosa(\''+g+'\',\'f\')">')
 	$.ajax({
 
 		async : false,
@@ -97,8 +97,8 @@ function rosa(g,r) {
 			if (res.status == 0) {
 				//console.log("ok");
 				//$('#' + g).find("#aggiungi").remove();
-				//var table = $('#tabellaPartecipanti').DataTable();
-				//table.row('#' + g).remove().draw( false );
+				var table = $('#tabellaPartecipanti').DataTable();
+				table.row('#' + g).remove().draw( false );
 //				$('#' + g).find(".text-center").remove();
 //				$('#players_list').append($('#' + g));
 				swal({
@@ -148,8 +148,8 @@ function rosa(g,r) {
 				});
 			}
 			else if (res.status == 6) {
-				//var table = $('#players_list');
-				//table.find("#"+g).remove();
+				var table = $('#players_list');
+				table.find("#"+g).remove();
 //				$('#' + g).find(".text-center").append(aggiungi);
 //				$('#tabellaPartecipanti').append($('#' + g));
 				//var t=$('#tabellaPartecipanti').DataTable();
@@ -183,11 +183,41 @@ function rosa(g,r) {
 });
 }
 
-function deleteRow() {
-	
-	 
- 
-    $('#' + u).find("#invita").click( function () {
-        table.row('.selected').remove().draw( false );
-    } );
+function salvaRosa() {
+	$(document).ready(function(){
+		$.ajax({
+
+			async : true,
+			type : "POST",
+			url : "SalvaRosa",
+			datatype : "json",
+			data : {},
+			success : function(data) {
+				if (data == 0) {
+					swal({
+						title : "Rosa salvata!",
+						text : "La tua rosa è completa! ",
+						type : "success",
+						confirmButtonText : "Ok"
+					});
+				}
+				if (data == 1) {
+					swal({
+						title : "Rosa salvata!",
+						text : "Attenzione, la tua rosa non è completa!",
+						type : "warning",
+						confirmButtonText : "Ok"
+					});
+				}
+			},
+			error : function(data) {
+				swal({
+					title : "Errore!",
+					text : "Impossibile salvare la rosa!",
+					type : "error",
+					confirmButtonText : "Ok"
+				});
+			}
+		});
+	});
 }

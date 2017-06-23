@@ -135,5 +135,13 @@
   <servlet-mapping>
     <servlet-name>AperturaFormazioneController</servlet-name>
     <url-pattern>/AperturaFormazione</url-pattern>
-  </servlet-mapping>  
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>SalvaRosaController</servlet-name>
+    <servlet-class>controller.SalvaRosaController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SalvaRosaController</servlet-name>
+    <url-pattern>/SalvaRosa</url-pattern>
+  </servlet-mapping>
 </web-app>

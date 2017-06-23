@@ -48,8 +48,8 @@ public class FormazioneController extends HttpServlet {
 			
 			if(campionato != null) {
 				System.out.println("Sessione Campionato " + campionato);
-				Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
-				if(camp.isMercato()) {
+//				Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
+//				if(camp.isMercato()) {
 					
 					String s=(String) request.getSession().getAttribute("squadra");
 					Squadra  squadra = DBManager.getInstance().getSquadra().findByPrimaryKey(s);
@@ -79,11 +79,11 @@ public class FormazioneController extends HttpServlet {
 					RequestDispatcher dispatcher = request.getRequestDispatcher("formazione.jsp");
 					dispatcher.forward(request, response);
 					
-				} else {
-					RequestDispatcher dispatcher = request.getRequestDispatcher("404.html");
-					dispatcher.forward(request, response);
-				}
-			
+//				} else {
+//					RequestDispatcher dispatcher = request.getRequestDispatcher("404.html");
+//					dispatcher.forward(request, response);
+//				}
+//			
 			}
 
 		}
@@ -111,17 +111,17 @@ public class FormazioneController extends HttpServlet {
 
 				if(!camp.isMercato()) {
 					if(giornata !=-1){
-					response.getWriter().print(2);
-						System.out.println("caso 2");
+					response.getWriter().print(0);
+						System.out.println("caso 0");
 					}
 					else{
-					response.getWriter().print(0);
-					System.out.println("caso 0");
+					response.getWriter().print(1);
+					System.out.println("caso 1");
 
 					}
 				} else {
-					response.getWriter().print(1);
-					System.out.println("caso 1");
+					response.getWriter().print(2);
+					System.out.println("caso 2");
 
 				}
 			

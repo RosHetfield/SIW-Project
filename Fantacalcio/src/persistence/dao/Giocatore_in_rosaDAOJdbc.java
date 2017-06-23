@@ -24,11 +24,11 @@ public class Giocatore_in_rosaDAOJdbc implements Giocatore_in_rosaDAO {
 	public void save(Giocatore_in_rosa gir) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String insert = "insert into giocatore_in_rosa (squadra, giocatore) values (?, ?)";
+			String insert = "insert into giocatore_in_rosa (squadra, giocatore, completo) values (?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setString(1, gir.getSquadra());
 			statement.setString(2, gir.getNomeGiocatore());
-						
+			statement.setBoolean(3, gir.isCompleto());
 			
 			statement.executeUpdate();
 		} catch (SQLException e) {
@@ -51,7 +51,27 @@ public class Giocatore_in_rosaDAOJdbc implements Giocatore_in_rosaDAO {
 
 	@Override
 	public void update(Giocatore_in_rosa gir) {
-		// TODO Auto-generated method stub
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String update = "update giocatore_in_rosa set squadra = ?, giocatore = ?, completo = ? "
+					+ "where squadra = ?, giocatore = ?";
+			PreparedStatement statement = connection.prepareStatement(update);
+			statement.setString(1, gir.getSquadra());
+			statement.setString(2, gir.getNomeGiocatore());			
+			statement.setBoolean(3, gir.isCompleto());
+			statement.setString(4, gir.getSquadra());
+			statement.setString(5, gir.getNomeGiocatore());
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+			
+		}
 
 	}
 
@@ -83,7 +103,7 @@ public class Giocatore_in_rosaDAOJdbc implements Giocatore_in_rosaDAO {
 		return null;
 	}
 
-	@Override
+	@Override //TOLIERE
 	public List<Giocatore> getGiocatoriInRosa(String squadra) {
 		Connection connection = this.dataSource.getConnection();
 		List<Giocatore> giocatori= new ArrayList<Giocatore>();
@@ -151,6 +171,29 @@ public class Giocatore_in_rosaDAOJdbc implements Giocatore_in_rosaDAO {
 		}
 		
 		return count;
+	}
+
+	@Override
+	public void updateAll(String squadra, boolean completo) {
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String update = "update giocatore_in_rosa set completo = ? where squadra = ? ";
+			PreparedStatement statement = connection.prepareStatement(update);
+			statement.setBoolean(1, completo);			
+			statement.setString(2, squadra);
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+			
+		}
+
+		
 	}
 	
 

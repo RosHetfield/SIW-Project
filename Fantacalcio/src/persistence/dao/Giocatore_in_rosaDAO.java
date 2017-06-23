@@ -11,6 +11,7 @@ public interface Giocatore_in_rosaDAO {
 	public void update(Giocatore_in_rosa gir); //Update
 	public void delete(Giocatore_in_rosa gir); //Delete	
 	public List<Giocatore_in_rosa> findAll(); 
-	public List<Giocatore> getGiocatoriInRosa(String squadra);
+	public List<Giocatore> getGiocatoriInRosa(String squadra); //toliere
 	public int n_giocatoriRuolo(String squadra, String ruolo);
+	public void updateAll(String squadra, boolean completo);
 }

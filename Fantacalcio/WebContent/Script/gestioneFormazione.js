@@ -12,26 +12,26 @@ function checkFormazione() {
 
 			if (data == 1) {
 
-				succ = true;
-			}
-			if (data == 0) {
-
 				swal({
 					title : "Attenzione!",
-					text : "Mercato Chiuso ",
+					text : "Nessuna Partita da giocare ",
 					type : "error",
 					confirmButtonText : "Ok"
 				});
-				success = false;
+				succ = false;
 			}
-			if (data == 2) {
+			else if (data == 0) {
+				console.log("aviss i trasr")
+				succ = true;
+			}
+			else if (data == 2) {
 				swal({
 					title : "Attenzione!",
 					text : "Inserimento formazione Chiuso ",
 					type : "error",
 					confirmButtonText : "Ok"
 				});
-				success = false;
+				succ = false;
 
 			}
 		},
