@@ -81,8 +81,8 @@
     		<div class="row ">
 			<div class="col-lg-6 ">
 				<form id="formCreaCampionato" class="register-form box"
-					onsubmit="return registraCampionato(this)" action="LoginCampionato"
-					method="POST">
+					onsubmit="return registraCampionato(this)" 
+					>
 					<hr>
 					<h2 class="intro-text text-center">
 						<strong>Crea il tuo campionato</strong>

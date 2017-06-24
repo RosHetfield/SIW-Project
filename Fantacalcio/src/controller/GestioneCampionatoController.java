@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,7 +43,29 @@ public class GestioneCampionatoController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doPost(request, response);
+
+		HttpSession session = request.getSession();
+		String campionato = (String) session.getAttribute("NomeCampionato");
+		System.out.println(campionato);
+		if (campionato != null) {
+			
+			Campionato camp=DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
+			List<Utente> utenti = DBManager.getInstance().getCampionato().possibiliGiocatori(campionato);
+			List<Invito> inviti = DBManager.getInstance().getInvito().findByCampionato(campionato);
+			Partita partita = DBManager.getInstance().getPartita().getPartitaGiocabile(campionato);
+			request.setAttribute("partita", partita);
+			request.setAttribute("Campionato", camp);
+			request.setAttribute("PossibiliPartecipanti", utenti);
+			request.setAttribute("Inviti", inviti);
+			System.out.println("addi cazz va");
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("GestioneCampionato.jsp");
+			dispatcher.forward(request, response);
+
+		} else {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 
 	/**
@@ -51,32 +74,7 @@ public class GestioneCampionatoController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		if (request.getParameterNames().hasMoreElements()) {
-
-			HttpSession session = request.getSession();
-			String campionato = (String) session.getAttribute("NomeCampionato");
-			if (campionato != null) {
-
-				Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
-
-				List<Utente> utenti = DBManager.getInstance().getCampionato().possibiliGiocatori(campionato);
-				List<Invito> inviti = DBManager.getInstance().getInvito().findByCampionato(campionato);
-				Partita partita=DBManager.getInstance().getPartita().getPartitaGiocabile(campionato);
-				request.setAttribute("partita", partita);
-				request.setAttribute("Campionato", camp);
-				request.setAttribute("PossibiliPartecipanti", utenti);
-				request.setAttribute("Inviti", inviti);
-				
-
-				RequestDispatcher dispatcher = request.getRequestDispatcher("GestioneCampionato.jsp");
-				dispatcher.forward(request, response);
-			}
-			else {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
-				dispatcher.forward(request, response);
-			}
-		}
-
+		doGet(request, response);
 	}
 
 }

@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,32 +40,38 @@ public class CreaCampionatoController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		System.out.println("classe creacampionato doPost");
 		if (request.getParameterNames().hasMoreElements()) {
 			 
-			String jsString = request.getParameter("creazioneCampionato");
+			String jsString = request.getParameter("credenzialiAmministratore");
 			System.out.println("simu ca.... "+jsString);
 			if (jsString != null) {
 
 				ObjectMapper mapper = new ObjectMapper();
 				Campionato campionato = (Campionato) mapper.readValue(jsString, Campionato.class);
 				
+				System.out.println("campionato nome: "+campionato.getNome()+" mercato: "+campionato.isMercato());
+				
 				Campionato checkCampionato = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato.getNome());
 				response.setContentType("text/html");
 				
 				System.out.println("campionato passato "+campionato);
 				System.out.println("campionato corrispondente in db  "+checkCampionato);
-				
+//				response.setStatus(HttpServletResponse.SC_OK);
+
 				if(checkCampionato == null) {
 					
 					DBManager.getInstance().getCampionato().save(campionato);
+					request.getSession().setAttribute("NomeCampionato", campionato.getNome());
 					response.getWriter().print(0);
-					response.setStatus(HttpServletResponse.SC_OK);
-					request.getSession().setAttribute("campionato", campionato.getNome());
+
 							
 				}
 				else {
 					System.out.println("campionatoo "+checkCampionato);
 					response.getWriter().print(1);
+	
 				}
 				
 

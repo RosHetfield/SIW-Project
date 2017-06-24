@@ -67,7 +67,7 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 
 
 		<div class="col-lg-12 ">
-			<div id="campionato" class=" row box text-center"><hr><h2>Gestisci Campionato ${Campionato.nome}</h2><hr></div>
+			<div id="campionato" class=" row box text-center"><hr><h2>Gestisci Campionato ${NomeCampionato}</h2><hr></div>
 		</div>
 
 

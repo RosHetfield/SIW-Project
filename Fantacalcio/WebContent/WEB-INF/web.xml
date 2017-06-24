@@ -136,12 +136,20 @@
     <servlet-name>AperturaFormazioneController</servlet-name>
     <url-pattern>/AperturaFormazione</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>SalvaRosaController</servlet-name>
     <servlet-class>controller.SalvaRosaController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>SalvaRosaController</servlet-name>
     <url-pattern>/SalvaRosa</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>ClassificaController</servlet-name>
+    <servlet-class>controller.ClassificaController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ClassificaController</servlet-name>
+    <url-pattern>/Classifica</url-pattern>
   </servlet-mapping>
 </web-app>

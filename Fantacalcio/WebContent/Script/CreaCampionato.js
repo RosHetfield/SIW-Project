@@ -4,6 +4,9 @@ function Campionato(nome, password) {
 }
 
 
+
+
+
 function CreaCampionato() {
 	var campi = $("#formCreaCampionato").find("input");
 	var campo = campi.eq(0);
@@ -39,13 +42,15 @@ function registraCampionato(form) {
 			url : "CreaCampionato",
 			datatype : "json",
 			data : {
-				creazioneCampionato : JSON.stringify(jsonCampionato),
+				credenzialiAmministratore : JSON.stringify(jsonCampionato),
 			},
 			success : function(data) {
 				 if(data == 0) {
 					
 					 console.log("sono qua con "+data);
-						 return true;
+					 registrazione = true;
+
+					 location.href="GestioneCampionato";
 				 }
 				
 				 if(data == 1) {
@@ -58,7 +63,9 @@ function registraCampionato(form) {
 					console.log(data);
 					form.Nome_Campionato.value='';
 					form.Nome_Campionato.focus();
-					return false;
+					//return false;
+					 registrazione = false;
+
 					 
 				}
 			},
@@ -75,12 +82,15 @@ function registraCampionato(form) {
 				form.Nome_Campionato.value='';
 				form.Nome_Campionato.focus();
 				form.Nome_Campionato.scrollIntoView();
-				return false;
+				//return false;
+				 registrazione = false;
+
 			}
 			
 		});
 
-		
+		return Boolean(registrazione);
+
 }
 
 $(document).ready();
