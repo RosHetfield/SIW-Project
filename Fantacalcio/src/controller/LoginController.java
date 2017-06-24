@@ -58,9 +58,10 @@ public class LoginController extends HttpServlet {
 				System.out.println(result.getUsername() + " utende " + result.getPassword() + " passuord");
 				if (result.getUsername() != null) {
 					if (result.getPassword().equals(utente.getPassword())) {
-						response.getWriter().print(0);
 						HttpSession session = request.getSession();
 						session.setAttribute("Username", utente.getUsername());
+//						response.sendRedirect("Home");
+						response.getWriter().print(0);
 					}
 					else 
 						response.getWriter().print(1); 

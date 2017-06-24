@@ -48,7 +48,7 @@ function registraUtente(form) {
 		};
 	
 		$.ajax({
-			async : false,
+			async : true,
 			type : "POST",
 			url : "Registrazione",
 			datatype : "json",
@@ -62,6 +62,7 @@ function registraUtente(form) {
 				if(data == 0) {
 					form.Password.value='';
 					form.Password_confirmation.value='';
+					location.href = "Home";
 					registrazione = true;
 				}
 				else if(data == 1) {

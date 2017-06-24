@@ -30,7 +30,7 @@ function controlLoginUtente(form) {
 
 	$.ajax({
 
-		async : false,
+		async : true,
 		type : "POST",
 		url : "Login",
 		datatype : "json",
@@ -67,7 +67,8 @@ function controlLoginUtente(form) {
 				successBoolean = false;
 			} else if (data == 0) {
 				form.Password.value='';
-				successBoolean = true;
+//				successBoolean = true;
+				location.href = "Home"
 			}
 
 		},
