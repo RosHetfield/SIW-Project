@@ -26,16 +26,16 @@
 					aria-expanded="false">Campionati <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 
-						<% List
-						<String> campionati = (List<String>)
-						request.getAttribute("CampionatiUtente"); if
+						<% List<String> campionati = (List<String>)
+						request.getSession().getAttribute("CampionatiUtente"); if
 						(campionati.isEmpty()) { %>
 
 						<li><a>Nessun campionato</a></li>
 
 						<% } else { %> <c:forEach var="p" items="${CampionatiUtente}">
 
-
+							<li><a >stigrancazzi</a></li>
+							
 							<li><a onclick="caricaCampionato('${p}') ">${p}</a></li>
 
 

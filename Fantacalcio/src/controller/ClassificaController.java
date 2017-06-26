@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -41,7 +42,12 @@ public class ClassificaController extends HttpServlet {
 			HttpSession session = request.getSession();
 			String campionato = (String) session.getAttribute("campionato");
 			String squadra= (String)request.getSession().getAttribute("squadra");
-			
+			List<String> s = (List<String>) request.getSession().getAttribute("CampionatiUtente");
+			System.out.println("la esse "+ s);
+			for (String string : s) {
+				
+				System.out.println(string);
+			}
 		
 			if (campionato != null && squadra!=null) {
 				
@@ -49,7 +55,7 @@ public class ClassificaController extends HttpServlet {
 
 				//vedere come contrassegnare una giornata calcolata
 				
-				RequestDispatcher dispatcher = request.getRequestDispatcher("classifica.html");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("classifica.jsp");
 				dispatcher.forward(request, response);
 
 				

@@ -28,12 +28,7 @@ function caricaCampionato(c) {
 				
 				var squadra=JSON.parse(data);
 
-				$(document).ready(function() {
-					// console.log('cacacacacaca');
-						
-						$("#NavbarHome").load("fragments/homeNavbar.html")
-					//	$('#btnSquadra').append("<a>asdasda</a>");
-				});
+				location.href="Classifica";
 					
 			
 			}

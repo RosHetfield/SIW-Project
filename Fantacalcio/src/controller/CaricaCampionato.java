@@ -57,7 +57,8 @@ public class CaricaCampionato extends HttpServlet {
 		    	String json = ow.writeValueAsString(squadra);				
 				
 				if(squadra != null)
-				{						
+				{	
+					
 					request.getSession().setAttribute("squadra", squadra);////////////////////////////
 					response.getWriter().print(json);
 					response.setStatus(HttpServletResponse.SC_OK);
