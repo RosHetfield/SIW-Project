@@ -19,25 +19,25 @@ var fixHelper = function(e, ui) {
 
 var receivePT = function(event, ui) {
 
-	if ($(ui.item).hasClass('role-1') && PT < PM) {
+	if ($(ui.item).hasClass('P') && PT < PM) {
 		PT++;
 		if (ui.sender.attr("id") == "tbody3") {
 			PP--;
 		}
 		console.log("PortieriT " + PT);
-	} else if ($(ui.item).hasClass('role-2') && DT < DM) {
+	} else if ($(ui.item).hasClass('D') && DT < DM) {
 		DT++;
 		if (ui.sender.attr("id") == "tbody3") {
 			DP--;
 		}
 		console.log("DifensoriT " + DT);
-	} else if ($(ui.item).hasClass('role-3') && CT < CM) {
+	} else if ($(ui.item).hasClass('C') && CT < CM) {
 		CT++;
 		if (ui.sender.attr("id") == "tbody3") {
 			CP--;
 		}
 		console.log("CentrocampistiT " + CT);
-	} else if ($(ui.item).hasClass('role-4') && AT < AM) {
+	} else if ($(ui.item).hasClass('A') && AT < AM) {
 		AT++;
 		if (ui.sender.attr("id") == "tbody3") {
 			AP--;
@@ -51,25 +51,25 @@ var receivePT = function(event, ui) {
 
 var receivePP = function(event, ui) {
 
-	if ($(ui.item).hasClass('role-1') && PP < 1) {
+	if ($(ui.item).hasClass('P') && PP < 1) {
 		PP++;
 		if (ui.sender.attr("id") == "tbody2") {
 			PT--;
 		}
 		console.log("PortieriP " + PP);
-	} else if ($(ui.item).hasClass('role-2') && DP < 2) {
+	} else if ($(ui.item).hasClass('D') && DP < 2) {
 		DP++;
 		if (ui.sender.attr("id") == "tbody2") {
 			DT--;
 		}
 		console.log("DifensoriP " + DP);
-	} else if ($(ui.item).hasClass('role-3') && CP < 2) {
+	} else if ($(ui.item).hasClass('C') && CP < 2) {
 		CP++;
 		if (ui.sender.attr("id") == "tbody2") {
 			CT--;
 		}
 		console.log("CentrocampistiP " + CP);
-	} else if ($(ui.item).hasClass('role-4') && AP < 2) {
+	} else if ($(ui.item).hasClass('A') && AP < 2) {
 		AP++;
 		if (ui.sender.attr("id") == "tbody2") {
 			AT--;
@@ -103,25 +103,25 @@ function setModulo(modulo) {
 
 var receiveAll = function(event, ui) {
 	if ($(ui.sender).attr('id') == "tbody2") {
-		if ($(ui.item).hasClass('role-1')) {
+		if ($(ui.item).hasClass('P')) {
 			PT--;
 			console.log("Portieri T" + PT)
-		} else if ($(ui.item).hasClass('role-2')) {
+		} else if ($(ui.item).hasClass('D')) {
 			DT--;
-		} else if ($(ui.item).hasClass('role-3')) {
+		} else if ($(ui.item).hasClass('C')) {
 			CT--;
-		} else if ($(ui.item).hasClass('role-4')) {
+		} else if ($(ui.item).hasClass('A')) {
 			AT--;
 		}
 	} else if ($(ui.sender).attr('id') == "tbody3") {
-		if ($(ui.item).hasClass('role-1')) {
+		if ($(ui.item).hasClass('P')) {
 			PP--;
 			console.log("Portieri P" + PP)
-		} else if ($(ui.item).hasClass('role-2')) {
+		} else if ($(ui.item).hasClass('D')) {
 			DP--;
-		} else if ($(ui.item).hasClass('role-3')) {
+		} else if ($(ui.item).hasClass('C')) {
 			CP--;
-		} else if ($(ui.item).hasClass('role-4')) {
+		} else if ($(ui.item).hasClass('A')) {
 			AP--;
 		}
 	}
@@ -135,6 +135,7 @@ function init() {
 	    $( "#myselect option:selected" ).each(function() {
 	      setModulo( $( this ).val() );
 	    });
+	  
 	  })
 	  .trigger( "change" );
 

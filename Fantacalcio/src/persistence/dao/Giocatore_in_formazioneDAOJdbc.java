@@ -2,10 +2,12 @@ package persistence.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
 import model.Giocatore_in_formazione;
+import model.Utente;
 import persistence.DataSource;
 
 public class Giocatore_in_formazioneDAOJdbc implements Giocatore_in_formazioneDAO {
@@ -60,13 +62,74 @@ public class Giocatore_in_formazioneDAOJdbc implements Giocatore_in_formazioneDA
 
 	@Override
 	public void update(Giocatore_in_formazione gif) {
-		// TODO Auto-generated method stub
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String update = "update giocatore_in_formazione set giornata = ?, campionato = ?, giocatore = ?, squadra = ?, "
+					+ "titolare = ?, entrato = ?, uscito = ?, n_formazione = ? where giornata = ?, campionato = ?, squadra = ?";
+			PreparedStatement statement = connection.prepareStatement(update);
+			statement.setInt(1, gif.getGiornata());
+			statement.setString(2, gif.getCampionato());			
+			statement.setString(3, gif.getNomeGiocatoreRosa());
+			statement.setString(4, gif.getSquadraGiocatoreRosa());
+			statement.setBoolean(5, gif.isTitolare());
+			statement.setBoolean(6, gif.isEntrato());
+			statement.setBoolean(7, gif.isUscito());
+			statement.setInt(8, gif.getN_formazione());
+			statement.setInt(9, gif.getGiornata());
+			statement.setString(10, gif.getCampionato());			
+			statement.setString(11, gif.getSquadraGiocatoreRosa());
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+			
+		}
 
 	}
 
 	@Override
 	public void delete(Giocatore_in_formazione gif) {
 		// TODO Auto-generated method stub
+
+	}
+
+	@Override//modificare??
+	public Giocatore_in_formazione findByPrimaryKey(int giornata, String campionato, String squadra) {
+		Giocatore_in_formazione gif = new Giocatore_in_formazione();
+		Connection connection = this.dataSource.getConnection();
+		try {
+			PreparedStatement statement;
+			String query = "select * from giocatore_in_formazione where giornata = ? and campionato = ? and squadra = ?";
+			statement = connection.prepareStatement(query);
+			statement.setInt(1, giornata);
+			statement.setString(2, campionato);
+			statement.setString(3, squadra);
+
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+				gif.setGiornata(result.getInt("giornata"));
+				gif.setCampionato(result.getString("campionato"));
+				gif.setNomeGiocatoreRosa(result.getString("giocatore"));
+				gif.setSquadraGiocatoreRosa(result.getString("squadra"));
+
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}
+
+		return gif;	
 
 	}
 
