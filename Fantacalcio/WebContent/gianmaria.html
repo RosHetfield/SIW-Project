@@ -10,10 +10,37 @@
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
 
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
 <!-- Custom CSS -->
 <link href="css/business-casual.css" rel="stylesheet" />
 <link href="css/formazioniStyle.css" rel="stylesheet" />
-
+  <style>
+  #sortable1, #sortable2 {
+    border: 1px solid #eee;
+    width: 142px;
+    min-height: 20px;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 0 0 0;
+    float: left;
+    margin-right: 10px;
+  }
+  #sortable1 tr, #sortable2 tr {
+    margin: 0 5px 5px 5px;
+    padding: 5px;
+    font-size: 1.2em;
+    width: 120px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+	  $('tbody').sortable();
+   
+  } );
+  </script>
 
 <title>FantaBomber - Formazioni</title>
 
@@ -36,10 +63,10 @@
 					<h2 class="intro-text text-center">Rosa</h2>
 					<hr>
 
-					<table class="table " id="players_list">
+					<table class="table connectedSortable" id="sortable1">
 						<tbody>
 
-							<tr class="bg-slate-300">
+							<tr class="ui-state-default" class="bg-slate-300">
 
 								<td class=" "><span class="hidden-xs"> Ruolo</span> <span
 									class="visible-xs" data-toggle="tooltip" title="Ruolo">R</span>
@@ -65,7 +92,7 @@
 
 
 
-							<tr>
+							<tr class="ui-state-default">
 								<td class="valign-top" colspan="3"><span
 									class="label label-1">P</span><br class="visible-xs"></td>
 
@@ -82,7 +109,7 @@
 									data-toggle="tooltip" title="Voto">6.00 </span></td>
 							</tr>
 
-							<tr>
+							<tr class="ui-state-default">
 								<td class="valign-top" colspan="3"><span
 									class="label label-1">P</span><br class="visible-xs"></td>
 
@@ -100,7 +127,7 @@
 							</tr>
 
 
-							<tr>
+							<tr class="ui-state-default">
 								<td class="valign-top" colspan="3"><span
 									class="label label-1">P</span><br class="visible-xs"></td>
 
@@ -170,7 +197,7 @@
 					<div class="row">
 
 
-						<table id="" class="table table-striped table-bordered">
+						<table  class="table connectedSortable" id="sortable2">
 							<thead class="bg-slate-300">
 								<tr class="bg-slate-300">
 
@@ -196,7 +223,7 @@
 
 							<tbody>
 
-								<tr id="${p.username}">
+								<tr class="ui-state-default" id="${p.username}">
 									<td>${p.username}</td>
 									<td class="">${p.nome}</td>
 									<td class="">${p.cognome}</td>

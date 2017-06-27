@@ -29,15 +29,13 @@
 	background-color: #F9F9F9;
 }
 
-
-
-#tbody1, #tbody2,#tbody3 {
-    border: 1px solid #eee;
-    width: 142px;
-    min-height: 20px;
-    list-style-type: none;
-    padding: 1em 0 0 0;
-  }
+#tbody1, #tbody2, #tbody3 {
+	border: 1px solid #eee;
+	width: 142px;
+	min-height: 20px;
+	list-style-type: none;
+	padding: 1em 0 0 0;
+}
 </style>
 
 
@@ -71,12 +69,12 @@
 
 
 				<tbody id="tbody1" class="connectedSortable ">
-				
-				
+
+
 					<tr class="role-1 ">
 
-						<td class="valign-top"><span class="label label-1">P</span>
-							<br class="visible-xs"></td>
+						<td class="valign-top"><span class="label label-1">P</span> <br
+							class="visible-xs"></td>
 
 
 						<td class="text-center"><span class="" data-toggle="tooltip"
@@ -90,8 +88,8 @@
 
 
 					<tr class="role-2 ">
-						<td class="valign-top"><span class="label label-1">P</span>
-							<br class="visible-xs"></td>
+						<td class="valign-top"><span class="label label-1">P</span> <br
+							class="visible-xs"></td>
 
 
 						<td class="text-center"><span class="" data-toggle="tooltip"
@@ -105,8 +103,8 @@
 
 
 					<tr class="role-3 ">
-						<td class="valign-top"><span class="label label-1">P</span>
-							<br class="visible-xs"></td>
+						<td class="valign-top"><span class="label label-1">P</span> <br
+							class="visible-xs"></td>
 
 
 						<td class="text-center"><span class="" data-toggle="tooltip"
@@ -120,8 +118,8 @@
 
 
 					<tr class="role-4 ">
-						<td class="valign-top"><span class="label label-1">P</span>
-							<br class="visible-xs"></td>
+						<td class="valign-top"><span class="label label-1">P</span> <br
+							class="visible-xs"></td>
 
 
 						<td class="text-center"><span class="" data-toggle="tooltip"
@@ -165,8 +163,8 @@
 
 				<tbody id="tbody2" class="connectedSortable">
 					<tr class="role-1 ">
-						<td class="valign-top"><span class="label label-1">P</span>
-							<br class="visible-xs"></td>
+						<td class="valign-top"><span class="label label-1">P</span> <br
+							class="visible-xs"></td>
 
 
 						<td class="text-center"><span class="" data-toggle="tooltip"
@@ -180,8 +178,8 @@
 
 
 					<tr class="role-1 ">
-						<td class="valign-top"><span class="label label-1">P</span>
-							<br class="visible-xs"></td>
+						<td class="valign-top"><span class="label label-1">P</span> <br
+							class="visible-xs"></td>
 
 
 						<td class="text-center"><span class="" data-toggle="tooltip"
@@ -215,10 +213,10 @@
 					</tr>
 				</thead>
 
-				<tbody id="tbody3">
+				<tbody id="tbody3" class="connectedSortable">
 					<tr class="role-1 ">
-						<td class="valign-top"><span class="label label-1">P</span>
-							<br class="visible-xs"></td>
+						<td class="valign-top"><span class="label label-1">P</span> <br
+							class="visible-xs"></td>
 
 
 						<td class="text-center"><span class="" data-toggle="tooltip"
@@ -240,35 +238,7 @@
 
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script>
-		//	$( function() {
-		//	    $( "#sortable1 , #sortable2 " ).sortable({
-		//	    connectWith: ".connectedSortable"
-		//	}).disableSelection();
-		//	} );
-
-		var fixHelper = function(e, ui) {
-			ui.children().each(function() {
-				$(this).width($(this).width());
-			});
-			return ui;
-		};
-
-		$(function() {
-			$("#tbody2, #tbody1,#tbody3").sortable({
-				helper : fixHelper,
-				connectWith : ".connectedSortable",
-			    items: "tr",
-				start:function(event,ui){
-					$(ui.item).addClass("moving-color")
-				},
-			stop:function(event,ui){
-				$(ui.item).removeClass("moving-color")
-			}
-
-			});
-		}).disableSelection();
-	</script>
+	<script src="Script/formazione.js"></script>
 
 
 
