@@ -27,11 +27,14 @@
 <link href="css/business-casual.css" rel="stylesheet" />
 <link href="css/formazioniStyle.css" rel="stylesheet" />
 
-<link href="css/sweetalert.css" type="text/css" rel="stylesheet" />
 
+    <link href="css/sweetalert.css" type="text/css" rel="stylesheet"/>
+	<link href="css/sweetalert2.css" type="text/css" rel="stylesheet"/>
 
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  	<script src="js/sweetalert.min.js"></script>
+	<script src="js/sweetalert2.min.js"></script>
   
 <style>
 
@@ -42,7 +45,7 @@
     list-style-type: none;
     margin: 0;
     padding: 5px 0 0 0;
-    float: left;
+	float:left;
     margin-right: 10px;
   }
 
@@ -73,6 +76,12 @@
 	background-color: #F9F9F9;
 }
 
+tbody>tr {
+	min-height: 10px;
+	margin : 1em;
+	padding: 1em;
+}
+
 #tbody1, #tbody2, #tbody3 {
 	border: 1px solid #eee;
 	width: 142px;
@@ -101,7 +110,7 @@
 		
 	</div>
 		<div class="col-lg-6 box">
-		    
+		    <button type="button" class="btn btn-primary btn-block" onclick="salvaFormazione()">Salva formazione</button>
 		
 	</div>
 	</div>
@@ -139,7 +148,7 @@
 
 
 							<%
-								Set<Giocatore_in_formazione> inFormazione = (Set<Giocatore_in_formazione>) request.getAttribute("giocatoriInFormazione");
+								Set<Giocatore_in_rosa> inFormazione = (Set<Giocatore_in_rosa>) request.getAttribute("giocatoriInRosa");
 
 								if (inFormazione.size() == 0) {
 							%>
@@ -149,31 +158,30 @@
 							<%
 								} else {
 							%>
-							<c:forEach var="p" items="${giocatoriInFormazione}">
+							<c:forEach var="p" items="${giocatoriInRosa}">
 
 
-
-								<tr>
+								<tr id="${p.giocatore.nome}" class="${p.giocatore.ruolo}">
 
 									<c:choose>
-										<c:when test="${p.giocatoreInRosa.giocatore.ruolo == 'P'}">
+										<c:when test="${p.giocatore.ruolo == 'P'}">
 											<td class="valign-top" ><span
-												class="label label-1">${p.giocatoreInRosa.giocatore.ruolo}</span><br
+												class="label label-1">${p.giocatore.ruolo}</span><br
 												class="visible-xs"></td>
 										</c:when>
-										<c:when test="${p.giocatoreInRosa.giocatore.ruolo == 'D'}">
+										<c:when test="${p.giocatore.ruolo == 'D'}">
 											<td class="valign-top" ><span
-												class="label label-2">${p.giocatoreInRosa.giocatore.ruolo}</span><br
+												class="label label-2">${p.giocatore.ruolo}</span><br
 												class="visible-xs"></td>
 										</c:when>
-										<c:when test="${p.giocatoreInRosa.giocatore.ruolo == 'C'}">
+										<c:when test="${p.giocatore.ruolo == 'C'}">
 											<td class="valign-top" ><span
-												class="label label-3">${p.giocatoreInRosa.giocatoreruolo}</span><br
+												class="label label-3">${p.giocatore.ruolo}</span><br
 												class="visible-xs"></td>
 										</c:when>
-										<c:when test="${p.giocatoreInRosa.giocatore.ruolo == 'A'}">
+										<c:when test="${p.giocatore.ruolo == 'A'}">
 											<td class="valign-top" ><span
-												class="label label-4">${p.giocatoreInRosa.giocatore.ruolo}</span><br
+												class="label label-4">${p.giocatore.ruolo}</span><br
 												class="visible-xs"></td>
 												
 										</c:when>
@@ -181,10 +189,10 @@
 
 
 									<td class=""><span class="" data-toggle="tooltip"
-										title="Nome">${p.giocatoreInRosa.giocatore.nome}</span></td>
+										title="Nome">${p.giocatore.nome}</span></td>
 
 									<td class=""><span class="" data-toggle="tooltip"
-										title="Squadra">${p.giocatoreInRosa.giocatore.squadra} </span></td>
+										title="Squadra">${p.giocatore.squadra} </span></td>
 
 		
 								</tr>
@@ -240,8 +248,7 @@
 
 				<tbody id="tbody2" class="connectedSortable">
 					
-
-
+		
 
 				
 
@@ -269,7 +276,7 @@
 				</thead>
 
 				<tbody id="tbody3" class="connectedSortable">
-				
+			
 				</tbody>
 
 			</table>
@@ -279,7 +286,7 @@
 
 <script src="js/bootstrap.min.js"></script>
 <script src="Script/formazione.js"></script>
-
+<script src="Script/gestioneFormazione.js"></script>
 
 
 

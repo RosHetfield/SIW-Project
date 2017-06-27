@@ -22,6 +22,7 @@ function checkFormazione() {
 			}
 			if (data == 0) {
 				console.log("aviss i trasr")
+				location.href = "Formazione";
 				succ = true;
 			}
 			if (data == 2) {
@@ -98,6 +99,67 @@ function aperturaFormazione() {
 						confirmButtonText : "Ok"
 					});
 				}
+		},
+		error : function(data) {
+			swal({
+				title : "Errore!",
+				text : "Impossibile completare l'operazione",
+				type : "error",
+				confirmButtonText : "Ok"
+			});
+		}
+	});
+}
+
+function salvaFormazione() {
+	var countForm = $("#tbody2 > tr").length;
+	var countPanc = $("#tbody3 > tr").length;
+	
+	if(countForm < 11 || countPanc < 7) {
+		swal({
+			title : "Attenzione!",
+			text : "Completare la formazione",
+			type : "warning",
+			confirmButtonText : "Ok"
+		});
+		return;
+	}
+	
+	console.log(countForm);
+	console.log(countPanc);
+	
+	var formazione = [];
+	var panchina = [];
+	
+	for (var i = 0; i < countForm; i++) {
+		formazione.push($('#tbody2').children().eq(i).attr('id'))		
+	}
+	
+	for (var j = 0; j < countPanc; j++) {
+		panchina.push($('#tbody3').children().eq(j).attr('id'))		
+	}
+	
+	console.log("Formazione " + formazione);
+	console.log("Panchina " + panchina);
+	
+	$.ajax({
+
+		async : true,
+		type : "POST",
+		url : "SalvaFormazione",
+		datatype : "json",
+		data : {
+			formazioneJson : JSON.stringify(formazione),
+			panchinaJson : JSON.stringify(panchina)
+		},
+		success : function(data) {
+			if (data == 0) {
+				swal({
+					title : "Formazione salvata!",
+					type : "success",
+					confirmButtonText : "Ok"
+				});
+			}
 		},
 		error : function(data) {
 			swal({

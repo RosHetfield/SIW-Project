@@ -59,7 +59,7 @@ public class FormazioneController extends HttpServlet {
 					request.setAttribute("giocatoriInRosa", giocatoriInRosa);
 					
 //					int giornata= (int)request.getSession().getAttribute("giornata");
-					request.getSession().removeAttribute("giornata");
+//					request.getSession().removeAttribute("giornata");
 					
 //					Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata, campionato);
 					
