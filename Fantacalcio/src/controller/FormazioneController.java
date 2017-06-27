@@ -58,10 +58,10 @@ public class FormazioneController extends HttpServlet {
 //					List<Giocatore> giocatoriInRosa = DBManager.getInstance().getGiocatore_in_rosa().getGiocatoriInRosa(s);
 					request.setAttribute("giocatoriInRosa", giocatoriInRosa);
 					
-					int giornata= (int)request.getSession().getAttribute("giornata");
+//					int giornata= (int)request.getSession().getAttribute("giornata");
 					request.getSession().removeAttribute("giornata");
 					
-					Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata, campionato);
+//					Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata, campionato);
 					
 //					Set<Giocatore_in_formazione> giocatoriFormazione = new HashSet<Giocatore_in_formazione>();
 					
@@ -72,8 +72,8 @@ public class FormazioneController extends HttpServlet {
 ////						}
 //					}
 					
-					Set<Giocatore_in_formazione> giocatoriInFormazione = partita.getGiocatoriPerSquadra(squadra.getNome());
-					request.setAttribute("giocatoriInFormazione", giocatoriInFormazione);
+//					Set<Giocatore_in_formazione> giocatoriInFormazione = partita.getGiocatoriPerSquadra(squadra.getNome());
+//					request.setAttribute("giocatoriInFormazione", giocatoriInFormazione);
 			
 					response.setContentType("text/html");
 					RequestDispatcher dispatcher = request.getRequestDispatcher("formazione.jsp");
