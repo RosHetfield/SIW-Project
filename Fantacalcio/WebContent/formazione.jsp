@@ -33,7 +33,6 @@
   
 <style>
 
-
 		  #tbody1, #tbody2,#tbody3 {
     border: 1px solid #eee;
     width: 142px;
