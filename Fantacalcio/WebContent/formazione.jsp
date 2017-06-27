@@ -7,14 +7,13 @@
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.Set"%>
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FantaBomber - Formazioni</title>
 
 
 
@@ -22,55 +21,121 @@
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
 
-<!-- Table CSS -->
-<link href="css/dataTables.bootstrap.min.css" rel="stylesheet" />
-
-<!-- sweetAlert CSS -->
-<link href="css/sweetalert.css" type="text/css" rel="stylesheet" />
-
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  
 <!-- Custom CSS -->
 <link href="css/business-casual.css" rel="stylesheet" />
 <link href="css/formazioniStyle.css" rel="stylesheet" />
 
 
-<title>FantaBomber - Formazione</title>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+<style>
+
+
+		  #tbody1, #tbody2,#tbody3 {
+    border: 1px solid #eee;
+    width: 142px;
+    min-height: 20px;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 0 0 0;
+    float: left;
+    margin-right: 10px;
+  }
+
+         fieldset {
+            border: 0;
+         }
+			
+         label {
+            display: block;
+            margin: 30px 0 0 0;
+         }
+			
+         select {
+            width: 200px;
+         }
+			
+         .overflow {
+            height: 200px;
+         }
+      </style>
+
+
+
+
+
+<style type="text/css">
+.moving-color {
+	background-color: #F9F9F9;
+}
+
+#tbody1, #tbody2, #tbody3 {
+	border: 1px solid #eee;
+	width: 142px;
+	min-height: 20px;
+	list-style-type: none;
+	padding: 1em 0 0 0;
+}
+</style>
+
 
 </head>
-
 <body>
 
-	<!-- Header/Navigation -->
+<!-- Header/Navigation -->
 	<%@ include file="../fragments/header.html"%>
 
+	
+	<div class="  col-lg-12 ">
+		<div class="col-lg-6 box">
+		<select id="myselect">
+			<option value="1">4-4-2</option>
+			<option value="2">4-3-3</option>
+			<option value="3">3-5-1</option>
+			<option value="4">3-4-3</option>
+		</select>
+		
+	</div>
+		<div class="col-lg-6 box">
+		    
+		
+	</div>
+	</div>
 
-	<div class="container">
 
 
-		<div class=" row">
-			<div class="box">
-				<div class="col-lg-12 ">
 
-					<hr>
-					<h2 class="intro-text text-center">Formazione</h2>
-					<hr>
+	<div>
+		<div class="col-lg-6 ">
+			<table class="  table table-striped table-bordered box"
+				id=" players_list">
+				<thead>
 
-					<table class="table " id="players_list">
-						<tbody>
+					<tr class="active">
+						<td colspan="8">Rosa</td>
+					</tr>
 
-							<tr class="bg-slate-300">
 
-								<td class=" "><span class="hidden-xs"> Ruolo</span> <span
-									class="visible-xs" data-toggle="tooltip" title="Ruolo">R</span>
-								</td>
+					<tr class="bg-slate-300">
+						<td>Ruolo</td>
 
-								<td colspan="3">Nome Calciatore</td>
+						<td class="text-center" colspan="1"><span class="hidden-xs">
+								Nome</span> <span class="visible-xs" data-toggle="tooltip" title="Nome">N</span>
+						</td>
 
-								<td class=""><span class="hidden-xs"> Squadra</span> <span
-									class="visible-xs" data-toggle="tooltip" title="Squadra">S</span>
-								</td>
+						<td class="text-center"><span class="hidden-xs">
+								Squadra</span> <span class="visible-xs" data-toggle="tooltip"
+							title="Squadra">S</span></td>
+					</tr>
 
-								<td class="text-center"></td>
-							</tr>
+				</thead>
+
+
+				<tbody id="tbody1" class="connectedSortable ">
+
 
 							<%
 								Set<Giocatore_in_formazione> inFormazione = (Set<Giocatore_in_formazione>) request.getAttribute("giocatoriInFormazione");
@@ -85,26 +150,28 @@
 							%>
 							<c:forEach var="p" items="${giocatoriInFormazione}">
 
+
+
 								<tr>
 
 									<c:choose>
 										<c:when test="${p.giocatoreInRosa.giocatore.ruolo == 'P'}">
-											<td class="valign-top" colspan="3"><span
+											<td class="valign-top" ><span
 												class="label label-1">${p.giocatoreInRosa.giocatore.ruolo}</span><br
 												class="visible-xs"></td>
 										</c:when>
 										<c:when test="${p.giocatoreInRosa.giocatore.ruolo == 'D'}">
-											<td class="valign-top" colspan="3"><span
+											<td class="valign-top" ><span
 												class="label label-2">${p.giocatoreInRosa.giocatore.ruolo}</span><br
 												class="visible-xs"></td>
 										</c:when>
 										<c:when test="${p.giocatoreInRosa.giocatore.ruolo == 'C'}">
-											<td class="valign-top" colspan="3"><span
+											<td class="valign-top" ><span
 												class="label label-3">${p.giocatoreInRosa.giocatoreruolo}</span><br
 												class="visible-xs"></td>
 										</c:when>
 										<c:when test="${p.giocatoreInRosa.giocatore.ruolo == 'A'}">
-											<td class="valign-top" colspan="3"><span
+											<td class="valign-top" ><span
 												class="label label-4">${p.giocatoreInRosa.giocatore.ruolo}</span><br
 												class="visible-xs"></td>
 												
@@ -118,199 +185,102 @@
 									<td class=""><span class="" data-toggle="tooltip"
 										title="Squadra">${p.giocatoreInRosa.giocatore.squadra} </span></td>
 
-									<td class="text-center"><span class=""
-										data-toggle="tooltip" title="Voto">6.00 </span></td>
+		
 								</tr>
 							</c:forEach>
 							<%
 								}
 							%>
 
-						</tbody>
 
-					</table>
-				</div>
-			</div>
+
+
+
+
+
+
+			
+
+
+					
+
+
+				</tbody>
+
+
+
+
+
+			</table>
 		</div>
 
+		<div class="col-lg-6 ">
+			<table class=" table table-striped table-bordered box"
+				id="players_list">
+				<thead>
+
+					<tr class="active">
+						<td colspan="8">In Campo</td>
+					</tr>
+
+
+					<tr class="bg-slate-300">
+						<td>Ruolo</td>
+
+						<td class="text-center" colspan="1"><span class="hidden-xs">
+								Nome</span> <span class="visible-xs" data-toggle="tooltip" title="Nome">N</span>
+						</td>
+
+						<td class="text-center"><span class="hidden-xs">
+								Squadra</span> <span class="visible-xs" data-toggle="tooltip"
+							title="Squadra">S</span></td>
+					</tr>
+				</thead>
+
+				<tbody id="tbody2" class="connectedSortable">
+					
 
 
 
+				
 
 
+				</tbody>
+
+				<thead>
+
+					<tr class="active">
+						<td colspan="8">In Panchina</td>
+					</tr>
 
 
+					<tr class="bg-slate-300">
+						<td>Ruolo</td>
 
+						<td class="text-center" colspan="1"><span class="hidden-xs">
+								Nome</span> <span class="visible-xs" data-toggle="tooltip" title="Nome">N</span>
+						</td>
 
+						<td class="text-center"><span class="hidden-xs">
+								Squadra</span> <span class="visible-xs" data-toggle="tooltip"
+							title="Squadra">S</span></td>
+					</tr>
+				</thead>
 
-		<!-- tabella rosa -->
+				<tbody id="tbody3" class="connectedSortable">
+				
+				</tbody>
 
-		<div class=" row ">
-			<div class="  box ">
-				<div class=" col-lg-12 ">
+			</table>
 
-					<hr>
-					<h2 class="intro-text text-center">Rosa</h2>
-					<hr>
-
-					<div class="row">
-
-						<table id="tabellaRosa"
-							class="table table-striped table-bordered">
-							<thead class="bg-slate-300">
-								<tr>
-									<th>Ruolo</th>
-									<th class="hidden-xs">Nome Calciatore</th>
-									<th class="hidden-xs">Squadra</th>
-									<th class="text-center"></th>
-								</tr>
-							</thead>
-
-
-
-							<tbody>
-
-
-
-								<c:forEach var="p" items="${giocatoriInRosa}">
-									<tr>
-
-										<c:choose>
-											<c:when test="${p.giocatore.ruolo == 'P'}">
-												<td class="valign-top" ><span
-													class="label label-1">${p.giocatore.ruolo}</span><br
-													class="visible-xs"></td>
-											</c:when>
-											<c:when test="${p.giocatore.ruolo == 'D'}">
-												<td class="valign-top" ><span
-													class="label label-2">${p.giocatore.ruolo}</span><br
-													class="visible-xs"></td>
-											</c:when>
-											<c:when test="${p.giocatore.ruolo == 'C'}">
-												<td class="valign-top" ><span
-													class="label label-3">${p.giocatore.ruolo}</span><br
-													class="visible-xs"></td>
-											</c:when>
-											<c:when test="${p.giocatore.ruolo == 'A'}">
-												<td class="valign-top" ><span
-													class="label label-4">${p.giocatore.ruolo}</span><br
-													class="visible-xs"></td>
-											</c:when>
-										</c:choose>
-
-
-										<td class=""><span title="Nome">${p.giocatore.nome}</span></td>
-
-										<td class=""><span title="Squadra">${p.giocatore.squadra} </span></td>
-
-										<td class="text-center"><span title="Voto">6.00 </span></td>
-									</tr>
-								</c:forEach>
-
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
 		</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		<!--Banner pubblicitÃÂ  -->
-		<div class="row">
-			<div class="box col-lg-12">
-				<div class="col-lg-12">
-					<hr>
-					<h2 class="intro-text text-center">
-						Build a website <strong>worth visiting</strong>
-					</h2>
-					<hr>
-					<div class="col-lg-4">
-						<p>INSERIRE PUBBLICITA</p>
-					</div>
-					<div class="col-lg-4">
-						<p>INSERIRE PUBBLICITA</p>
-					</div>
-					<div class="col-lg-4">
-						<p>INSERIRE PUBBLICITA</p>
-					</div>
-				</div>
-			</div>
-		</div>
-
-
 	</div>
-	<!-- /.container -->
 
-
-	<!--include footer -->
-	<%@ include file="../fragments/footer.html"%>
-
-	<!-- jQuery -->
-	<script src="Script/jquery-3.1.1.min.js" type="text/javascript"></script>
-
-	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/sweetalert.min.js"></script>
-
-	<!-- Table JavaScript library -->
-	<script src="js/jquery-1.12.4.js"></script>
-	<script src="js/jquery.dataTables.min.js"></script>
-	<script src="js/dataTables.bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="Script/formazione.js"></script>
 
 
 
-
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('#tabellaRosa').DataTable();
-		});
-	</script>
-	
 
 </body>
 </html>
