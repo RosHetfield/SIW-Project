@@ -160,42 +160,22 @@
 					<thead class="bg-slate-300">
 						<tr>
 							<th>Squadra</th>
-							<th class="hidden-xs" title="Voto">pt.</th>
-							<th class="hidden-xs" title="Voto">g.</th>
-							<th class="hidden-xs" title="Voto">v.</th>
-							<th class="hidden-xs" title="Voto">n.</th>
-							<th class="hidden-xs" title="Voto">p.</th>
-							<th class="hidden-xs" title="Voto">gf.</th>
-							<th class="hidden-xs" title="Voto">gs.</th>
-							<th class="hidden-xs" title="Voto">dr.</th>
-							<th title="Totale">tot.</th>
+							<th class="hidden-xs" title="Giocate">Partite giocate</th>
+							<th title="Totale">Totale</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td>FC peroni</td>
-							<td>$1.38</td>
-							<td >-0.01</td>
-							<td data-title="Vinte" class="numeric">-0.36%</td>
-							<td data-title="Pareggiate" class="numeric">$1.39</td>
-							<td data-title="Perse" class="numeric">$1.39</td>
-							<td data-title="Goal_fatti" class="numeric">$1.38</td>
-							<td data-title="Goal_subiti" class="numeric">9,395</td>
-							<td data-title="Diff_reti" class="numeric">9,395</td>
-							<td data-title="Totale" class="numeric">9,395</td>
+							<td class="hidden-xs" title="Giocate">$1.38</td>
+							<td title="Totale" >-0.01</td>
 
 						</tr>
 						<tr>
-							<td data-title="Squadra">FC uuu</td>
-							<td data-title="Punti" class="numeric">$1.38</td>
-							<td data-title="Giornata" class="numeric">-0.01</td>
-							<td data-title="Vinte" class="numeric">-0.36%</td>
-							<td data-title="Pareggiate" class="numeric">$1.39</td>
-							<td data-title="Perse" class="numeric">$1.39</td>
-							<td data-title="Goal_fatti" class="numeric">$1.38</td>
-							<td data-title="Goal_subiti" class="numeric">9,395</td>
-							<td data-title="Diff_reti" class="numeric">9,395</td>
-							<td data-title="Totale" class="numeric">9,395</td>
+							<td>FC uuu</td>
+							<td class="hidden-xs" title="Giocate">$1.38</td>
+							<td title="Totale" >-0.01</td>
+						
 						</tr>
 					</tbody>
 				</table>

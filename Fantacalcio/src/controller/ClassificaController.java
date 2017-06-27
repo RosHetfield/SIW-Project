@@ -62,7 +62,7 @@ public class ClassificaController extends HttpServlet {
 				
 			}
 			else{
-				System.out.println("sono in if");
+				System.out.println("sono in else");
 
 				RequestDispatcher dispatcher = request.getRequestDispatcher("error.html");
 				dispatcher.forward(request, response);

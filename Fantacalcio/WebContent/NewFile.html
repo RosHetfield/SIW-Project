@@ -1,30 +1,60 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>selected demo</title>
-  <style>
-  div {
-    color: red;
-  }
-  </style>
-  <script src="https://code.jquery.com/jquery-1.12.1.js"></script>
+<meta charset="utf-8">
+<title>jQuery File Upload Example</title>
 </head>
 <body>
- 
-<select name="garden" multiple="multiple">
-  <option>Flowers</option>
-  <option selected="selected">Shrubs</option>
-  <option>Trees</option>
-  <option selected="selected">Bushes</option>
-  <option>Grass</option>
-  <option>Dirt</option>
-</select>
-<div></div>
- 
+
+<input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
+<div id="progress">
+    <div class="bar" style="width: 0%;"></div>
+</div>
 
 
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="js/jquery.ui.widget.js"></script>
+<script src="js/jquery.iframe-transport.js"></script>
+<script src="js/jquery.fileupload.js"></script>
+<script>
+$(function () {
+    $('#fileupload').fileupload({
+        dataType: 'json',
+        done: function (e, data) {
+            $.each(data.result.files, function (index, file) {
+                $('<p/>').text(file.name).appendTo(document.body);
+            });
+        }
+    });
+    
+    $('#fileupload').fileupload({
+        /* ... */
+        progressall: function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+            $('#progress .bar').css(
+                'width',
+                progress + '%'
+            );
+        }
+    });
+});
 
- 
-</body>
+$(function () {
+    $('#fileupload').fileupload({
+        dataType: 'json',
+        add: function (e, data) {
+            data.context = $('<button/>').text('Upload')
+                .appendTo(document.body)
+                .click(function () {
+                    data.context = $('<p/>').text('Uploading...').replaceAll($(this));
+                    data.submit();
+                });
+        },
+        done: function (e, data) {
+            data.context.text('Upload finished.');
+        }
+    });
+});
+</script>
+</body> 
 </html>
