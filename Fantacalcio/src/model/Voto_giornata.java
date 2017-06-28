@@ -9,31 +9,32 @@ public class Voto_giornata implements Serializable {
 	 */
 	private static final long serialVersionUID = -5845907666812671831L;
 
-	int giornata;
-	double voto;
-	double fantavoto;
-	int goalFatto;
-	int goalSubito;
-	int goalSuRigore;
-	int rigoreParato;
-	int rigoreSbagliato;
-	int autorete;
-	int assist;
-	boolean ammonito;
-	boolean espulso;
-	boolean uscito;
-	boolean entrato;
-	boolean goalVittoria;
-	boolean goalPareggio;
+	private int giornata;
+	private double voto;
+	private double fantavoto;
+	private int goalFatto;
+	private int goalSubito;
+	private int goalSuRigore;
+	private int rigoreParato;
+	private int rigoreSbagliato;
+	private int autorete;
+	private int assist;
+	private boolean ammonito;
+	private boolean espulso;
+	private boolean uscito;
+	private boolean entrato;
+	private boolean goalVittoria;
+	private boolean goalPareggio;
+	private String nomeGiocatore;
 	
 	//riferimenti
 	private Giocatore giocatore;
 
-	public Voto_giornata(int giornata, double voto,double fantavoto, int goalFatto, int goalSubito, int goalSuRigore, int rigoreParato,
+	public Voto_giornata(String nomeGiocatore, int giornata, double voto,double fantavoto, int goalFatto, int goalSubito, int goalSuRigore, int rigoreParato,
 			int rigoreSbagliato, int autorete, int assist, boolean ammonito, boolean espulso, boolean uscito,
 			boolean entrato, boolean goalVittoria, boolean goalPareggio) {
 		super();
-		this.giocatore = new Giocatore();
+		this.nomeGiocatore = nomeGiocatore;
 		this.giornata = giornata;
 		this.voto = voto;
 		this.fantavoto = fantavoto;
@@ -195,6 +196,14 @@ public class Voto_giornata implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public String getNomeGiocatore() {
+		return nomeGiocatore;
+	}
+
+	public void setNomeGiocatore(String nomeGiocatore) {
+		this.nomeGiocatore = nomeGiocatore;
 	}
 
 }
