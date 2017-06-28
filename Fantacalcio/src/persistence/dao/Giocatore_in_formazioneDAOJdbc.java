@@ -65,7 +65,8 @@ public class Giocatore_in_formazioneDAOJdbc implements Giocatore_in_formazioneDA
 		Connection connection = this.dataSource.getConnection();
 		try {
 			String update = "update giocatore_in_formazione set giornata = ?, campionato = ?, giocatore = ?, squadra = ?, "
-					+ "titolare = ?, entrato = ?, uscito = ?, n_formazione = ? where giornata = ?, campionato = ?, squadra = ?";
+					+ "titolare = ?, entrato = ?, uscito = ?, n_formazione = ? where giornata = ? and campionato = ? and "
+					+ " squadra = ? and giocatore=?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setInt(1, gif.getGiornata());
 			statement.setString(2, gif.getCampionato());			
@@ -78,6 +79,7 @@ public class Giocatore_in_formazioneDAOJdbc implements Giocatore_in_formazioneDA
 			statement.setInt(9, gif.getGiornata());
 			statement.setString(10, gif.getCampionato());			
 			statement.setString(11, gif.getSquadraGiocatoreRosa());
+			statement.setString(12, gif.getNomeGiocatoreRosa());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
