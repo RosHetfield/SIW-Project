@@ -55,13 +55,9 @@ public class SalvaFormazioneController extends HttpServlet {
 				String [] formazione = (String[]) mapper.readValue(jsFormazione, String[].class);
 				String [] panchina = (String[]) mapper.readValue(jsPanchina, String[].class);
 				
+				DBManager.getInstance().getGiocatore_in_formazione().deleteFormazione(giornata, campionato, squadra);
 				
-				if(DBManager.getInstance().getGiocatore_in_formazione().findByPrimaryKey(giornata, campionato, squadra) != null) {
-					aggiornaFormazione(giornata, campionato, formazione, panchina, squadra);
-				}
-				else {
-					creaFormazione(giornata, campionato, formazione, panchina, squadra);
-				}
+				creaFormazione(giornata, campionato, formazione, panchina, squadra);
 				
 			}
 		}
@@ -93,30 +89,5 @@ public class SalvaFormazioneController extends HttpServlet {
 		}
 	}
 	
-	private void aggiornaFormazione(int giornata, String campionato, String []formazione, String[]panchina, String squadra) {
-		int n_formazione = 1;
-		for (String giocatore : formazione) {
-			Giocatore_in_formazione gif = new Giocatore_in_formazione();
-			gif.setGiornata(giornata);
-			gif.setCampionato(campionato);
-			gif.setNomeGiocatoreRosa(giocatore);
-			gif.setSquadraGiocatoreRosa(squadra);
-			gif.setTitolare(true);
-			gif.setN_formazione(n_formazione);
-			n_formazione++;
-			DBManager.getInstance().getGiocatore_in_formazione().update(gif);
-		}
-		for (String giocatore : panchina) {
-			Giocatore_in_formazione gif = new Giocatore_in_formazione();
-			gif.setGiornata(giornata);
-			gif.setCampionato(campionato);
-			gif.setNomeGiocatoreRosa(giocatore);
-			gif.setSquadraGiocatoreRosa(squadra);
-			gif.setTitolare(false);
-			gif.setN_formazione(n_formazione);
-			n_formazione++;
-			DBManager.getInstance().getGiocatore_in_formazione().update(gif);
-		}
-	}
 
 }

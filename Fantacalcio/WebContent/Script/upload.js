@@ -1,29 +1,33 @@
-$( "#btnUpload" ).click(function() {
+$( '#btnUpload' ).click(function() {
 
-var file = $("#file").files[0]; //this is the input where I can choose the file
+var file = $('#file')[0].files[0]; //this is the input where I can choose the file
 if(file==null)
 	{
 	alert('selezionare file');
 	return ;	
 	}
 
+
 var formData = new FormData();
-formData.append('file', file);
+if(formData == null) {
+	console.log("nullo");
+}
+formData.append('file', files);
 
-var xhr = new XMLHttpRequest();
-xhr.open('POST', 'CaricaVoti');
-xhr.onload = function () {
-    //TODO show the progress
-};
-
-xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) {
-        //TODO success callback
-    }
-};
-
-xhr.upload.onprogress = function (event) {
-    //TODO show the progress
-};
+$.ajax ({
+	async : true,
+	type : "POST",
+	url : "CaricaVoti",
+	cache: false,
+    contentType: false,
+    processData: false,
+	data : formData,
+	success : function(data) {
+		console.log(data);
+	},
+	error : function(data) {
+		console.log("errore");
+	}
+});
 
 });

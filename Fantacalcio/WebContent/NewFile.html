@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action="/" method="post" onsubmit="return upload();">
+<form method="post" enctype="multipart/form-data">
   <fieldset>
     <legend>Upload photo</legend>
     <input type="file" name="uploadFile" id="file">
@@ -17,6 +17,7 @@
     <img src="" alt="Image preview" id="preview">
   </fieldset>
 </form>
+ <script src="Script/jquery-3.1.1.min.js" type="text/javascript"></script>
 
 	<script src="Script/upload.js"></script>
 

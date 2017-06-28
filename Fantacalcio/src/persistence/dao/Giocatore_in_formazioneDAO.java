@@ -10,6 +10,6 @@ public interface Giocatore_in_formazioneDAO {
 	public Giocatore_in_formazione findByPrimaryKey(int giornata, String campionato, String squadra); 
 	public List<Giocatore_in_formazione> findAll();       
 	public void update(Giocatore_in_formazione gif); //Update
-	public void delete(Giocatore_in_formazione gif); //Delete	
+	public void deleteFormazione(int giornata, String campionato, String squadra); //Delete	
 }
 

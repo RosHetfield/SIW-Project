@@ -95,8 +95,26 @@ public class Giocatore_in_formazioneDAOJdbc implements Giocatore_in_formazioneDA
 	}
 
 	@Override
-	public void delete(Giocatore_in_formazione gif) {
-		// TODO Auto-generated method stub
+	public void deleteFormazione(int giornata, String campionato, String squadra) {
+		Connection connection = this.dataSource.getConnection();
+		try {
+			
+			String delete = "delete from giocatore_in_formazione where giornata = ? and campionato = ? and squadra = ?";
+			PreparedStatement statement = connection.prepareStatement(delete);
+			statement.setInt(1, giornata);
+			statement.setString(2, campionato);
+			statement.setString(3, squadra);
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+			
+		}
 
 	}
 
@@ -114,12 +132,12 @@ public class Giocatore_in_formazioneDAOJdbc implements Giocatore_in_formazioneDA
 
 			ResultSet result = statement.executeQuery();
 
-			if (result.next()) {
+			while (result.next()) {
 				gif.setGiornata(result.getInt("giornata"));
 				gif.setCampionato(result.getString("campionato"));
 				gif.setNomeGiocatoreRosa(result.getString("giocatore"));
 				gif.setSquadraGiocatoreRosa(result.getString("squadra"));
-
+				//aggiungere altri campi
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
