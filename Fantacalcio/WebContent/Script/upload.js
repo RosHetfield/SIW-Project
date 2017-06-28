@@ -12,7 +12,7 @@ var formData = new FormData();
 if(formData == null) {
 	console.log("nullo");
 }
-formData.append('file', files);
+formData.append('file', file);
 
 $.ajax ({
 	async : true,
