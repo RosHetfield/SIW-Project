@@ -160,12 +160,20 @@
     <servlet-name>SalvaFormazioneController</servlet-name>
     <url-pattern>/SalvaFormazione</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>CaricaVotiController</servlet-name>
     <servlet-class>controller.CaricaVotiController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>CaricaVotiController</servlet-name>
     <url-pattern>/CaricaVoti</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>StampaFormazioniController</servlet-name>
+    <servlet-class>controller.StampaFormazioniController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StampaFormazioniController</servlet-name>
+    <url-pattern>/StampaFormazioni</url-pattern>
   </servlet-mapping>
 </web-app>
