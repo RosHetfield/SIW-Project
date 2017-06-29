@@ -56,16 +56,22 @@ function aperturaMercato() {
 					type : "success",
 					confirmButtonText : "Ok"
 				});
-				$('#formazione_id').prop('checked',false);
-				$('#formazione_id').prop('disabled',true);
-			}
-			else if (data == 1) {
+				
+			} else if (data == 1) {
 				swal({
 					title : "Mercato Chiuso!",
 					type : "success",
 					confirmButtonText : "Ok"
 				});
-				$('#formazione_id').prop('disabled',false);
+	
+			} else if (data == 2) {
+				swal({
+					title : "Impossibile aprire il mercato!",
+					text : "Partita non conclusa.",
+					type : "error",
+					confirmButtonText : "Ok"
+				});
+				$('#mercato').prop("checked",false);
 			}
 		},
 		error : function(data) {

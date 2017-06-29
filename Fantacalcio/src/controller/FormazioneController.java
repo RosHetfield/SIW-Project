@@ -105,12 +105,12 @@ public class FormazioneController extends HttpServlet {
 			String squadra = (String) request.getSession().getAttribute("squadra");
 			if(campionato != null && squadra != null) {
 				Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
-				Partita partita=DBManager.getInstance().getPartita().getPartitaGiocabile(campionato);
-				int giornata=partita.getGiornata();
+				int giornata = DBManager.getInstance().getPartita().getUltimaGiornata(campionato);
+				Partita partita=DBManager.getInstance().getPartita().findByPrimaryKey(giornata, campionato);
 				request.getSession().setAttribute("giornata", giornata);
 
 				if(!camp.isMercato()) {
-					if(giornata !=-1 ) {
+					if(System.currentTimeMillis() < partita.getData().getTime() ) {
 						if(DBManager.getInstance().getGiocatore_in_rosa().isSquadraCompleta(squadra)){							
 							response.getWriter().print(0);
 							System.out.println("caso 0");

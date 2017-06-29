@@ -37,7 +37,7 @@ public class AperturaMercatoController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doPost(request, response);
-	} 
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
@@ -58,15 +58,23 @@ public class AperturaMercatoController extends HttpServlet {
 					String apertura = (String) mapper.readValue(jsString, String.class);
 					response.setContentType("text/html");
 					Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
-					Partita partita = DBManager.getInstance().getPartita().getPartitaGiocabile(campionato);
-					if(apertura.equals("t")) {
-						camp.setMercato(true);
-						partita.setAggiungiFormazione(false);
-						DBManager.getInstance().getPartita().update(partita);
-						DBManager.getInstance().getCampionato().update(camp);
-						response.getWriter().println(0);
-					}
-					else if(apertura.equals("f")) {
+					if (apertura.equals("t")) {
+						int giornata = DBManager.getInstance().getPartita().getUltimaGiornata(campionato);
+						Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata, campionato);
+						if(partita == null) {
+							camp.setMercato(true);
+							DBManager.getInstance().getCampionato().update(camp);
+							response.getWriter().println(0);
+						}
+						else if (partita.getData().getTime() < System.currentTimeMillis()) {
+							camp.setMercato(true);
+							DBManager.getInstance().getCampionato().update(camp);
+							response.getWriter().println(0);
+						}
+						else {
+							response.getWriter().println(2);
+						}
+					} else if (apertura.equals("f")) {
 						camp.setMercato(false);
 						DBManager.getInstance().getCampionato().update(camp);
 						response.getWriter().println(1);

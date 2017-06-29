@@ -1,6 +1,7 @@
 package persistence.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,11 +24,12 @@ public class PartitaDAOJdbc implements PartitaDAO {
 	public void save(Partita partita) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String insert = "insert into partita(giornata, campionato, \"aggiungiFormazione\") values (?, ?, ?)";
+			String insert = "insert into partita(giornata, campionato, data) values (?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setInt(1, partita.getGiornata());		
-			statement.setString(2, partita.getCampionato());		
-			statement.setBoolean(3, partita.isAggiungiFormazione());
+			statement.setString(2, partita.getCampionato());
+			long secs = partita.getData().getTime();
+			statement.setDate(3, new Date(secs));
 
 			statement.executeUpdate();
 		} catch (SQLException e) {
@@ -53,14 +55,15 @@ public class PartitaDAOJdbc implements PartitaDAO {
 
 			statement.setInt(1, giornata);
 			statement.setString(2, Campionato);
-
+			
 			ResultSet result = statement.executeQuery();
 
 			if (result.next()) {
 				partita = new PartitaProxy(dataSource);
 				partita.setGiornata(result.getInt("giornata"));
 				partita.setCampionato(result.getString("campionato"));
-				partita.setAggiungiFormazione(result.getBoolean("aggiungiFormazione"));
+				long secs = result.getDate("data").getTime();
+				partita.setData(new java.util.Date(secs));
 //////////////////////////////////////////
 			}
 		} catch (SQLException e) {
@@ -80,12 +83,15 @@ public class PartitaDAOJdbc implements PartitaDAO {
 	public void update(Partita partita) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update = "update partita set giornata = ?, campionato = ?, \"aggiungiFormazione\" = ? where giornata = ? "
+			String update = "update partita set giornata = ?, campionato = ?, data = ? where giornata = ? "
 					+ "and campionato = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setInt(1, partita.getGiornata());
 			statement.setString(2, partita.getCampionato());
-			statement.setBoolean(3, partita.isAggiungiFormazione());			
+			
+			long secs = partita.getData().getTime();
+			statement.setDate(3, new Date(secs));
+
 			statement.setInt(4, partita.getGiornata());
 			statement.setString(5, partita.getCampionato());
 			
@@ -117,32 +123,32 @@ public class PartitaDAOJdbc implements PartitaDAO {
 
 	@Override
 	public Partita getPartitaGiocabile(String campionato) {
-		Connection connection = this.dataSource.getConnection();
+////		Connection connection = this.dataSource.getConnection();
 		Partita partita=null;
-		try {
-			PreparedStatement statement;
-			String query = "select * from partita where \"aggiungiFormazione\"=true and campionato = ?";
-			statement = connection.prepareStatement(query);
-			statement.setString(1, campionato);
-
-			ResultSet result = statement.executeQuery();
-
-			if (result.next()) {
-				partita=new Partita();
-				partita.setAggiungiFormazione(result.getBoolean("aggiungiFormazione"));
-				partita.setGiornata(result.getInt("giornata"));
-				//////////////////
-			}
-		} catch (SQLException e) {
-			throw new RuntimeException(e.getMessage());
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				throw new RuntimeException(e.getMessage());
-			}
-		}
-
+//		try {
+//			PreparedStatement statement;
+//			String query = "select * from partita where \"aggiungiFormazione\"=true and campionato = ?";
+//			statement = connection.prepareStatement(query);
+//			statement.setString(1, campionato);
+//
+//			ResultSet result = statement.executeQuery();
+//
+//			if (result.next()) {
+//				partita=new Partita();
+//				partita.setAggiungiFormazione(result.getBoolean("aggiungiFormazione"));
+//				partita.setGiornata(result.getInt("giornata"));
+//				//////////////////
+//			}
+//		} catch (SQLException e) {
+//			throw new RuntimeException(e.getMessage());
+//		} finally {
+//			try {
+//				connection.close();
+//			} catch (SQLException e) {
+//				throw new RuntimeException(e.getMessage());
+//			}
+//		}
+//
 		return partita;	
 	}
 

@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,7 +13,7 @@ public class Partita implements Serializable {
 	private static final long serialVersionUID = -5625289563782535476L;
 
 	private int giornata;
-	private boolean aggiungiFormazione = false;
+	private Date data;
 	
 	//riferimenti
 	private String campionato;
@@ -23,11 +24,11 @@ public class Partita implements Serializable {
 		super();
 	}
 
-	public Partita(int giornata, String campionato, boolean aggiungiFormazione) {
+	public Partita(int giornata, String campionato, Date data) {
 		super();
 		this.giornata = giornata;
 		this.campionato = campionato;
-		this.aggiungiFormazione=aggiungiFormazione;
+		this.data=data;
 	}
 
 	public int getGiornata() {
@@ -62,14 +63,6 @@ public class Partita implements Serializable {
 		this.getGiocatoriInFormazione().add(giocatore);
 	}
 
-	public boolean isAggiungiFormazione() {
-		return aggiungiFormazione;
-	}
-
-	public void setAggiungiFormazione(boolean aggiungiFormazione) {
-		this.aggiungiFormazione = aggiungiFormazione;
-	}
-
 	public Set<Giocatore_in_formazione> getGiocatoriPerSquadra(String squadra) {
 		return giocatoriSquadra;
 	}
@@ -79,6 +72,14 @@ public class Partita implements Serializable {
 //			this.giocatoriSquadra.clear();			
 //		}
 		this.giocatoriSquadra = giocatori;
+	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
 	}
 
 }

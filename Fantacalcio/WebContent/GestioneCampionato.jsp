@@ -18,6 +18,7 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 
 <!-- Table CSS -->
 <link href="css/dataTables.bootstrap.min.css" rel="stylesheet" />
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <!-- sweetAlert CSS -->
 <link href="css/sweetalert.css" type="text/css" rel="stylesheet" />
@@ -127,8 +128,17 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 					<div class="box">
 						<hr>
 						<h2 class="intro-text text-center">Crea giornata</h2>
-							<button type="button" class="btn btn-primary" aria-label="Left Align" onclick="creaGiornata()">Crea</button>
 						<hr>
+							<div>
+								<div>
+									<label>Data prossima partita</label>
+								</div>
+								<div id="datepicker" style="margin : 1em"></div>
+							</div>
+							<br>
+							<div>
+								<button type="button" class="btn btn-primary" aria-label="Left Align" onclick="creaGiornata()">Crea</button>
+							</div>
 					<br>
 					</div>
 
@@ -149,30 +159,6 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 		  						<div class="slider round"></div>
 								
 							</label><br><br>
-						</div>
-
-
-						<div class="box">
-							<h4>Inserisci formazione</h4>
-							<br>
-							
-												
-							<label class="switch">
-								<c:choose>
-									<c:when test="${partita.aggiungiFormazione}">
-				  						<input type="checkbox" checked onclick="aperturaFormazione()" id="formazione_id">
-									</c:when>
-									<c:otherwise>
-										<input type="checkbox"  onclick="aperturaFormazione()" id="formazione_id">
-									</c:otherwise>
-								</c:choose>
-		  						<div class="slider round"></div>
-								
-							</label>
-					
-				
-							
-							
 						</div>
 
 
@@ -296,35 +282,27 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 
 
 	<!-- jQuery -->
-	<script src="Script/jquery-3.1.1.min.js" type="text/javascript"></script>
 
 
-
+ 
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/sweetalert.min.js"></script>
 	
 	<!-- Table JavaScript library -->
-	<script src="js/jquery-1.12.4.js"></script>
 	<script src="js/jquery.dataTables.min.js"></script>
 	<script src="js/dataTables.bootstrap.min.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#tabellaPartecipanti').DataTable();
-			
-			if($('#mercato').prop('checked')) {
-				$('#formazione_id').prop('checked',false);
-				$('#formazione_id').prop('disabled',true);
-			}
+			$('#tabellaAggiungi').DataTable();			
+			$( "#datepicker" ).datepicker();
 		});
 	</script>
-
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('#tabellaAggiungi').DataTable();
-		});
-	</script>
+	
 	<script src="Script/gestioneInviti.js"></script>
 	<script src="Script/CreaGiornata.js"></script>
 	<script src="Script/gestioneMercato.js"></script>

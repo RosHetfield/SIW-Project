@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import model.Campionato;
 import model.Partita;
@@ -45,7 +49,7 @@ public class CreaPartitaController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		if (!request.getParameterNames().hasMoreElements()) {
+		if (request.getParameterNames().hasMoreElements()) {
 			HttpSession session = request.getSession();
 			response.setContentType("text/html");
 			String campionato = (String) session.getAttribute("NomeCampionato");
@@ -64,12 +68,18 @@ public class CreaPartitaController extends HttpServlet {
 							jsRes.put("status", 1);
 							response.getWriter().print(jsRes);
 						} else {
-							Partita partita = new Partita(ultima_giornata, campionato, true);
+							String jsonData = request.getParameter("jsonData");
+							ObjectMapper mapper = new ObjectMapper();
+							Date data = (Date) mapper.readValue(jsonData, Date.class);
+							
+							Partita partita = new Partita(ultima_giornata, campionato, data);
 							partita.setCampionato(campionato);
 							Campionato c = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
 							DBManager.getInstance().getPartita().save(partita);
-							c.setMercato(false);
-							DBManager.getInstance().getCampionato().update(c);
+							if(c.isMercato()) {
+								c.setMercato(false);
+								DBManager.getInstance().getCampionato().update(c);								
+							}
 							jsRes.put("status", 0);
 							response.getWriter().print(jsRes);
 						}
