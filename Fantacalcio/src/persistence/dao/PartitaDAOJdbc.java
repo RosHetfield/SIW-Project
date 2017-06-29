@@ -146,4 +146,34 @@ public class PartitaDAOJdbc implements PartitaDAO {
 		return partita;	
 	}
 
+	@Override
+	public int getUltimaGiornata(String campionato) {
+		Connection connection = this.dataSource.getConnection();
+		int partita=-1;
+		try {
+			PreparedStatement statement;
+			String query = "select MAX(giornata) as gio from partita where campionato = ?";
+			statement = connection.prepareStatement(query);
+			statement.setString(1, campionato);
+
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+				partita=result.getInt("gio");
+				System.out.println("la partita numero: "+partita);
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}
+
+		return partita;	
+
+	}
+
 }

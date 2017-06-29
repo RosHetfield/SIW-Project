@@ -66,7 +66,10 @@ public class CreaPartitaController extends HttpServlet {
 						} else {
 							Partita partita = new Partita(ultima_giornata, campionato, true);
 							partita.setCampionato(campionato);
+							Campionato c = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
 							DBManager.getInstance().getPartita().save(partita);
+							c.setMercato(false);
+							DBManager.getInstance().getCampionato().update(c);
 							jsRes.put("status", 0);
 							response.getWriter().print(jsRes);
 						}

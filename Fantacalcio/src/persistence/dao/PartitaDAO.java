@@ -10,5 +10,6 @@ public interface PartitaDAO {
 	public void update(Partita partita); //Update
 	public void delete(Partita partita); //Delete	
 	public List<Partita> findAll();
-	public Partita getPartitaGiocabile(String campionato); 
+	public Partita getPartitaGiocabile(String campionato);
+	public int getUltimaGiornata(String campionato); 
 }

@@ -12,7 +12,7 @@ public class Partita implements Serializable {
 	private static final long serialVersionUID = -5625289563782535476L;
 
 	private int giornata;
-	private boolean aggiungiFormazione = true;
+	private boolean aggiungiFormazione = false;
 	
 	//riferimenti
 	private String campionato;

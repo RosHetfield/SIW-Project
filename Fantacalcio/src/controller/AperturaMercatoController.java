@@ -62,6 +62,7 @@ public class AperturaMercatoController extends HttpServlet {
 					if(apertura.equals("t")) {
 						camp.setMercato(true);
 						partita.setAggiungiFormazione(false);
+						DBManager.getInstance().getPartita().update(partita);
 						DBManager.getInstance().getCampionato().update(camp);
 						response.getWriter().println(0);
 					}
