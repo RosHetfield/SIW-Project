@@ -139,11 +139,11 @@
 
 								<tr class="role-1 ">
 									<td class="valign-top" colspan="3"><span
-										class="label label-1">ruolooo</span></td>
+										class="label label-1">${g.giocatoreInRosa.giocatore.ruolo} </span></td>
 
 
 									<td class="text-center"><span class=""
-										data-toggle="tooltip" title="Voto">${g.squadra} </span></td>
+										data-toggle="tooltip" title="Voto">${g.giocatoreInRosa.giocatore.nome} </span></td>
 
 									<td class="text-center"><span class=""
 										data-toggle="tooltip" title="Fantavoto">6.00 </span></td>
