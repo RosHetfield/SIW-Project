@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import model.Campionato;
 import model.Invito;
+import model.Partita;
 import persistence.DBManager;
 
 /**
@@ -57,8 +58,10 @@ public class AperturaMercatoController extends HttpServlet {
 					String apertura = (String) mapper.readValue(jsString, String.class);
 					response.setContentType("text/html");
 					Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
+					Partita partita = DBManager.getInstance().getPartita().getPartitaGiocabile(campionato);
 					if(apertura.equals("t")) {
 						camp.setMercato(true);
+						partita.setAggiungiFormazione(false);
 						DBManager.getInstance().getCampionato().update(camp);
 						response.getWriter().println(0);
 					}

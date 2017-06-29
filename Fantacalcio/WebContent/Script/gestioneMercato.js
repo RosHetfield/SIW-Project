@@ -56,6 +56,8 @@ function aperturaMercato() {
 					type : "success",
 					confirmButtonText : "Ok"
 				});
+				$('#formazione_id').prop('checked',false);
+				$('#formazione_id').prop('disabled',true);
 			}
 			else if (data == 1) {
 				swal({
@@ -63,6 +65,7 @@ function aperturaMercato() {
 					type : "success",
 					confirmButtonText : "Ok"
 				});
+				$('#formazione_id').prop('disabled',false);
 			}
 		},
 		error : function(data) {

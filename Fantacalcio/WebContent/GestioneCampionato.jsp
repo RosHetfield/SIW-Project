@@ -156,7 +156,7 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 							<h4>Inserisci formazione</h4>
 							<br>
 							
-						<c:if  test="${!Campionato.mercato}">							
+												
 							<label class="switch">
 								<c:choose>
 									<c:when test="${partita.aggiungiFormazione}">
@@ -169,8 +169,6 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 		  						<div class="slider round"></div>
 								
 							</label>
-						
-						</c:if>
 					
 				
 							
@@ -314,6 +312,11 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#tabellaPartecipanti').DataTable();
+			
+			if($('#mercato').prop('checked')) {
+				$('#formazione_id').prop('checked',false);
+				$('#formazione_id').prop('disabled',true);
+			}
 		});
 	</script>
 

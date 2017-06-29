@@ -19,20 +19,20 @@ public class Voto_giornata implements Serializable {
 	private int rigoreSbagliato;
 	private int autorete;
 	private int assist;
-	private boolean ammonito;
-	private boolean espulso;
+	private int ammonito;
+	private int espulso;
 	private boolean uscito;
 	private boolean entrato;
-	private boolean goalVittoria;
-	private boolean goalPareggio;
+	private int goalVittoria;
+	private int goalPareggio;
 	private String nomeGiocatore;
 	
 	//riferimenti
 	private Giocatore giocatore;
 
 	public Voto_giornata(String nomeGiocatore, int giornata, double voto,double fantavoto, int goalFatto, int goalSubito, int goalSuRigore, int rigoreParato,
-			int rigoreSbagliato, int autorete, int assist, boolean ammonito, boolean espulso, boolean uscito,
-			boolean entrato, boolean goalVittoria, boolean goalPareggio) {
+			int rigoreSbagliato, int autorete, int assist, int ammonito, int espulso, boolean uscito,
+			boolean entrato, int goalVittoria, int goalPareggio) {
 		super();
 		this.nomeGiocatore = nomeGiocatore;
 		this.giornata = giornata;
@@ -146,19 +146,19 @@ public class Voto_giornata implements Serializable {
 		this.assist = assist;
 	}
 
-	public boolean isAmmonito() {
+	public int getAmmonito() {
 		return ammonito;
 	}
 
-	public void setAmmonito(boolean ammonito) {
+	public void setAmmonito(int ammonito) {
 		this.ammonito = ammonito;
 	}
 
-	public boolean isEspulso() {
+	public int getEspulso() {
 		return espulso;
 	}
 
-	public void setEspulso(boolean espulso) {
+	public void setEspulso(int espulso) {
 		this.espulso = espulso;
 	}
 
@@ -178,19 +178,19 @@ public class Voto_giornata implements Serializable {
 		this.entrato = entrato;
 	}
 
-	public boolean isGoalVittoria() {
+	public int getGoalVittoria() {
 		return goalVittoria;
 	}
 
-	public void setGoalVittoria(boolean goalVittoria) {
+	public void setGoalVittoria(int goalVittoria) {
 		this.goalVittoria = goalVittoria;
 	}
 
-	public boolean isGoalPareggio() {
+	public int getGoalPareggio() {
 		return goalPareggio;
 	}
 
-	public void setGoalPareggio(boolean goalPareggio) {
+	public void setGoalPareggio(int goalPareggio) {
 		this.goalPareggio = goalPareggio;
 	}
 

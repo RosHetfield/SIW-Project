@@ -38,12 +38,12 @@ public class Voto_giornataDAOJdbc implements Voto_giornataDAO {
 			statement.setInt(9, voto_giornata.getRigoreSbagliato());
 			statement.setInt(10, voto_giornata.getAutorete());
 			statement.setInt(11, voto_giornata.getAssist());
-			statement.setBoolean(12, voto_giornata.isAmmonito());
-			statement.setBoolean(13, voto_giornata.isEspulso());
+			statement.setInt(12, voto_giornata.getAmmonito());
+			statement.setInt(13, voto_giornata.getEspulso());
 			statement.setBoolean(14, voto_giornata.isEntrato());
 			statement.setBoolean(15, voto_giornata.isUscito());
-			statement.setBoolean(16, voto_giornata.isGoalVittoria());
-			statement.setBoolean(17, voto_giornata.isGoalPareggio());
+			statement.setInt(16, voto_giornata.getGoalVittoria());
+			statement.setInt(17, voto_giornata.getGoalPareggio());
 		
 			
 			statement.executeUpdate();
