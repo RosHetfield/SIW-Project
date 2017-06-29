@@ -3,6 +3,9 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="model.Giocatore_in_formazione"%>
 <%@ page import="java.util.Set"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.ArrayList"%>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,110 +56,161 @@
 		<div class=" box">
 
 
+			<%
+				Set<Giocatore_in_formazione> formazioni = (Set<Giocatore_in_formazione>) request
+						.getAttribute("giocatoriUltima");
+
+				if (formazioni.size() == 0) {
+			%>
+
+			<h3 class="text-center">
+				<span>Nessuna formazione inserita per la giornata
+					${ultimaGiornata} </span>
+			</h3>
+
+
+			<c:forEach var="p" items="${squadreCampionato}">
+				<div class="col-lg-6 ">
+					<hr>
+					<h3 class="text-center">
+
+						<span>${p.nome} </span>
+					</h3>
+					<hr>
+				</div>
+			</c:forEach>
+
+			<%
+				} else {
+			%>
+
+
 
 
 			<div class="row">
-				<div class="col-lg-6 ">
+				<h3 class="text-center">
+
+					<span>Formazioni giornata ${ultimaGiornata} <i
+						class="pull-left "></i>
+					</span>
+				</h3>
 
 
-					<div class="panel-heading">
-						<h3>
-							<span>Juventus <i class="pull-left "></i>
-							</span>
+
+
+				<c:forEach var="p" items="${squadreCampionato}">
+					<div class="col-lg-6 ">
+						<hr>
+						<h3 class="text-center">
+
+							<span>${p.nome} </span>
 						</h3>
+						<hr>
+
+						<table class="table table-striped table-bordered"
+							id="players_list">
+							<thead>
+
+
+								<tr class="active">
+									<td colspan="8">In campo</td>
+								</tr>
+
+								<tr class="bg-slate-300">
+
+									<td class="text-center hidden-xs">Ruolo</td>
+
+
+									<td >Nome Calciatore</td>
+
+
+									<td class="text-center"><span class="hidden-xs">
+											Squadra</span> <span class="visible-xs" data-toggle="tooltip"
+										title="Voto">V</span></td>
+
+								</tr>
+
+							</thead>
+							<tbody>
+
+
+							<c:forEach var="g" items="${giocatoriUltima}">
+								
+
+								<tr class="role-1 ">
+									<td class="valign-top" colspan="3"><span
+										class="label label-1">ruolooo</span></td>
+
+
+									<td class="text-center"><span class=""
+										data-toggle="tooltip" title="Voto">${g.squadra} </span></td>
+
+									<td class="text-center"><span class=""
+										data-toggle="tooltip" title="Fantavoto">6.00 </span></td>
+
+
+								</tr>
+
+							</c:forEach>
+
+							</tbody>
+							<thead>
+
+								<tr class="active">
+									<td colspan="8">In panchina</td>
+								</tr>
+
+
+								<tr class="bg-slate-300">
+
+									<td class="text-center hidden-xs">Ruolo</td>
+
+
+									<td >Nome Calciatore</td>
+
+
+									<td class="text-center"><span class="hidden-xs">
+											Squadra</span> <span class="visible-xs" data-toggle="tooltip"
+										title="Voto">V</span></td>
+
+								</tr>
+							</thead>
+							<tbody>
+
+
+
+
+								<tr class="role-1 ">
+									<td class="valign-top" colspan="3"><span
+										class="label label-1">P</span></td>
+
+
+									<td class="text-center"><span class=""
+										data-toggle="tooltip" title="">Neto</span></td>
+
+									<td class="text-center"><span class=""
+										data-toggle="tooltip" title="">- </span></td>
+
+								</tr>
+
+							</tbody>
+
+						</table>
 					</div>
 
-					<table class="table table-striped table-bordered" id="players_list">
-						<thead>
-
-
-							<tr class="active">
-								<td colspan="8">In campo</td>
-							</tr>
-
-
-							<tr class="bg-slate-300">
-
-								<td class="text-center hidden-xs">Ruolo</td>
-
-
-								<td colspan="3">Nome Calciatore</td>
-
-
-								<td class="text-center"><span class="hidden-xs">
-										Squadra</span> <span class="visible-xs" data-toggle="tooltip"
-									title="Voto">V</span></td>
-
-							</tr>
-
-						</thead>
-						<tbody>
+				</c:forEach>
 
 
 
 
-							<tr class="role-1 ">
-								<td class="valign-top" colspan="3"><span
-									class="label label-1">P</span></td>
 
 
-								<td class="text-center"><span class=""
-									data-toggle="tooltip" title="Voto">buffon </span></td>
-
-								<td class="text-center"><span class=""
-									data-toggle="tooltip" title="Fantavoto">6.00 </span></td>
-
-
-							</tr>
-							
-							
-							
-						</tbody>
+				<%
+					}
+				%>
 
 
 
-
-						<thead>
-
-							<tr class="active">
-								<td colspan="8">In panchina</td>
-							</tr>
-
-
-							<tr class="bg-slate-300">
-
-								<td class="text-center hidden-xs">Ruolo</td>
-
-
-								<td colspan="3">Nome Calciatore</td>
-
-
-								<td class="text-center"><span class="hidden-xs">
-										Squadra</span> <span class="visible-xs" data-toggle="tooltip"
-									title="Voto">V</span></td>
-
-							</tr>
-
-						</thead>
-						<tbody>
-
-							<tr class="role-1 ">
-								<td class="valign-top" colspan="3"><span
-									class="label label-1">P</span></td>
-
-
-								<td class="text-center"><span class=""
-									data-toggle="tooltip" title="">Neto </span></td>
-
-								<td class="text-center"><span class=""
-									data-toggle="tooltip" title="">- </span></td>
-
-							</tr>
-
-						</tbody>
-
-					</table>
-				</div>
 			</div>
 
 
@@ -185,7 +239,5 @@
 			$('[data-toggle="tooltip"]').tooltip();
 		});
 	</script>
-
-
 </body>
 </html>

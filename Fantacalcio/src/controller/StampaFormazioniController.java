@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import model.Giocatore_in_formazione;
 import model.Partita;
+import model.Squadra;
 import persistence.DBManager;
 
 /**
@@ -48,10 +49,12 @@ public class StampaFormazioniController extends HttpServlet {
 				// essere presenti formazioni
 				int giornata = DBManager.getInstance().getPartita().getUltimaGiornata(campionato);
 				Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata, campionato);
+				Set<Squadra> squadreCampionato=DBManager.getInstance().getCampionato().findByPrimaryKey(campionato).getSquadre();
 				Set<Giocatore_in_formazione> giocatori = partita.getGiocatoriInFormazione();
 
 				request.setAttribute("ultimaGiornata", giornata);
 				request.setAttribute("giocatoriUltima", giocatori);
+				request.setAttribute("squadreCampionato", squadreCampionato);////////////??
 				
 				RequestDispatcher dispatcher = request.getRequestDispatcher("stampaFormazioni.jsp");
 				dispatcher.forward(request, response);
