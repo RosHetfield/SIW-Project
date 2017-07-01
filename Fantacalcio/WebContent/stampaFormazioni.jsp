@@ -111,47 +111,57 @@
 							id="players_list">
 							<thead>
 
-
 								<tr class="active">
 									<td colspan="8">In campo</td>
 								</tr>
 
+
 								<tr class="bg-slate-300">
 
-									<td class="text-center hidden-xs">Ruolo</td>
+									<td>Ruolo</td>
 
 
-									<td >Nome Calciatore</td>
+									<td>Nome Calciatore</td>
 
 
-									<td class="text-center"><span class="hidden-xs">
-											Squadra</span> <span class="visible-xs" data-toggle="tooltip"
-										title="Voto">V</span></td>
+									<td><span class="hidden-xs"> Squadra</span></td>
 
 								</tr>
-
 							</thead>
 							<tbody>
 
 
-							<c:forEach var="g" items="${giocatoriUltima}">
-								
+								<c:forEach var="g" items="${giocatoriUltima}">
+									<c:if test="${g.titolare}">
+										<tr class="">
+											<c:choose>
+												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'P'}">
+													<td class="valign-top"><span class="label label-1">${g.giocatoreInRosa.giocatore.ruolo}</span><br
+														class="visible-xs"></td>
+												</c:when>
+												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'D'}">
+													<td class="valign-top"><span class="label label-2">${g.giocatoreInRosa.giocatore.ruolo}</span><br
+														class="visible-xs"></td>
+												</c:when>
+												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'C'}">
+													<td class="valign-top""><span class="label label-3">${g.giocatoreInRosa.giocatore.ruolo}</span><br
+														class="visible-xs"></td>
+												</c:when>
+												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'A'}">
+													<td class="valign-top"><span class="label label-4">${g.giocatoreInRosa.giocatore.ruolo}</span><br
+														class="visible-xs"></td>
+												</c:when>
+											</c:choose>
 
-								<tr class="role-1 ">
-									<td class="valign-top" colspan="3"><span
-										class="label label-1">${g.giocatoreInRosa.giocatore.ruolo} </span></td>
 
+											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
 
-									<td class="text-center"><span class=""
-										data-toggle="tooltip" title="Voto">${g.giocatoreInRosa.giocatore.nome} </span></td>
+											<td><span class="hidden-xs">${g.giocatoreInRosa.giocatore.squadra}
+											</span></td>
 
-									<td class="text-center"><span class=""
-										data-toggle="tooltip" title="Fantavoto">6.00 </span></td>
-
-
-								</tr>
-
-							</c:forEach>
+										</tr>
+									</c:if>
+								</c:forEach>
 
 							</tbody>
 							<thead>
@@ -163,35 +173,49 @@
 
 								<tr class="bg-slate-300">
 
-									<td class="text-center hidden-xs">Ruolo</td>
+									<td>Ruolo</td>
 
 
-									<td >Nome Calciatore</td>
+									<td>Nome Calciatore</td>
 
 
-									<td class="text-center"><span class="hidden-xs">
-											Squadra</span> <span class="visible-xs" data-toggle="tooltip"
-										title="Voto">V</span></td>
+									<td><span class="hidden-xs"> Squadra</span></td>
 
 								</tr>
 							</thead>
 							<tbody>
 
+								<c:forEach var="g" items="${giocatoriUltima}">
+									<c:if test="${!g.titolare}">
+										<tr class="">
+											<c:choose>
+												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'P'}">
+													<td class="valign-top"><span class="label label-1">${g.giocatoreInRosa.giocatore.ruolo}</span><br
+														class="visible-xs"></td>
+												</c:when>
+												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'D'}">
+													<td class="valign-top"><span class="label label-2">${g.giocatoreInRosa.giocatore.ruolo}</span><br
+														class="visible-xs"></td>
+												</c:when>
+												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'C'}">
+													<td class="valign-top"><span class="label label-3">${g.giocatoreInRosa.giocatore.ruolo}</span><br
+														class="visible-xs"></td>
+												</c:when>
+												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'A'}">
+													<td class="valign-top"><span class="label label-4">${g.giocatoreInRosa.giocatore.ruolo}</span><br
+														class="visible-xs"></td>
+												</c:when>
+											</c:choose>
 
 
+											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
 
-								<tr class="role-1 ">
-									<td class="valign-top" colspan="3"><span
-										class="label label-1">P</span></td>
+											<td><span class="hidden-xs">${g.giocatoreInRosa.giocatore.squadra}
+											</span></td>
 
-
-									<td class="text-center"><span class=""
-										data-toggle="tooltip" title="">Neto</span></td>
-
-									<td class="text-center"><span class=""
-										data-toggle="tooltip" title="">- </span></td>
-
-								</tr>
+										</tr>
+									</c:if>
+								</c:forEach>
 
 							</tbody>
 
@@ -199,10 +223,6 @@
 					</div>
 
 				</c:forEach>
-
-
-
-
 
 
 				<%
