@@ -25,7 +25,7 @@ public class ClassificaDAOJdbc implements ClassificaDAO {
 	public void save(Classifica classifica) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String insert = "insert into classifica(squadra, campionato, partite_giocate, giornate, totale) "
+			String insert = "insert into classifica(squadra, campionato, partite_giocate, giornata, totale) "
 					+ "values (?, ?, ?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setString(1, classifica.getSquadra());

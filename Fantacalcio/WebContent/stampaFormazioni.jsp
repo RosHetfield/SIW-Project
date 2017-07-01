@@ -35,24 +35,6 @@
 
 
 	<div class="container">
-
-		<div class="row">
-			<div class="box ">
-				<div class="col-lg-12 ">
-					<ol class="list-inline">
-
-						<li><button type="button"
-								class="btn btn-primary  btn-sm myButton  ">1</button></li>
-
-					</ol>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-
-	<div class="container">
 		<div class=" box">
 
 

@@ -1,3 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="model.Voto_giornata"%>
+<%@ page import="java.util.Set"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,19 +44,6 @@
     				<li><button type="button" class="btn btn-primary  btn-sm myButton " > 1</button></li>
     				<li><button type="button" class="btn btn-primary  btn-sm myButton  ">2</button></li>
     				<li><button type="button" class="btn btn-primary  btn-sm myButton  ">3</button></li>
-    				<li><button type="button" class="btn btn-primary  btn-sm myButton " > 1</button></li>
-    				<li><button type="button" class="btn btn-primary  btn-sm myButton  ">2</button></li>
-    				<li><button type="button" class="btn btn-primary  btn-sm myButton ">3</button></li>
-    				<li><button type="button" class="btn btn-primary  btn-sm myButton " > 1</button></li>
-    				<li><button type="button" class="btn btn-primary  btn-sm myButton  ">2</button></li>
-    				<li><button type="button" class="btn btn-primary  btn-sm myButton  ">3</button></li>
-    				<li><button type="button" class="btn btn-primary  btn-sm myButton " > 1</button></li>
-    				<li><button type="button" class="btn btn-primary  btn-sm myButton  ">2</button></li>
-    				<li><button type="button" class="btn btn-primary  btn-sm myButton  ">3</button></li>
-    				<li><button type="button" class="btn btn-primary  btn-sm myButton " > 1</button></li>
-    				<li><button type="button" class="btn btn-primary  btn-sm myButton  ">2</button></li>
-    				<li><button type="button" class="btn btn-primary  btn-sm myButton ">3</button></li>
-    				<li><button type="button" class="btn btn-primary  btn-sm myButton " > 1</button></li>
     				
     			</ol>
 				</div>
@@ -107,8 +101,6 @@
 							<tr class="role-1 " >
 								<td class="valign-top" colspan="3">
 								<span class="label label-1">P</span> BUFFON <br class="visible-xs">
-
-							
 							
 								</td>
 
@@ -322,7 +314,7 @@
 
 
 		</div>
-		<!--Banner pubblicità -->
+		<!--Banner pubblicitÃ  -->
 		<div class="row">
 			<div class="box">
 				<div class="col-lg-12">

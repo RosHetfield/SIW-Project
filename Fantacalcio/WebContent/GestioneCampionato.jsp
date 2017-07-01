@@ -185,24 +185,21 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 					<hr>
 					<h2 class="intro-text text-center">Calcola Giornata</h2>
 					<hr>
-					<!-- Single button -->
-					<div class="btn-group">
-						<button class="btn btn-default btn-lg dropdown-toggle"
-							type="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false">
-							Giornata NÂ° <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-						</ul>
-					</div>
 
-
+				
+				
+				
+				
 					<div>
-						<button type="button" class="btn btn-default"
+						<button type="button" class="btn btn-default" action="calcolaGiornata.html"
 							aria-label="Left Align">Calcola</button>
 					</div>
+					
+					
+						<form action="calcolaGiornata.html">
+    					<input class="btn btn-default" type="submit" value="Calcola" />
+					</form>
+				
 				</div>
 				</div>
 			</div>

@@ -11,4 +11,5 @@ public interface Voto_giornataDAO {
 	public void update(Voto_giornata voto_giornata); //Update
 	public void delete(Voto_giornata voto_giornata); //Delete	
 	public int getUltimaGiornata();
+	public List<Voto_giornata> findByGiornata(int giornata, String campionato);
 }
