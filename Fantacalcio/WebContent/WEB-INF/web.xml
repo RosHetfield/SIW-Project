@@ -168,12 +168,20 @@
     <servlet-name>CaricaVotiController</servlet-name>
     <url-pattern>/CaricaVoti</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>StampaFormazioniController</servlet-name>
     <servlet-class>controller.StampaFormazioniController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>StampaFormazioniController</servlet-name>
     <url-pattern>/StampaFormazioni</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>CalcolaGiornataController</servlet-name>
+    <servlet-class>controller.CalcolaGiornataController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CalcolaGiornataController</servlet-name>
+    <url-pattern>/CalcolaGiornata</url-pattern>
   </servlet-mapping>
 </web-app>

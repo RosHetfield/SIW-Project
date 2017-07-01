@@ -2,6 +2,8 @@ package persistence;
 
 import persistence.dao.CampionatoDAO;
 import persistence.dao.CampionatoDAOJdbc;
+import persistence.dao.ClassificaDAO;
+import persistence.dao.ClassificaDAOJdbc;
 import persistence.dao.GiocatoreDAO;
 import persistence.dao.GiocatoreDAOJdbc;
 import persistence.dao.Giocatore_in_formazioneDAO;
@@ -68,6 +70,10 @@ public class PostgresqlDAO {
 
 	public InvitoDAO getInvitoDAO() {
 		return new InvitoDAOJdbc(dataSource);
+	}
+	
+	public ClassificaDAO getClassificaDAO() {
+		return new ClassificaDAOJdbc(dataSource);
 	}
 
 }

@@ -1,6 +1,7 @@
 package persistence;
 
 import persistence.dao.CampionatoDAO;
+import persistence.dao.ClassificaDAO;
 import persistence.dao.GiocatoreDAO;
 import persistence.dao.Giocatore_in_formazioneDAO;
 import persistence.dao.Giocatore_in_rosaDAO;
@@ -27,6 +28,7 @@ public class DBManager {
 	private UtenteDAO utente;
 	private Voto_giornataDAO voto_giornata;
 	private InvitoDAO invito;
+	private ClassificaDAO classifica;
 
 	public static DBManager getInstance() {
 
@@ -39,8 +41,8 @@ public class DBManager {
 
 	private DBManager() {
 	
-//		PostgresqlDAO sqlDAO = new PostgresqlDAO("horton.elephantsql.com",  "5432", "xrfgprnz","xrfgprnz", "ztrokF2S22uj8fpPDP6tj3nOFzt5dmr4");
-		PostgresqlDAO sqlDAO = new PostgresqlDAO("localhost", "5432","fantacalcio",  "postgres", "admin");
+		PostgresqlDAO sqlDAO = new PostgresqlDAO("horton.elephantsql.com",  "5432", "xrfgprnz","xrfgprnz", "ztrokF2S22uj8fpPDP6tj3nOFzt5dmr4");
+//		PostgresqlDAO sqlDAO = new PostgresqlDAO("localhost", "5432","fantacalcio",  "postgres", "admin");
 
 		campionato = sqlDAO.getCampionatoDAO();
 		giocatore_in_formazioneDAO = sqlDAO.getGiocatore_in_formazioneDAO();
@@ -50,7 +52,8 @@ public class DBManager {
 		squadra = sqlDAO.getSquadraDAO();
 		utente = sqlDAO.getUtenteDAO();
 		voto_giornata = sqlDAO.getVoto_giornataDAO();
-		invito=sqlDAO.getInvitoDAO();
+		invito = sqlDAO.getInvitoDAO();
+		classifica = sqlDAO.getClassificaDAO();
 
 	}
 
@@ -89,5 +92,8 @@ public class DBManager {
 	public InvitoDAO getInvito() {
 		return invito;
 	}
-
+	
+	public ClassificaDAO getClassifica() {
+		return classifica;
+	}
 }

@@ -23,10 +23,12 @@ $.ajax ({
     processData: false,
 	data : formData,
 	success : function(data) {
-		console.log(data);
+		if(data == 0) {
+			alert("Giornata calcolata!");			
+		}
 	},
 	error : function(data) {
-		console.log("errore");
+		console.log("errore " + data);
 	}
 });
 
