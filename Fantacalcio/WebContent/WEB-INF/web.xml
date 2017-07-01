@@ -184,4 +184,12 @@
     <servlet-name>CalcolaGiornataController</servlet-name>
     <url-pattern>/CalcolaGiornata</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>RisultatiController</servlet-name>
+    <servlet-class>controller.RisultatiController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RisultatiController</servlet-name>
+    <url-pattern>/Risultati</url-pattern>
+  </servlet-mapping>
 </web-app>
