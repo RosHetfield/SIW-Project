@@ -16,6 +16,7 @@
 
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
+
 <link
 	href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css"
 	rel="stylesheet" />
@@ -24,9 +25,9 @@
 	rel="stylesheet" />
 
 
+    <!-- Custom CSS -->
+	<link href="css/business-casual.css" rel="stylesheet"/>
 
-<!-- Custom CSS -->
-<link href="css/business-casual.css" rel="stylesheet" />
 <link href="css/formazioniStyle.css" rel="stylesheet" />
     <link href="css/sweetalert.css" type="text/css" rel="stylesheet"/>
 	<link href="css/sweetalert2.css" type="text/css" rel="stylesheet"/>
@@ -137,18 +138,14 @@
 	<script src="js/bootstrap.min.js"></script>
 
 
-
-
-
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-
-
-
 	<script
 		src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 	<script
 		src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
 
+
+	<script src="Script/caricaCampionato.js"></script>
 
 
 	<script type="text/javascript">

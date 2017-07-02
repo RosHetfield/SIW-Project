@@ -39,11 +39,11 @@ public class PartitaProxy extends Partita {
 					giocatore.setCampionato(result.getString("campionato"));
 					giocatore.setNomeGiocatoreRosa(result.getString("giocatore"));
 					giocatore.setSquadraGiocatoreRosa(result.getString("squadra"));
-					giocatore.getGiocatoreInRosa();
 					System.out.println("GIOCATORE ROSA FORMAZIONE SQUADRA " +result.getInt("giornata") + " "+giocatore.getGiocatoreInRosa());
 					giocatori.add(giocatore);
 				}
-				
+				this.setGiocatoriInFormazione(giocatori);
+				firstLoad = true;
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
 			} finally {
@@ -53,8 +53,7 @@ public class PartitaProxy extends Partita {
 					throw new RuntimeException(e.getMessage());
 				}
 			}
-			this.setGiocatoriInFormazione(giocatori);
-			firstLoad = true;
+			
 		 }
 		return super.getGiocatoriInFormazione();
 		 

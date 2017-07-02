@@ -44,6 +44,8 @@ public class CampionatoProxy extends Campionato {
 
 					s.add(squadra);
 				}
+				this.setSquadre(s);
+				firstLoad = true;
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
 			} finally {
@@ -53,8 +55,7 @@ public class CampionatoProxy extends Campionato {
 					throw new RuntimeException(e.getMessage());
 				}
 			}
-			this.setSquadre(s);
-			firstLoad = true;
+			
 		 }
 		return super.getSquadre();
 		 

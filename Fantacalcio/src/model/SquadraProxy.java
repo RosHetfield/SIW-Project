@@ -105,6 +105,8 @@ public class SquadraProxy extends Squadra {
 							System.out.println("GIOCATORE ROSA SQUADRA " + result.getString("squadra") + " "+ result.getString("giocatore"));
 							giocatori.add(giocatore);
 						}
+						this.setGiocatoriInRosa(giocatori);
+						firstLoadGiocatori = true;
 					} catch (SQLException e) {
 						throw new RuntimeException(e.getMessage());
 					} finally {
@@ -114,8 +116,7 @@ public class SquadraProxy extends Squadra {
 							throw new RuntimeException(e.getMessage());
 						}
 					}
-					this.setGiocatoriInRosa(giocatori);
-					firstLoadGiocatori = true;
+					
 				 }
 				return super.getGiocatoriInRosa();
 		}

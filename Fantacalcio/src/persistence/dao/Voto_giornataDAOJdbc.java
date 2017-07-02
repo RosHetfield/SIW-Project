@@ -132,7 +132,7 @@ public class Voto_giornataDAOJdbc implements Voto_giornataDAO {
 				voto_giornata = new Voto_giornata();
 
 				voto_giornata.setGiornata(result.getInt("giornata"));
-				voto_giornata.setNomeGiocatore(result.getString("gf.giocatore"));			
+				voto_giornata.setNomeGiocatore(result.getString("giocatore"));			
 				voto_giornata.setVoto(result.getDouble("voto"));
 				voto_giornata.setFantavoto(result.getDouble("fantaVoto"));
 				voto_giornata.setGoalFatto(result.getInt("gol_fatto"));

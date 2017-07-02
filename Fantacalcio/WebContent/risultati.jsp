@@ -2,9 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="model.Voto_giornata"%>
+<%@ page import="model.Partita"%>
+<%@ page import="model.Giocatore_in_formazione"%>
 <%@ page import="java.util.Set"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,13 +59,219 @@
 	<div class="container">
 		<div class=" box">
 			
+		
+		
+		<div class="row">
+				<h3 class="text-center">
+
+					<span>Formazioni giornata ${ultimaGiornata} <i
+						class="pull-left "></i>
+					</span>
+				</h3>
 
 
 
+
+				<c:forEach var="p" items="${squadreCampionato}">
+					<div class="col-lg-6 ">
+						<hr>
+						<h3 class="text-center">
+
+							<span>${p.nome} </span>
+						</h3>
+						<hr>
+
+						<table class="table table-striped table-bordered"
+							id="players_list">
+							<thead>
+
+								<tr class="active">
+								<td colspan="8">In campo </td>
+							</tr>
+
+
+							<tr class="bg-slate-300">
+								<td colspan="3">Ruolo</td>
+							
+								<td colspan="3">Nome Calciatore</td>
+
+								<td class="text-center">
+								<span class="hidden-xs"> Voto</span> <span class="visible-xs" data-toggle="tooltip" title="Voto">V</span>
+								</td>
+
+								<td class="text-center">
+								<span class="hidden-xs"> Fantavoto</span> <span class="visible-xs" data-toggle="tooltip" title="Fanta Voto">FV</span>
+								</td>
+
+								<td class="text-center">
+								<span class="hidden-xs"> Squadra</span> <span class="visible-xs" data-toggle="tooltip" title="Squadra">S</span>
+								</td>
+							</tr>
+
+								</tr>
+							</thead>
+							<tbody>
+
+
+								<c:forEach var="g" items="${inFormazione}">
+									<c:if test="${g.titolare}">
+										<tr class="">
+											<c:choose>
+												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'P'}">
+													<td class="valign-top"><span class="label label-1">${g.giocatoreInRosa.giocatore.ruolo}</span><br
+														class="visible-xs"></td>
+												</c:when>
+												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'D'}">
+													<td class="valign-top"><span class="label label-2">${g.giocatoreInRosa.giocatore.ruolo}</span><br
+														class="visible-xs"></td>
+												</c:when>
+												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'C'}">
+													<td class="valign-top""><span class="label label-3">${g.giocatoreInRosa.giocatore.ruolo}</span><br
+														class="visible-xs"></td>
+												</c:when>
+												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'A'}">
+													<td class="valign-top"><span class="label label-4">${g.giocatoreInRosa.giocatore.ruolo}</span><br
+														class="visible-xs"></td>
+												</c:when>
+											</c:choose>
+
+
+											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
+
+											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
+											
+											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
+											
+
+											<td><span class="hidden-xs">${g.giocatoreInRosa.giocatore.squadra}
+											</span></td>
+
+										</tr>
+									</c:if>
+								</c:forEach>
+
+							</tbody>
+							<thead>
+
+								<tr class="active">
+								<td colspan="8">In panchina </td>
+							</tr>
+
+
+							<tr class="bg-slate-300">
+								<td colspan="3">Ruolo</td>
+								
+							
+								<td colspan="3">Nome Calciatore</td>
+
+								<td class="text-center">
+								<span class="hidden-xs"> Voto</span> <span class="visible-xs" data-toggle="tooltip" title="Voto">V</span>
+								</td>
+
+								<td class="text-center">
+								<span class="hidden-xs"> Fantavoto</span> <span class="visible-xs" data-toggle="tooltip" title="Fanta Voto">FV</span>
+								</td>
+
+								<td class="text-center">
+								<span class="hidden-xs"> Squadra</span> <span class="visible-xs" data-toggle="tooltip" title="Squadra">S</span>
+								</td>
+							</tr>
+							</thead>
+							<tbody>
+
+								<c:forEach var="g" items="${inFormazione}">
+									<c:if test="${!g.titolare}">
+										<tr class="">
+											<c:choose>
+												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'P'}">
+													<td class="valign-top"><span class="label label-1">${g.giocatoreInRosa.giocatore.ruolo}</span><br
+														class="visible-xs"></td>
+												</c:when>
+												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'D'}">
+													<td class="valign-top"><span class="label label-2">${g.giocatoreInRosa.giocatore.ruolo}</span><br
+														class="visible-xs"></td>
+												</c:when>
+												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'C'}">
+													<td class="valign-top"><span class="label label-3">${g.giocatoreInRosa.giocatore.ruolo}</span><br
+														class="visible-xs"></td>
+												</c:when>
+												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'A'}">
+													<td class="valign-top"><span class="label label-4">${g.giocatoreInRosa.giocatore.ruolo}</span><br
+														class="visible-xs"></td>
+												</c:when>
+											</c:choose>
+
+
+											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
+											
+											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
+											
+											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
+											
+											<td><span class="hidden-xs">${g.giocatoreInRosa.giocatore.squadra}
+											</span></td>
+											
+											
+
+										</tr>
+									</c:if>
+								</c:forEach>
+
+							</tbody>
+
+						</table>
+					</div>
+
+				</c:forEach>
+
+			</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<!--  
 			<div class="row">
+			
+			<h3 class="text-center">
+
+					<span>Risultati giornata ${ultimaGiornata} <i
+						class="pull-left "></i>
+					</span>
+				</h3>
+			
+			
 				<div class="col-lg-6 " >
-
-
 					<div class="panel-heading">
 						<h3 >
 							<span>Juventus <i class="pull-left "></i> 
@@ -311,7 +520,7 @@
 
 
 
-
+-->
 
 		</div>
 		<!--Banner pubblicitÃ  -->

@@ -115,7 +115,7 @@
 
 								<c:forEach var="g" items="${giocatoriUltima}">
 									<c:if test="${g.titolare}">
-										<tr class="">
+										<tr >
 											<c:choose>
 												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'P'}">
 													<td class="valign-top"><span class="label label-1">${g.giocatoreInRosa.giocatore.ruolo}</span><br
@@ -168,8 +168,8 @@
 							<tbody>
 
 								<c:forEach var="g" items="${giocatoriUltima}">
-									<c:if test="${!g.titolare}">
-										<tr class="">
+									<c:if test="${not g.titolare}">
+										<tr>
 											<c:choose>
 												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'P'}">
 													<td class="valign-top"><span class="label label-1">${g.giocatoreInRosa.giocatore.ruolo}</span><br
@@ -190,7 +190,7 @@
 											</c:choose>
 
 
-											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
+											<td><span>${g.titolare} </span></td>
 
 											<td><span class="hidden-xs">${g.giocatoreInRosa.giocatore.squadra}
 											</span></td>

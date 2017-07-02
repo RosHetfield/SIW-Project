@@ -38,6 +38,8 @@ public class Giocatore_in_rosaProxy extends Giocatore_in_rosa {
 					giocatore.setValore(result.getInt("valore"));
 					System.out.println("GIOCATORE ROSA " + result.getString("nome") + " "+ result.getString("ruolo"));
 				}
+				this.setGiocatore(giocatore);
+				firstLoad = true;
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
 			} finally {
@@ -47,8 +49,7 @@ public class Giocatore_in_rosaProxy extends Giocatore_in_rosa {
 					throw new RuntimeException(e.getMessage());
 				}
 			}
-			this.setGiocatore(giocatore);
-			firstLoad = true;
+			
 		 }
 		return super.getGiocatore();
 	}

@@ -17,6 +17,7 @@ public class Giocatore_in_formazioneProxy extends Giocatore_in_formazione {
 	}
 	
 	public Giocatore_in_rosa getGiocatoreInRosa() {
+		if(!firstLoad){
 			System.out.println("CULO in giocatore in formazioneProxy");
 		 	Giocatore_in_rosa giocatore = null;
 			Connection connection = this.dataSource.getConnection();
@@ -45,6 +46,8 @@ public class Giocatore_in_formazioneProxy extends Giocatore_in_formazione {
 					System.out.println("GIOCATORE FORMAZIONE " + result.getString("squadra") + " "+ result.getString("giocatore"));
 //					giocatore.getGiocatore();
 				}
+				this.setGiocatore(giocatore);
+				firstLoad = true;
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
 			} finally {
@@ -54,8 +57,8 @@ public class Giocatore_in_formazioneProxy extends Giocatore_in_formazione {
 					throw new RuntimeException(e.getMessage());
 				}
 			}
-			this.setGiocatore(giocatore);
-		 
+			
+		}
 		return super.getGiocatoreInRosa();
 	}
 }
