@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,8 +12,11 @@ import javax.servlet.http.HttpSession;
 
 import model.Campionato;
 import model.Classifica;
+import model.Giocatore_in_formazione;
+import model.Partita;
 import model.RisultatoGiornata;
 import model.Squadra;
+import model.Voto_giornata;
 import persistence.DBManager;
 
 /**
@@ -39,6 +44,22 @@ public class CalcolaGiornataController extends HttpServlet {
 		if (campionato != null) {
 			Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
 			int giornata = DBManager.getInstance().getPartita().getUltimaGiornata(campionato);
+			List<Voto_giornata> voti = DBManager.getInstance().getVoto_giornata().findByGiornata(giornata, campionato);
+			Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata, campionato);
+			
+			for (Giocatore_in_formazione g : partita.getGiocatoriInFormazione()) {
+				boolean trovato = false;
+				for (Voto_giornata voto_giornata : voti) {
+					if(voto_giornata.getNomeGiocatore().equals(g.getNomeGiocatoreRosa())){
+						trovato = true;
+						break;
+					}	
+				}
+				if(!trovato) {
+					sostituzione(g, partita);
+				}
+			}
+			
 			for (Squadra squadra : camp.getSquadre()) {
 				int partite_giocate = DBManager.getInstance().getClassifica().getPartiteGiocate(squadra.getNome());
 				double totale_giornata = 0;
@@ -65,6 +86,31 @@ public class CalcolaGiornataController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
+	}
+	
+	private void sostituzione(Giocatore_in_formazione g, Partita partita) {
+		g.setEntrato(false);
+		g.setUscito(true);
+		boolean primo = true;
+		int n_formazione = 0;
+		Giocatore_in_formazione gif = null;
+		for (Giocatore_in_formazione giocatore : partita.getGiocatoriInFormazione()) {
+			if(!giocatore.isTitolare() && g.getGiocatoreInRosa().getGiocatore().getRuolo().equals(giocatore.getGiocatoreInRosa().getGiocatore().getRuolo()) 
+					&& !giocatore.isEntrato()) {
+				if(primo) {
+					n_formazione = giocatore.getN_formazione();
+					gif = giocatore;
+					primo = false;
+				}
+				if(giocatore.getN_formazione() < n_formazione) {
+					n_formazione = giocatore.getN_formazione();		
+					gif = giocatore;
+				}
+			}
+		}
+		gif.setEntrato(true);
+		DBManager.getInstance().getGiocatore_in_formazione().update(g);
+		DBManager.getInstance().getGiocatore_in_formazione().update(gif);
 	}
 
 }

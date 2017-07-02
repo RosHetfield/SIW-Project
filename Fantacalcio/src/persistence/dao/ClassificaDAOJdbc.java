@@ -131,7 +131,7 @@ public class ClassificaDAOJdbc implements ClassificaDAO {
 		Connection connection = this.dataSource.getConnection();
 		try {
 			PreparedStatement statement;
-			String query = "select * from giornata_squadra where giornata = ? and squadra = ?";
+			String query = "select * from voti where giornata = ? and squadra = ?";
 			statement = connection.prepareStatement(query);
 
 			statement.setInt(1, giornata);
@@ -177,7 +177,7 @@ public class ClassificaDAOJdbc implements ClassificaDAO {
 		Connection connection = this.dataSource.getConnection();
 		try {
 			PreparedStatement statement;
-			String query = "select count(*) as partite_giocate from giornata_squadra where squadra = ?";
+			String query = "select count(*) as partite_giocate from voti where squadra = ?";
 			statement = connection.prepareStatement(query);
 
 			statement.setString(1, squadra);
