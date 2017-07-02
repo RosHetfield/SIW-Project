@@ -119,20 +119,21 @@ public class Giocatore_in_formazioneDAOJdbc implements Giocatore_in_formazioneDA
 	}
 
 	@Override//modificare??
-	public Giocatore_in_formazione findByPrimaryKey(int giornata, String campionato, String squadra) {
+	public Giocatore_in_formazione findByPrimaryKey(int giornata, String campionato, String giocatore, String squadra) {
 		Giocatore_in_formazione gif = new Giocatore_in_formazione();
 		Connection connection = this.dataSource.getConnection();
 		try {
 			PreparedStatement statement;
-			String query = "select * from giocatore_in_formazione where giornata = ? and campionato = ? and squadra = ?";
+			String query = "select * from giocatore_in_formazione where giornata = ? and campionato = ? and squadra = ? and giocatore = ?";
 			statement = connection.prepareStatement(query);
 			statement.setInt(1, giornata);
 			statement.setString(2, campionato);
 			statement.setString(3, squadra);
+			statement.setString(4, giocatore);
 
 			ResultSet result = statement.executeQuery();
 
-			while (result.next()) {
+			if (result.next()) {
 				gif.setGiornata(result.getInt("giornata"));
 				gif.setCampionato(result.getString("campionato"));
 				gif.setNomeGiocatoreRosa(result.getString("giocatore"));
