@@ -21,8 +21,6 @@ public class Voto_giornata implements Serializable {
 	private int assist;
 	private int ammonito;
 	private int espulso;
-	private boolean uscito;
-	private boolean entrato;
 	private int goalVittoria;
 	private int goalPareggio;
 	private String nomeGiocatore;
@@ -31,8 +29,7 @@ public class Voto_giornata implements Serializable {
 	private Giocatore giocatore;
 
 	public Voto_giornata(String nomeGiocatore, int giornata, double voto,double fantavoto, int goalFatto, int goalSubito, int goalSuRigore, int rigoreParato,
-			int rigoreSbagliato, int autorete, int assist, int ammonito, int espulso, boolean uscito,
-			boolean entrato, int goalVittoria, int goalPareggio) {
+			int rigoreSbagliato, int autorete, int assist, int ammonito, int espulso, int goalVittoria, int goalPareggio) {
 		super();
 		this.nomeGiocatore = nomeGiocatore;
 		this.giornata = giornata;
@@ -47,8 +44,6 @@ public class Voto_giornata implements Serializable {
 		this.assist = assist;
 		this.ammonito = ammonito;
 		this.espulso = espulso;
-		this.uscito = uscito;
-		this.entrato = entrato;
 		this.goalVittoria = goalVittoria;
 		this.goalPareggio = goalPareggio;
 	}
@@ -160,22 +155,6 @@ public class Voto_giornata implements Serializable {
 
 	public void setEspulso(int espulso) {
 		this.espulso = espulso;
-	}
-
-	public boolean isUscito() {
-		return uscito;
-	}
-
-	public void setUscito(boolean uscito) {
-		this.uscito = uscito;
-	}
-
-	public boolean isEntrato() {
-		return entrato;
-	}
-
-	public void setEntrato(boolean entrato) {
-		this.entrato = entrato;
 	}
 
 	public int getGoalVittoria() {

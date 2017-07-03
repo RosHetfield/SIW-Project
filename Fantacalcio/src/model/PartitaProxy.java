@@ -25,7 +25,7 @@ public class PartitaProxy extends Partita {
 			try {
 				PreparedStatement statement;
 				String query = "select gif.* from partita as p, giocatore_in_formazione as gif "
-						+ "where p.giornata = gif.giornata and p.campionato = gif.campionato and p.giornata = ? and p.campionato = ?";
+						+ "where p.giornata = gif.giornata and p.campionato = gif.campionato and p.giornata = ? and p.campionato = ? order by gif.n_formazione";
 				statement = connection.prepareStatement(query);
 
 				statement.setInt(1, getGiornata());

@@ -95,7 +95,7 @@ public class ClassificaDAOJdbc implements ClassificaDAO {
 		Connection connection = this.dataSource.getConnection();
 		try {
 			PreparedStatement statement;
-			String query = "select * from classifica where giornata = ? and campionato = ?";
+			String query = "select * from classifica where giornata = ? and campionato = ? order by totale";
 			statement = connection.prepareStatement(query);
 
 			statement.setInt(1, giornata);

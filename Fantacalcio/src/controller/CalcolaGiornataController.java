@@ -44,19 +44,23 @@ public class CalcolaGiornataController extends HttpServlet {
 		if (campionato != null) {
 			Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
 			int giornata = DBManager.getInstance().getPartita().getUltimaGiornata(campionato);
-			List<Voto_giornata> voti = DBManager.getInstance().getVoto_giornata().findByGiornata(giornata, campionato);
+			List<Voto_giornata> voti = DBManager.getInstance().getVoto_giornata().findAll(giornata);
 			Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata, campionato);
 			
+			int n_sostituzioni = 0;
 			for (Giocatore_in_formazione g : partita.getGiocatoriInFormazione()) {
 				boolean trovato = false;
 				for (Voto_giornata voto_giornata : voti) {
 					if(voto_giornata.getNomeGiocatore().equals(g.getNomeGiocatoreRosa())){
+						System.out.println(voto_giornata.getNomeGiocatore() + " " + g.getNomeGiocatoreRosa() + " trovato");
 						trovato = true;
 						break;
 					}	
 				}
-				if(!trovato) {
-					sostituzione(g, partita);
+				if(!trovato && n_sostituzioni < 3) {
+					System.out.println(g.getNomeGiocatoreRosa() + " non trovato");
+					if(sostituzione(g, partita))
+						n_sostituzioni++;
 				}
 			}
 			
@@ -88,29 +92,38 @@ public class CalcolaGiornataController extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	private void sostituzione(Giocatore_in_formazione g, Partita partita) {
-		g.setEntrato(false);
-		g.setUscito(true);
+	private boolean sostituzione(Giocatore_in_formazione g, Partita partita) {
 		boolean primo = true;
 		int n_formazione = 0;
 		Giocatore_in_formazione gif = null;
 		for (Giocatore_in_formazione giocatore : partita.getGiocatoriInFormazione()) {
 			if(!giocatore.isTitolare() && g.getGiocatoreInRosa().getGiocatore().getRuolo().equals(giocatore.getGiocatoreInRosa().getGiocatore().getRuolo()) 
 					&& !giocatore.isEntrato()) {
+				System.out.println("ENDRO?");
 				if(primo) {
 					n_formazione = giocatore.getN_formazione();
+					System.out.println("primo " + giocatore.getNomeGiocatoreRosa() + " " + giocatore.getN_formazione() +  " " + n_formazione);
 					gif = giocatore;
 					primo = false;
 				}
 				if(giocatore.getN_formazione() < n_formazione) {
 					n_formazione = giocatore.getN_formazione();		
+					System.out.println("primo " + giocatore.getNomeGiocatoreRosa() + " " + giocatore.getN_formazione() +  " " + n_formazione);
 					gif = giocatore;
 				}
 			}
 		}
-		gif.setEntrato(true);
-		DBManager.getInstance().getGiocatore_in_formazione().update(g);
-		DBManager.getInstance().getGiocatore_in_formazione().update(gif);
+		if(gif == null) {
+			System.out.println("gif nullo");
+		}
+		if(g.isTitolare() && gif != null) {
+			g.setUscito(true);
+			gif.setEntrato(true);		
+			DBManager.getInstance().getGiocatore_in_formazione().update(g);
+			DBManager.getInstance().getGiocatore_in_formazione().update(gif);
+			return true;
+		}
+		return false;
 	}
-
+	
 }
