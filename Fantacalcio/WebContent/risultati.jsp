@@ -6,6 +6,7 @@
 <%@ page import="model.Giocatore_in_formazione"%>
 <%@ page import="java.util.Set"%>
 <%@ page import="java.util.List"%>
+<%@ page import="java.util.HashMap"%>
 <%@ page import="java.util.ArrayList"%>
 
 <!DOCTYPE html>
@@ -143,9 +144,9 @@
 
 											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
 
-											<td><span>${mappaVoti['g.giocatoreInRosa.giocatore.nome'].voto} </span></td>
+											<td><span><c:out value ='${mappaVoti[g.nomeGiocatoreRosa].voto}'></c:out> </span></td>
 
-											<td><span>fgfgf </span></td>
+											<td><span><c:out value ='${mappaVoti[g.nomeGiocatoreRosa].fantavoto}'></c:out>  </span></td>
 
 
 											<td><span class="hidden-xs">${g.giocatoreInRosa.giocatore.squadra}
@@ -209,9 +210,9 @@
 
 											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
 											
-											<td><span>hhhh </span></td>
+											<td><span><c:out value ='${mappaVoti[g.nomeGiocatoreRosa].voto}'></c:out> </span></td>
 
-											<td><span>gh</span></td>
+											<td><span><c:out value ='${mappaVoti[g.nomeGiocatoreRosa].fantavoto}'></c:out>  </span></td>
 
 
 											<td><span class="hidden-xs">${g.giocatoreInRosa.giocatore.squadra}

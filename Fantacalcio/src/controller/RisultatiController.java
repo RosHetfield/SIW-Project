@@ -68,6 +68,10 @@ public class RisultatiController extends HttpServlet {
 					}
 				}	
 				
+				for (String giocatore : mappaVoti.keySet()) {
+					System.out.println(giocatore + " " + mappaVoti.get(giocatore).getFantavoto());
+				}
+				
 				request.setAttribute("inFormazione", inFormazione);
 				request.setAttribute("ultimaGiornata", giornata);
 				//request.setAttribute("giocatoriVotiUltima", giocatori);
