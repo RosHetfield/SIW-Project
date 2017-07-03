@@ -144,14 +144,10 @@
 
 											<td><span>${g.giocatoreInRosa.giocatore.nome} </span>
 											
-													<c:if test="${p.entrato}">
-														<span class="fantaicon-entrato tip" data-toggle="tooltip"
-															title="Ammonizione"> 
-														</span>
-													</c:if>
-													<c:if test="${p.uscito}">
+								
+													<c:if test="${g.uscito}">
 														<span class="fantaicon-uscito tip" data-toggle="tooltip"
-															title="Ammonizione"> 
+															title="Uscito"> 
 														</span>
 													</c:if>
 											
@@ -221,7 +217,14 @@
 												</c:when>
 											</c:choose>
 
-											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
+											<td><span>${g.giocatoreInRosa.giocatore.nome} </span>
+												<c:if test="${g.entrato}">
+														<span class="fantaicon-entrato tip" data-toggle="tooltip"
+															title="Entrato"> 
+														</span>
+													</c:if>
+												
+											</td>
 											
 											<td><span><c:out value ='${mappaVoti[g.nomeGiocatoreRosa].voto}'></c:out> </span></td>
 
