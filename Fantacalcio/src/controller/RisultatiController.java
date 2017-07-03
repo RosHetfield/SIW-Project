@@ -56,22 +56,22 @@ public class RisultatiController extends HttpServlet {
 				
 				
 				
-				//List<Voto_giornata> giocatori=DBManager.getInstance().getVoto_giornata().findByGiornata(giornata,campionato);
+				List<Voto_giornata> giocatori=DBManager.getInstance().getVoto_giornata().findByGiornata(giornata,campionato);
 				Partita partitaFormazione=DBManager.getInstance().getPartita().findByPrimaryKey(giornata, campionato);
 				Set<Giocatore_in_formazione> inFormazione=partitaFormazione.getGiocatoriInFormazione();
 				
-			/*	HashMap<String, Voto_giornata> mappaVoti=new HashMap<>();
+				HashMap<String, Voto_giornata> mappaVoti=new HashMap<>();
 				for (Giocatore_in_formazione gf : inFormazione) {
 					for (Voto_giornata v : giocatori) {
 						if(v.getNomeGiocatore().equals(gf.getNomeGiocatoreRosa()))
 						mappaVoti.put(gf.getNomeGiocatoreRosa(), v );
 					}
-				}	*/
+				}	
 				
 				request.setAttribute("inFormazione", inFormazione);
 				request.setAttribute("ultimaGiornata", giornata);
 				//request.setAttribute("giocatoriVotiUltima", giocatori);
-				//request.setAttribute("mappaVoti", mappaVoti);
+				request.setAttribute("mappaVoti", mappaVoti);
 
 				request.setAttribute("squadreCampionato", squadreCampionato);////////////??
 				

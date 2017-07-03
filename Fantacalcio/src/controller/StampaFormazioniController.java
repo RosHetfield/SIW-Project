@@ -55,10 +55,7 @@ public class StampaFormazioniController extends HttpServlet {
 				request.setAttribute("ultimaGiornata", giornata);
 				request.setAttribute("giocatoriUltima", giocatori);
 				request.setAttribute("squadreCampionato", squadreCampionato);//7////////??
-				
-				for (Giocatore_in_formazione g : giocatori) {
-					System.out.println("sono il giocatore: "+ g.getNomeGiocatoreRosa()+" "+g.isTitolare());
-				}
+
 				
 				RequestDispatcher dispatcher = request.getRequestDispatcher("stampaFormazioni.jsp");
 				dispatcher.forward(request, response);

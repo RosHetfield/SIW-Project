@@ -114,7 +114,7 @@
 
 
 								<c:forEach var="g" items="${giocatoriUltima}">
-									<c:if test="${g.titolare}">
+									<c:if test="${p.nome==g.squadraGiocatoreRosa && g.titolare}">
 										<tr >
 											<c:choose>
 												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'P'}">
@@ -168,7 +168,7 @@
 							<tbody>
 
 								<c:forEach var="g" items="${giocatoriUltima}">
-									<c:if test="${not g.titolare}">
+									<c:if test="${p.nome==g.squadraGiocatoreRosa && not g.titolare}">
 										<tr>
 											<c:choose>
 												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'P'}">

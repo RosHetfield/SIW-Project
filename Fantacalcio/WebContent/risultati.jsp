@@ -32,7 +32,7 @@
 <body>
 
 	<!-- Header/Navigation -->
-	<%@ include file = "../fragments/header.html" %>
+	<%@ include file="../fragments/header.html"%>
 
 
 	<div class="container">
@@ -40,15 +40,20 @@
 		<div class="row">
 			<div class="box ">
 				<div class="col-lg-12 ">
-				<ol class="list-inline">
-				
-    				<li><button type="button" class="btn btn-primary  btn-sm myButton  ">2</button></li>
-    				<li><button type="button" class="btn btn-primary  btn-sm myButton  ">3</button></li>
-    				<li><button type="button" class="btn btn-primary  btn-sm myButton " > 1</button></li>
-    				<li><button type="button" class="btn btn-primary  btn-sm myButton  ">2</button></li>
-    				<li><button type="button" class="btn btn-primary  btn-sm myButton  ">3</button></li>
-    				
-    			</ol>
+					<ol class="list-inline">
+
+						<li><button type="button"
+								class="btn btn-primary  btn-sm myButton  ">2</button></li>
+						<li><button type="button"
+								class="btn btn-primary  btn-sm myButton  ">3</button></li>
+						<li><button type="button"
+								class="btn btn-primary  btn-sm myButton ">1</button></li>
+						<li><button type="button"
+								class="btn btn-primary  btn-sm myButton  ">2</button></li>
+						<li><button type="button"
+								class="btn btn-primary  btn-sm myButton  ">3</button></li>
+
+					</ol>
 				</div>
 			</div>
 		</div>
@@ -58,10 +63,10 @@
 
 	<div class="container">
 		<div class=" box">
-			
-		
-		
-		<div class="row">
+
+
+
+			<div class="row">
 				<h3 class="text-center">
 
 					<span>Formazioni giornata ${ultimaGiornata} <i
@@ -86,27 +91,27 @@
 							<thead>
 
 								<tr class="active">
-								<td colspan="8">In campo </td>
-							</tr>
+									<td colspan="8">In campo</td>
+								</tr>
 
 
-							<tr class="bg-slate-300">
-								<td colspan="3">Ruolo</td>
-							
-								<td colspan="3">Nome Calciatore</td>
+								<tr class="bg-slate-300">
+									<td >Ruolo</td>
 
-								<td class="text-center">
-								<span class="hidden-xs"> Voto</span> <span class="visible-xs" data-toggle="tooltip" title="Voto">V</span>
-								</td>
+									<td >Nome Calciatore</td>
 
-								<td class="text-center">
-								<span class="hidden-xs"> Fantavoto</span> <span class="visible-xs" data-toggle="tooltip" title="Fanta Voto">FV</span>
-								</td>
+									<td class="text-center"><span class="hidden-xs">
+											Voto</span> <span class="visible-xs" data-toggle="tooltip"
+										title="Voto">V</span></td>
 
-								<td class="text-center">
-								<span class="hidden-xs"> Squadra</span> <span class="visible-xs" data-toggle="tooltip" title="Squadra">S</span>
-								</td>
-							</tr>
+									<td class="text-center"><span class="hidden-xs">
+											Fantavoto</span> <span class="visible-xs" data-toggle="tooltip"
+										title="Fanta Voto">FV</span></td>
+
+									<td class="text-center"><span class="hidden-xs">
+											Squadra</span> <span class="visible-xs" data-toggle="tooltip"
+										title="Squadra">S</span></td>
+								</tr>
 
 								</tr>
 							</thead>
@@ -114,7 +119,7 @@
 
 
 								<c:forEach var="g" items="${inFormazione}">
-									<c:if test="${g.titolare}">
+									<c:if test="${p.nome==g.squadraGiocatoreRosa && g.titolare}">
 										<tr class="">
 											<c:choose>
 												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'P'}">
@@ -139,9 +144,9 @@
 											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
 
 											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
-											
+
 											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
-											
+
 
 											<td><span class="hidden-xs">${g.giocatoreInRosa.giocatore.squadra}
 											</span></td>
@@ -154,33 +159,34 @@
 							<thead>
 
 								<tr class="active">
-								<td colspan="8">In panchina </td>
-							</tr>
+									<td colspan="8">In panchina</td>
+								</tr>
 
 
-							<tr class="bg-slate-300">
-								<td colspan="3">Ruolo</td>
-								
-							
-								<td colspan="3">Nome Calciatore</td>
+								<tr class="bg-slate-300">
+									<td >Ruolo</td>
 
-								<td class="text-center">
-								<span class="hidden-xs"> Voto</span> <span class="visible-xs" data-toggle="tooltip" title="Voto">V</span>
-								</td>
 
-								<td class="text-center">
-								<span class="hidden-xs"> Fantavoto</span> <span class="visible-xs" data-toggle="tooltip" title="Fanta Voto">FV</span>
-								</td>
+									<td >Nome Calciatore</td>
 
-								<td class="text-center">
-								<span class="hidden-xs"> Squadra</span> <span class="visible-xs" data-toggle="tooltip" title="Squadra">S</span>
-								</td>
-							</tr>
+									<td class="text-center"><span class="hidden-xs">
+											Voto</span> <span class="visible-xs" data-toggle="tooltip"
+										title="Voto">V</span></td>
+
+									<td class="text-center"><span class="hidden-xs">
+											Fantavoto</span> <span class="visible-xs" data-toggle="tooltip"
+										title="Fanta Voto">FV</span></td>
+
+									<td class="text-center"><span class="hidden-xs">
+											Squadra</span> <span class="visible-xs" data-toggle="tooltip"
+										title="Squadra">S</span></td>
+								</tr>
 							</thead>
 							<tbody>
 
 								<c:forEach var="g" items="${inFormazione}">
-									<c:if test="${!g.titolare}">
+									<c:if
+										test="${p.nome==g.squadraGiocatoreRosa && not g.titolare}">
 										<tr class="">
 											<c:choose>
 												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'P'}">
@@ -201,17 +207,17 @@
 												</c:when>
 											</c:choose>
 
+											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
+											
+											<td><span>${mappaVoti['g.giocatoreInRosa.giocatore.nome'].voto} </span></td>
 
-											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
-											
-											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
-											
-											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
-											
+											<td><span>${mappaVoti['g.giocatoreInRosa.giocatore.nome'].fantavoto} </span></td>
+
+
 											<td><span class="hidden-xs">${g.giocatoreInRosa.giocatore.squadra}
 											</span></td>
-											
-											
+
+
 
 										</tr>
 									</c:if>
@@ -225,42 +231,42 @@
 				</c:forEach>
 
 			</div>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<!--  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<!--  
 			<div class="row">
 			
 			<h3 class="text-center">
@@ -523,35 +529,12 @@
 -->
 
 		</div>
-		<!--Banner pubblicitÃ  -->
-		<div class="row">
-			<div class="box">
-				<div class="col-lg-12">
-					<hr>
-					<h2 class="intro-text text-center">
-						Build a website <strong>worth visiting</strong>
-					</h2>
-					<hr>
-					<div class="col-lg-4">
-						<p>INSERIRE PUBBLICITA</p>
-					</div>
-					<div class="col-lg-4">
-						<p>INSERIRE PUBBLICITA</p>
-					</div>
-					<div class="col-lg-4">
-						<p>INSERIRE PUBBLICITA</p>
-					</div>
-				</div>
-			</div>
-		</div>
-
-
 	</div>
 	<!-- /.container -->
 
 
 	<!--include footer -->
-	<%@ include file = "../fragments/footer.html" %>
+	<%@ include file="../fragments/footer.html"%>
 
 	<!-- jQuery -->
 	<script src="Script/jquery-3.1.1.min.js" type="text/javascript"></script>
@@ -560,8 +543,8 @@
 	<script src="js/bootstrap.min.js"></script>
 
 	<script>
-		$(document).ready(function(){
-		    $('[data-toggle="tooltip"]').tooltip();
+		$(document).ready(function() {
+			$('[data-toggle="tooltip"]').tooltip();
 		});
 	</script>
 

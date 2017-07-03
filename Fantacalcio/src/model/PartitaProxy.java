@@ -33,12 +33,19 @@ public class PartitaProxy extends Partita {
 
 				ResultSet result = statement.executeQuery();
 				
-				while(result.next()) {
+				while(result.next()) {									
 					Giocatore_in_formazione giocatore = new Giocatore_in_formazioneProxy(dataSource);
 					giocatore.setGiornata(result.getInt("giornata"));
 					giocatore.setCampionato(result.getString("campionato"));
 					giocatore.setNomeGiocatoreRosa(result.getString("giocatore"));
 					giocatore.setSquadraGiocatoreRosa(result.getString("squadra"));
+					
+					giocatore.setTitolare(result.getBoolean("titolare"));
+					giocatore.setEntrato(result.getBoolean("entrato"));
+					giocatore.setUscito(result.getBoolean("uscito"));
+					giocatore.setN_formazione(result.getInt("n_formazione"));
+					
+					
 					System.out.println("GIOCATORE ROSA FORMAZIONE SQUADRA " +result.getInt("giornata") + " "+giocatore.getGiocatoreInRosa());
 					giocatori.add(giocatore);
 				}
