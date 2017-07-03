@@ -118,14 +118,14 @@
 	margin-right: 0;
 }
 
-.fantaicon-uscito ::before {
+.fantaicon-uscito::before {
 	content: url(../img/icon/uscito.png);
 	margin-left: 0.1em;
 	margin-right: 0;
 }
 
-.fantaicon-entrato ::before {
-	content: url(../img/icon/uscito.png);
+.fantaicon-entrato::before {
+	content: url(../img/icon/entrato.png);
 	margin-left: 0.1em;
 	margin-right: 0;
 }
