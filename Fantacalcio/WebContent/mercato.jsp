@@ -277,28 +277,6 @@
 
 
 
-		<!--Banner pubblicitÃÂ  -->
-		<div class="row">
-			<div class="box col-lg-12">
-				<div class="col-lg-12">
-					<hr>
-					<h2 class="intro-text text-center">
-						Build a website <strong>worth visiting</strong>
-					</h2>
-					<hr>
-					<div class="col-lg-4">
-						<p>INSERIRE PUBBLICITA</p>
-					</div>
-					<div class="col-lg-4">
-						<p>INSERIRE PUBBLICITA</p>
-					</div>
-					<div class="col-lg-4">
-						<p>INSERIRE PUBBLICITA</p>
-					</div>
-				</div>
-			</div>
-		</div>
-
 
 	</div>
 	<!-- /.container -->

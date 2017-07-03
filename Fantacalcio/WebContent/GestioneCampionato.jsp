@@ -196,8 +196,9 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 					</div>
 					
 					
-						<form action="calcolaGiornata.html">
-    					<input class="btn btn-default" type="submit" value="Calcola" />
+					
+					<form action="calcolaGiornata.html">
+    					<input class="btn btn-primary" type="submit" value="Calcola" />
 					</form>
 				
 				</div>

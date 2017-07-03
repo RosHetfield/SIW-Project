@@ -143,9 +143,9 @@
 
 											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
 
-											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
+											<td><span>${mappaVoti['g.giocatoreInRosa.giocatore.nome'].voto} </span></td>
 
-											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
+											<td><span>fgfgf </span></td>
 
 
 											<td><span class="hidden-xs">${g.giocatoreInRosa.giocatore.squadra}
@@ -209,9 +209,9 @@
 
 											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
 											
-											<td><span>${mappaVoti['g.giocatoreInRosa.giocatore.nome'].voto} </span></td>
+											<td><span>hhhh </span></td>
 
-											<td><span>${mappaVoti['g.giocatoreInRosa.giocatore.nome'].fantavoto} </span></td>
+											<td><span>gh</span></td>
 
 
 											<td><span class="hidden-xs">${g.giocatoreInRosa.giocatore.squadra}
