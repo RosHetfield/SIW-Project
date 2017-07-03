@@ -143,13 +143,19 @@
 
 
 											<td><span>${g.giocatoreInRosa.giocatore.nome} </span>
-											
-								
+	
 													<c:if test="${g.uscito}">
 														<span class="fantaicon-uscito tip" data-toggle="tooltip"
 															title="Uscito"> 
 														</span>
 													</c:if>
+													
+													<c:forEach var="g" items="${mappaVoti[g.nomeGiocatoreRosa].voto}">
+													<span class="fantaicon-uscito tip" data-toggle="tooltip"
+															title="Uscito"> 
+														</span>
+													</c:forEach>
+													
 											
 											</td>
 
