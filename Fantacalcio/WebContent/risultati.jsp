@@ -114,7 +114,6 @@
 										title="Squadra">S</span></td>
 								</tr>
 
-								</tr>
 							</thead>
 							<tbody>
 
@@ -132,7 +131,7 @@
 														class="visible-xs"></td>
 												</c:when>
 												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'C'}">
-													<td class="valign-top""><span class="label label-3">${g.giocatoreInRosa.giocatore.ruolo}</span><br
+													<td class="valign-top"><span class="label label-3">${g.giocatoreInRosa.giocatore.ruolo}</span><br
 														class="visible-xs"></td>
 												</c:when>
 												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'A'}">
@@ -150,13 +149,13 @@
 														</span>
 													</c:if>
 													
-													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].ammonito}">
+													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].ammonito == 1}">
 														<span class="fantaicon-ammonizione tip" data-toggle="tooltip"
 															title="Ammonito"> 
 														</span>
 													</c:if>	
 													
-													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].espulso}">
+													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].espulso == 1}">
 														<span class="fantaicon-espulsione tip" data-toggle="tooltip"
 															title="Espulso"> 
 														</span>
@@ -204,13 +203,13 @@
 														</span>												
 													</c:forEach>
 													
-													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].goalVittoria}">
+													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].goalVittoria == 1}">
 														<span class="fantaicon-gol-vittoria tip" data-toggle="tooltip"
 															title="Goal vittoria"> 
 														</span>
 													</c:if>	
 													
-													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].goalPareggio}">
+													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].goalPareggio == 1}">
 														<span class="fantaicon-gol-pareggio tip" data-toggle="tooltip"
 															title="Goal pareggio"> 
 														</span>
@@ -291,13 +290,13 @@
 														</span>
 													</c:if>
 													
-													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].ammonito}">
+														<c:if test="${mappaVoti[g.nomeGiocatoreRosa].ammonito == 1}">
 														<span class="fantaicon-ammonizione tip" data-toggle="tooltip"
 															title="Ammonito"> 
 														</span>
 													</c:if>	
 													
-													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].espulso}">
+													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].espulso == 1}">
 														<span class="fantaicon-espulsione tip" data-toggle="tooltip"
 															title="Espulso"> 
 														</span>
@@ -345,13 +344,13 @@
 														</span>												
 													</c:forEach>
 													
-													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].goalVittoria}">
+													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].goalVittoria == 1}">
 														<span class="fantaicon-gol-vittoria tip" data-toggle="tooltip"
 															title="Goal vittoria"> 
 														</span>
 													</c:if>	
 													
-													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].goalPareggio}">
+													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].goalPareggio == 1}">
 														<span class="fantaicon-gol-pareggio tip" data-toggle="tooltip"
 															title="Goal pareggio"> 
 														</span>
@@ -373,6 +372,15 @@
 									</c:if>
 								</c:forEach>
 
+										<tr class="bg-slate-300">
+											<td colspan="3">
+												<span >Totale </span>
+											</td>
+											<td colspan="2">
+												<span >100 </span>
+											</td>
+										</tr>
+								
 							</tbody>
 
 						</table>
