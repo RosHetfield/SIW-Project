@@ -43,8 +43,8 @@
 	<div class="container">
 
 
-		<div class=" row">
-			<div class="box">
+		<div class="box" style="margin-bottom:5em">
+			<div class="">
 				<div class="col-lg-12 ">
 
 					<hr>
@@ -136,9 +136,11 @@
 
 					</table>
 				</div>
+				<div style="padding:0 1em">
+					<button type="button" class="btn-lg btn-primary btn-block" onclick="salvaRosa()">Salva rosa</button>
+				</div>
 			</div>
 			
-			<button type="button" class="btn btn-primary btn-block" onclick="salvaRosa()">Salva rosa</button>
 			
 			
 		</div>
@@ -156,6 +158,7 @@
 		<!-- tabella aggiungi -->
 
 		<div class=" row ">
+		
 			<div class="  box ">
 				<div class=" col-lg-12 ">
 
@@ -165,7 +168,14 @@
 					<hr>
 
 					<div class="row">
-
+						
+							<div id="ruolo" style="text-align:center; padding-bottom:2em; padding-top: 1em">
+								<button type="button" class="btn btn-danger" onclick="ruolo('P')">Portieri</button>
+								<button type="button" class="btn btn-success" onclick="ruolo('D')">Difensori</button>
+								<button type="button" class="btn btn-info" onclick="ruolo('C')">Centrocampisti</button>
+								<button type="button" class="btn btn-primary" onclick="ruolo('A')">Attaccanti</button>
+							</div>
+						
 						<table id="tabellaPartecipanti"
 							class="table table-striped table-bordered">
 							<thead class="bg-slate-300">

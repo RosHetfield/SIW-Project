@@ -230,3 +230,32 @@ function salvaRosa() {
 		});
 	});
 }
+
+
+
+function ruolo(r) {
+
+	$.ajax({
+
+		async : true,
+		type : "GET",
+		url : "Mercato",
+		datatype : "json",
+		data : {
+			ruolo : JSON.stringify(r)
+		},
+		success : function(data) {
+			location.href = "Mercato";
+		
+		},
+		error : function(data) {
+			swal({
+				title : "Errore!",
+				text : "Impossibile completare l'operazione",
+				type : "error",
+				confirmButtonText : "Ok"
+			});
+		}
+	});
+
+}

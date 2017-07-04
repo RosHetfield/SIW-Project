@@ -153,19 +153,24 @@ public class PartitaDAOJdbc implements PartitaDAO {
 	}
 
 	@Override
-	public int getUltimaGiornata(String campionato) {
+	public Partita getUltimaGiornataGiocabile(String campionato) {
 		Connection connection = this.dataSource.getConnection();
-		int partita=-1;
+		Partita partita = null;
 		try {
 			PreparedStatement statement;
-			String query = "select MAX(giornata) as gio from partita where campionato = ?";
+			String query = "select * from partita where campionato = ? and "
+					+ "not exists(select * from voto_giornata as v where v.giornata = partita.giornata)";
 			statement = connection.prepareStatement(query);
 			statement.setString(1, campionato);
 
 			ResultSet result = statement.executeQuery();
 
 			if (result.next()) {
-				partita=result.getInt("gio");
+				partita = new PartitaProxy(dataSource);
+				partita.setCampionato(result.getString("campionato"));
+				long secs = result.getDate("data").getTime();
+				partita.setData(new java.util.Date(secs));
+				partita.setGiornata(result.getInt("giornata"));
 				System.out.println("la partita numero: "+partita);
 			}
 		} catch (SQLException e) {

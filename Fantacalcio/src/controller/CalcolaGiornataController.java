@@ -43,9 +43,9 @@ public class CalcolaGiornataController extends HttpServlet {
 		String campionato = (String) session.getAttribute("NomeCampionato");
 		if (campionato != null) {
 			Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
-			int giornata = DBManager.getInstance().getPartita().getUltimaGiornata(campionato);
-			List<Voto_giornata> voti = DBManager.getInstance().getVoto_giornata().findAll(giornata);
-			Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata, campionato);
+			Partita giornata = DBManager.getInstance().getPartita().getUltimaGiornataGiocabile(campionato);
+			List<Voto_giornata> voti = DBManager.getInstance().getVoto_giornata().findAll(giornata.getGiornata());
+			Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata.getGiornata(), campionato);
 			
 			int n_sostituzioni = 0;
 			for (Giocatore_in_formazione g : partita.getGiocatoriInFormazione()) {
@@ -68,7 +68,7 @@ public class CalcolaGiornataController extends HttpServlet {
 				int partite_giocate = DBManager.getInstance().getClassifica().getPartiteGiocate(squadra.getNome());
 				double totale_giornata = 0;
 				double totale = 0;
-				RisultatoGiornata risultato_giornata = DBManager.getInstance().getClassifica().getRisultatoGiornata(giornata, squadra.getNome());
+				RisultatoGiornata risultato_giornata = DBManager.getInstance().getClassifica().getRisultatoGiornata(giornata.getGiornata(), squadra.getNome());
 				if(risultato_giornata != null) {
 					totale_giornata = risultato_giornata.getTotale();
 				}
@@ -77,7 +77,7 @@ public class CalcolaGiornataController extends HttpServlet {
 					totale = ultimo_risultato.getTotale();
 				}
 				double somma_risultati = totale_giornata + totale;
-				Classifica classifica = new Classifica(squadra.getNome(), giornata, partite_giocate, campionato, somma_risultati);
+				Classifica classifica = new Classifica(squadra.getNome(), giornata.getGiornata(), partite_giocate, campionato, somma_risultati);
 				DBManager.getInstance().getClassifica().save(classifica);
 			}
 			response.setContentType("text/html");

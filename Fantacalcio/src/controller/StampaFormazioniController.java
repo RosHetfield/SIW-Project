@@ -47,8 +47,8 @@ public class StampaFormazioniController extends HttpServlet {
 
 				// restituisco l'ultima giornata creata e nella quale possone
 				// essere presenti formazioni
-				int giornata = DBManager.getInstance().getPartita().getUltimaGiornata(campionato);
-				Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata, campionato);
+				Partita giornata = DBManager.getInstance().getPartita().getUltimaGiornataGiocabile(campionato);
+				Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata.getGiornata(), campionato);
 				Set<Squadra> squadreCampionato=DBManager.getInstance().getCampionato().findByPrimaryKey(campionato).getSquadre();
 				Set<Giocatore_in_formazione> giocatori = partita.getGiocatoriInFormazione();
 

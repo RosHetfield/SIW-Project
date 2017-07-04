@@ -5,7 +5,6 @@
 <%@ page import="model.Giocatore_in_formazione"%>
 <%@ page import="model.Giocatore_in_rosa" %>
 <%@ page import="java.util.List"%>
-<%@ page import="java.util.Set"%>
 
 <!doctype html>
 <html lang="en">
@@ -149,7 +148,7 @@ tbody>tr {
 
 
 							<%
-								Set<Giocatore_in_rosa> inFormazione = (Set<Giocatore_in_rosa>) request.getAttribute("giocatoriInRosa");
+								List<Giocatore> inFormazione = (List<Giocatore>) request.getAttribute("giocatoriInRosa");
 
 								if (inFormazione.size() == 0) {
 							%>
@@ -162,27 +161,27 @@ tbody>tr {
 							<c:forEach var="p" items="${giocatoriInRosa}">
 
 
-								<tr id="${p.giocatore.nome}" class="${p.giocatore.ruolo}">
+								<tr id="${p.nome}" class="${p.ruolo}">
 
 									<c:choose>
-										<c:when test="${p.giocatore.ruolo == 'P'}">
+										<c:when test="${p.ruolo == 'P'}">
 											<td class="valign-top" ><span
-												class="label label-1">${p.giocatore.ruolo}</span><br
+												class="label label-1">${p.ruolo}</span><br
 												class="visible-xs"></td>
 										</c:when>
-										<c:when test="${p.giocatore.ruolo == 'D'}">
+										<c:when test="${p.ruolo == 'D'}">
 											<td class="valign-top" ><span
-												class="label label-2">${p.giocatore.ruolo}</span><br
+												class="label label-2">${p.ruolo}</span><br
 												class="visible-xs"></td>
 										</c:when>
-										<c:when test="${p.giocatore.ruolo == 'C'}">
+										<c:when test="${p.ruolo == 'C'}">
 											<td class="valign-top" ><span
-												class="label label-3">${p.giocatore.ruolo}</span><br
+												class="label label-3">${p.ruolo}</span><br
 												class="visible-xs"></td>
 										</c:when>
-										<c:when test="${p.giocatore.ruolo == 'A'}">
+										<c:when test="${p.ruolo == 'A'}">
 											<td class="valign-top" ><span
-												class="label label-4">${p.giocatore.ruolo}</span><br
+												class="label label-4">${p.ruolo}</span><br
 												class="visible-xs"></td>
 												
 										</c:when>
@@ -190,10 +189,10 @@ tbody>tr {
 
 
 									<td class=""><span class="" data-toggle="tooltip"
-										title="Nome">${p.giocatore.nome}</span></td>
+										title="Nome">${p.nome}</span></td>
 
 									<td class=""><span class="" data-toggle="tooltip"
-										title="Squadra">${p.giocatore.squadra} </span></td>
+										title="Squadra">${p.squadra} </span></td>
 
 		
 								</tr>
@@ -249,7 +248,45 @@ tbody>tr {
 
 				<tbody id="tbody2" class="connectedSortable">
 					
+				<c:forEach var="p" items="${giocatoriInFormazione}">
+
+
+								<tr id="${p.nome}" class="${p.ruolo}">
+
+									<c:choose>
+										<c:when test="${p.ruolo == 'P'}">
+											<td class="valign-top" ><span
+												class="label label-1">${p.ruolo}</span><br
+												class="visible-xs"></td>
+										</c:when>
+										<c:when test="${p.ruolo == 'D'}">
+											<td class="valign-top" ><span
+												class="label label-2">${p.ruolo}</span><br
+												class="visible-xs"></td>
+										</c:when>
+										<c:when test="${p.ruolo == 'C'}">
+											<td class="valign-top" ><span
+												class="label label-3">${p.ruolo}</span><br
+												class="visible-xs"></td>
+										</c:when>
+										<c:when test="${p.ruolo == 'A'}">
+											<td class="valign-top" ><span
+												class="label label-4">${p.ruolo}</span><br
+												class="visible-xs"></td>
+												
+										</c:when>
+									</c:choose>
+
+
+									<td class=""><span class="" data-toggle="tooltip"
+										title="Nome">${p.nome}</span></td>
+
+									<td class=""><span class="" data-toggle="tooltip"
+										title="Squadra">${p.squadra} </span></td>
+
 		
+								</tr>
+							</c:forEach>
 
 				
 
@@ -277,7 +314,47 @@ tbody>tr {
 				</thead>
 
 				<tbody id="tbody3" class="connectedSortable">
-			
+				
+					<c:forEach var="p" items="${giocatoriInPanchina}">
+
+
+								<tr id="${p.nome}" class="${p.ruolo}">
+
+									<c:choose>
+										<c:when test="${p.ruolo == 'P'}">
+											<td class="valign-top" ><span
+												class="label label-1">${p.ruolo}</span><br
+												class="visible-xs"></td>
+										</c:when>
+										<c:when test="${p.ruolo == 'D'}">
+											<td class="valign-top" ><span
+												class="label label-2">${p.ruolo}</span><br
+												class="visible-xs"></td>
+										</c:when>
+										<c:when test="${p.ruolo == 'C'}">
+											<td class="valign-top" ><span
+												class="label label-3">${p.ruolo}</span><br
+												class="visible-xs"></td>
+										</c:when>
+										<c:when test="${p.ruolo == 'A'}">
+											<td class="valign-top" ><span
+												class="label label-4">${p.ruolo}</span><br
+												class="visible-xs"></td>
+												
+										</c:when>
+									</c:choose>
+
+
+									<td class=""><span class="" data-toggle="tooltip"
+										title="Nome">${p.nome}</span></td>
+
+									<td class=""><span class="" data-toggle="tooltip"
+										title="Squadra">${p.squadra} </span></td>
+
+		
+								</tr>
+							</c:forEach>
+							
 				</tbody>
 
 			</table>

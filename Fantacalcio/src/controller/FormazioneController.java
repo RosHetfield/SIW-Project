@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -26,103 +28,168 @@ import persistence.DBManager;
 @WebServlet("/FormazioneController")
 public class FormazioneController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public FormazioneController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public FormazioneController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String username = (String) request.getSession().getAttribute("Username");
 
 		if (username != null) {
 			System.out.println("Sessione Utente " + username);
 			String campionato = (String) request.getSession().getAttribute("campionato");
-			
-			if(campionato != null) {
+
+			if (campionato != null) {
 				System.out.println("Sessione Campionato " + campionato);
-//				Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
-//				if(camp.isMercato()) {
+				// Campionato camp =
+				// DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
+				// if(camp.isMercato()) {
+
+				String s = (String) request.getSession().getAttribute("squadra");
+				Squadra squadra = DBManager.getInstance().getSquadra().findByPrimaryKey(s);
+				Set<Giocatore_in_rosa> giocatori = squadra.getGiocatoriInRosa();
+				List<Giocatore> giocatoriInRosa = new ArrayList<Giocatore>();
+
+				for (Giocatore_in_rosa giocatore : giocatori) {
+					if (!giocatore.isRimosso()) {
+						giocatoriInRosa.add(giocatore.getGiocatore());
+					}
+				}
+				giocatoriInRosa.sort(new Comparator<Giocatore>() {
+
+					@Override
+					public int compare(Giocatore o1, Giocatore o2) {
+						return o2.getRuolo().compareTo(o1.getRuolo());
+					}
+				});
+
+				Partita ultima = DBManager.getInstance().getPartita().getUltimaGiornataGiocabile(campionato);
+				List<Giocatore> inFormazione = new ArrayList<Giocatore>();
+				List<Giocatore> inPanchina = new ArrayList<Giocatore>();
+				List<Giocatore> temp = new ArrayList<Giocatore>();
+				for (Giocatore_in_formazione giocatore : ultima.getGiocatoriPerSquadra(s)) {
+					if (giocatore.isTitolare()) {
+						inFormazione.add(giocatore.getGiocatoreInRosa().getGiocatore());
+					}
+					else {
+						inPanchina.add(giocatore.getGiocatoreInRosa().getGiocatore());
+					}
 					
-					String s=(String) request.getSession().getAttribute("squadra");
-					Squadra  squadra = DBManager.getInstance().getSquadra().findByPrimaryKey(s);
-					Set<Giocatore_in_rosa> giocatoriInRosa = squadra.getGiocatoriInRosa();
+					for (Giocatore g : giocatoriInRosa) {
+						if(g.getNome().equals(giocatore.getGiocatoreInRosa().getGiocatore().getNome())) {
+							System.out.println("QUIIIi");
+							temp.add(g);
+						}
+					}					
 					
-//					List<Giocatore> giocatoriInRosa = DBManager.getInstance().getGiocatore_in_rosa().getGiocatoriInRosa(s);
-					request.setAttribute("giocatoriInRosa", giocatoriInRosa);
-					
-//					int giornata= (int)request.getSession().getAttribute("giornata");
-//					request.getSession().removeAttribute("giornata");
-					
-//					Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata, campionato);
-					
-//					Set<Giocatore_in_formazione> giocatoriFormazione = new HashSet<Giocatore_in_formazione>();
-					
-//					for(Giocatore_in_formazione g : partita.getGiocatoriInFormazione()) {
-//						System.out.println("GGGGG " + g.getGiocatoreInRosa());
-////						if(g.getGiocatoreInRosa().getSquadra().equals(squadra)) {
-////							giocatoriFormazione.add(g);
-////						}
-//					}
-					
-//					Set<Giocatore_in_formazione> giocatoriInFormazione = partita.getGiocatoriPerSquadra(squadra.getNome());
-//					request.setAttribute("giocatoriInFormazione", giocatoriInFormazione);
-			
-					response.setContentType("text/html");
-					RequestDispatcher dispatcher = request.getRequestDispatcher("formazione.jsp");
-					dispatcher.forward(request, response);
-					
-//				} else {
-//					RequestDispatcher dispatcher = request.getRequestDispatcher("404.html");
-//					dispatcher.forward(request, response);
-//				}
-//			
+				}
+				for(Giocatore g : temp) {
+					giocatoriInRosa.remove(g);
+				}
+				
+				inFormazione.sort(new Comparator<Giocatore>() {
+
+					@Override
+					public int compare(Giocatore o1, Giocatore o2) {
+						return o2.getRuolo().compareTo(o1.getRuolo());
+					}
+				});
+				
+				inPanchina.sort(new Comparator<Giocatore>() {
+
+					@Override
+					public int compare(Giocatore o1, Giocatore o2) {
+						return o2.getRuolo().compareTo(o1.getRuolo());
+					}
+				});
+				// List<Giocatore> giocatoriInRosa =
+				// DBManager.getInstance().getGiocatore_in_rosa().getGiocatoriInRosa(s);
+				request.setAttribute("giocatoriInRosa", giocatoriInRosa);
+				request.setAttribute("giocatoriInFormazione", inFormazione);
+				request.setAttribute("giocatoriInPanchina", inPanchina);
+				// int giornata=
+				// (int)request.getSession().getAttribute("giornata");
+				// request.getSession().removeAttribute("giornata");
+
+				// Partita partita =
+				// DBManager.getInstance().getPartita().findByPrimaryKey(giornata,
+				// campionato);
+
+				// Set<Giocatore_in_formazione> giocatoriFormazione = new
+				// HashSet<Giocatore_in_formazione>();
+
+				// for(Giocatore_in_formazione g :
+				// partita.getGiocatoriInFormazione()) {
+				// System.out.println("GGGGG " + g.getGiocatoreInRosa());
+				//// if(g.getGiocatoreInRosa().getSquadra().equals(squadra)) {
+				//// giocatoriFormazione.add(g);
+				//// }
+				// }
+
+				// Set<Giocatore_in_formazione> giocatoriInFormazione =
+				// partita.getGiocatoriPerSquadra(squadra.getNome());
+				// request.setAttribute("giocatoriInFormazione",
+				// giocatoriInFormazione);
+
+				response.setContentType("text/html");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("formazione.jsp");
+				dispatcher.forward(request, response);
+
+				// } else {
+				// RequestDispatcher dispatcher =
+				// request.getRequestDispatcher("404.html");
+				// dispatcher.forward(request, response);
+				// }
+				//
 			}
 
-		}
-		else {
+		} else {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("errore.jsp");
 			dispatcher.forward(request, response);
 		}
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String username = (String) request.getSession().getAttribute("Username");
 		System.out.println("sono in do post");
 		response.setContentType("text/html");
 		if (username != null) {
 			String campionato = (String) request.getSession().getAttribute("campionato");
 			String squadra = (String) request.getSession().getAttribute("squadra");
-			if(campionato != null && squadra != null) {
+			if (campionato != null && squadra != null) {
 				Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
-				int giornata = DBManager.getInstance().getPartita().getUltimaGiornata(campionato);
-				Partita partita=DBManager.getInstance().getPartita().findByPrimaryKey(giornata, campionato);
-				request.getSession().setAttribute("giornata", giornata);
+				Partita giornata = DBManager.getInstance().getPartita().getUltimaGiornataGiocabile(campionato);
+//				Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata.getGiornata(), campionato);
+				request.getSession().setAttribute("giornata", giornata.getGiornata());
 
-				if(!camp.isMercato()) {
-					if(System.currentTimeMillis() < partita.getData().getTime() ) {
-						if(DBManager.getInstance().getGiocatore_in_rosa().isSquadraCompleta(squadra)){							
+				if (!camp.isMercato()) {
+					if (System.currentTimeMillis() < giornata.getData().getTime()) {
+						if (DBManager.getInstance().getGiocatore_in_rosa().isSquadraCompleta(squadra)) {
 							response.getWriter().print(0);
 							System.out.println("caso 0");
-						}
-						else {
+						} else {
 							response.getWriter().print(3);
 							System.out.println("caso 3");
 						}
-					}
-					else{
-					response.getWriter().print(1);
-					System.out.println("caso 1");
+					} else {
+						response.getWriter().print(1);
+						System.out.println("caso 1");
 
 					}
 				} else {
@@ -130,11 +197,10 @@ public class FormazioneController extends HttpServlet {
 					System.out.println("caso 2");
 
 				}
-			
+
 			}
 
-		}
-		else {
+		} else {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("errore.jsp");
 			dispatcher.forward(request, response);
 		}

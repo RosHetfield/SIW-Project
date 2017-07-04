@@ -101,8 +101,10 @@ public class SquadraProxy extends Squadra {
 							Giocatore_in_rosa giocatore = new Giocatore_in_rosaProxy(dataSource);
 							giocatore.setSquadra(result.getString("squadra"));
 							giocatore.setNomeGiocatore(result.getString("giocatore"));
+							giocatore.setCompleto(result.getBoolean("completo"));
+							giocatore.setRimosso(result.getBoolean("rimosso"));
 //							giocatore.getGiocatore();
-							System.out.println("GIOCATORE ROSA SQUADRA " + result.getString("squadra") + " "+ result.getString("giocatore"));
+							System.out.println("GIOCATORE ROSA SQUADRA " + result.getString("squadra") + " "+ result.getString("giocatore") + " " + result.getBoolean("rimosso"));
 							giocatori.add(giocatore);
 						}
 						this.setGiocatoriInRosa(giocatori);

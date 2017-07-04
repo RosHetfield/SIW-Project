@@ -53,8 +53,8 @@ public class GestioneMercatoController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-System.out.println("ASSO " + request.getParameter("giocatore"));
-System.out.println("ASSO " + request.getParameter("risposta"));
+			System.out.println("ASSO " + request.getParameter("giocatore"));
+			System.out.println("ASSO " + request.getParameter("risposta"));
 		if (request.getParameterNames().hasMoreElements()) {
 			response.setContentType("text/html");
 
@@ -89,12 +89,12 @@ System.out.println("ASSO " + request.getParameter("risposta"));
 						} else if (risposta.equals("f")) {
 							jsRes.put("status", rimuoviDaRosa(s, g));
 							jsRes.put("crediti", s.getCrediti());
-							response.getWriter().println(jsRes);
+							response.getWriter().print(jsRes);
 						}
 					} catch (JSONException e) {
 						e.printStackTrace();
 					}
-
+					
 				}
 
 			}
@@ -134,7 +134,13 @@ System.out.println("ASSO " + request.getParameter("risposta"));
 		gir.setNomeGiocatore(giocatore.getNome());
 		gir.setSquadra(squadra.getNome());
 		squadra.setCrediti(squadra.getCrediti() - giocatore.getValore());
-		DBManager.getInstance().getGiocatore_in_rosa().save(gir);
+		if(DBManager.getInstance().getGiocatore_in_rosa().findByPrimaryKey(giocatore.getNome(), squadra.getNome()) != null) {
+			gir.setRimosso(false);
+			DBManager.getInstance().getGiocatore_in_rosa().update(gir);
+		}
+		else {
+			DBManager.getInstance().getGiocatore_in_rosa().save(gir);			
+		}
 		DBManager.getInstance().getSquadra().update(squadra);
 		return 0;
 	}
@@ -144,7 +150,8 @@ System.out.println("ASSO " + request.getParameter("risposta"));
 		gir.setNomeGiocatore(giocatore.getNome());
 		gir.setSquadra(squadra.getNome());
 		squadra.setCrediti(squadra.getCrediti() + giocatore.getValore());
-		DBManager.getInstance().getGiocatore_in_rosa().delete(gir);
+		gir.setRimosso(true);
+		DBManager.getInstance().getGiocatore_in_rosa().update(gir);
 		DBManager.getInstance().getSquadra().update(squadra);
 		DBManager.getInstance().getGiocatore_in_rosa().updateAll(squadra.getNome(), false);
 		return 6;

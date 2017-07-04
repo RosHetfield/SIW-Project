@@ -14,6 +14,7 @@ public class Giocatore_in_rosa implements Serializable {
 	private String nomeGiocatore;
 	private String squadra;
 	private boolean completo = false;
+	private boolean rimosso = false;
 	
 	public Giocatore_in_rosa(String squadra, String nomeGiocatore) {
 		this.squadra = squadra;
@@ -54,5 +55,13 @@ public class Giocatore_in_rosa implements Serializable {
 
 	public void setCompleto(boolean completo) {
 		this.completo = completo;
+	}
+
+	public boolean isRimosso() {
+		return rimosso;
+	}
+
+	public void setRimosso(boolean rimosso) {
+		this.rimosso = rimosso;
 	}
 }

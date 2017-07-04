@@ -24,12 +24,12 @@ public class Giocatore_in_rosaDAOJdbc implements Giocatore_in_rosaDAO {
 	public void save(Giocatore_in_rosa gir) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String insert = "insert into giocatore_in_rosa (squadra, giocatore, completo) values (?, ?, ?)";
+			String insert = "insert into giocatore_in_rosa (squadra, giocatore, completo, rimosso) values (?, ?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setString(1, gir.getSquadra());
 			statement.setString(2, gir.getNomeGiocatore());
 			statement.setBoolean(3, gir.isCompleto());
-			
+			statement.setBoolean(4, gir.isRimosso());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
@@ -44,23 +44,53 @@ public class Giocatore_in_rosaDAOJdbc implements Giocatore_in_rosaDAO {
 	}
 
 	@Override
-	public Giocatore_in_rosa findByPrimaryKey(String id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Giocatore_in_rosa findByPrimaryKey(String giocatore, String squadra) {
+		Giocatore_in_rosa g = null;
+		Connection connection = this.dataSource.getConnection();
+		try {
+			PreparedStatement statement;
+			String query = "select * from giocatore_in_rosa where giocatore = ? and squadra = ?";
+			statement = connection.prepareStatement(query);
+
+			statement.setString(1, giocatore);
+			statement.setString(2, squadra);
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+				g = new Giocatore_in_rosa();
+				g.setNomeGiocatore(result.getString("giocatore"));
+				g.setSquadra(result.getString("squadra"));
+				g.setCompleto(result.getBoolean("completo"));
+				g.setRimosso(result.getBoolean("rimosso"));
+
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}
+
+		return g;	
+	
 	}
 
 	@Override
 	public void update(Giocatore_in_rosa gir) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update = "update giocatore_in_rosa set squadra = ?, giocatore = ?, completo = ? "
-					+ "where squadra = ?, giocatore = ?";
+			String update = "update giocatore_in_rosa set squadra = ?, giocatore = ?, completo = ?, rimosso = ? "
+					+ "where squadra = ? and giocatore = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setString(1, gir.getSquadra());
 			statement.setString(2, gir.getNomeGiocatore());			
 			statement.setBoolean(3, gir.isCompleto());
-			statement.setString(4, gir.getSquadra());
-			statement.setString(5, gir.getNomeGiocatore());
+			statement.setBoolean(4, gir.isRimosso());
+			statement.setString(5, gir.getSquadra());
+			statement.setString(6, gir.getNomeGiocatore());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
@@ -110,7 +140,7 @@ public class Giocatore_in_rosaDAOJdbc implements Giocatore_in_rosaDAO {
 		try {
 			Giocatore giocatore;
 			String query = "select g.nome, g.ruolo, g.valore, g.squadra from giocatore as g,giocatore_in_rosa as gf"
-					+ " where  gf.squadra = ? and g.nome = gf.giocatore ";
+					+ " where  gf.squadra = ? and g.nome = gf.giocatore order by g.ruolo desc";
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setString(1, squadra);
 			
@@ -146,7 +176,7 @@ public class Giocatore_in_rosaDAOJdbc implements Giocatore_in_rosaDAO {
 		try {
 			String query = "select count(*) from giocatore_in_rosa as g, giocatore, squadra "
 					+ "where g.squadra = squadra.nome and g.giocatore = giocatore.nome "
-					+ "and giocatore.ruolo = ? and squadra.nome = ?";
+					+ "and giocatore.ruolo = ? and squadra.nome = ? and g.rimosso=false";
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setString(1, ruolo);
 			statement.setString(2, squadra);

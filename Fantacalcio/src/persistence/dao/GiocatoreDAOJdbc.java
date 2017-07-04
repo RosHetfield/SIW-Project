@@ -165,15 +165,16 @@ public class GiocatoreDAOJdbc implements GiocatoreDAO {
 	}
 
 	@Override
-	public List<Giocatore> getGiocatoriSvincolati(String squadra) {
+	public List<Giocatore> getGiocatoriSvincolati(String squadra, String ruolo) {
 		Connection connection = this.dataSource.getConnection();
 		List<Giocatore> giocatori= new ArrayList<Giocatore>();
 		try {
 			Giocatore giocatore;
-			String query = "select g.nome, g.ruolo, g.valore, g.squadra from giocatore as g where not exists "
-					+ "(select * from giocatore_in_rosa as gf where  gf.squadra = ? and g.nome = gf.giocatore) ";
+			String query = "select g.nome, g.ruolo, g.valore, g.squadra from giocatore as g where g.ruolo = ? and not exists "
+					+ "(select * from giocatore_in_rosa as gf where gf.rimosso=false and gf.squadra = ? and g.nome = gf.giocatore) ";
 			PreparedStatement statement = connection.prepareStatement(query);
-			statement.setString(1, squadra);
+			statement.setString(1, ruolo);
+			statement.setString(2, squadra);
 			
 			ResultSet result = statement.executeQuery();
 			while (result.next()) {

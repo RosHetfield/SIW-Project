@@ -50,14 +50,14 @@ public class RisultatiController extends HttpServlet {
 
 				// restituisco l'ultima giornata creata e nella quale possone
 				// essere presenti formazioni
-				int giornata = DBManager.getInstance().getPartita().getUltimaGiornata(campionato);///////cangia
+				Partita giornata = DBManager.getInstance().getPartita().getUltimaGiornataGiocabile(campionato);///////cangia
 				Set<Squadra> squadreCampionato=DBManager.getInstance().getCampionato().findByPrimaryKey(campionato).getSquadre();
 				
 				
 				
 				
-				List<Voto_giornata> giocatori=DBManager.getInstance().getVoto_giornata().findByGiornata(giornata,campionato);
-				Partita partitaFormazione=DBManager.getInstance().getPartita().findByPrimaryKey(giornata, campionato);
+				List<Voto_giornata> giocatori=DBManager.getInstance().getVoto_giornata().findByGiornata(giornata.getGiornata(),campionato);
+				Partita partitaFormazione=DBManager.getInstance().getPartita().findByPrimaryKey(giornata.getGiornata(), campionato);
 				Set<Giocatore_in_formazione> inFormazione=partitaFormazione.getGiocatoriInFormazione();
 				
 				HashMap<String, Voto_giornata> mappaVoti=new HashMap<>();
