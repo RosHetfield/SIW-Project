@@ -150,11 +150,13 @@
 														</span>
 													</c:if>
 													
-													<c:forEach var="g" items="${mappaVoti[g.nomeGiocatoreRosa].voto}">
-													<span class="fantaicon-uscito tip" data-toggle="tooltip"
+													<c:forEach var="n" begin="1" end="${mappaVoti[g.nomeGiocatoreRosa].goalFatto}" step="1">
+														<span class="fantaicon-uscito tip" data-toggle="tooltip"
 															title="Uscito"> 
-														</span>
+														</span>												
 													</c:forEach>
+													
+												
 													
 											
 											</td>
