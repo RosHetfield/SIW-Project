@@ -145,7 +145,7 @@
 											<td><span>${g.giocatoreInRosa.giocatore.nome} </span>
 	
 													<c:if test="${g.uscito}">
-														<span class="fantaicon-uscito tip" data-toggle="tooltip"
+														<span class="fantaicon-uscito tip pull-right" data-toggle="tooltip"
 															title="Uscito"> 
 														</span>
 													</c:if>
@@ -286,7 +286,7 @@
 											<td><span>${g.giocatoreInRosa.giocatore.nome} </span>
 													
 													<c:if test="${g.entrato}">
-														<span class="fantaicon-entrato tip" data-toggle="tooltip"
+														<span class="fantaicon-entrato tip pull-right" data-toggle="tooltip"
 															title="Entrato"> 
 														</span>
 													</c:if>
