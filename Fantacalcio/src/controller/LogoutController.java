@@ -37,7 +37,7 @@ public class LogoutController extends HttpServlet {
 			response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
 			response.setDateHeader("Expires", 0);
 			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("logout.jsp");
+					.getRequestDispatcher("logout.html");
 			dispatcher.forward(request, response);
 		}
 		else {

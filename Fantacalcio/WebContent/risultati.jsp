@@ -97,9 +97,9 @@
 
 
 								<tr class="bg-slate-300">
-									<td >Ruolo</td>
+									<td>Ruolo</td>
 
-									<td >Nome Calciatore</td>
+									<td>Nome Calciatore</td>
 
 									<td class="text-center"><span class="hidden-xs">
 											Voto</span> <span class="visible-xs" data-toggle="tooltip"
@@ -141,86 +141,64 @@
 											</c:choose>
 
 
-											<td><span>${g.giocatoreInRosa.giocatore.nome} </span>
-	
-													<c:if test="${g.uscito}">
-														<span class="fantaicon-uscito tip pull-right" data-toggle="tooltip"
-															title="Uscito"> 
-														</span>
-													</c:if>
-													
-													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].ammonito == 1}">
-														<span class="fantaicon-ammonizione tip" data-toggle="tooltip"
-															title="Ammonito"> 
-														</span>
-													</c:if>	
-													
-													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].espulso == 1}">
-														<span class="fantaicon-espulsione tip" data-toggle="tooltip"
-															title="Espulso"> 
-														</span>
-													</c:if>	
-													
-													<c:forEach var="n" begin="1" end="${mappaVoti[g.nomeGiocatoreRosa].goalFatto}" step="1">
-														<span class="fantaicon-goal-fatto tip" data-toggle="tooltip"
-															title="Goal fatto"> 
-														</span>												
-													</c:forEach>
-													
-													<c:forEach var="n" begin="1" end="${mappaVoti[g.nomeGiocatoreRosa].goalSuRigore}" step="1">
-														<span class="fantaicon-goal-rigore tip" data-toggle="tooltip"
-															title="Goal rigore"> 
-														</span>												
-													</c:forEach>
-													
-													<c:forEach var="n" begin="1" end="${mappaVoti[g.nomeGiocatoreRosa].goalSubito}" step="1">
-														<span class="fantaicon-goal-subito tip" data-toggle="tooltip"
-															title="Goal subito"> 
-														</span>												
-													</c:forEach>
-													
-													<c:forEach var="n" begin="1" end="${mappaVoti[g.nomeGiocatoreRosa].rigoreParato}" step="1">
-														<span class="fantaicon-rigore-parato tip" data-toggle="tooltip"
-															title="Rigore parato"> 
-														</span>												
-													</c:forEach>
-													
-													<c:forEach var="n" begin="1" end="${mappaVoti[g.nomeGiocatoreRosa].rigoreSbagliato}" step="1">
-														<span class="fantaicon-rigore-sbagliato tip" data-toggle="tooltip"
-															title="Rigore sbagliato"> 
-														</span>												
-													</c:forEach>
-													
-													<c:forEach var="n" begin="1" end="${mappaVoti[g.nomeGiocatoreRosa].autorete}" step="1">
-														<span class="fantaicon-autogol tip" data-toggle="tooltip"
-															title="Autorete"> 
-														</span>												
-													</c:forEach>
-													
-													<c:forEach var="n" begin="1" end="${mappaVoti[g.nomeGiocatoreRosa].assist}" step="1">
-														<span class="fantaicon-assist tip" data-toggle="tooltip"
-															title="Assist"> 
-														</span>												
-													</c:forEach>
-													
-													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].goalVittoria == 1}">
-														<span class="fantaicon-gol-vittoria tip" data-toggle="tooltip"
-															title="Goal vittoria"> 
-														</span>
-													</c:if>	
-													
-													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].goalPareggio == 1}">
-														<span class="fantaicon-gol-pareggio tip" data-toggle="tooltip"
-															title="Goal pareggio"> 
-														</span>
-													</c:if>	
-													
-											
-											</td>
+											<td><span>${g.giocatoreInRosa.giocatore.nome} </span> <c:if
+													test="${g.uscito}">
+													<span class="fantaicon-uscito tip pull-right"
+														data-toggle="tooltip" title="Uscito"> </span>
+												</c:if> <c:if
+													test="${mappaVoti[g.nomeGiocatoreRosa].ammonito == 1}">
+													<span class="fantaicon-ammonizione tip"
+														data-toggle="tooltip" title="Ammonito"> </span>
+												</c:if> <c:if test="${mappaVoti[g.nomeGiocatoreRosa].espulso == 1}">
+													<span class="fantaicon-espulsione tip"
+														data-toggle="tooltip" title="Espulso"> </span>
+												</c:if> <c:forEach var="n" begin="1"
+													end="${mappaVoti[g.nomeGiocatoreRosa].goalFatto}" step="1">
+													<span class="fantaicon-goal-fatto tip"
+														data-toggle="tooltip" title="Goal fatto"> </span>
+												</c:forEach> <c:forEach var="n" begin="1"
+													end="${mappaVoti[g.nomeGiocatoreRosa].goalSuRigore}"
+													step="1">
+													<span class="fantaicon-goal-rigore tip"
+														data-toggle="tooltip" title="Goal rigore"> </span>
+												</c:forEach> <c:forEach var="n" begin="1"
+													end="${mappaVoti[g.nomeGiocatoreRosa].goalSubito}" step="1">
+													<span class="fantaicon-goal-subito tip"
+														data-toggle="tooltip" title="Goal subito"> </span>
+												</c:forEach> <c:forEach var="n" begin="1"
+													end="${mappaVoti[g.nomeGiocatoreRosa].rigoreParato}"
+													step="1">
+													<span class="fantaicon-rigore-parato tip"
+														data-toggle="tooltip" title="Rigore parato"> </span>
+												</c:forEach> <c:forEach var="n" begin="1"
+													end="${mappaVoti[g.nomeGiocatoreRosa].rigoreSbagliato}"
+													step="1">
+													<span class="fantaicon-rigore-sbagliato tip"
+														data-toggle="tooltip" title="Rigore sbagliato"> </span>
+												</c:forEach> <c:forEach var="n" begin="1"
+													end="${mappaVoti[g.nomeGiocatoreRosa].autorete}" step="1">
+													<span class="fantaicon-autogol tip" data-toggle="tooltip"
+														title="Autorete"> </span>
+												</c:forEach> <c:forEach var="n" begin="1"
+													end="${mappaVoti[g.nomeGiocatoreRosa].assist}" step="1">
+													<span class="fantaicon-assist tip" data-toggle="tooltip"
+														title="Assist"> </span>
+												</c:forEach> <c:if
+													test="${mappaVoti[g.nomeGiocatoreRosa].goalVittoria == 1}">
+													<span class="fantaicon-gol-vittoria tip"
+														data-toggle="tooltip" title="Goal vittoria"> </span>
+												</c:if> <c:if
+													test="${mappaVoti[g.nomeGiocatoreRosa].goalPareggio == 1}">
+													<span class="fantaicon-gol-pareggio tip"
+														data-toggle="tooltip" title="Goal pareggio"> </span>
+												</c:if></td>
 
-											<td><span><c:out value ='${mappaVoti[g.nomeGiocatoreRosa].voto}'></c:out> </span></td>
+											<td><span><c:out
+														value='${mappaVoti[g.nomeGiocatoreRosa].voto}'></c:out> </span></td>
 
-											<td><span><c:out value ='${mappaVoti[g.nomeGiocatoreRosa].fantavoto}'></c:out>  </span></td>
+											<td><span><c:out
+														value='${mappaVoti[g.nomeGiocatoreRosa].fantavoto}'></c:out>
+											</span></td>
 
 
 											<td><span class="hidden-xs">${g.giocatoreInRosa.giocatore.squadra}
@@ -239,10 +217,10 @@
 
 
 								<tr class="bg-slate-300">
-									<td >Ruolo</td>
+									<td>Ruolo</td>
 
 
-									<td >Nome Calciatore</td>
+									<td>Nome Calciatore</td>
 
 									<td class="text-center"><span class="hidden-xs">
 											Voto</span> <span class="visible-xs" data-toggle="tooltip"
@@ -282,85 +260,64 @@
 												</c:when>
 											</c:choose>
 
-											<td><span>${g.giocatoreInRosa.giocatore.nome} </span>
-													
-													<c:if test="${g.entrato}">
-														<span class="fantaicon-entrato tip pull-right" data-toggle="tooltip"
-															title="Entrato"> 
-														</span>
-													</c:if>
-													
-														<c:if test="${mappaVoti[g.nomeGiocatoreRosa].ammonito == 1}">
-														<span class="fantaicon-ammonizione tip" data-toggle="tooltip"
-															title="Ammonito"> 
-														</span>
-													</c:if>	
-													
-													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].espulso == 1}">
-														<span class="fantaicon-espulsione tip" data-toggle="tooltip"
-															title="Espulso"> 
-														</span>
-													</c:if>	
-													
-													<c:forEach var="n" begin="1" end="${mappaVoti[g.nomeGiocatoreRosa].goalFatto}" step="1">
-														<span class="fantaicon-goal-fatto tip" data-toggle="tooltip"
-															title="Goal fatto"> 
-														</span>												
-													</c:forEach>
-													
-													<c:forEach var="n" begin="1" end="${mappaVoti[g.nomeGiocatoreRosa].goalSuRigore}" step="1">
-														<span class="fantaicon-goal-rigore tip" data-toggle="tooltip"
-															title="Goal rigore"> 
-														</span>												
-													</c:forEach>
-													
-													<c:forEach var="n" begin="1" end="${mappaVoti[g.nomeGiocatoreRosa].goalSubito}" step="1">
-														<span class="fantaicon-goal-subito tip" data-toggle="tooltip"
-															title="Goal subito"> 
-														</span>												
-													</c:forEach>
-													
-													<c:forEach var="n" begin="1" end="${mappaVoti[g.nomeGiocatoreRosa].rigoreParato}" step="1">
-														<span class="fantaicon-rigore-parato tip" data-toggle="tooltip"
-															title="Rigore parato"> 
-														</span>												
-													</c:forEach>
-													
-													<c:forEach var="n" begin="1" end="${mappaVoti[g.nomeGiocatoreRosa].rigoreSbagliato}" step="1">
-														<span class="fantaicon-rigore-sbagliato tip" data-toggle="tooltip"
-															title="Rigore sbagliato"> 
-														</span>												
-													</c:forEach>
-													
-													<c:forEach var="n" begin="1" end="${mappaVoti[g.nomeGiocatoreRosa].autorete}" step="1">
-														<span class="fantaicon-autogol tip" data-toggle="tooltip"
-															title="Autorete"> 
-														</span>												
-													</c:forEach>
-													
-													<c:forEach var="n" begin="1" end="${mappaVoti[g.nomeGiocatoreRosa].assist}" step="1">
-														<span class="fantaicon-assist tip" data-toggle="tooltip"
-															title="Assist"> 
-														</span>												
-													</c:forEach>
-													
-													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].goalVittoria == 1}">
-														<span class="fantaicon-gol-vittoria tip" data-toggle="tooltip"
-															title="Goal vittoria"> 
-														</span>
-													</c:if>	
-													
-													<c:if test="${mappaVoti[g.nomeGiocatoreRosa].goalPareggio == 1}">
-														<span class="fantaicon-gol-pareggio tip" data-toggle="tooltip"
-															title="Goal pareggio"> 
-														</span>
-													</c:if>	
-												
-											</td>
-											
-											<td><span><c:out value ='${mappaVoti[g.nomeGiocatoreRosa].voto}'></c:out> </span></td>
+											<td><span>${g.giocatoreInRosa.giocatore.nome} </span> <c:if
+													test="${g.entrato}">
+													<span class="fantaicon-entrato tip pull-right"
+														data-toggle="tooltip" title="Entrato"> </span>
+												</c:if> <c:if
+													test="${mappaVoti[g.nomeGiocatoreRosa].ammonito == 1}">
+													<span class="fantaicon-ammonizione tip"
+														data-toggle="tooltip" title="Ammonito"> </span>
+												</c:if> <c:if test="${mappaVoti[g.nomeGiocatoreRosa].espulso == 1}">
+													<span class="fantaicon-espulsione tip"
+														data-toggle="tooltip" title="Espulso"> </span>
+												</c:if> <c:forEach var="n" begin="1"
+													end="${mappaVoti[g.nomeGiocatoreRosa].goalFatto}" step="1">
+													<span class="fantaicon-goal-fatto tip"
+														data-toggle="tooltip" title="Goal fatto"> </span>
+												</c:forEach> <c:forEach var="n" begin="1"
+													end="${mappaVoti[g.nomeGiocatoreRosa].goalSuRigore}"
+													step="1">
+													<span class="fantaicon-goal-rigore tip"
+														data-toggle="tooltip" title="Goal rigore"> </span>
+												</c:forEach> <c:forEach var="n" begin="1"
+													end="${mappaVoti[g.nomeGiocatoreRosa].goalSubito}" step="1">
+													<span class="fantaicon-goal-subito tip"
+														data-toggle="tooltip" title="Goal subito"> </span>
+												</c:forEach> <c:forEach var="n" begin="1"
+													end="${mappaVoti[g.nomeGiocatoreRosa].rigoreParato}"
+													step="1">
+													<span class="fantaicon-rigore-parato tip"
+														data-toggle="tooltip" title="Rigore parato"> </span>
+												</c:forEach> <c:forEach var="n" begin="1"
+													end="${mappaVoti[g.nomeGiocatoreRosa].rigoreSbagliato}"
+													step="1">
+													<span class="fantaicon-rigore-sbagliato tip"
+														data-toggle="tooltip" title="Rigore sbagliato"> </span>
+												</c:forEach> <c:forEach var="n" begin="1"
+													end="${mappaVoti[g.nomeGiocatoreRosa].autorete}" step="1">
+													<span class="fantaicon-autogol tip" data-toggle="tooltip"
+														title="Autorete"> </span>
+												</c:forEach> <c:forEach var="n" begin="1"
+													end="${mappaVoti[g.nomeGiocatoreRosa].assist}" step="1">
+													<span class="fantaicon-assist tip" data-toggle="tooltip"
+														title="Assist"> </span>
+												</c:forEach> <c:if
+													test="${mappaVoti[g.nomeGiocatoreRosa].goalVittoria == 1}">
+													<span class="fantaicon-gol-vittoria tip"
+														data-toggle="tooltip" title="Goal vittoria"> </span>
+												</c:if> <c:if
+													test="${mappaVoti[g.nomeGiocatoreRosa].goalPareggio == 1}">
+													<span class="fantaicon-gol-pareggio tip"
+														data-toggle="tooltip" title="Goal pareggio"> </span>
+												</c:if></td>
 
-											<td><span><c:out value ='${mappaVoti[g.nomeGiocatoreRosa].fantavoto}'></c:out>  </span></td>
+											<td><span><c:out
+														value='${mappaVoti[g.nomeGiocatoreRosa].voto}'></c:out> </span></td>
+
+											<td><span><c:out
+														value='${mappaVoti[g.nomeGiocatoreRosa].fantavoto}'></c:out>
+											</span></td>
 
 
 											<td><span class="hidden-xs">${g.giocatoreInRosa.giocatore.squadra}
@@ -372,15 +329,11 @@
 									</c:if>
 								</c:forEach>
 
-										<tr class="bg-slate-300">
-											<td colspan="3">
-												<span >Totale </span>
-											</td>
-											<td colspan="2">
-												<span >100 </span>
-											</td>
-										</tr>
-								
+								<tr class="bg-slate-300">
+									<td colspan="3"><span>Totale </span></td>
+									<td colspan="2"><span>100 </span></td>
+								</tr>
+
 							</tbody>
 
 						</table>
@@ -389,302 +342,6 @@
 				</c:forEach>
 
 			</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			<!--  
-			<div class="row">
-			
-			<h3 class="text-center">
-
-					<span>Risultati giornata ${ultimaGiornata} <i
-						class="pull-left "></i>
-					</span>
-				</h3>
-			
-			
-				<div class="col-lg-6 " >
-					<div class="panel-heading">
-						<h3 >
-							<span>Juventus <i class="pull-left "></i> 
-							</span>
-						</h3>
-					</div>
-
-					<table class="table table-striped table-bordered" id="players_list">
-						<tbody>
-						
-							<tr class="active">
-								<td colspan="8">In campo </td>
-							</tr>
-
-
-							<tr class="bg-slate-300">
-								<td colspan="3">Nome Calciatore</td>
-
-								<td class="text-center">
-								<span class="hidden-xs"> Voto</span> <span class="visible-xs" data-toggle="tooltip" title="Voto">V</span>
-								</td>
-
-								<td class="text-center">
-								<span class="hidden-xs"> Fantavoto</span> <span class="visible-xs" data-toggle="tooltip" title="Fanta Voto">FV</span>
-								</td>
-
-								<td class="text-center">
-								<span class="hidden-xs"> Squadra</span> <span class="visible-xs" data-toggle="tooltip" title="Squadra">S</span>
-								</td>
-							</tr>
-
-
-
-
-					
-							<tr class="role-1 " >
-								<td class="valign-top" colspan="3">
-								<span class="label label-1">P</span> BUFFON <br class="visible-xs">
-							
-								</td>
-
-
-								<td class="text-center" >
-									<span  class=""
-									data-toggle="tooltip" title="Voto">6.11 
-									</span>
-								</td>
-
-								<td class="text-center">
-									<span  class="" 
-									data-toggle="tooltip" title="Fantavoto">6.00 
-									</span>
-								</td>
-
-								<td class="text-center" >
-									<span  class=""
-									data-toggle="tooltip" title="Voto">6.00 
-									</span>
-								</td>
-
-							</tr>
-
-						
-							<tr class="role-2 " >
-								<td class="valign-top" colspan="3">
-								<span class="label label-2">D</span> BONUCCI <br class="visible-xs">
-
-									<span class="">
-										<span class="fantaicon-ammonizione tip" data-toggle="tooltip"
-											title="Ammonizione"> 
-										</span>
-									</span>
-
-									<span class="pull-right">
-										<span class="fantaicon-goal-rigore tip" data-toggle="tooltip"
-											title="Ammonizione"> 
-										</span>
-									</span>
-										
-
-								</td>
-
-
-								<td class="text-center" >
-									<span  class=""
-									data-toggle="tooltip" title="Voto">6.11 
-									</span>
-								</td>
-
-								<td class="text-center">
-									<span  class="" 
-									data-toggle="tooltip" title="Fantavoto">6.00 
-									</span>
-								</td>
-
-								<td class="text-center" >
-									<span  class=""
-									data-toggle="tooltip" title="Voto">6.00 
-									</span>
-								</td>
-
-							</tr>
-
-
-							<tr class="role-3 " >
-								<td class="valign-top" colspan="3">
-								<span class="label label-3">C</span> ASAMOAH <br class="visible-xs">
-
-									<span class="">
-										<span class="fantaicon-ammonizione tip" data-toggle="tooltip"
-											title="Ammonizione"> 
-										</span>
-									</span>
-
-									<span class="pull-right">
-										<span class="fantaicon-goal-rigore tip" data-toggle="tooltip"
-											title="Ammonizione"> 
-										</span>
-									</span>
-										
-
-								</td>
-
-
-								<td class="text-center" >
-									<span  class=""
-									data-toggle="tooltip" title="Voto">6.11 
-									</span>
-								</td>
-
-								<td class="text-center">
-									<span  class="" 
-									data-toggle="tooltip" title="Fantavoto">6.00 
-									</span>
-								</td>
-
-								<td class="text-center" >
-									<span  class=""
-									data-toggle="tooltip" title="Voto">6.00 
-									</span>
-								</td>
-							</tr>
-
-
-
-							<tr class="role-4 " >
-								<td class="valign-top" colspan="3">
-								<span class="label label-4">A</span> DYBALA <br class="visible-xs">
-
-									<span class="">
-										<span class="fantaicon-ammonizione tip" data-toggle="tooltip"
-											title="Ammonizione"> 
-										</span>
-									</span>
-
-									<span class="pull-right">
-										<span class="fantaicon-goal-rigore tip" data-toggle="tooltip"
-											title="Ammonizione"> 
-										</span>
-									</span>
-										
-
-								</td>
-
-
-								<td class="text-center" >
-									<span  class=""
-									data-toggle="tooltip" title="Voto">6.11 
-									</span>
-								</td>
-
-								<td class="text-center">
-									<span  class="" 
-									data-toggle="tooltip" title="Fantavoto">6.00 
-									</span>
-								</td>
-
-								<td class="text-center" >
-									<span  class=""
-									data-toggle="tooltip" title="Voto">6.00 
-									</span>
-								</td>
-							</tr>
-						</tbody>
-
-
-
-
-						<tbody>
-							
-							<tr class="active">
-								<td colspan="8">In Panchina </td>
-							</tr>
-
-
-							<tr class="bg-slate-300">
-								<td colspan="3">Nome Calciatore</td>
-
-								<td class="text-center">
-								<span class="hidden-xs"> Voto</span> <span class="visible-xs" data-toggle="tooltip" title="Voto">V</span>
-								</td>
-
-								<td class="text-center">
-								<span class="hidden-xs"> Fantavoto</span> <span class="visible-xs" data-toggle="tooltip" title="Fanta Voto">FV</span>
-								</td>
-
-								<td class="text-center">
-								<span class="hidden-xs"> Squadra</span> <span class="visible-xs" data-toggle="tooltip" title="Squadra">S</span>
-								</td>
-							</tr>
-
-
-							<tr class="role-1 " >
-								<td class="valign-top" colspan="3">
-								<span class="label label-1">P</span> NETO <br class="visible-xs">									
-
-								</td>
-
-
-								<td class="text-center" >
-									<span  class=""
-									data-toggle="tooltip" title="">-
-									</span>
-								</td>
-
-								<td class="text-center">
-									<span  class="" 
-									data-toggle="tooltip" title="">-
-									</span>
-								</td>
-
-								<td class="text-center" >
-									<span  class=""
-									data-toggle="tooltip" title="">-
-									</span>
-								</td>
-
-							</tr>
-
-						</tbody>
-
-					</table>
-				</div>
-			</div>
-
-
-
-
--->
 
 		</div>
 	</div>

@@ -33,7 +33,8 @@
 	<!-- Header/Navigation -->
 	<%@ include file="../fragments/header.html"%>
 
-
+	<%@ include file="../fragments/homeNavbar.html"%>
+	
 	<div class="container">
 		<div class=" box">
 
@@ -115,7 +116,7 @@
 
 								<c:forEach var="g" items="${giocatoriUltima}">
 									<c:if test="${p.nome==g.squadraGiocatoreRosa && g.titolare}">
-										<tr >
+										<tr>
 											<c:choose>
 												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'P'}">
 													<td class="valign-top"><span class="label label-1">${g.giocatoreInRosa.giocatore.ruolo}</span><br
@@ -126,7 +127,7 @@
 														class="visible-xs"></td>
 												</c:when>
 												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'C'}">
-													<td class="valign-top""><span class="label label-3">${g.giocatoreInRosa.giocatore.ruolo}</span><br
+													<td class="valign-top"><span class="label label-3">${g.giocatoreInRosa.giocatore.ruolo}</span><br
 														class="visible-xs"></td>
 												</c:when>
 												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'A'}">
@@ -168,7 +169,8 @@
 							<tbody>
 
 								<c:forEach var="g" items="${giocatoriUltima}">
-									<c:if test="${p.nome==g.squadraGiocatoreRosa && not g.titolare}">
+									<c:if
+										test="${p.nome==g.squadraGiocatoreRosa && not g.titolare}">
 										<tr>
 											<c:choose>
 												<c:when test="${g.giocatoreInRosa.giocatore.ruolo == 'P'}">

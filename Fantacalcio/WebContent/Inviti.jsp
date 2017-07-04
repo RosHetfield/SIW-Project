@@ -53,7 +53,7 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 		
 	</div>
 		</div>
-		<!--Banner pubblicitÃ  -->
+		<!--Banner pubblicita'  -->
 		<div class="row">
 			<div class="box">
 				<div class="col-lg-12">
