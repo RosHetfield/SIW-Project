@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
@@ -48,11 +49,17 @@ public class StampaFormazioniController extends HttpServlet {
 				// restituisco l'ultima giornata creata e nella quale possone
 				// essere presenti formazioni
 				Partita giornata = DBManager.getInstance().getPartita().getUltimaGiornataGiocabile(campionato);
-				Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata.getGiornata(), campionato);
+				//Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata.getGiornata(), campionato);
 				Set<Squadra> squadreCampionato=DBManager.getInstance().getCampionato().findByPrimaryKey(campionato).getSquadre();
-				Set<Giocatore_in_formazione> giocatori = partita.getGiocatoriInFormazione();
+				request.setAttribute("ultimaGiornata",null);
+				Set<Giocatore_in_formazione> giocatori = new HashSet<Giocatore_in_formazione>();
+				if(giornata!=null){
+					
+					giocatori=giornata.getGiocatoriInFormazione();
+					request.setAttribute("ultimaGiornata", giornata.getGiornata());
 
-				request.setAttribute("ultimaGiornata", giornata);
+				}
+
 				request.setAttribute("giocatoriUltima", giocatori);
 				request.setAttribute("squadreCampionato", squadreCampionato);//7////////??
 
