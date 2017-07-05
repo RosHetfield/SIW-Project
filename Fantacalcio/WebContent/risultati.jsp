@@ -68,9 +68,19 @@
 
 
 			<div class="row">
+<% 	int giornata=(int)request.getAttribute("ultimaGiornata");
+	if(giornata==-1){
+%>
 				<h3 class="text-center">
+				<span>Nessun risultato presente<i
+						class="pull-left "></i>
+					</span>
+				</h3>
 
-					<span>Formazioni giornata ${ultimaGiornata} <i
+
+<%}else{ %>
+				<h3 class="text-center">
+				<span>Formazioni giornata ${ultimaGiornata} <i
 						class="pull-left "></i>
 					</span>
 				</h3>
@@ -340,7 +350,7 @@
 					</div>
 
 				</c:forEach>
-
+<%} %>
 			</div>
 
 		</div>

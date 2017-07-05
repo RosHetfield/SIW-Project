@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
@@ -50,34 +52,40 @@ public class RisultatiController extends HttpServlet {
 
 				// restituisco l'ultima giornata creata e nella quale possone
 				// essere presenti formazioni
-				Partita giornata = DBManager.getInstance().getPartita().getUltimaGiornataGiocabile(campionato);///////cangia
-				Set<Squadra> squadreCampionato=DBManager.getInstance().getCampionato().findByPrimaryKey(campionato).getSquadre();
+				Partita giornata = DBManager.getInstance().getPartita().getUltimaGiocata(campionato);
+				request.setAttribute("ultimaGiornata", -1);
+
+				Set<Squadra> squadreCampionato=DBManager.getInstance().getCampionato().findByPrimaryKey(campionato).getSquadre();									
 				
-				
-				
-				
-				List<Voto_giornata> giocatori=DBManager.getInstance().getVoto_giornata().findByGiornata(giornata.getGiornata(),campionato);
-				Partita partitaFormazione=DBManager.getInstance().getPartita().findByPrimaryKey(giornata.getGiornata(), campionato);
-				List<Giocatore_in_formazione> inFormazione=partitaFormazione.getGiocatoriInFormazione();
-				
+				List<Voto_giornata> giocatori=new ArrayList<Voto_giornata>();
+				List<Giocatore_in_formazione> inFormazione=new ArrayList<Giocatore_in_formazione>();
 				HashMap<String, Voto_giornata> mappaVoti=new HashMap<>();
+
+				if (giornata != null) {
+				giocatori=DBManager.getInstance().getVoto_giornata().findByGiornata(giornata.getGiornata(),campionato);
+				inFormazione=giornata.getGiocatoriInFormazione();
+				inFormazione.sort(new Comparator<Giocatore_in_formazione>() {
+
+					@Override
+					public int compare(Giocatore_in_formazione o1, Giocatore_in_formazione o2) {
+						return o2.getGiocatoreInRosa().getGiocatore().getRuolo()
+								.compareTo(o1.getGiocatoreInRosa().getGiocatore().getRuolo());
+					}
+				});
+				
 				for (Giocatore_in_formazione gf : inFormazione) {
 					for (Voto_giornata v : giocatori) {
 						if(v.getNomeGiocatore().equals(gf.getNomeGiocatoreRosa()))
 						mappaVoti.put(gf.getNomeGiocatoreRosa(), v );
 					}
 				}	
-				
-				for (String giocatore : mappaVoti.keySet()) {
-					System.out.println(giocatore + " " + mappaVoti.get(giocatore).getFantavoto());
 				}
 				
+				
 				request.setAttribute("inFormazione", inFormazione);
-				request.setAttribute("ultimaGiornata", giornata);
-				//request.setAttribute("giocatoriVotiUltima", giocatori);
+				request.setAttribute("ultimaGiornata", giornata.getGiornata());
 				request.setAttribute("mappaVoti", mappaVoti);
-
-				request.setAttribute("squadreCampionato", squadreCampionato);////////////??
+				request.setAttribute("squadreCampionato", squadreCampionato);
 				
 				
 				
