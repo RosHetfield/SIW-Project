@@ -18,6 +18,7 @@ import javax.servlet.http.HttpSession;
 import model.Giocatore;
 import model.Giocatore_in_formazione;
 import model.Partita;
+import model.RisultatoGiornata;
 import model.Squadra;
 import model.Voto_giornata;
 import persistence.DBManager;
@@ -60,6 +61,7 @@ public class RisultatiController extends HttpServlet {
 				List<Voto_giornata> giocatori=new ArrayList<Voto_giornata>();
 				List<Giocatore_in_formazione> inFormazione=new ArrayList<Giocatore_in_formazione>();
 				HashMap<String, Voto_giornata> mappaVoti=new HashMap<>();
+				List<RisultatoGiornata> risultatiGiornata=new ArrayList<RisultatoGiornata>();
 
 				if (giornata != null) {
 				giocatori=DBManager.getInstance().getVoto_giornata().findByGiornata(giornata.getGiornata(),campionato);
@@ -78,7 +80,9 @@ public class RisultatiController extends HttpServlet {
 						if(v.getNomeGiocatore().equals(gf.getNomeGiocatoreRosa()))
 						mappaVoti.put(gf.getNomeGiocatoreRosa(), v );
 					}
-				}	
+				}
+				
+				risultatiGiornata=DBManager.getInstance().getClassifica().getRisultatiSquadreGiornata(giornata.getGiornata(), campionato);
 				}
 				
 				
@@ -86,7 +90,8 @@ public class RisultatiController extends HttpServlet {
 				request.setAttribute("ultimaGiornata", giornata.getGiornata());
 				request.setAttribute("mappaVoti", mappaVoti);
 				request.setAttribute("squadreCampionato", squadreCampionato);
-				
+				request.setAttribute("risultatiGiornata", risultatiGiornata);
+
 				
 				
 				RequestDispatcher dispatcher = request.getRequestDispatcher("risultati.jsp");

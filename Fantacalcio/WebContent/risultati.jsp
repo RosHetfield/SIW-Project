@@ -338,11 +338,14 @@
 										</tr>
 									</c:if>
 								</c:forEach>
-
+								
+								<c:forEach var="g" items="${risultatiGiornata.squadra==p.nome}">
 								<tr class="bg-slate-300">
 									<td colspan="3"><span>Totale </span></td>
-									<td colspan="2"><span>100 </span></td>
+									<td colspan="2"><span>${risultatiGiornata.totale}</span></td>
 								</tr>
+								</c:forEach>
+								
 
 							</tbody>
 

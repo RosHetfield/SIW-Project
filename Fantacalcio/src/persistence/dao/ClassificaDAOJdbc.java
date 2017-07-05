@@ -200,4 +200,40 @@ public class ClassificaDAOJdbc implements ClassificaDAO {
 		return partite_giocate;	
 	}
 
+	@Override
+	public List<RisultatoGiornata> getRisultatiSquadreGiornata(int giornata, String campionato) {
+		List<RisultatoGiornata> ris = new ArrayList<RisultatoGiornata>();
+		Connection connection = this.dataSource.getConnection();
+		try {
+			PreparedStatement statement;
+			String query = "select * from voti where giornata = ? and campionato = ?";
+			statement = connection.prepareStatement(query);
+
+			statement.setInt(1, giornata);
+			statement.setString(2, campionato);
+
+			ResultSet result = statement.executeQuery();
+
+			while (result.next()) {
+				RisultatoGiornata risultato = new RisultatoGiornata();
+				risultato.setCampionato(result.getString("campionato"));
+				risultato.setGiornata(result.getInt("giornata"));
+				risultato.setSquadra(result.getString("squadra"));
+				risultato.setTotale(result.getDouble("totale"));
+				
+				ris.add(risultato);
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}
+
+		return ris;
+	}
+
 }

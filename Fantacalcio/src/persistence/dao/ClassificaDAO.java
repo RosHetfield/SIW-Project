@@ -15,6 +15,7 @@ public interface ClassificaDAO {
 	public RisultatoGiornata getRisultatoGiornata(int giornata, String squadra);
 	public int getPartiteGiocate(String squadra);
 	public void update(Classifica campionato); 
-	public void delete(Classifica campionato); 	
+	public void delete(Classifica campionato);
+	public List<RisultatoGiornata> getRisultatiSquadreGiornata(int giornata, String campionato); 	
 
 }
