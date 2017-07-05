@@ -36,51 +36,55 @@
 	<%@ include file="../fragments/header.html"%>
 
 
+
+
+
+
 	<div class="container">
+
+
+		<%
+			int giornata = (int) request.getAttribute("ultimaGiornata");
+			if (giornata == -1) {
+		%>
+		<div class=" row">
+			<div class="box">
+				<h3 class="text-center">
+					<span>Nessun risultato presente<i class="pull-left "></i>
+					</span>
+				</h3>
+			</div>
+		</div>
+
+
+		<%
+			} else {
+		%>
+
+
 
 		<div class="row">
 			<div class="box ">
 				<div class="col-lg-12 ">
 					<ol class="list-inline">
-
-						<li><button type="button"
-								class="btn btn-primary  btn-sm myButton  ">2</button></li>
-						<li><button type="button"
-								class="btn btn-primary  btn-sm myButton  ">3</button></li>
-						<li><button type="button"
-								class="btn btn-primary  btn-sm myButton ">1</button></li>
-						<li><button type="button"
-								class="btn btn-primary  btn-sm myButton  ">2</button></li>
-						<li><button type="button"
-								class="btn btn-primary  btn-sm myButton  ">3</button></li>
+						<c:forEach var="name" begin="1" end="${giornata}" step="1">
+							<li><button type="button" id="${name}" onclick="caricaGiornata('${name}')"
+									class="btn btn-primary  btn-sm myButton  ">${name}</button></li>
+						</c:forEach>
 
 					</ol>
 				</div>
 			</div>
 		</div>
-	</div>
 
 
 
-	<div class="container">
-		<div class=" box">
 
 
-
-			<div class="row">
-<% 	int giornata=(int)request.getAttribute("ultimaGiornata");
-	if(giornata==-1){
-%>
+		<div class=" row">
+			<div class="box">
 				<h3 class="text-center">
-				<span>Nessun risultato presente<i
-						class="pull-left "></i>
-					</span>
-				</h3>
-
-
-<%}else{ %>
-				<h3 class="text-center">
-				<span>Formazioni giornata ${ultimaGiornata} <i
+					<span>Formazioni giornata ${ultimaGiornata} <i
 						class="pull-left "></i>
 					</span>
 				</h3>
@@ -338,16 +342,16 @@
 										</tr>
 									</c:if>
 								</c:forEach>
-								
+
 								<c:forEach var="g" items="${risultatiGiornata}">
-								<c:if test="${g.squadra == p.nome }">
-								<tr class="bg-slate-300">
-									<td colspan="3"><span>Totale </span></td>
-									<td colspan="2"><span>${g.totale}</span></td>
-								</tr>
-								</c:if>
+									<c:if test="${g.squadra == p.nome }">
+										<tr class="bg-slate-300">
+											<td colspan="3"><span>Totale </span></td>
+											<td colspan="2"><span>${g.totale}</span></td>
+										</tr>
+									</c:if>
 								</c:forEach>
-								
+
 
 							</tbody>
 
@@ -355,7 +359,9 @@
 					</div>
 
 				</c:forEach>
-<%} %>
+				<%
+					}
+				%>
 			</div>
 
 		</div>
@@ -371,13 +377,14 @@
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
+	
+	<script src="Script/storicoRisultati.js"></script>
+	
 
 	<script>
 		$(document).ready(function() {
 			$('[data-toggle="tooltip"]').tooltip();
 		});
 	</script>
-
-
 </body>
 </html>
