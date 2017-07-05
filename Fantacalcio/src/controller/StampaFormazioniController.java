@@ -1,7 +1,10 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
@@ -12,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Giocatore;
 import model.Giocatore_in_formazione;
 import model.Partita;
 import model.Squadra;
@@ -49,31 +53,40 @@ public class StampaFormazioniController extends HttpServlet {
 				// restituisco l'ultima giornata creata e nella quale possone
 				// essere presenti formazioni
 				Partita giornata = DBManager.getInstance().getPartita().getUltimaGiornataGiocabile(campionato);
-				//Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata.getGiornata(), campionato);
-				Set<Squadra> squadreCampionato=DBManager.getInstance().getCampionato().findByPrimaryKey(campionato).getSquadre();
-				request.setAttribute("ultimaGiornata",null);
-				Set<Giocatore_in_formazione> giocatori = new HashSet<Giocatore_in_formazione>();
-				if(giornata!=null){
+				// Partita partita =
+				// DBManager.getInstance().getPartita().findByPrimaryKey(giornata.getGiornata(),
+				// campionato);
+				Set<Squadra> squadreCampionato = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato)
+						.getSquadre();
+				request.setAttribute("ultimaGiornata", null);
+				List<Giocatore_in_formazione> giocatori = new ArrayList<Giocatore_in_formazione>();
+				if (giornata != null) {
+
+					giocatori = giornata.getGiocatoriInFormazione();
+					giocatori.sort(new Comparator<Giocatore_in_formazione>() {
+
+						@Override
+						public int compare(Giocatore_in_formazione o1, Giocatore_in_formazione o2) {
+							return o2.getGiocatoreInRosa().getGiocatore().getRuolo()
+									.compareTo(o1.getGiocatoreInRosa().getGiocatore().getRuolo());
+						}
+					});
 					
-					giocatori=giornata.getGiocatoriInFormazione();
 					request.setAttribute("ultimaGiornata", giornata.getGiornata());
 
 				}
 
 				request.setAttribute("giocatoriUltima", giocatori);
-				request.setAttribute("squadreCampionato", squadreCampionato);//7////////??
+				request.setAttribute("squadreCampionato", squadreCampionato);
 
-				
 				RequestDispatcher dispatcher = request.getRequestDispatcher("stampaFormazioni.jsp");
 				dispatcher.forward(request, response);
-			}
-			else{
+			} else {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
 				dispatcher.forward(request, response);
 			}
 
-		}
-		else{
+		} else {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
 			dispatcher.forward(request, response);
 		}

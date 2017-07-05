@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Partita implements Serializable {
@@ -17,7 +17,7 @@ public class Partita implements Serializable {
 	
 	//riferimenti
 	private String campionato;
-	private Set<Giocatore_in_formazione> giocatori;
+	private List<Giocatore_in_formazione> giocatori;
 	private Set<Giocatore_in_formazione> giocatoriSquadra;
 	
 	public Partita() {
@@ -47,11 +47,11 @@ public class Partita implements Serializable {
 		this.campionato = campionato;
 	}
 
-	public Set<Giocatore_in_formazione> getGiocatoriInFormazione() {
+	public List<Giocatore_in_formazione> getGiocatoriInFormazione() {
 		return giocatori;
 	}
 
-	public void setGiocatoriInFormazione(Set<Giocatore_in_formazione> giocatori) {
+	public void setGiocatoriInFormazione(List<Giocatore_in_formazione> giocatori) {
 		this.giocatori = giocatori;
 	}
 	

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="model.Giocatore_in_formazione"%>
+<%@ page import="model.Partita"%>
 <%@ page import="java.util.Set"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
@@ -34,16 +35,26 @@
 	<%@ include file="../fragments/header.html"%>
 
 	<%@ include file="../fragments/homeNavbar.html"%>
-	
+
 	<div class="container">
 		<div class=" box">
 
 
 			<%
+				Partita p=(Partita) request.getAttribute("ultimaGiornata");
+				if (p == null) {
+			%>
+				<h3 class="text-center">
+					<span>Nessuna giornata presente </span>
+				</h3>
+
+
+			<%
+				}
+				else{
 				Set<Giocatore_in_formazione> formazioni = (Set<Giocatore_in_formazione>) request
 						.getAttribute("giocatoriUltima");
-
-				if (formazioni.size() == 0) {
+				if (p != null && formazioni.size() == 0) {
 			%>
 
 			<h3 class="text-center">
@@ -211,6 +222,7 @@
 
 				<%
 					}
+				}
 				%>
 
 

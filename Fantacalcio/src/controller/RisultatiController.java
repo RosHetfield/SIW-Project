@@ -58,7 +58,7 @@ public class RisultatiController extends HttpServlet {
 				
 				List<Voto_giornata> giocatori=DBManager.getInstance().getVoto_giornata().findByGiornata(giornata.getGiornata(),campionato);
 				Partita partitaFormazione=DBManager.getInstance().getPartita().findByPrimaryKey(giornata.getGiornata(), campionato);
-				Set<Giocatore_in_formazione> inFormazione=partitaFormazione.getGiocatoriInFormazione();
+				List<Giocatore_in_formazione> inFormazione=partitaFormazione.getGiocatoriInFormazione();
 				
 				HashMap<String, Voto_giornata> mappaVoti=new HashMap<>();
 				for (Giocatore_in_formazione gf : inFormazione) {

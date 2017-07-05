@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import persistence.DataSource;
@@ -18,9 +20,9 @@ public class PartitaProxy extends Partita {
 		this.dataSource = dataSource;
 	}
 	
-	public Set<Giocatore_in_formazione> getGiocatoriInFormazione(){
+	public List<Giocatore_in_formazione> getGiocatoriInFormazione(){
 		 if(!firstLoad) {
-			Set<Giocatore_in_formazione> giocatori = new HashSet<Giocatore_in_formazione>();
+			List<Giocatore_in_formazione> giocatori = new ArrayList<Giocatore_in_formazione>();
 			Connection connection = this.dataSource.getConnection();
 			try {
 				PreparedStatement statement;
