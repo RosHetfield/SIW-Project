@@ -27,13 +27,13 @@
 	rel="stylesheet" />
 
 
-    <!-- Custom CSS -->
-	<link href="css/business-casual.css" rel="stylesheet"/>
+<!-- Custom CSS -->
+<link href="css/business-casual.css" rel="stylesheet" />
 
 <link href="css/formazioniStyle.css" rel="stylesheet" />
-    <link href="css/sweetalert.css" type="text/css" rel="stylesheet"/>
-	<link href="css/sweetalert2.css" type="text/css" rel="stylesheet"/>
-	<link href="css/modal.css" type="text/css" rel="stylesheet"/>
+<link href="css/sweetalert.css" type="text/css" rel="stylesheet" />
+<link href="css/sweetalert2.css" type="text/css" rel="stylesheet" />
+<link href="css/modal.css" type="text/css" rel="stylesheet" />
 
 <title>Fanta Bomber</title>
 </head>
@@ -42,51 +42,56 @@
 
 	<!-- Navigation -->
 
-	
-<%@ include file = "../fragments/navbar.html" %>	
-	
-	
-		<%@ include file = "../fragments/homeNavbar.html" %>
-	
+
+	<%@ include file="../fragments/navbar.html"%>
+
+	<%@ include file="../fragments/homeNavbar.html"%>
+
 
 	<div class="container">
 
 
 
-		
-				<% List<Classifica> c = (List<Classifica>) request.getAttribute("classifica");
-					if(c.isEmpty()){
-				%>
-				<div class="row ">
-				<div class="col-lg-12  box">
+
+		<%
+			List<Classifica> c = (List<Classifica>) request.getAttribute("classifica");
+			if (c.isEmpty()) {
+		%>
+		<div class="row ">
+			<div class="col-lg-12  box">
 				<hr>
 				<h2 class="intro-text text-center">Nessuna Classifica</h2>
 				<hr>
+			</div>
+		</div>
+		<%
+			} else {
+		%>
+
+
+		<!-- indice giornate -->
+		<div class="row">
+			<div class="box ">
+				<div class="col-lg-12 ">
+					<ol class="list-inline">
+						<c:forEach var="name" begin="1" end="${giornata}" step="1">
+							<li><button type="button"
+									onclick="caricaGiornata('${name}')"
+									class="btn btn-sm btn-primary myButton" id="${name}">
+									${name}</button></li>
+						</c:forEach>
+
+					</ol>
 				</div>
-				</div>
-				<%} else {%>
-		
-			
-				<!-- indice giornate -->
-				<div class="row">
-					<div class="box ">
-						<div class="col-lg-12 ">
-							<ol class="list-inline">
-							<c:forEach var="name" begin="1" end="${giornata}" step="1">								
-								<li><button type="button" onclick="caricaGiornata('${name}')" class="btn btn-sm btn-primary myButton" id="${name}">
-										${name}</button></li>
-							</c:forEach>
-											
-							</ol>
-						</div>
-					</div>
-				</div>
-				
-			<!-- tabella classifica -->
-			<div class="row ">
-				<div class="col-lg-12  box">
+			</div>
+		</div>
+
+		<!-- tabella classifica -->
+		<div class="row ">
+			<div class="col-lg-12  box">
 				<hr>
-				<h2 class="intro-text text-center">Classifica giornata ${giornata}</h2>
+				<h2 class="intro-text text-center">Classifica giornata
+					${giornata}</h2>
 				<hr>
 
 				<table id="tabellaClassifica"
@@ -101,16 +106,18 @@
 					</thead>
 					<tbody>
 						<c:forEach var="c" items="${classifica }" varStatus="status">
-						<tr>
-							<td>${status.index + 1}</td>
-							<td>${c.squadra }</td>
-							<td class="hidden-xs">${c.partite_giocate }</td>
-							<td title="Totale" >${c.totale }</td>
-						</tr>
+							<tr>
+								<td>${status.index + 1}</td>
+								<td>${c.squadra }</td>
+								<td class="hidden-xs">${c.partite_giocate }</td>
+								<td title="Totale">${c.totale }</td>
+							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
-				<%} %>
+				<%
+					}
+				%>
 			</div>
 		</div>
 
@@ -143,7 +150,7 @@
 	<!-- /.container -->
 
 	<!--include footer -->
-	<%@ include file = "../fragments/footer.html" %>
+	<%@ include file="../fragments/footer.html"%>
 
 	<!-- jQuery -->
 	<script src="Script/jquery-3.1.1.min.js" type="text/javascript"></script>
@@ -164,14 +171,11 @@
 
 
 	<script type="text/javascript">
-	
 		$(document).ready(function() {
 			$('#tabellaClassifica').DataTable();
 		});
-		
-	
 	</script>
-	
+
 	<script src="Script/modal.js"></script>
 
 

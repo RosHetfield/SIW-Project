@@ -32,7 +32,7 @@
 <body>
 
 	<!-- Header/Navigation -->
-	<%@ include file="../fragments/header.html"%>
+	<%@ include file="../fragments/navbar.html"%>
 
 	<%@ include file="../fragments/homeNavbar.html"%>
 
@@ -41,20 +41,19 @@
 
 
 			<%
-				int p=(int) request.getAttribute("ultimaGiornata");
+				int p = (int) request.getAttribute("ultimaGiornata");
 				if (p == -1) {
 			%>
-				<h3 class="text-center">
-					<span>Nessuna giornata presente </span>
-				</h3>
+			<h3 class="text-center">
+				<span>Nessuna giornata presente </span>
+			</h3>
 
 
 			<%
-				}
-				else{
-				List<Giocatore_in_formazione> formazioni = (List<Giocatore_in_formazione>) request
-						.getAttribute("giocatoriUltima");
-				if (formazioni.size() == 0) {
+				} else {
+					List<Giocatore_in_formazione> formazioni = (List<Giocatore_in_formazione>) request
+							.getAttribute("giocatoriUltima");
+					if (formazioni.size() == 0) {
 			%>
 
 			<h3 class="text-center">
@@ -222,7 +221,7 @@
 
 				<%
 					}
-				}
+					}
 				%>
 
 

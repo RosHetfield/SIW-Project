@@ -3,7 +3,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="model.Giocatore"%>
 <%@ page import="model.Giocatore_in_formazione"%>
-<%@ page import="model.Giocatore_in_rosa" %>
+<%@ page import="model.Giocatore_in_rosa"%>
 <%@ page import="java.util.List"%>
 
 <!doctype html>
@@ -20,52 +20,52 @@
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
 
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 <!-- Custom CSS -->
 <link href="css/business-casual.css" rel="stylesheet" />
 <link href="css/formazioniStyle.css" rel="stylesheet" />
 
 
-    <link href="css/sweetalert.css" type="text/css" rel="stylesheet"/>
-	<link href="css/sweetalert2.css" type="text/css" rel="stylesheet"/>
+<link href="css/sweetalert.css" type="text/css" rel="stylesheet" />
+<link href="css/sweetalert2.css" type="text/css" rel="stylesheet" />
 
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  	<script src="js/sweetalert.min.js"></script>
-	<script src="js/sweetalert2.min.js"></script>
-	
-  
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="js/sweetalert.min.js"></script>
+<script src="js/sweetalert2.min.js"></script>
+
+
 <style>
+#tbody1, #tbody2, #tbody3 {
+	border: 1px solid #eee;
+	width: 142px;
+	min-height: 20px;
+	list-style-type: none;
+	margin: 0;
+	padding: 5px 0 0 0;
+	float: left;
+	margin-right: 10px;
+}
 
-		  #tbody1, #tbody2,#tbody3 {
-    border: 1px solid #eee;
-    width: 142px;
-    min-height: 20px;
-    list-style-type: none;
-    margin: 0;
-    padding: 5px 0 0 0;
-	float:left;
-    margin-right: 10px;
-  }
+fieldset {
+	border: 0;
+}
 
-         fieldset {
-            border: 0;
-         }
-			
-         label {
-            display: block;
-            margin: 30px 0 0 0;
-         }
-			
-         select {
-            width: 200px;
-         }
-			
-         .overflow {
-            height: 200px;
-         }
-      </style>
+label {
+	display: block;
+	margin: 30px 0 0 0;
+}
+
+select {
+	width: 200px;
+}
+
+.overflow {
+	height: 200px;
+}
+</style>
 
 
 
@@ -78,7 +78,7 @@
 
 tbody>tr {
 	min-height: 10px;
-	margin : 1em;
+	margin: 1em;
 	padding: 1em;
 }
 
@@ -95,24 +95,27 @@ tbody>tr {
 </head>
 <body>
 
-<!-- Header/Navigation -->
-	<%@ include file="../fragments/header.html"%>
+	<!-- Header/Navigation -->
+	<%@ include file="../fragments/navbar.html"%>
 
-	
+	<%@ include file="../fragments/homeNavbar.html"%>
+
+
 	<div class="  col-lg-12 ">
 		<div class="col-lg-6 box">
-		<select id="myselect">
-			<option value="1">4-4-2</option>
-			<option value="2">4-3-3</option>
-			<option value="3">3-5-1</option>
-			<option value="4">3-4-3</option>
-		</select>
-		
-	</div>
+			<select id="myselect">
+				<option value="1">4-4-2</option>
+				<option value="2">4-3-3</option>
+				<option value="3">3-5-1</option>
+				<option value="4">3-4-3</option>
+			</select>
+
+		</div>
 		<div class="col-lg-6 box">
-		    <button type="button" class="btn btn-primary btn-block" onclick="salvaFormazione()">Salva formazione</button>
-		
-	</div>
+			<button type="button" class="btn btn-primary btn-block"
+				onclick="salvaFormazione()">Salva formazione</button>
+
+		</div>
 	</div>
 
 
@@ -147,59 +150,55 @@ tbody>tr {
 				<tbody id="tbody1" class="connectedSortable ">
 
 
-							<%
-								List<Giocatore> inFormazione = (List<Giocatore>) request.getAttribute("giocatoriInRosa");
+					<%
+						List<Giocatore> inFormazione = (List<Giocatore>) request.getAttribute("giocatoriInRosa");
 
-								if (inFormazione.size() == 0) {
-							%>
-							<tr>
-								<td colspan="7">Nessun giocatore</td>
-							</tr>
-							<%
-								} else {
-							%>
-							<c:forEach var="p" items="${giocatoriInRosa}">
-
-
-								<tr id="${p.nome}" class="${p.ruolo}">
-
-									<c:choose>
-										<c:when test="${p.ruolo == 'P'}">
-											<td class="valign-top" ><span
-												class="label label-1">${p.ruolo}</span><br
-												class="visible-xs"></td>
-										</c:when>
-										<c:when test="${p.ruolo == 'D'}">
-											<td class="valign-top" ><span
-												class="label label-2">${p.ruolo}</span><br
-												class="visible-xs"></td>
-										</c:when>
-										<c:when test="${p.ruolo == 'C'}">
-											<td class="valign-top" ><span
-												class="label label-3">${p.ruolo}</span><br
-												class="visible-xs"></td>
-										</c:when>
-										<c:when test="${p.ruolo == 'A'}">
-											<td class="valign-top" ><span
-												class="label label-4">${p.ruolo}</span><br
-												class="visible-xs"></td>
-												
-										</c:when>
-									</c:choose>
+						if (inFormazione.size() == 0) {
+					%>
+					<tr>
+						<td colspan="7">Nessun giocatore</td>
+					</tr>
+					<%
+						} else {
+					%>
+					<c:forEach var="p" items="${giocatoriInRosa}">
 
 
-									<td class=""><span class="" data-toggle="tooltip"
-										title="Nome">${p.nome}</span></td>
+						<tr id="${p.nome}" class="${p.ruolo}">
 
-									<td class=""><span class="" data-toggle="tooltip"
-										title="Squadra">${p.squadra} </span></td>
+							<c:choose>
+								<c:when test="${p.ruolo == 'P'}">
+									<td class="valign-top"><span class="label label-1">${p.ruolo}</span><br
+										class="visible-xs"></td>
+								</c:when>
+								<c:when test="${p.ruolo == 'D'}">
+									<td class="valign-top"><span class="label label-2">${p.ruolo}</span><br
+										class="visible-xs"></td>
+								</c:when>
+								<c:when test="${p.ruolo == 'C'}">
+									<td class="valign-top"><span class="label label-3">${p.ruolo}</span><br
+										class="visible-xs"></td>
+								</c:when>
+								<c:when test="${p.ruolo == 'A'}">
+									<td class="valign-top"><span class="label label-4">${p.ruolo}</span><br
+										class="visible-xs"></td>
 
-		
-								</tr>
-							</c:forEach>
-							<%
-								}
-							%>
+								</c:when>
+							</c:choose>
+
+
+							<td class=""><span class="" data-toggle="tooltip"
+								title="Nome">${p.nome}</span></td>
+
+							<td class=""><span class="" data-toggle="tooltip"
+								title="Squadra">${p.squadra} </span></td>
+
+
+						</tr>
+					</c:forEach>
+					<%
+						}
+					%>
 
 
 
@@ -208,10 +207,10 @@ tbody>tr {
 
 
 
-			
 
 
-					
+
+
 
 
 				</tbody>
@@ -247,48 +246,44 @@ tbody>tr {
 				</thead>
 
 				<tbody id="tbody2" class="connectedSortable">
-					
-				<c:forEach var="p" items="${giocatoriInFormazione}">
+
+					<c:forEach var="p" items="${giocatoriInFormazione}">
 
 
-								<tr id="${p.nome}" class="${p.ruolo}">
+						<tr id="${p.nome}" class="${p.ruolo}">
 
-									<c:choose>
-										<c:when test="${p.ruolo == 'P'}">
-											<td class="valign-top" ><span
-												class="label label-1">${p.ruolo}</span><br
-												class="visible-xs"></td>
-										</c:when>
-										<c:when test="${p.ruolo == 'D'}">
-											<td class="valign-top" ><span
-												class="label label-2">${p.ruolo}</span><br
-												class="visible-xs"></td>
-										</c:when>
-										<c:when test="${p.ruolo == 'C'}">
-											<td class="valign-top" ><span
-												class="label label-3">${p.ruolo}</span><br
-												class="visible-xs"></td>
-										</c:when>
-										<c:when test="${p.ruolo == 'A'}">
-											<td class="valign-top" ><span
-												class="label label-4">${p.ruolo}</span><br
-												class="visible-xs"></td>
-												
-										</c:when>
-									</c:choose>
+							<c:choose>
+								<c:when test="${p.ruolo == 'P'}">
+									<td class="valign-top"><span class="label label-1">${p.ruolo}</span><br
+										class="visible-xs"></td>
+								</c:when>
+								<c:when test="${p.ruolo == 'D'}">
+									<td class="valign-top"><span class="label label-2">${p.ruolo}</span><br
+										class="visible-xs"></td>
+								</c:when>
+								<c:when test="${p.ruolo == 'C'}">
+									<td class="valign-top"><span class="label label-3">${p.ruolo}</span><br
+										class="visible-xs"></td>
+								</c:when>
+								<c:when test="${p.ruolo == 'A'}">
+									<td class="valign-top"><span class="label label-4">${p.ruolo}</span><br
+										class="visible-xs"></td>
+
+								</c:when>
+							</c:choose>
 
 
-									<td class=""><span class="" data-toggle="tooltip"
-										title="Nome">${p.nome}</span></td>
+							<td class=""><span class="" data-toggle="tooltip"
+								title="Nome">${p.nome}</span></td>
 
-									<td class=""><span class="" data-toggle="tooltip"
-										title="Squadra">${p.squadra} </span></td>
+							<td class=""><span class="" data-toggle="tooltip"
+								title="Squadra">${p.squadra} </span></td>
 
-		
-								</tr>
-							</c:forEach>
 
-				
+						</tr>
+					</c:forEach>
+
+
 
 
 				</tbody>
@@ -314,47 +309,43 @@ tbody>tr {
 				</thead>
 
 				<tbody id="tbody3" class="connectedSortable">
-				
+
 					<c:forEach var="p" items="${giocatoriInPanchina}">
 
 
-								<tr id="${p.nome}" class="${p.ruolo}">
+						<tr id="${p.nome}" class="${p.ruolo}">
 
-									<c:choose>
-										<c:when test="${p.ruolo == 'P'}">
-											<td class="valign-top" ><span
-												class="label label-1">${p.ruolo}</span><br
-												class="visible-xs"></td>
-										</c:when>
-										<c:when test="${p.ruolo == 'D'}">
-											<td class="valign-top" ><span
-												class="label label-2">${p.ruolo}</span><br
-												class="visible-xs"></td>
-										</c:when>
-										<c:when test="${p.ruolo == 'C'}">
-											<td class="valign-top" ><span
-												class="label label-3">${p.ruolo}</span><br
-												class="visible-xs"></td>
-										</c:when>
-										<c:when test="${p.ruolo == 'A'}">
-											<td class="valign-top" ><span
-												class="label label-4">${p.ruolo}</span><br
-												class="visible-xs"></td>
-												
-										</c:when>
-									</c:choose>
+							<c:choose>
+								<c:when test="${p.ruolo == 'P'}">
+									<td class="valign-top"><span class="label label-1">${p.ruolo}</span><br
+										class="visible-xs"></td>
+								</c:when>
+								<c:when test="${p.ruolo == 'D'}">
+									<td class="valign-top"><span class="label label-2">${p.ruolo}</span><br
+										class="visible-xs"></td>
+								</c:when>
+								<c:when test="${p.ruolo == 'C'}">
+									<td class="valign-top"><span class="label label-3">${p.ruolo}</span><br
+										class="visible-xs"></td>
+								</c:when>
+								<c:when test="${p.ruolo == 'A'}">
+									<td class="valign-top"><span class="label label-4">${p.ruolo}</span><br
+										class="visible-xs"></td>
+
+								</c:when>
+							</c:choose>
 
 
-									<td class=""><span class="" data-toggle="tooltip"
-										title="Nome">${p.nome}</span></td>
+							<td class=""><span class="" data-toggle="tooltip"
+								title="Nome">${p.nome}</span></td>
 
-									<td class=""><span class="" data-toggle="tooltip"
-										title="Squadra">${p.squadra} </span></td>
+							<td class=""><span class="" data-toggle="tooltip"
+								title="Squadra">${p.squadra} </span></td>
 
-		
-								</tr>
-							</c:forEach>
-							
+
+						</tr>
+					</c:forEach>
+
 				</tbody>
 
 			</table>
@@ -362,9 +353,9 @@ tbody>tr {
 		</div>
 	</div>
 
-<script src="js/bootstrap.min.js"></script>
-<script src="Script/formazione.js"></script>
-<script src="Script/gestioneFormazione.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="Script/formazione.js"></script>
+	<script src="Script/gestioneFormazione.js"></script>
 
 
 

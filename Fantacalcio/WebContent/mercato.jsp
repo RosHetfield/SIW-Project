@@ -37,13 +37,15 @@
 <body>
 
 	<!-- Header/Navigation -->
-	<%@ include file="../fragments/header.html"%>
+	<%@ include file="../fragments/navbar.html"%>
+
+	<%@ include file="../fragments/homeNavbar.html"%>
 
 
 	<div class="container">
 
 
-		<div class="box" style="margin-bottom:5em">
+		<div class="box" style="margin-bottom: 5em">
 			<div class="">
 				<div class="col-lg-12 ">
 
@@ -122,10 +124,9 @@
 									<td class=""><span class="" data-toggle="tooltip"
 										title="Valore">${p.valore} </span></td>
 
-									<td class="text-center">
-										<input id="rimuovi" type="submit" value="Rimuovi" class="btn btn-danger btn-sm" 
-										onclick="rosa('${p.nome}', 'f')">
-									</td>
+									<td class="text-center"><input id="rimuovi" type="submit"
+										value="Rimuovi" class="btn btn-danger btn-sm"
+										onclick="rosa('${p.nome}', 'f')"></td>
 								</tr>
 							</c:forEach>
 							<%
@@ -136,17 +137,18 @@
 
 					</table>
 				</div>
-				<div style="padding:0 1em">
-					<button type="button" class="btn-lg btn-primary btn-block" onclick="salvaRosa()">Salva rosa</button>
+				<div style="padding: 0 1em">
+					<button type="button" class="btn-lg btn-primary btn-block"
+						onclick="salvaRosa()">Salva rosa</button>
 				</div>
 			</div>
-			
-			
-			
+
+
+
 		</div>
 
 
-		
+
 
 
 
@@ -158,24 +160,29 @@
 		<!-- tabella aggiungi -->
 
 		<div class=" row ">
-		
+
 			<div class="  box ">
 				<div class=" col-lg-12 ">
 
 					<hr>
 					<h2 class="intro-text text-center">Aggiungi giocatore</h2>
-					<h3 class="intro-text text-center">  Crediti: <b>${crediti }</b></h3>
+					<h3 class="intro-text text-center">
+						Crediti: <b>${crediti }</b>
+					</h3>
 					<hr>
 
 					<div class="row">
-						
-							<div id="ruolo" style="text-align:center; padding-bottom:2em; padding-top: 1em">
-								<button type="button" class="btn btn-danger" onclick="ruolo('P')">Portieri</button>
-								<button type="button" class="btn btn-success" onclick="ruolo('D')">Difensori</button>
-								<button type="button" class="btn btn-info" onclick="ruolo('C')">Centrocampisti</button>
-								<button type="button" class="btn btn-primary" onclick="ruolo('A')">Attaccanti</button>
-							</div>
-						
+
+						<div id="ruolo"
+							style="text-align: center; padding-bottom: 2em; padding-top: 1em">
+							<button type="button" class="btn btn-danger" onclick="ruolo('P')">Portieri</button>
+							<button type="button" class="btn btn-success"
+								onclick="ruolo('D')">Difensori</button>
+							<button type="button" class="btn btn-info" onclick="ruolo('C')">Centrocampisti</button>
+							<button type="button" class="btn btn-primary"
+								onclick="ruolo('A')">Attaccanti</button>
+						</div>
+
 						<table id="tabellaPartecipanti"
 							class="table table-striped table-bordered">
 							<thead class="bg-slate-300">
@@ -195,27 +202,23 @@
 
 
 								<c:forEach var="p" items="${giocatoriSvincolati}">
-									<tr id = "${p.nome}">
+									<tr id="${p.nome}">
 
 										<c:choose>
 											<c:when test="${p.ruolo == 'P'}">
-												<td class="valign-top" ><span
-													class="label label-1">${p.ruolo}</span><br
+												<td class="valign-top"><span class="label label-1">${p.ruolo}</span><br
 													class="visible-xs"></td>
 											</c:when>
 											<c:when test="${p.ruolo == 'D'}">
-												<td class="valign-top" ><span
-													class="label label-2">${p.ruolo}</span><br
+												<td class="valign-top"><span class="label label-2">${p.ruolo}</span><br
 													class="visible-xs"></td>
 											</c:when>
 											<c:when test="${p.ruolo == 'C'}">
-												<td class="valign-top" ><span
-													class="label label-3">${p.ruolo}</span><br
+												<td class="valign-top"><span class="label label-3">${p.ruolo}</span><br
 													class="visible-xs"></td>
 											</c:when>
 											<c:when test="${p.ruolo == 'A'}">
-												<td class="valign-top" ><span
-													class="label label-4">${p.ruolo}</span><br
+												<td class="valign-top"><span class="label label-4">${p.ruolo}</span><br
 													class="visible-xs"></td>
 											</c:when>
 										</c:choose>
@@ -227,10 +230,9 @@
 
 										<td class=""><span title="Valore">${p.valore} </span></td>
 
-										<td class="text-center">
-											<input id="aggiungi" type="submit" value="Aggiungi" 
-											class="btn btn-primary btn-sm" onclick="rosa('${p.nome}', 't')">
-										</td>
+										<td class="text-center"><input id="aggiungi"
+											type="submit" value="Aggiungi" class="btn btn-primary btn-sm"
+											onclick="rosa('${p.nome}', 't')"></td>
 									</tr>
 								</c:forEach>
 
@@ -307,7 +309,7 @@
 	<script src="js/jquery.dataTables.min.js"></script>
 	<script src="js/dataTables.bootstrap.min.js"></script>
 
-   <script src="Script/gestioneMercato.js"></script>
+	<script src="Script/gestioneMercato.js"></script>
 
 
 
@@ -316,7 +318,7 @@
 			$('#tabellaPartecipanti').DataTable();
 		});
 	</script>
-	
+
 
 </body>
 </html>

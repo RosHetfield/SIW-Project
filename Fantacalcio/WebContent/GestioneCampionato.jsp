@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%> <%@taglib
-uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> <%@ page
-import="model.Campionato"%> <%@ page import="model.Squadra"%> <%@ page
-import="model.Utente"%> <%@page import="java.util.List"%>
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="model.Campionato"%>
+<%@ page import="model.Squadra"%>
+<%@ page import="model.Utente"%>
+<%@page import="java.util.List"%>
 
 <!DOCTYPE html>
 <html>
@@ -18,7 +20,8 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 
 <!-- Table CSS -->
 <link href="css/dataTables.bootstrap.min.css" rel="stylesheet" />
- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <!-- sweetAlert CSS -->
 <link href="css/sweetalert.css" type="text/css" rel="stylesheet" />
@@ -42,9 +45,8 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">FantaBomber</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
+					<span class="sr-only">FantaBomber</span> <span class="icon-bar"></span>
+					<span class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
 				<!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
 				<a class="navbar-brand">FantaBomber</a>
@@ -53,8 +55,8 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a class="btn btn-sm btn-info " href="LogoutAmministratore">Log Out</a>
-					</li>
+					<li><a class="btn btn-sm btn-info "
+						href="LogoutAmministratore">Log Out</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -68,7 +70,11 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 
 
 		<div class="col-lg-12 ">
-			<div id="campionato" class=" row box text-center"><hr><h2>Gestisci Campionato ${NomeCampionato}</h2><hr></div>
+			<div id="campionato" class=" row box text-center">
+				<hr>
+				<h2>Gestisci Campionato ${NomeCampionato}</h2>
+				<hr>
+			</div>
 		</div>
 
 
@@ -93,14 +99,17 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 
 						<tbody>
 
-							<% Campionato campionato = (Campionato)
-							request.getAttribute("Campionato"); if (campionato.getSquadre()
-							== null) { %>
+							<%
+								Campionato campionato = (Campionato) request.getAttribute("Campionato");
+								if (campionato.getSquadre() == null) {
+							%>
 
 							<tr>
 								<td colspan="3">Nessun utente</td>
 							</tr>
-							<% } else { %>
+							<%
+								} else {
+							%>
 							<c:forEach var="p" items="${Campionato.squadre}">
 
 								<tr>
@@ -111,7 +120,9 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 								</tr>
 
 							</c:forEach>
-							<% } %>
+							<%
+								}
+							%>
 						</tbody>
 					</table>
 				</div>
@@ -124,45 +135,47 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 
 			<div class="col-lg-3 ">
 				<div class="row">
-				<div class="  text-center">
-					<div class="box">
-						<hr>
-						<h2 class="intro-text text-center">Crea giornata</h2>
-						<hr>
+					<div class="  text-center">
+						<div class="box">
+							<hr>
+							<h2 class="intro-text text-center">Crea giornata</h2>
+							<hr>
 							<div>
 								<div>
 									<label>Data prossima partita</label>
 								</div>
-								<div id="datepicker" style="margin : 1em"></div>
+								<div id="datepicker" style="margin: 1em"></div>
 							</div>
 							<br>
 							<div>
-								<button type="button" class="btn btn-primary" aria-label="Left Align" onclick="creaGiornata()">Crea</button>
+								<button type="button" class="btn btn-primary"
+									aria-label="Left Align" onclick="creaGiornata()">Crea</button>
 							</div>
-					<br>
-					</div>
+							<br>
+						</div>
 
 
 
 						<div class="box">
 							<h4>Apri mercato</h4>
-							<br>
-							<label class="switch">
-								<c:choose>
+							<br> <label class="switch"> <c:choose>
 									<c:when test="${Campionato.mercato}">
-				  						<input type="checkbox" checked onclick="aperturaMercato()" id="mercato">
+										<input type="checkbox" checked onclick="aperturaMercato()"
+											id="mercato">
 									</c:when>
 									<c:otherwise>
-										<input type="checkbox"  onclick="aperturaMercato()" id="mercato">
+										<input type="checkbox" onclick="aperturaMercato()"
+											id="mercato">
 									</c:otherwise>
 								</c:choose>
-		  						<div class="slider round"></div>
-								
-							</label><br><br>
+								<div class="slider round"></div>
+
+							</label><br>
+							<br>
 						</div>
 
 
-				</div>
+					</div>
 				</div>
 
 
@@ -180,28 +193,28 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 
 
 				<div class="row ">
-						<div class="box text-center">
+					<div class="box text-center">
 
-					<hr>
-					<h2 class="intro-text text-center">Calcola Giornata</h2>
-					<hr>
+						<hr>
+						<h2 class="intro-text text-center">Calcola Giornata</h2>
+						<hr>
 
-				
-				
-				
-				
-					<div>
-						<button type="button" class="btn btn-default" action="calcolaGiornata.html"
-							aria-label="Left Align">Calcola</button>
+
+
+
+
+						<div>
+							<button type="button" class="btn btn-default"
+								action="calcolaGiornata.html" aria-label="Left Align">Calcola</button>
+						</div>
+
+
+
+						<form action="calcolaGiornata.html">
+							<input class="btn btn-primary" type="submit" value="Calcola" />
+						</form>
+
 					</div>
-					
-					
-					
-					<form action="calcolaGiornata.html">
-    					<input class="btn btn-primary" type="submit" value="Calcola" />
-					</form>
-				
-				</div>
 				</div>
 			</div>
 		</div>
@@ -234,15 +247,17 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 
 
 					<tbody>
-						<% List
-						<Utente> utenti = (List<Utente>)
-						request.getAttribute("PossibiliPartecipanti"); if (utenti.size()
-						== 0) { %>
+						<%
+							List<Utente> utenti = (List<Utente>) request.getAttribute("PossibiliPartecipanti");
+							if (utenti.size() == 0) {
+						%>
 
 						<tr>
 							<td colspan="3">Nessun utente</td>
 						</tr>
-						<% } else { %> 
+						<%
+							} else {
+						%>
 						<c:forEach var="p" items="${PossibiliPartecipanti}">
 
 							<tr id="${p.username}">
@@ -250,19 +265,23 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 								<td class="hidden-xs">${p.nome}</td>
 								<td class="hidden-xs">${p.cognome}</td>
 								<td class="hidden-xs">${p.email}</td>
-								<td class="text-center">
-								<c:choose>
-									<c:when test="${p.invito}">
-										<input id="invita" type="submit" value="In Attesa" class="btn btn-info btn-sm" disabled="disabled">
-									</c:when>
-									<c:otherwise>
-										<input id="invita" type="submit" value="Invita" class="btn btn-info btn-sm" onclick="invita('${p.username}','${Campionato.nome}')">
-									</c:otherwise>
-								</c:choose>
-								</td>
+								<td class="text-center"><c:choose>
+										<c:when test="${p.invito}">
+											<input id="invita" type="submit" value="In Attesa"
+												class="btn btn-info btn-sm" disabled="disabled">
+										</c:when>
+										<c:otherwise>
+											<input id="invita" type="submit" value="Invita"
+												class="btn btn-info btn-sm"
+												onclick="invita('${p.username}','${Campionato.nome}')">
+										</c:otherwise>
+									</c:choose></td>
 							</tr>
 
-						</c:forEach> <% } %> 
+						</c:forEach>
+						<%
+							}
+						%>
 					</tbody>
 				</table>
 			</div>
@@ -276,19 +295,19 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 	</div>
 
 
-<%@ include file = "../fragments/footer.html" %>
+	<%@ include file="../fragments/footer.html"%>
 
 
 	<!-- jQuery -->
 
 
- 
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/sweetalert.min.js"></script>
-	
+
 	<!-- Table JavaScript library -->
 	<script src="js/jquery.dataTables.min.js"></script>
 	<script src="js/dataTables.bootstrap.min.js"></script>
@@ -296,17 +315,17 @@ import="model.Utente"%> <%@page import="java.util.List"%>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#tabellaPartecipanti').DataTable();
-			$('#tabellaAggiungi').DataTable();			
-			$( "#datepicker" ).datepicker();
+			$('#tabellaAggiungi').DataTable();
+			$("#datepicker").datepicker();
 		});
 	</script>
-	
+
 	<script src="Script/gestioneInviti.js"></script>
 	<script src="Script/CreaGiornata.js"></script>
 	<script src="Script/gestioneMercato.js"></script>
 	<script src="Script/gestioneFormazione.js"></script>
-	
-	
+
+
 
 </body>
 </html>
