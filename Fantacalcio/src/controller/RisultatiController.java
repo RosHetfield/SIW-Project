@@ -53,14 +53,14 @@ public class RisultatiController extends HttpServlet {
 
 				// restituisco l'ultima giornata creata e nella quale possone
 				// essere presenti formazioni
-				Partita giornata = DBManager.getInstance().getPartita().getUltimaGiocata(campionato);
+				Partita giornata = DBManager.getInstance().getPartita().getUltimaCalcolata(campionato);
 				request.setAttribute("ultimaGiornata", -1);
 
 				Set<Squadra> squadreCampionato=DBManager.getInstance().getCampionato().findByPrimaryKey(campionato).getSquadre();									
 				
 				List<Voto_giornata> giocatori=new ArrayList<Voto_giornata>();
 				List<Giocatore_in_formazione> inFormazione=new ArrayList<Giocatore_in_formazione>();
-				HashMap<String, Voto_giornata> mappaVoti=new HashMap<>();
+				HashMap<String, Voto_giornata> mappaVoti=new HashMap<String,Voto_giornata>();
 				List<RisultatoGiornata> risultatiGiornata=new ArrayList<RisultatoGiornata>();
 
 				if (giornata != null) {
@@ -83,16 +83,22 @@ public class RisultatiController extends HttpServlet {
 				}
 				
 				risultatiGiornata=DBManager.getInstance().getClassifica().getRisultatiSquadreGiornata(giornata.getGiornata(), campionato);
-				}
-				
 				
 				request.setAttribute("inFormazione", inFormazione);
 				request.setAttribute("ultimaGiornata", giornata.getGiornata());
 				request.setAttribute("mappaVoti", mappaVoti);
 				request.setAttribute("squadreCampionato", squadreCampionato);
 				request.setAttribute("risultatiGiornata", risultatiGiornata);
-
 				
+				for (RisultatoGiornata risultatoGiornata : risultatiGiornata) {
+					System.out.println("risultati "+ risultatoGiornata.getSquadra());
+				}
+				for (Squadra s : squadreCampionato) {
+					System.out.println("squadre " + s.getNome());
+				}
+				
+
+				}
 				
 				RequestDispatcher dispatcher = request.getRequestDispatcher("risultati.jsp");
 				dispatcher.forward(request, response);

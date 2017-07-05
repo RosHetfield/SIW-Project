@@ -43,7 +43,7 @@ public class CalcolaGiornataController extends HttpServlet {
 		String campionato = (String) session.getAttribute("NomeCampionato");
 		if (campionato != null) {
 			Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
-			Partita giornata = DBManager.getInstance().getPartita().getUltimaGiornataGiocabile(campionato);
+			Partita giornata = DBManager.getInstance().getPartita().getUltimaCalcolata(campionato);
 			List<Voto_giornata> voti = DBManager.getInstance().getVoto_giornata().findAll(giornata.getGiornata());
 			Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata.getGiornata(), campionato);
 			

@@ -187,13 +187,13 @@ public class PartitaDAOJdbc implements PartitaDAO {
 	}
 
 	@Override
-	public Partita getUltimaGiocata(String campionato) {
+	public Partita getUltimaCalcolata(String campionato) {
 		Connection connection = this.dataSource.getConnection();
 		Partita partita = null;
 		try {
 			PreparedStatement statement;
-			String query = "select max(p.giornata) from partita as p, voto_giornata as v where p.campionato = ? and "
-					+ "where v.giornata = p.giornata";
+			String query = "select p.* from partita as p, voto_giornata as v where p.campionato = ? and  v.giornata = p.giornata and "
+					+ "p.giornata = (select max(giornata) from voto_giornata)";
 			statement = connection.prepareStatement(query);
 			statement.setString(1, campionato);
 

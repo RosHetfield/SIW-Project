@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ page import="java.util.List"%>
+<%@ page import="model.Classifica"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,6 +51,18 @@
 
 	<div class="container">
 
+
+
+		<!-- tabella classifica -->
+		<div class="row ">
+			<div class="col-lg-12  box">
+				<% List<Classifica> c = (List<Classifica>) request.getAttribute("classifica");
+					if(c.isEmpty()){
+				%>
+				<hr>
+				<h2 class="intro-text text-center">Nessuna Classifica</h2>
+				<hr>
+				<%} else {%>
 		<!-- indice giornate -->
 		<div class="row">
 			<div class="box ">
@@ -63,40 +77,32 @@
 				</div>
 			</div>
 		</div>
-
-
-		<!-- tabella classifica -->
-		<div class="row ">
-			<div class="col-lg-12  box">
-
 				<hr>
-				<h2 class="intro-text text-center">Classifica giornata '55'</h2>
+				<h2 class="intro-text text-center">Classifica giornata ${giornata}</h2>
 				<hr>
 
 				<table id="tabellaClassifica"
 					class="table table-striped table-bordered">
 					<thead class="bg-slate-300">
 						<tr>
+							<th>Posizione</th>
 							<th>Squadra</th>
 							<th class="hidden-xs" title="Giocate">Partite giocate</th>
 							<th title="Totale">Totale</th>
 						</tr>
 					</thead>
 					<tbody>
+						<c:forEach var="c" items="${classifica }" varStatus="status">
 						<tr>
-							<td>FC peroni</td>
-							<td class="hidden-xs" title="Giocate">$1.38</td>
-							<td title="Totale" >-0.01</td>
-
+							<td>${status.index + 1}</td>
+							<td>${c.squadra }</td>
+							<td class="hidden-xs">${c.partite_giocate }</td>
+							<td title="Totale" >${c.totale }</td>
 						</tr>
-						<tr>
-							<td>FC uuu</td>
-							<td class="hidden-xs" title="Giocate">$1.38</td>
-							<td title="Totale" >-0.01</td>
-						
-						</tr>
+						</c:forEach>
 					</tbody>
 				</table>
+				<%} %>
 			</div>
 		</div>
 

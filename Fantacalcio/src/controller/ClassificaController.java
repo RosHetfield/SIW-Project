@@ -24,6 +24,7 @@ import persistence.DBManager;
 public class ClassificaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	private int giornata = 0;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -53,14 +54,32 @@ public class ClassificaController extends HttpServlet {
 			if (campionato != null && squadra!=null) {
 				
 				System.out.println("sono in if");
-				Partita partita = DBManager.getInstance().getPartita().getUltimaGiocata(campionato);
-				request.setAttribute("classifica", null);
-				if(partita != null) {					
-					List<Classifica> classifica = DBManager.getInstance().getClassifica().getClassificaGiornata(partita.getGiornata(), campionato);
-					request.setAttribute("classifica", classifica);
-					RequestDispatcher dispatcher = request.getRequestDispatcher("classifica.jsp");
-					dispatcher.forward(request, response);
+				
+				if (request.getParameter("giornata") != null) {
+					String jsGiornata = (String) request.getParameter("giornata");
+					System.out.println(jsGiornata);
+					if(jsGiornata != null) {							
+						ObjectMapper mapper = new ObjectMapper();
+						giornata = mapper.readValue(jsGiornata, int.class);
+					}
 				}
+				else  {	
+					Partita partita = DBManager.getInstance().getPartita().getUltimaCalcolata(campionato);
+					if(partita != null)
+						giornata = partita.getGiornata();
+				}
+				
+				List<Classifica> classifica = DBManager.getInstance().getClassifica().getClassificaGiornata(giornata, campionato);
+				System.out.println("CLASSIFICA " + classifica);
+				if(classifica != null) {
+					request.setAttribute("giornata", giornata);
+					request.setAttribute("classifica", classifica);					
+				} else {
+					request.setAttribute("classifica", null);
+				}
+				
+				RequestDispatcher dispatcher = request.getRequestDispatcher("classifica.jsp");
+				dispatcher.forward(request, response);
 
 				
 				
