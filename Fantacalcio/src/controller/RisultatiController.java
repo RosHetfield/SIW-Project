@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import model.Giocatore;
 import model.Giocatore_in_formazione;
 import model.Partita;
@@ -29,7 +31,7 @@ import persistence.DBManager;
 @WebServlet("/RisultatiController")
 public class RisultatiController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+       private int g = -1;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -53,8 +55,6 @@ public class RisultatiController extends HttpServlet {
 
 				// restituisco l'ultima giornata creata e nella quale possone
 				// essere presenti formazioni
-				Partita giornata = DBManager.getInstance().getPartita().getUltimaCalcolata(campionato);
-				request.setAttribute("ultimaGiornata", -1);
 
 				Set<Squadra> squadreCampionato=DBManager.getInstance().getCampionato().findByPrimaryKey(campionato).getSquadre();									
 				
@@ -62,10 +62,27 @@ public class RisultatiController extends HttpServlet {
 				List<Giocatore_in_formazione> inFormazione=new ArrayList<Giocatore_in_formazione>();
 				HashMap<String, Voto_giornata> mappaVoti=new HashMap<String,Voto_giornata>();
 				List<RisultatoGiornata> risultatiGiornata=new ArrayList<RisultatoGiornata>();
+				Partita partita = null;
+				
+				if (request.getParameterNames().hasMoreElements()) {
+					String jsGiornata = (String) request.getParameter("giornata");
+					System.out.println(jsGiornata);
+					if(jsGiornata != null) {							
+						ObjectMapper mapper = new ObjectMapper();
+						g = mapper.readValue(jsGiornata, int.class);
+						System.out.println("ARRIVO " + g);
+						partita = DBManager.getInstance().getPartita().findByPrimaryKey(g, campionato);
+					}
+				}
+				else  {	
+					partita = DBManager.getInstance().getPartita().getUltimaCalcolata(campionato);
+					if(partita != null)
+						g = partita.getGiornata();
+				}
 
-				if (giornata != null) {
-				giocatori=DBManager.getInstance().getVoto_giornata().findByGiornata(giornata.getGiornata(),campionato);
-				inFormazione=giornata.getGiocatoriInFormazione();
+				if (partita != null) {
+				giocatori=DBManager.getInstance().getVoto_giornata().findByGiornata(g,campionato);
+				inFormazione=partita.getGiocatoriInFormazione();
 				inFormazione.sort(new Comparator<Giocatore_in_formazione>() {
 
 					@Override
@@ -82,23 +99,17 @@ public class RisultatiController extends HttpServlet {
 					}
 				}
 				
-				risultatiGiornata=DBManager.getInstance().getClassifica().getRisultatiSquadreGiornata(giornata.getGiornata(), campionato);
+				
+				risultatiGiornata=DBManager.getInstance().getClassifica().getRisultatiSquadreGiornata(g, campionato);
 				
 				request.setAttribute("inFormazione", inFormazione);
-				request.setAttribute("ultimaGiornata", giornata.getGiornata());
 				request.setAttribute("mappaVoti", mappaVoti);
 				request.setAttribute("squadreCampionato", squadreCampionato);
 				request.setAttribute("risultatiGiornata", risultatiGiornata);
 				
-				for (RisultatoGiornata risultatoGiornata : risultatiGiornata) {
-					System.out.println("risultati "+ risultatoGiornata.getSquadra());
-				}
-				for (Squadra s : squadreCampionato) {
-					System.out.println("squadre " + s.getNome());
-				}
-				
 
 				}
+				request.setAttribute("ultimaGiornata", g);
 				
 				RequestDispatcher dispatcher = request.getRequestDispatcher("risultati.jsp");
 				dispatcher.forward(request, response);

@@ -9,7 +9,7 @@ function caricaGiornata(g) {
 			datatype : "json",
 			data : {
 				
-				ultimaGiornata:JSON.stringify(g)
+				giornata:JSON.stringify(g)
 			},
 			success : function(data) {
 				location.href="Risultati";

@@ -67,7 +67,7 @@
 			<div class="box ">
 				<div class="col-lg-12 ">
 					<ol class="list-inline">
-						<c:forEach var="name" begin="1" end="${giornata}" step="1">
+						<c:forEach var="name" begin="1" end="${ultimaGiornata}" step="1">
 							<li><button type="button" id="${name}" onclick="caricaGiornata('${name}')"
 									class="btn btn-primary  btn-sm myButton  ">${name}</button></li>
 						</c:forEach>

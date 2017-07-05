@@ -59,7 +59,7 @@ public class CalcolaGiornataController extends HttpServlet {
 				}
 				if(!trovato && n_sostituzioni < 3) {
 					System.out.println(g.getNomeGiocatoreRosa() + " non trovato");
-					if(sostituzione(g, partita))
+					if(sostituzione(g, partita, voti))
 						n_sostituzioni++;
 				}
 			}
@@ -92,29 +92,29 @@ public class CalcolaGiornataController extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	private boolean sostituzione(Giocatore_in_formazione g, Partita partita) {
+	private boolean sostituzione(Giocatore_in_formazione g, Partita partita, List<Voto_giornata> voti) {
 		boolean primo = true;
 		int n_formazione = 0;
 		Giocatore_in_formazione gif = null;
 		for (Giocatore_in_formazione giocatore : partita.getGiocatoriInFormazione()) {
 			if(!giocatore.isTitolare() && g.getGiocatoreInRosa().getGiocatore().getRuolo().equals(giocatore.getGiocatoreInRosa().getGiocatore().getRuolo()) 
 					&& !giocatore.isEntrato()) {
-				System.out.println("ENDRO?");
-				if(primo) {
-					n_formazione = giocatore.getN_formazione();
-					System.out.println("primo " + giocatore.getNomeGiocatoreRosa() + " " + giocatore.getN_formazione() +  " " + n_formazione);
-					gif = giocatore;
-					primo = false;
-				}
-				if(giocatore.getN_formazione() < n_formazione) {
-					n_formazione = giocatore.getN_formazione();		
-					System.out.println("primo " + giocatore.getNomeGiocatoreRosa() + " " + giocatore.getN_formazione() +  " " + n_formazione);
-					gif = giocatore;
+				for (Voto_giornata voto : voti) {
+					if(giocatore.getNomeGiocatoreRosa().equals(voto.getNomeGiocatore())) {
+						if(primo) {
+							n_formazione = giocatore.getN_formazione();
+							System.out.println("primo " + giocatore.getNomeGiocatoreRosa() + " " + giocatore.getN_formazione() +  " " + n_formazione);
+							gif = giocatore;
+							primo = false;
+						}
+						if(giocatore.getN_formazione() < n_formazione) {
+							n_formazione = giocatore.getN_formazione();		
+							System.out.println("minimo " + giocatore.getNomeGiocatoreRosa() + " " + giocatore.getN_formazione() +  " " + n_formazione);
+							gif = giocatore;
+						}
+					}
 				}
 			}
-		}
-		if(gif == null) {
-			System.out.println("gif nullo");
 		}
 		if(g.isTitolare() && gif != null) {
 			g.setUscito(true);

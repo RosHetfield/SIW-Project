@@ -55,12 +55,13 @@ public class ClassificaController extends HttpServlet {
 				
 				System.out.println("sono in if");
 				
-				if (request.getParameter("giornata") != null) {
+				if (request.getParameterNames().hasMoreElements()) {
 					String jsGiornata = (String) request.getParameter("giornata");
 					System.out.println(jsGiornata);
 					if(jsGiornata != null) {							
 						ObjectMapper mapper = new ObjectMapper();
 						giornata = mapper.readValue(jsGiornata, int.class);
+						System.out.println("ARRIVO " + giornata);
 					}
 				}
 				else  {	
