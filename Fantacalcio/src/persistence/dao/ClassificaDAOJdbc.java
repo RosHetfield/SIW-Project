@@ -7,16 +7,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Campionato;
-import model.CampionatoProxy;
 import model.Classifica;
 import model.RisultatoGiornata;
 import persistence.DataSource;
 
 public class ClassificaDAOJdbc implements ClassificaDAO {
-	
+
 	private DataSource dataSource;
-	
+
 	public ClassificaDAOJdbc(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
@@ -33,7 +31,7 @@ public class ClassificaDAOJdbc implements ClassificaDAO {
 			statement.setInt(3, classifica.getPartite_giocate());
 			statement.setInt(4, classifica.getGiornata());
 			statement.setDouble(5, classifica.getTotale());
-			
+
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
@@ -43,7 +41,7 @@ public class ClassificaDAOJdbc implements ClassificaDAO {
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
 			}
-			
+
 		}
 
 	}
@@ -86,7 +84,7 @@ public class ClassificaDAOJdbc implements ClassificaDAO {
 			}
 		}
 
-		return classifica;	
+		return classifica;
 	}
 
 	@Override
@@ -122,7 +120,7 @@ public class ClassificaDAOJdbc implements ClassificaDAO {
 			}
 		}
 
-		return classifica;	
+		return classifica;
 	}
 
 	@Override
@@ -156,7 +154,7 @@ public class ClassificaDAOJdbc implements ClassificaDAO {
 			}
 		}
 
-		return risultato;	
+		return risultato;
 	}
 
 	@Override
@@ -197,7 +195,7 @@ public class ClassificaDAOJdbc implements ClassificaDAO {
 			}
 		}
 
-		return partite_giocate;	
+		return partite_giocate;
 	}
 
 	@Override
@@ -220,7 +218,7 @@ public class ClassificaDAOJdbc implements ClassificaDAO {
 				risultato.setGiornata(result.getInt("giornata"));
 				risultato.setSquadra(result.getString("squadra"));
 				risultato.setTotale(result.getDouble("totale"));
-				
+
 				ris.add(risultato);
 			}
 		} catch (SQLException e) {
