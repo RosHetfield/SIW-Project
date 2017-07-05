@@ -164,14 +164,13 @@ public class PartitaDAOJdbc implements PartitaDAO {
 			statement.setString(1, campionato);
 
 			ResultSet result = statement.executeQuery();
-
 			if (result.next()) {
 				partita = new PartitaProxy(dataSource);
 				partita.setCampionato(result.getString("campionato"));
 				long secs = result.getDate("data").getTime();
 				partita.setData(new java.util.Date(secs));
 				partita.setGiornata(result.getInt("giornata"));
-				System.out.println("la partita numero: "+partita);
+				System.out.println("la partita numero: "+partita.getGiornata());
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
@@ -185,6 +184,39 @@ public class PartitaDAOJdbc implements PartitaDAO {
 
 		return partita;	
 
+	}
+
+	@Override
+	public Partita getUltimaGiocata(String campionato) {
+		Connection connection = this.dataSource.getConnection();
+		Partita partita = null;
+		try {
+			PreparedStatement statement;
+			String query = "select max(p.giornata) from partita as p, voto_giornata as v where p.campionato = ? and "
+					+ "where v.giornata = p.giornata";
+			statement = connection.prepareStatement(query);
+			statement.setString(1, campionato);
+
+			ResultSet result = statement.executeQuery();
+			if (result.next()) {
+				partita = new PartitaProxy(dataSource);
+				partita.setCampionato(result.getString("campionato"));
+				long secs = result.getDate("data").getTime();
+				partita.setData(new java.util.Date(secs));
+				partita.setGiornata(result.getInt("giornata"));
+				System.out.println("la partita numero: "+partita.getGiornata());
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}
+
+		return partita;	
 	}
 
 }

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import model.Classifica;
 import model.Partita;
 import persistence.DBManager;
 
@@ -52,11 +53,14 @@ public class ClassificaController extends HttpServlet {
 			if (campionato != null && squadra!=null) {
 				
 				System.out.println("sono in if");
-
-				//vedere come contrassegnare una giornata calcolata
-				
-				RequestDispatcher dispatcher = request.getRequestDispatcher("classifica.jsp");
-				dispatcher.forward(request, response);
+				Partita partita = DBManager.getInstance().getPartita().getUltimaGiocata(campionato);
+				request.setAttribute("classifica", null);
+				if(partita != null) {					
+					List<Classifica> classifica = DBManager.getInstance().getClassifica().getClassificaGiornata(partita.getGiornata(), campionato);
+					request.setAttribute("classifica", classifica);
+					RequestDispatcher dispatcher = request.getRequestDispatcher("classifica.jsp");
+					dispatcher.forward(request, response);
+				}
 
 				
 				

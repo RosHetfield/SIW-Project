@@ -128,7 +128,17 @@ var receiveAll = function(event, ui) {
 }
 
 function init() {
-
+	
+	PT = $('#tbody2 .P').length;
+	DT = $('#tbody2 .D').length;
+	CT = $('#tbody2 .C').length;
+	AT = $('#tbody2 .A').length;
+	
+	PP = $('#tbody3 .P').length;
+	DP = $('#tbody3 .D').length;
+	CP = $('#tbody3 .C').length;
+	AP = $('#tbody3 .A').length;
+	
 	$( "#myselect" )
 	  .change(function() {
 	   
@@ -165,6 +175,8 @@ function init() {
 		stop : stopMoving,
 		receive : receivePP
 	}).disableSelection();
+	
+	
 }
 
 $(document).ready(init);

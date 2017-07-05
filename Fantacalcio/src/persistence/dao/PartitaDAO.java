@@ -12,4 +12,5 @@ public interface PartitaDAO {
 	public List<Partita> findAll();
 	public Partita getPartitaGiocabile(String campionato);
 	public Partita getUltimaGiornataGiocabile(String campionato); 
+	public Partita getUltimaGiocata(String campionato);
 }

@@ -41,8 +41,8 @@
 
 
 			<%
-				Partita p=(Partita) request.getAttribute("ultimaGiornata");
-				if (p == null) {
+				int p=(int) request.getAttribute("ultimaGiornata");
+				if (p == -1) {
 			%>
 				<h3 class="text-center">
 					<span>Nessuna giornata presente </span>
@@ -52,9 +52,9 @@
 			<%
 				}
 				else{
-				Set<Giocatore_in_formazione> formazioni = (Set<Giocatore_in_formazione>) request
+				List<Giocatore_in_formazione> formazioni = (List<Giocatore_in_formazione>) request
 						.getAttribute("giocatoriUltima");
-				if (p != null && formazioni.size() == 0) {
+				if (formazioni.size() == 0) {
 			%>
 
 			<h3 class="text-center">
@@ -203,7 +203,7 @@
 											</c:choose>
 
 
-											<td><span>${g.titolare} </span></td>
+											<td><span>${g.giocatoreInRosa.giocatore.nome} </span></td>
 
 											<td><span class="hidden-xs">${g.giocatoreInRosa.giocatore.squadra}
 											</span></td>

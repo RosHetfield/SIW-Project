@@ -58,7 +58,7 @@ public class StampaFormazioniController extends HttpServlet {
 				// campionato);
 				Set<Squadra> squadreCampionato = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato)
 						.getSquadre();
-				request.setAttribute("ultimaGiornata", null);
+				request.setAttribute("ultimaGiornata", -1);
 				List<Giocatore_in_formazione> giocatori = new ArrayList<Giocatore_in_formazione>();
 				if (giornata != null) {
 
