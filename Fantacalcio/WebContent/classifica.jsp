@@ -53,30 +53,38 @@
 
 
 
-		<!-- tabella classifica -->
-		<div class="row ">
-			<div class="col-lg-12  box">
+		
 				<% List<Classifica> c = (List<Classifica>) request.getAttribute("classifica");
 					if(c.isEmpty()){
 				%>
+				<div class="row ">
+				<div class="col-lg-12  box">
 				<hr>
 				<h2 class="intro-text text-center">Nessuna Classifica</h2>
 				<hr>
-				<%} else {%>
-		<!-- indice giornate -->
-		<div class="row">
-			<div class="box ">
-				<div class="col-lg-12 ">
-					<ol class="list-inline">
-
-						<li><button type="button" class="btn btn-sm btn-primary myButton">
-								1</button></li>
-
-									
-					</ol>
 				</div>
-			</div>
-		</div>
+				</div>
+				<%} else {%>
+		
+			
+				<!-- indice giornate -->
+				<div class="row">
+					<div class="box ">
+						<div class="col-lg-12 ">
+							<ol class="list-inline">
+							<c:forEach var="name" begin="1" end="${giornata}" step="1">								
+								<li><button type="button" class="btn btn-sm btn-primary myButton" id="${name}">
+										${name}</button></li>
+							</c:forEach>
+											
+							</ol>
+						</div>
+					</div>
+				</div>
+				
+			<!-- tabella classifica -->
+			<div class="row ">
+				<div class="col-lg-12  box">
 				<hr>
 				<h2 class="intro-text text-center">Classifica giornata ${giornata}</h2>
 				<hr>
