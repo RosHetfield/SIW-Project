@@ -73,7 +73,7 @@
 						<div class="col-lg-12 ">
 							<ol class="list-inline">
 							<c:forEach var="name" begin="1" end="${giornata}" step="1">								
-								<li><button type="button" class="btn btn-sm btn-primary myButton" id="${name}">
+								<li><button type="button" onclick="caricaGiornata('${name}')" class="btn btn-sm btn-primary myButton" id="${name}">
 										${name}</button></li>
 							</c:forEach>
 											
@@ -160,6 +160,7 @@
 
 
 	<script src="Script/caricaCampionato.js"></script>
+	<script src="Script/storicoClassifica.js"></script>
 
 
 	<script type="text/javascript">
