@@ -126,7 +126,6 @@
 					</h2>
 					<hr>				
 						<button type="button" class="btn btn-default btn-block">Button 1</button> 
-
 				</div>
 			</div>
 		</div>
