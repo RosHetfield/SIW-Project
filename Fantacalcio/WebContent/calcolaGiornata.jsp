@@ -41,7 +41,8 @@
 
 						<div class="col-lg-6 col-sm-6 col-12">
 						 <input
-								type="file" name="uploadFile" id="file">
+								type="file" name="uploadFile" id="file"
+								 accept=".xls,.xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" /> >
 						
 						</div>
 					
