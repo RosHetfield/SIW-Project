@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4">
   <display-name>FantaBomber</display-name>
-
   <filter>
     <filter-name>MyFilter</filter-name>
     <filter-class>controller.MyFilter</filter-class>
@@ -186,7 +185,7 @@
     <servlet-name>StampaFormazioniController</servlet-name>
     <url-pattern>/StampaFormazioni</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>CalcolaGiornataController</servlet-name>
     <servlet-class>controller.CalcolaGiornataController</servlet-class>
   </servlet>
@@ -194,7 +193,7 @@
     <servlet-name>CalcolaGiornataController</servlet-name>
     <url-pattern>/CalcolaGiornata</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>RisultatiController</servlet-name>
     <servlet-class>controller.RisultatiController</servlet-class>
   </servlet>
