@@ -14,20 +14,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-
-
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
 
-<!-- Table CSS -->
+<!-- datatables CSS -->
 <link href="css/dataTables.bootstrap.min.css" rel="stylesheet" />
-
-<!-- sweetAlert CSS -->
-<link href="css/sweetalert.css" type="text/css" rel="stylesheet" />
 
 <!-- Custom CSS -->
 <link href="css/business-casual.css" rel="stylesheet" />
 <link href="css/formazioniStyle.css" rel="stylesheet" />
+
+<!-- Navbar CSS -->
+<link href="css/sweetalert.css" type="text/css" rel="stylesheet" />
+<link href="css/modal.css" type="text/css" rel="stylesheet" />
+<link href="css/sweetalert2.css" type="text/css" rel="stylesheet" />
+
+
 
 
 <title>FantaBomber - Mercato</title>
@@ -243,53 +245,6 @@
 			</div>
 		</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	</div>
 	<!-- /.container -->
 
@@ -309,16 +264,17 @@
 	<script src="js/jquery.dataTables.min.js"></script>
 	<script src="js/dataTables.bootstrap.min.js"></script>
 
+	<!-- Custom JavaScript -->
 	<script src="Script/gestioneMercato.js"></script>
-
-
-
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#tabellaPartecipanti').DataTable();
 		});
 	</script>
-
+	
+	
+	
+	
 
 </body>
 </html>
