@@ -12,14 +12,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+<!-- Navbar CSS -->
 <link href="css/sweetalert.css" type="text/css" rel="stylesheet" />
-<link href="css/sweetalert2.css" type="text/css" rel="stylesheet" />
 <link href="css/modal.css" type="text/css" rel="stylesheet" />
+<link href="css/sweetalert2.css" type="text/css" rel="stylesheet" />
+
 <!-- Custom CSS -->
 <link href="css/business-casual.css" rel="stylesheet" />
+
+
 <title>FantaBomber - Home</title>
 </head>
 <body>
@@ -194,6 +198,7 @@
 
 
 	<%@ include file="../fragments/footer.html"%>
+	
 	<!-- jQuery -->
 	<script src="Script/jquery-3.1.1.min.js" type="text/javascript"></script>
 
@@ -204,7 +209,9 @@
 	<script src="Script/CreaCampionato.js"></script>
 	<script src="Script/caricaCampionato.js"></script>
 	<script src="Script/loginCampionato.js"></script>
-	<script src="Script/gestioneMercato.js"></script>
+	
+	<!-- Custom JavaScript -->
+	<script src="Script/modal.js"></script>	
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#home-btn').css({
@@ -212,6 +219,5 @@
 			});
 		});
 	</script>
-	<script src="Script/modal.js"></script>
 </body>
 </html>

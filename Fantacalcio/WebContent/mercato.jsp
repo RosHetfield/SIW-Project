@@ -266,7 +266,10 @@
 
 	<!-- Custom JavaScript -->
 	<script src="Script/gestioneMercato.js"></script>
-		<script src="Script/loginCampionato.js"></script>
+	<script src="Script/loginCampionato.js"></script>
+	<script src="Script/modal.js"></script>
+	
+	
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#tabellaPartecipanti').DataTable();

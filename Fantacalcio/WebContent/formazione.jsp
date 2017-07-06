@@ -112,8 +112,8 @@ tbody>tr {
 	<%@ include file="../fragments/homeNavbar.html"%>
 
 
-	<div class="  col-lg-12 ">
-		<div class="col-lg-6 box">
+	<div class="  col-lg-12 box">
+		<div class="col-lg-6 ">
 			<select id="myselect">
 				<option value="1">4-4-2</option>
 				<option value="2">4-3-3</option>
@@ -122,7 +122,7 @@ tbody>tr {
 			</select>
 
 		</div>
-		<div class="col-lg-6 box">
+		<div class="col-lg-6 ">
 			<button type="button" class="btn btn-primary btn-block"
 				onclick="salvaFormazione()">Salva formazione</button>
 

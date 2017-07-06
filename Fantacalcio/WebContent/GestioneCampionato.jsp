@@ -25,6 +25,8 @@
 
 <!-- sweetAlert CSS -->
 <link href="css/sweetalert.css" type="text/css" rel="stylesheet" />
+<link href="css/sweetalert2.css" type="text/css" rel="stylesheet" />
+
 
 <!-- Custom CSS -->
 <link href="css/business-casual.css" rel="stylesheet" />
@@ -299,6 +301,8 @@
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/sweetalert.min.js"></script>
+	<script src="js/sweetalert2.min.js"></script>
+	
 
 	<!-- Table JavaScript library -->
 	<script src="js/jquery.dataTables.min.js"></script>
