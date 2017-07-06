@@ -14,21 +14,20 @@ function checkFormazione() {
 
 				swal({
 					title : "Attenzione!",
-					text : "Nessuna Partita da giocare ",
+					text : "Nessuna partita da giocare",
 					type : "error",
 					confirmButtonText : "Ok"
 				});
 				succ = false;
 			}
 			if (data == 0) {
-				console.log("aviss i trasr")
 				location.href = "Formazione";
 				succ = true;
 			}
 			if (data == 2) {
 				swal({
-					title : "Attenzione!",
-					text : "Inserimento formazione Chiuso ",
+					title : "Mercato Aperto!",
+					text : "Impossibile gestire la formazione",
 					type : "error",
 					confirmButtonText : "Ok"
 				});

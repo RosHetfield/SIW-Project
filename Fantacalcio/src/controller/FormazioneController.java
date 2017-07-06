@@ -81,23 +81,22 @@ public class FormazioneController extends HttpServlet {
 				for (Giocatore_in_formazione giocatore : ultima.getGiocatoriPerSquadra(s)) {
 					if (giocatore.isTitolare()) {
 						inFormazione.add(giocatore.getGiocatoreInRosa().getGiocatore());
-					}
-					else {
+					} else {
 						inPanchina.add(giocatore.getGiocatoreInRosa().getGiocatore());
 					}
-					
+
 					for (Giocatore g : giocatoriInRosa) {
-						if(g.getNome().equals(giocatore.getGiocatoreInRosa().getGiocatore().getNome())) {
+						if (g.getNome().equals(giocatore.getGiocatoreInRosa().getGiocatore().getNome())) {
 							System.out.println("QUIIIi");
 							temp.add(g);
 						}
-					}					
-					
+					}
+
 				}
-				for(Giocatore g : temp) {
+				for (Giocatore g : temp) {
 					giocatoriInRosa.remove(g);
 				}
-				
+
 				inFormazione.sort(new Comparator<Giocatore>() {
 
 					@Override
@@ -105,7 +104,7 @@ public class FormazioneController extends HttpServlet {
 						return o2.getRuolo().compareTo(o1.getRuolo());
 					}
 				});
-				
+
 				inPanchina.sort(new Comparator<Giocatore>() {
 
 					@Override
@@ -175,28 +174,25 @@ public class FormazioneController extends HttpServlet {
 			if (campionato != null && squadra != null) {
 				Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
 				Partita giornata = DBManager.getInstance().getPartita().getUltimaGiornataGiocabile(campionato);
-//				Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata.getGiornata(), campionato);
-				request.getSession().setAttribute("giornata", giornata.getGiornata());
 
 				if (!camp.isMercato()) {
-					if (System.currentTimeMillis() < giornata.getData().getTime()) {
-						if (DBManager.getInstance().getGiocatore_in_rosa().isSquadraCompleta(squadra)) {
-							response.getWriter().print(0);
-							System.out.println("caso 0");
+					if (giornata != null && System.currentTimeMillis() < giornata.getData().getTime()) {
+						request.getSession().setAttribute("giornata", giornata.getGiornata());
+							if (DBManager.getInstance().getGiocatore_in_rosa().isSquadraCompleta(squadra)) {
+								response.getWriter().print(0);
+								System.out.println("caso 0");
+							} else {
+								response.getWriter().print(3);
+								System.out.println("caso 3");
+							}
 						} else {
-							response.getWriter().print(3);
-							System.out.println("caso 3");
+							response.getWriter().print(1);
+							System.out.println("caso 1");
 						}
 					} else {
-						response.getWriter().print(1);
-						System.out.println("caso 1");
-
+						response.getWriter().print(2);
+						System.out.println("caso 2");
 					}
-				} else {
-					response.getWriter().print(2);
-					System.out.println("caso 2");
-
-				}
 
 			}
 
