@@ -42,6 +42,14 @@ function creaGiornata() {
 					confirmButtonText : "Ok"
 				});
 			}
+			else if(res.status == 2) {
+				swal({
+					title : "Impossibile creare la giornata!",
+					text : "Calcolare la giornata " + res.giornata + "!",
+					type : "warning",
+					confirmButtonText : "Ok"
+				});
+			}
 		},
 		error : function() {
 
