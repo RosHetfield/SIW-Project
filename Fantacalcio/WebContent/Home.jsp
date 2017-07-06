@@ -124,8 +124,7 @@
 					<h2 class="intro-text text-center">
 						<strong>I tuoi campionati</strong>
 					</h2>
-					<hr>
-						
+					<hr>				
 						<button type="button" class="btn btn-default btn-block">Button 1</button> 
 
 				</div>
