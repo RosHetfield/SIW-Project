@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +19,7 @@
 
 <!-- Fonts -->
 
-<title>FantaBomber - Carica giornata</title>
+<title>FantaBomber - Calcola Giornata</title>
 
 </head>
 
@@ -34,7 +37,7 @@
 				<form method="post" enctype="multipart/form-data">
 					<hr>
 					<h2 class="intro-text text-center">
-						<strong>Calcola giornata</strong>
+						<strong>Calcola giornata ${giornata }</strong>
 					</h2>
 					<hr>
 					<div class="row col-lg-12">
@@ -46,19 +49,7 @@
 						
 						</div>
 					
-						<!-- Single button -->
-						<div class="btn-group col-lg-6 col-sm-6 col-12">
-							<button type="button" class="btn btn-default dropdown-toggle"
-								data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false">
-								Action <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-
-							</ul>
-						</div>
+						
 					</div>
 <br><br>
 					
