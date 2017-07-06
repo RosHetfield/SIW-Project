@@ -37,7 +37,6 @@ public class CaricaVotiController extends HttpServlet {
 	 */
 	public CaricaVotiController() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -46,9 +45,6 @@ public class CaricaVotiController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// response.getWriter().append("Served at:
-		// ").append(request.getContextPath());
 		doPost(request, response);
 	}
 
@@ -107,8 +103,8 @@ public class CaricaVotiController extends HttpServlet {
 				int goalVittoria = (int) row.getCell(14).getNumericCellValue();
 				int goalPareggio = (int) row.getCell(15).getNumericCellValue();
 
-				double fantavoto = votazione + (goalFatto * 3) - (goalSubito) + assist_totali - ammonito - (espulso * 3)
-						- (autorete * 3) + (goalSuRigore * 2) + (rigoreParato * 3) - (rigoreSbagliato * 3)
+				double fantavoto = votazione + (goalFatto * 3) - (goalSubito) + assist_totali - (ammonito * 0.5) - (espulso)
+						- (autorete * 2) + (goalSuRigore * 2) + (rigoreParato * 3) - (rigoreSbagliato * 3)
 						+ goalVittoria + goalPareggio;
 
 				voto.setVoto(votazione);
@@ -130,8 +126,7 @@ public class CaricaVotiController extends HttpServlet {
 
 			votazioni.close();
 
-			response.setContentType("text/html");
-//			response.getWriter().print("File Caricato!");
+
 			RequestDispatcher dispatcher = request.getRequestDispatcher("CalcolaGiornata");
 			dispatcher.forward(request, response);
 		}

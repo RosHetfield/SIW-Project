@@ -66,25 +66,30 @@ function creaGiornata() {
 }
 
 function calcola() {
+    var s;
 	$.ajax({
 
-		async : true,
+		async : false,
 		type : "GET",
 		url : "CalcolaRisultati",
 		datatype : "json",
 		data : { },
 		success : function(data) {
+			s = true;
 			
-			/*if(data == 1) {
+			if(data == 1) {
+				s = false;
 				swal({
 					title : "Attenzione!",
 					text : "Nessuna giornata da calcolare.",
 					type : "warning",
 					confirmButtonText : "Ok"
 				});
-			}*/
+				
+			}
 		},
 		error : function() {
+			s = false;
 
 			swal({
 				title : "Errore!",
@@ -92,8 +97,8 @@ function calcola() {
 				type : "error",
 				confirmButtonText : "Ok"
 			});
-
 		}
-
 	});
+	return Boolean(s);
+        
 }

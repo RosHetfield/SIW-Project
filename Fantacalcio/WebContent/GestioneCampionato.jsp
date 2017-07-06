@@ -202,9 +202,9 @@
 
 
 
-						
-							<input class="btn btn-primary" type="button" value="Calcola" onclick=" calcola()" />
-						
+						<form action="CalcolaRisultati" onclick="return calcola()">
+							<input class="btn btn-primary" type="submit" value="Calcola" />
+						</form>
 
 					</div>
 				</div>
@@ -292,7 +292,7 @@
 
 	<!-- jQuery -->
 
-
+<script src="Script/jquery-3.1.1.min.js" type="text/javascript"></script>
 
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -306,8 +306,6 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('#tabellaPartecipanti').DataTable();
-			$('#tabellaAggiungi').DataTable();
 			$("#datepicker").datepicker();
 		});
 	</script>

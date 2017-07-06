@@ -13,7 +13,8 @@
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
 <link href="css/sweetalert.css" type="text/css" rel="stylesheet" />
-
+<link href="css/sweetalert.css" type="text/css" rel="stylesheet" />
+<link href="css/sweetalert2.css" type="text/css" rel="stylesheet" />
 <!-- Custom CSS -->
 <link href="css/business-casual.css" rel="stylesheet" />
 
@@ -55,7 +56,7 @@
 					
 
 					<div class="col-lg-12">
-						<input type="submit" value="Calcola" id="btnUpload"
+						<input type="button" value="Calcola" id="btnUpload"
 							class="btn-primary btn-lg btn-block">
 					</div>
 
@@ -86,6 +87,7 @@
 
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/sweetalert.min.js"></script>
+	<script src="js/sweetalert2.min.js"></script>
 
 </body>
 
