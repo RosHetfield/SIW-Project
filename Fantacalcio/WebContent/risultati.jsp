@@ -18,12 +18,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
 
 <!-- Custom CSS -->
 <link href="css/business-casual.css" rel="stylesheet" />
 <link href="css/formazioniStyle.css" rel="stylesheet" />
+
+<!-- <link href="css/formazioniStyle.css" rel="stylesheet" />
+  -->
+<!-- Navbar CSS -->
+<link href="css/sweetalert.css" type="text/css" rel="stylesheet" />
+<link href="css/modal.css" type="text/css" rel="stylesheet" />
+<link href="css/sweetalert2.css" type="text/css" rel="stylesheet" />
 
 
 <title>FantaBomber - Formazioni</title>
@@ -377,13 +385,27 @@
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
 
+	<!-- Custom JavaScript -->
+	<script src="Script/modal.js"></script>
 	<script src="Script/storicoRisultati.js"></script>
-
 
 	<script>
 		$(document).ready(function() {
 			$('[data-toggle="tooltip"]').tooltip();
 		});
 	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

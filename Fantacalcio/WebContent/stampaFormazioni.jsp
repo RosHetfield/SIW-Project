@@ -24,6 +24,11 @@
 <link href="css/business-casual.css" rel="stylesheet" />
 <link href="css/formazioniStyle.css" rel="stylesheet" />
 
+<!-- Navbar CSS -->
+<link href="css/sweetalert.css" type="text/css" rel="stylesheet" />
+<link href="css/modal.css" type="text/css" rel="stylesheet" />
+<link href="css/sweetalert2.css" type="text/css" rel="stylesheet" />
+
 
 <title>FantaBomber - Formazioni</title>
 
@@ -228,11 +233,6 @@
 
 			</div>
 
-
-
-
-
-
 		</div>
 
 
@@ -249,10 +249,14 @@
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
 
+	<!-- Custom JavaScript -->
+	<script src="Script/modal.js"></script>
+
 	<script>
 		$(document).ready(function() {
 			$('[data-toggle="tooltip"]').tooltip();
 		});
 	</script>
+
 </body>
 </html>

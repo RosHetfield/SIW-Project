@@ -9,13 +9,12 @@
 <!doctype html>
 <html lang="en">
 <head>
+
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FantaBomber - Formazioni</title>
 
-
-
+<title>FantaBomber - Inserisci formazione</title>
 
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -28,13 +27,25 @@
 <link href="css/formazioniStyle.css" rel="stylesheet" />
 
 
+<!-- Navbar CSS -->
 <link href="css/sweetalert.css" type="text/css" rel="stylesheet" />
+<link href="css/modal.css" type="text/css" rel="stylesheet" />
 <link href="css/sweetalert2.css" type="text/css" rel="stylesheet" />
+
+
+
+
+
+
+
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="js/sweetalert.min.js"></script>
 <script src="js/sweetalert2.min.js"></script>
+
+
+
 
 
 <style>
