@@ -75,16 +75,14 @@ function calcola() {
 		data : { },
 		success : function(data) {
 			
-			if(data == 1) {
+			/*if(data == 1) {
 				swal({
 					title : "Attenzione!",
 					text : "Nessuna giornata da calcolare.",
 					type : "warning",
 					confirmButtonText : "Ok"
 				});
-				return false;
-			}
-			return true;
+			}*/
 		},
 		error : function() {
 

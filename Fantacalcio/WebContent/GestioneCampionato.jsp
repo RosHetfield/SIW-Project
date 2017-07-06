@@ -203,7 +203,7 @@
 
 
 						
-							<input class="btn btn-primary" type="button" value="Calcola" onclick="return calcola()" />
+							<input class="btn btn-primary" type="button" value="Calcola" onclick=" calcola()" />
 						
 
 					</div>

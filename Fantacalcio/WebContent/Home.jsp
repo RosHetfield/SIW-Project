@@ -124,8 +124,30 @@
 					<h2 class="intro-text text-center">
 						<strong>I tuoi campionati</strong>
 					</h2>
-					<hr>				
-						<button type="button" class="btn btn-default btn-block">Button 1</button> 
+					<hr>
+
+					<div class="list-group">
+
+						<%
+							List<String> campionati = (List<String>) request.getSession().getAttribute("CampionatiUtente");
+							if (campionati.isEmpty()) {
+						%>
+
+						<a href="#" class="list-group-item">Nessun campionato</a>
+						<%
+							} else {
+						%>
+						<c:forEach var="p" items="${CampionatiUtente}">
+
+							<a onclick="caricaCampionato('${p}') " class="list-group-item">${p}</a>
+
+
+
+						</c:forEach>
+						<%
+							}
+						%>
+					</div>
 				</div>
 			</div>
 		</div>
