@@ -165,12 +165,19 @@
 	<!-- Custom JavaScript -->
 	<script src="Script/modal.js"></script>
 	<script src="Script/storicoClassifica.js"></script>
+		<script src="Script/loginCampionato.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#tabellaClassifica').DataTable();
 		});
 	</script>
-
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#Classifica').css({
+				'background-color' : '#e7e7e7'
+			});
+		});
+	</script>
 
 
 </body>

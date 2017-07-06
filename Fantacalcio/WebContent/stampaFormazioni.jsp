@@ -251,12 +251,18 @@
 
 	<!-- Custom JavaScript -->
 	<script src="Script/modal.js"></script>
-
+	<script src="Script/loginCampionato.js"></script>
 	<script>
 		$(document).ready(function() {
 			$('[data-toggle="tooltip"]').tooltip();
 		});
 	</script>
-
+<script type="text/javascript">
+		$(document).ready(function() {
+			$('#Formazioni').css({
+				'background-color' : '#e7e7e7'
+			});
+		});
+	</script>
 </body>
 </html>

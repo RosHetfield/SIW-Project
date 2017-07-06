@@ -388,14 +388,20 @@
 	<!-- Custom JavaScript -->
 	<script src="Script/modal.js"></script>
 	<script src="Script/storicoRisultati.js"></script>
-
+	<script src="Script/loginCampionato.js"></script>
 	<script>
 		$(document).ready(function() {
 			$('[data-toggle="tooltip"]').tooltip();
 		});
 	</script>
 
-
+<script type="text/javascript">
+		$(document).ready(function() {
+			$('#Risultati').css({
+				'background-color' : '#e7e7e7'
+			});
+		});
+	</script>
 
 
 

@@ -367,7 +367,14 @@ tbody>tr {
 	<script src="js/bootstrap.min.js"></script>
 	<script src="Script/formazione.js"></script>
 	<script src="Script/gestioneFormazione.js"></script>
-
+		<script src="Script/loginCampionato.js"></script>
+<script type="text/javascript">
+		$(document).ready(function() {
+			$('#GestioneFormazione').css({
+				'background-color' : '#e7e7e7'
+			});
+		});
+	</script>
 
 
 </body>
