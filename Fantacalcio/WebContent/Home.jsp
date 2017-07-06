@@ -125,11 +125,8 @@
 						<strong>I tuoi campionati</strong>
 					</h2>
 					<hr>
-					<ul class="list-group">
-						<li class="list-group-item">First item</li>
-						<li class="list-group-item">Second item</li>
-						<li class="list-group-item"><a href="Inviti">Inviti</a></li>
-					</ul>
+						
+						<button type="button" class="btn btn-default btn-block">Button 1</button> 
 
 				</div>
 			</div>
