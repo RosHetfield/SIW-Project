@@ -209,4 +209,7 @@
     <servlet-name>CalcolaRisultatiController</servlet-name>
     <url-pattern>/CalcolaRisultati</url-pattern>
   </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>Index</welcome-file>
+  </welcome-file-list>
 </web-app>
