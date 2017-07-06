@@ -45,7 +45,7 @@ function creaGiornata() {
 			else if(res.status == 2) {
 				swal({
 					title : "Impossibile creare la giornata!",
-					text : "Calcolare la giornata " + res.giornata + "!",
+					text : "Calcolare la giornata " + res.giornata,
 					type : "warning",
 					confirmButtonText : "Ok"
 				});
@@ -56,6 +56,41 @@ function creaGiornata() {
 			swal({
 				title : "Errore!",
 				text : "Impossibile creare la giornata.",
+				type : "error",
+				confirmButtonText : "Ok"
+			});
+
+		}
+
+	});
+}
+
+function calcola() {
+	$.ajax({
+
+		async : true,
+		type : "GET",
+		url : "CalcolaRisultati",
+		datatype : "json",
+		data : { },
+		success : function(data) {
+			
+			if(data == 1) {
+				swal({
+					title : "Attenzione!",
+					text : "Nessuna giornata da calcolare.",
+					type : "warning",
+					confirmButtonText : "Ok"
+				});
+				return false;
+			}
+			return true;
+		},
+		error : function() {
+
+			swal({
+				title : "Errore!",
+				text : "Impossibile eseguire l'operazione.",
 				type : "error",
 				confirmButtonText : "Ok"
 			});

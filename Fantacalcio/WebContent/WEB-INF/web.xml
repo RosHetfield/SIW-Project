@@ -201,4 +201,12 @@
     <servlet-name>RisultatiController</servlet-name>
     <url-pattern>/Risultati</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>CalcolaRisultatiController</servlet-name>
+    <servlet-class>controller.CalcolaRisultatiController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CalcolaRisultatiController</servlet-name>
+    <url-pattern>/CalcolaRisultati</url-pattern>
+  </servlet-mapping>
 </web-app>

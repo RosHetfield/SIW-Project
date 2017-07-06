@@ -202,17 +202,9 @@
 
 
 
-
-						<div>
-							<button type="button" class="btn btn-default"
-								action="calcolaGiornata.html" aria-label="Left Align">Calcola</button>
-						</div>
-
-
-
-						<form action="calcolaGiornata.html">
-							<input class="btn btn-primary" type="submit" value="Calcola" />
-						</form>
+						
+							<input class="btn btn-primary" type="button" value="Calcola" onclick="return calcola()" />
+						
 
 					</div>
 				</div>
