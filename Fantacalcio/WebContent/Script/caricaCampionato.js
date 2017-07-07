@@ -1,16 +1,11 @@
+function aggiungiNavbarSquadra() {
 
-function aggiungiNavbarSquadra(){
-	
 	console.log(campionato);
-	
+
 }
 
-
-
 function caricaCampionato(c) {
-	
-	
-	
+
 	$.ajax({
 
 		async : true,
@@ -25,26 +20,25 @@ function caricaCampionato(c) {
 		success : function(data) {
 
 			if (data != 0) {
-				
-				var squadra=JSON.parse(data);
 
-				location.href="Classifica";
-					
-			
+				var squadra = JSON.parse(data);
+
+				location.href = "Classifica";
+
 			}
-			
-			else{
+
+			else {
 				swal({
-					title : "oooooooooo!",
+					title : "Errore!",
 					text : "Ittttttttttttttt",
 					type : "error",
 					confirmButtonText : "Ok"
 				});
-				}		
-	
+			}
+
 		},
 		error : function() {
-			
+
 			swal({
 				title : "Errore!",
 				text : "Impossibile caricare il campionato.",
@@ -57,4 +51,3 @@ function caricaCampionato(c) {
 	});
 
 }
-

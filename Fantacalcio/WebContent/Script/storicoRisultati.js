@@ -1,6 +1,6 @@
 function caricaGiornata(g) {
-	$(document).ready(function(){
-		
+	$(document).ready(function() {
+
 		$.ajax({
 
 			async : true,
@@ -8,11 +8,11 @@ function caricaGiornata(g) {
 			url : "Risultati",
 			datatype : "json",
 			data : {
-				
-				giornata:JSON.stringify(g)
+
+				giornata : JSON.stringify(g)
 			},
 			success : function(data) {
-				location.href="Risultati";
+				location.href = "Risultati";
 			},
 			error : function(data) {
 				swal({
@@ -26,4 +26,3 @@ function caricaGiornata(g) {
 
 	});
 }
-

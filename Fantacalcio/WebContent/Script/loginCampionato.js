@@ -49,8 +49,7 @@ function loginCampionato(form) {
 
 				successBoolean = false;
 
-			}
-			else if (data == 2) {
+			} else if (data == 2) {
 				swal({
 					title : "Nome errato!",
 					type : "warning",

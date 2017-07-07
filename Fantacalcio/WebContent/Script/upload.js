@@ -1,14 +1,14 @@
 $('#btnUpload').click(function() {
 
-	var fileTypes = [ 'xls', 'xlsx' ]; 
+	var fileTypes = [ 'xls', 'xlsx' ];
 	var input = $('#file')[0];
 	if (input.files && input.files[0]) {
-		var extension = input.files[0].name.split('.').pop().toLowerCase(), 
-																			
+		var extension = input.files[0].name.split('.').pop().toLowerCase(),
+
 		isSuccess = fileTypes.indexOf(extension) > -1;
 
 		if (isSuccess) {
-			var file = $('#file')[0].files[0]; 
+			var file = $('#file')[0].files[0];
 			if (file == null) {
 				alert('selezionare file');
 				return;

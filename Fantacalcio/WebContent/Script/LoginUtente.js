@@ -4,7 +4,6 @@ function Utente(username, nome, cognome, email, password) {
 }
 
 function getCredenzialiForm() {
-	console.log("aaaaaaaaaaaaaaaaaaaaaaa");
 	var campi = $("#formLogin").find("input");
 
 	var campo = campi.eq(0);
@@ -12,14 +11,13 @@ function getCredenzialiForm() {
 
 	campo = campi.eq(1);
 	var password = campo.val();
-	
+
 	var nome, cognome, email = null;
 	var utente = new Utente(username, nome, cognome, email, password);
 	return utente;
 }
 
 function controlLoginUtente(form) {
-	console.log("bbbbbbbbbbbbbb");
 
 	var successBoolean = false;
 	var credenziali = getCredenzialiForm();
@@ -53,8 +51,7 @@ function controlLoginUtente(form) {
 
 				successBoolean = false;
 
-			}
-			else if (data == 2) {
+			} else if (data == 2) {
 				swal({
 					title : "Username errato!",
 					type : "error",
@@ -63,17 +60,16 @@ function controlLoginUtente(form) {
 				form.Username.value = '';
 				form.Username.focus();
 				form.Username.select();
-				form.Password.value='';
+				form.Password.value = '';
 				successBoolean = false;
 			} else if (data == 0) {
-				form.Password.value='';
-//				successBoolean = true;
+				form.Password.value = '';
 				location.href = "Home"
 			}
 
 		},
 		error : function(data) {
-			form.Password.value='';
+			form.Password.value = '';
 			swal({
 				title : "Errore!",
 				text : "Impossibile completare il login.",

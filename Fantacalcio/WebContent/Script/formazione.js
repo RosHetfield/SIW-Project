@@ -24,25 +24,21 @@ var receivePT = function(event, ui) {
 		if (ui.sender.attr("id") == "tbody3") {
 			PP--;
 		}
-		console.log("PortieriT " + PT);
 	} else if ($(ui.item).hasClass('D') && DT < DM) {
 		DT++;
 		if (ui.sender.attr("id") == "tbody3") {
 			DP--;
 		}
-		console.log("DifensoriT " + DT);
 	} else if ($(ui.item).hasClass('C') && CT < CM) {
 		CT++;
 		if (ui.sender.attr("id") == "tbody3") {
 			CP--;
 		}
-		console.log("CentrocampistiT " + CT);
 	} else if ($(ui.item).hasClass('A') && AT < AM) {
 		AT++;
 		if (ui.sender.attr("id") == "tbody3") {
 			AP--;
 		}
-		console.log("AttaccantiT " + AT);
 	} else {
 		$(ui.sender).sortable('cancel');
 
@@ -56,25 +52,21 @@ var receivePP = function(event, ui) {
 		if (ui.sender.attr("id") == "tbody2") {
 			PT--;
 		}
-		console.log("PortieriP " + PP);
 	} else if ($(ui.item).hasClass('D') && DP < 2) {
 		DP++;
 		if (ui.sender.attr("id") == "tbody2") {
 			DT--;
 		}
-		console.log("DifensoriP " + DP);
 	} else if ($(ui.item).hasClass('C') && CP < 2) {
 		CP++;
 		if (ui.sender.attr("id") == "tbody2") {
 			CT--;
 		}
-		console.log("CentrocampistiP " + CP);
 	} else if ($(ui.item).hasClass('A') && AP < 2) {
 		AP++;
 		if (ui.sender.attr("id") == "tbody2") {
 			AT--;
 		}
-		console.log("AttaccantiP " + AP);
 	} else {
 		$(ui.sender).sortable('cancel');
 
@@ -105,7 +97,6 @@ var receiveAll = function(event, ui) {
 	if ($(ui.sender).attr('id') == "tbody2") {
 		if ($(ui.item).hasClass('P')) {
 			PT--;
-			console.log("Portieri T" + PT)
 		} else if ($(ui.item).hasClass('D')) {
 			DT--;
 		} else if ($(ui.item).hasClass('C')) {
@@ -116,7 +107,6 @@ var receiveAll = function(event, ui) {
 	} else if ($(ui.sender).attr('id') == "tbody3") {
 		if ($(ui.item).hasClass('P')) {
 			PP--;
-			console.log("Portieri P" + PP)
 		} else if ($(ui.item).hasClass('D')) {
 			DP--;
 		} else if ($(ui.item).hasClass('C')) {
@@ -128,26 +118,24 @@ var receiveAll = function(event, ui) {
 }
 
 function init() {
-	
+
 	PT = $('#tbody2 .P').length;
 	DT = $('#tbody2 .D').length;
 	CT = $('#tbody2 .C').length;
 	AT = $('#tbody2 .A').length;
-	
+
 	PP = $('#tbody3 .P').length;
 	DP = $('#tbody3 .D').length;
 	CP = $('#tbody3 .C').length;
 	AP = $('#tbody3 .A').length;
-	
-	$( "#myselect" )
-	  .change(function() {
-	   
-	    $( "#myselect option:selected" ).each(function() {
-	      setModulo( $( this ).val() );
-	    });
-	  
-	  })
-	  .trigger( "change" );
+
+	$("#myselect").change(function() {
+
+		$("#myselect option:selected").each(function() {
+			setModulo($(this).val());
+		});
+
+	}).trigger("change");
 
 	$("#tbody1").sortable({
 		helper : fixHelper,
@@ -175,8 +163,7 @@ function init() {
 		stop : stopMoving,
 		receive : receivePP
 	}).disableSelection();
-	
-	
+
 }
 
 $(document).ready(init);
