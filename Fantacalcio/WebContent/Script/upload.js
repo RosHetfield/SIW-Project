@@ -10,14 +10,16 @@ $('#btnUpload').click(function() {
 		if (isSuccess) {
 			var file = $('#file')[0].files[0];
 			if (file == null) {
-				alert('selezionare file');
-				return;
+				swal({
+					title : "Attenzione!",
+					text : "Selezionare file",
+					type : "error",
+					confirmButtonText : "Ok"
+				});				return;
 			}
 
 			var formData = new FormData();
-			if (formData == null) {
-				console.log("nullo");
-			}
+			
 			formData.append('file', file);
 
 			$.ajax({

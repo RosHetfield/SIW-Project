@@ -30,7 +30,7 @@ function caricaCampionato(c) {
 			else {
 				swal({
 					title : "Errore!",
-					text : "Ittttttttttttttt",
+					text : "Impossibile caricare il campionato.",
 					type : "error",
 					confirmButtonText : "Ok"
 				});
