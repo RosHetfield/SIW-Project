@@ -119,38 +119,6 @@ public class PartitaDAOJdbc implements PartitaDAO {
 	}
 
 	@Override
-	public Partita getPartitaGiocabile(String campionato) {
-		//// Connection connection = this.dataSource.getConnection();
-		Partita partita = null;
-		// try {
-		// PreparedStatement statement;
-		// String query = "select * from partita where
-		// \"aggiungiFormazione\"=true and campionato = ?";
-		// statement = connection.prepareStatement(query);
-		// statement.setString(1, campionato);
-		//
-		// ResultSet result = statement.executeQuery();
-		//
-		// if (result.next()) {
-		// partita=new Partita();
-		// partita.setAggiungiFormazione(result.getBoolean("aggiungiFormazione"));
-		// partita.setGiornata(result.getInt("giornata"));
-		// //////////////////
-		// }
-		// } catch (SQLException e) {
-		// throw new RuntimeException(e.getMessage());
-		// } finally {
-		// try {
-		// connection.close();
-		// } catch (SQLException e) {
-		// throw new RuntimeException(e.getMessage());
-		// }
-		// }
-		//
-		return partita;
-	}
-
-	@Override
 	public Partita getUltimaGiornataGiocabile(String campionato) {
 		Connection connection = this.dataSource.getConnection();
 		Partita partita = null;

@@ -249,9 +249,14 @@
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
 
+	<script src="js/sweetalert.min.js"></script>
+	<script src="js/sweetalert2.min.js"></script>
+
 	<!-- Custom JavaScript -->
 	<script src="Script/modal.js"></script>
 	<script src="Script/loginCampionato.js"></script>
+	<script src="Script/gestioneFormazione.js"></script>
+	<script src="Script/gestioneMercato.js"></script>
 	<script>
 		$(document).ready(function() {
 			$('[data-toggle="tooltip"]').tooltip();
@@ -264,5 +269,8 @@
 			});
 		});
 	</script>
+
+	
+
 </body>
 </html>

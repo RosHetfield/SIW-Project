@@ -153,6 +153,9 @@
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
 
+	<script src="js/sweetalert.min.js"></script>
+	<script src="js/sweetalert2.min.js"></script>
+
 	<!-- Table JavaScript library -->
 	<script src="js/jquery-1.12.4.js"></script>
 	<script src="js/jquery.dataTables.min.js"></script>
@@ -164,8 +167,10 @@
 	<script src="Script/storicoClassifica.js"></script>
 	<script src="Script/loginCampionato.js"></script>
 	<script src="Script/modal.js"></script>
-	
-	
+	<script src="Script/gestioneFormazione.js"></script>
+	<script src="Script/gestioneMercato.js"></script>
+
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#tabellaClassifica').DataTable();

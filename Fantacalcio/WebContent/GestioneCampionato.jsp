@@ -299,7 +299,6 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
 	<script src="js/sweetalert.min.js"></script>
 	<script src="js/sweetalert2.min.js"></script>
 	
@@ -307,6 +306,8 @@
 	<!-- Table JavaScript library -->
 	<script src="js/jquery.dataTables.min.js"></script>
 	<script src="js/dataTables.bootstrap.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	
 
 	<script type="text/javascript">
 		$(document).ready(function() {

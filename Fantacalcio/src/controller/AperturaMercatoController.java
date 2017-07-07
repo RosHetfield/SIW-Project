@@ -60,13 +60,13 @@ public class AperturaMercatoController extends HttpServlet {
 					Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
 					if (apertura.equals("t")) {
 						Partita giornata = DBManager.getInstance().getPartita().getUltimaGiornataGiocabile(campionato);
-						Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata.getGiornata(), campionato);
-						if(partita == null) {
+					//	Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata.getGiornata(), campionato);
+						if(giornata == null) {
 							camp.setMercato(true);
 							DBManager.getInstance().getCampionato().update(camp);
 							response.getWriter().println(0);
 						}
-						else if (partita.getData().getTime() < System.currentTimeMillis()) {
+						else if (giornata.getData().getTime() < System.currentTimeMillis()) {
 							camp.setMercato(true);
 							DBManager.getInstance().getCampionato().update(camp);
 							response.getWriter().println(0);

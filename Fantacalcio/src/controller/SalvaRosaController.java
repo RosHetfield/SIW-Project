@@ -38,7 +38,7 @@ public class SalvaRosaController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		response.setContentType("text/html");
 		String username = (String) request.getSession().getAttribute("Username");
 		System.out.println("PRIMA " + username);
 		if (username != null) {

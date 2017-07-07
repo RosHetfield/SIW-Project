@@ -52,7 +52,7 @@ public class AperturaFormazioneController extends HttpServlet {
 
 					String apertura = (String) mapper.readValue(jsString, String.class);
 					response.setContentType("text/html");
-					Partita part = DBManager.getInstance().getPartita().getPartitaGiocabile(campionato);
+					Partita part = DBManager.getInstance().getPartita().getUltimaGiornataGiocabile(campionato);
 					if(part != null){
 					if(apertura.equals("t")) {
 //						part.setAggiungiFormazione(true);
