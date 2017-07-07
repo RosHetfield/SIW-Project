@@ -1,13 +1,6 @@
 package model;
 
-import java.io.Serializable;
-
-public class Voto_giornata implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -5845907666812671831L;
+public class Voto_giornata {
 
 	private int giornata;
 	private double voto;
@@ -24,12 +17,13 @@ public class Voto_giornata implements Serializable {
 	private int goalVittoria;
 	private int goalPareggio;
 	private String nomeGiocatore;
-	
-	//riferimenti
+
+	// riferimenti
 	private Giocatore giocatore;
 
-	public Voto_giornata(String nomeGiocatore, int giornata, double voto,double fantavoto, int goalFatto, int goalSubito, int goalSuRigore, int rigoreParato,
-			int rigoreSbagliato, int autorete, int assist, int ammonito, int espulso, int goalVittoria, int goalPareggio) {
+	public Voto_giornata(String nomeGiocatore, int giornata, double voto, double fantavoto, int goalFatto,
+			int goalSubito, int goalSuRigore, int rigoreParato, int rigoreSbagliato, int autorete, int assist,
+			int ammonito, int espulso, int goalVittoria, int goalPareggio) {
 		super();
 		this.nomeGiocatore = nomeGiocatore;
 		this.giornata = giornata;
@@ -84,7 +78,7 @@ public class Voto_giornata implements Serializable {
 	public void setFantavoto(double fantavoto) {
 		this.fantavoto = fantavoto;
 	}
-	
+
 	public int getGoalFatto() {
 		return goalFatto;
 	}
@@ -171,10 +165,6 @@ public class Voto_giornata implements Serializable {
 
 	public void setGoalPareggio(int goalPareggio) {
 		this.goalPareggio = goalPareggio;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 	public String getNomeGiocatore() {

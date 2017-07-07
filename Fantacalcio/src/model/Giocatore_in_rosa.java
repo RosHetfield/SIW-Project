@@ -1,26 +1,19 @@
 package model;
 
-import java.io.Serializable;
+public class Giocatore_in_rosa {
 
-public class Giocatore_in_rosa implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -3407932458575761624L;
-
-	//riferimenti
+	// riferimenti
 	private Giocatore giocatore;
 	private String nomeGiocatore;
 	private String squadra;
 	private boolean completo = false;
 	private boolean rimosso = false;
-	
+
 	public Giocatore_in_rosa(String squadra, String nomeGiocatore) {
 		this.squadra = squadra;
 		this.nomeGiocatore = nomeGiocatore;
 	}
-	
+
 	public Giocatore_in_rosa() {
 		super();
 	}

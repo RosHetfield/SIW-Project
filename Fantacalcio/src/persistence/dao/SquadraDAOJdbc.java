@@ -8,7 +8,6 @@ import java.util.List;
 
 import model.Squadra;
 import model.SquadraProxy;
-import model.Utente;
 import persistence.DataSource;
 
 public class SquadraDAOJdbc implements SquadraDAO {
@@ -22,15 +21,14 @@ public class SquadraDAOJdbc implements SquadraDAO {
 	public void save(Squadra squadra) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			
-			String insert ="insert into squadra(nome, utente, campionato, crediti) values (?, ?, ?, ?)";
+
+			String insert = "insert into squadra(nome, utente, campionato, crediti) values (?, ?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setString(1, squadra.getNome());
 			statement.setString(2, squadra.getUtente().getUsername());
 			statement.setString(3, squadra.getCampionato().getNome());
-			statement.setInt(4, squadra.getCrediti());		
-		
-			
+			statement.setInt(4, squadra.getCrediti());
+
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
@@ -40,7 +38,7 @@ public class SquadraDAOJdbc implements SquadraDAO {
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
 			}
-			
+
 		}
 	}
 
@@ -72,7 +70,7 @@ public class SquadraDAOJdbc implements SquadraDAO {
 			}
 		}
 
-		return squadra;	
+		return squadra;
 	}
 
 	@Override
@@ -85,11 +83,10 @@ public class SquadraDAOJdbc implements SquadraDAO {
 	public void update(Squadra squadra) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update = "update squadra set nome = ?, utente = ?, campionato = ?, crediti = ?"
-					+ "where nome = ?";
+			String update = "update squadra set nome = ?, utente = ?, campionato = ?, crediti = ?" + "where nome = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setString(1, squadra.getNome());
-			statement.setString(2, squadra.getUtente().getUsername());			
+			statement.setString(2, squadra.getUtente().getUsername());
 			statement.setString(3, squadra.getCampionato().getNome());
 			statement.setInt(4, squadra.getCrediti());
 			statement.setString(5, squadra.getNome());
@@ -103,7 +100,7 @@ public class SquadraDAOJdbc implements SquadraDAO {
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
 			}
-			
+
 		}
 	}
 

@@ -7,9 +7,10 @@ public class Classifica {
 	private int partite_giocate;
 	private String campionato;
 	private double totale;
-	
-	public Classifica() { }
-	
+
+	public Classifica() {
+	}
+
 	public Classifica(String squadra, int giornata, int partite_giocate, String campionato, double totale) {
 		this.squadra = squadra;
 		this.giornata = giornata;
@@ -57,5 +58,5 @@ public class Classifica {
 	public void setCampionato(String campionato) {
 		this.campionato = campionato;
 	}
-	
+
 }

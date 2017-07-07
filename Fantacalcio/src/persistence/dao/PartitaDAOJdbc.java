@@ -9,8 +9,6 @@ import java.util.List;
 
 import model.Partita;
 import model.PartitaProxy;
-import model.Squadra;
-import model.SquadraProxy;
 import persistence.DataSource;
 
 public class PartitaDAOJdbc implements PartitaDAO {
@@ -26,7 +24,7 @@ public class PartitaDAOJdbc implements PartitaDAO {
 		try {
 			String insert = "insert into partita(giornata, campionato, data) values (?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
-			statement.setInt(1, partita.getGiornata());		
+			statement.setInt(1, partita.getGiornata());
 			statement.setString(2, partita.getCampionato());
 			long secs = partita.getData().getTime();
 			statement.setDate(3, new Date(secs));
@@ -40,7 +38,7 @@ public class PartitaDAOJdbc implements PartitaDAO {
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
 			}
-			
+
 		}
 	}
 
@@ -55,7 +53,7 @@ public class PartitaDAOJdbc implements PartitaDAO {
 
 			statement.setInt(1, giornata);
 			statement.setString(2, Campionato);
-			
+
 			ResultSet result = statement.executeQuery();
 
 			if (result.next()) {
@@ -64,7 +62,7 @@ public class PartitaDAOJdbc implements PartitaDAO {
 				partita.setCampionato(result.getString("campionato"));
 				long secs = result.getDate("data").getTime();
 				partita.setData(new java.util.Date(secs));
-//////////////////////////////////////////
+				//////////////////////////////////////////
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
@@ -76,7 +74,7 @@ public class PartitaDAOJdbc implements PartitaDAO {
 			}
 		}
 
-		return partita;	
+		return partita;
 	}
 
 	@Override
@@ -88,13 +86,12 @@ public class PartitaDAOJdbc implements PartitaDAO {
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setInt(1, partita.getGiornata());
 			statement.setString(2, partita.getCampionato());
-			
+
 			long secs = partita.getData().getTime();
 			statement.setDate(3, new Date(secs));
 
 			statement.setInt(4, partita.getGiornata());
 			statement.setString(5, partita.getCampionato());
-			
 
 			statement.executeUpdate();
 		} catch (SQLException e) {
@@ -105,7 +102,7 @@ public class PartitaDAOJdbc implements PartitaDAO {
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
 			}
-			
+
 		}
 	}
 
@@ -123,33 +120,34 @@ public class PartitaDAOJdbc implements PartitaDAO {
 
 	@Override
 	public Partita getPartitaGiocabile(String campionato) {
-////		Connection connection = this.dataSource.getConnection();
-		Partita partita=null;
-//		try {
-//			PreparedStatement statement;
-//			String query = "select * from partita where \"aggiungiFormazione\"=true and campionato = ?";
-//			statement = connection.prepareStatement(query);
-//			statement.setString(1, campionato);
-//
-//			ResultSet result = statement.executeQuery();
-//
-//			if (result.next()) {
-//				partita=new Partita();
-//				partita.setAggiungiFormazione(result.getBoolean("aggiungiFormazione"));
-//				partita.setGiornata(result.getInt("giornata"));
-//				//////////////////
-//			}
-//		} catch (SQLException e) {
-//			throw new RuntimeException(e.getMessage());
-//		} finally {
-//			try {
-//				connection.close();
-//			} catch (SQLException e) {
-//				throw new RuntimeException(e.getMessage());
-//			}
-//		}
-//
-		return partita;	
+		//// Connection connection = this.dataSource.getConnection();
+		Partita partita = null;
+		// try {
+		// PreparedStatement statement;
+		// String query = "select * from partita where
+		// \"aggiungiFormazione\"=true and campionato = ?";
+		// statement = connection.prepareStatement(query);
+		// statement.setString(1, campionato);
+		//
+		// ResultSet result = statement.executeQuery();
+		//
+		// if (result.next()) {
+		// partita=new Partita();
+		// partita.setAggiungiFormazione(result.getBoolean("aggiungiFormazione"));
+		// partita.setGiornata(result.getInt("giornata"));
+		// //////////////////
+		// }
+		// } catch (SQLException e) {
+		// throw new RuntimeException(e.getMessage());
+		// } finally {
+		// try {
+		// connection.close();
+		// } catch (SQLException e) {
+		// throw new RuntimeException(e.getMessage());
+		// }
+		// }
+		//
+		return partita;
 	}
 
 	@Override
@@ -170,7 +168,6 @@ public class PartitaDAOJdbc implements PartitaDAO {
 				long secs = result.getDate("data").getTime();
 				partita.setData(new java.util.Date(secs));
 				partita.setGiornata(result.getInt("giornata"));
-				System.out.println("la partita numero: "+partita.getGiornata());
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
@@ -182,7 +179,7 @@ public class PartitaDAOJdbc implements PartitaDAO {
 			}
 		}
 
-		return partita;	
+		return partita;
 
 	}
 
@@ -204,7 +201,6 @@ public class PartitaDAOJdbc implements PartitaDAO {
 				long secs = result.getDate("data").getTime();
 				partita.setData(new java.util.Date(secs));
 				partita.setGiornata(result.getInt("giornata"));
-				System.out.println("la partita numero: "+partita.getGiornata());
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
@@ -216,7 +212,7 @@ public class PartitaDAOJdbc implements PartitaDAO {
 			}
 		}
 
-		return partita;	
+		return partita;
 	}
 
 }

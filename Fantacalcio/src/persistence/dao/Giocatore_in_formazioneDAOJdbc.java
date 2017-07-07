@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.Giocatore_in_formazione;
-import model.Utente;
 import persistence.DataSource;
 
 public class Giocatore_in_formazioneDAOJdbc implements Giocatore_in_formazioneDAO {
@@ -33,8 +32,6 @@ public class Giocatore_in_formazioneDAOJdbc implements Giocatore_in_formazioneDA
 			statement.setBoolean(7, gif.isUscito());
 			statement.setInt(8, gif.getN_formazione());
 
-			
-			
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
@@ -44,7 +41,7 @@ public class Giocatore_in_formazioneDAOJdbc implements Giocatore_in_formazioneDA
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
 			}
-			
+
 		}
 	}
 
@@ -69,7 +66,7 @@ public class Giocatore_in_formazioneDAOJdbc implements Giocatore_in_formazioneDA
 					+ " squadra = ? and giocatore=?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setInt(1, gif.getGiornata());
-			statement.setString(2, gif.getCampionato());			
+			statement.setString(2, gif.getCampionato());
 			statement.setString(3, gif.getNomeGiocatoreRosa());
 			statement.setString(4, gif.getSquadraGiocatoreRosa());
 			statement.setBoolean(5, gif.isTitolare());
@@ -77,7 +74,7 @@ public class Giocatore_in_formazioneDAOJdbc implements Giocatore_in_formazioneDA
 			statement.setBoolean(7, gif.isUscito());
 			statement.setInt(8, gif.getN_formazione());
 			statement.setInt(9, gif.getGiornata());
-			statement.setString(10, gif.getCampionato());			
+			statement.setString(10, gif.getCampionato());
 			statement.setString(11, gif.getSquadraGiocatoreRosa());
 			statement.setString(12, gif.getNomeGiocatoreRosa());
 			statement.executeUpdate();
@@ -89,7 +86,7 @@ public class Giocatore_in_formazioneDAOJdbc implements Giocatore_in_formazioneDA
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
 			}
-			
+
 		}
 
 	}
@@ -98,7 +95,7 @@ public class Giocatore_in_formazioneDAOJdbc implements Giocatore_in_formazioneDA
 	public void deleteFormazione(int giornata, String campionato, String squadra) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			
+
 			String delete = "delete from giocatore_in_formazione where giornata = ? and campionato = ? and squadra = ?";
 			PreparedStatement statement = connection.prepareStatement(delete);
 			statement.setInt(1, giornata);
@@ -113,12 +110,12 @@ public class Giocatore_in_formazioneDAOJdbc implements Giocatore_in_formazioneDA
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
 			}
-			
+
 		}
 
 	}
 
-	@Override//modificare??
+	@Override // modificare??
 	public Giocatore_in_formazione findByPrimaryKey(int giornata, String campionato, String giocatore, String squadra) {
 		Giocatore_in_formazione gif = new Giocatore_in_formazione();
 		Connection connection = this.dataSource.getConnection();
@@ -138,7 +135,7 @@ public class Giocatore_in_formazioneDAOJdbc implements Giocatore_in_formazioneDA
 				gif.setCampionato(result.getString("campionato"));
 				gif.setNomeGiocatoreRosa(result.getString("giocatore"));
 				gif.setSquadraGiocatoreRosa(result.getString("squadra"));
-				//aggiungere altri campi
+				// aggiungere altri campi
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
@@ -150,7 +147,7 @@ public class Giocatore_in_formazioneDAOJdbc implements Giocatore_in_formazioneDA
 			}
 		}
 
-		return gif;	
+		return gif;
 
 	}
 

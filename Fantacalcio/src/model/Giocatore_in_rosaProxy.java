@@ -8,17 +8,17 @@ import java.sql.SQLException;
 import persistence.DataSource;
 
 public class Giocatore_in_rosaProxy extends Giocatore_in_rosa {
-	
+
 	private DataSource dataSource;
 	private boolean firstLoad = false;
-	
+
 	public Giocatore_in_rosaProxy(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
-	
+
 	public Giocatore getGiocatore() {
-		if(!firstLoad) {
-		 	Giocatore giocatore = null;
+		if (!firstLoad) {
+			Giocatore giocatore = null;
 			Connection connection = this.dataSource.getConnection();
 			try {
 				PreparedStatement statement;
@@ -36,7 +36,6 @@ public class Giocatore_in_rosaProxy extends Giocatore_in_rosa {
 					giocatore.setSquadra(result.getString("squadra"));
 					giocatore.setRuolo(result.getString("ruolo"));
 					giocatore.setValore(result.getInt("valore"));
-					System.out.println("GIOCATORE ROSA " + result.getString("nome") + " "+ result.getString("ruolo"));
 				}
 				this.setGiocatore(giocatore);
 				firstLoad = true;
@@ -49,8 +48,8 @@ public class Giocatore_in_rosaProxy extends Giocatore_in_rosa {
 					throw new RuntimeException(e.getMessage());
 				}
 			}
-			
-		 }
+
+		}
 		return super.getGiocatore();
 	}
 }

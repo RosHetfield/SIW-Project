@@ -1,32 +1,26 @@
 package model;
 
-import java.io.Serializable;
+public class Giocatore_in_formazione {
 
-public class Giocatore_in_formazione implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -694460871283042157L;
-	
 	private boolean titolare;
 	private boolean entrato;
 	private boolean uscito;
 	private int n_formazione;
-	
-	//riferimenti
-	
+
+	// riferimenti
+
 	private int giornata;
 	private String campionato;
 	private Giocatore_in_rosa giocatoreRosa;
 	private String nomeGiocatoreRosa;
 	private String squadraGiocatoreRosa;
-	
+
 	public Giocatore_in_formazione() {
 		super();
 	}
 
-	public Giocatore_in_formazione(String nomeGiocatoreRosa, String squadraGiocatoreRosa, int giornata, String campionato, boolean titolare, boolean entrato, boolean uscito, int n_formazione) {
+	public Giocatore_in_formazione(String nomeGiocatoreRosa, String squadraGiocatoreRosa, int giornata,
+			String campionato, boolean titolare, boolean entrato, boolean uscito, int n_formazione) {
 		super();
 		this.giornata = giornata;
 		this.campionato = campionato;

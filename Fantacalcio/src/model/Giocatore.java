@@ -1,20 +1,11 @@
 package model;
 
-import java.io.Serializable;
-
-public class Giocatore implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 438982547485614742L;
+public class Giocatore {
 
 	private String nome;
 	private String squadra;
 	private String ruolo;
 	private int valore;
-
-	//// riferimenti
 
 	public Giocatore() {
 		super();
@@ -58,10 +49,6 @@ public class Giocatore implements Serializable {
 
 	public void setValore(int valore) {
 		this.valore = valore;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 }

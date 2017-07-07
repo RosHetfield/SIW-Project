@@ -2,7 +2,6 @@ package persistence.dao;
 
 import java.util.List;
 
-import model.Squadra;
 import model.Utente;
 
 public interface UtenteDAO {
