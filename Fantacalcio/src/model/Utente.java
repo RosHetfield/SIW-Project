@@ -8,7 +8,7 @@ public class Utente  {
 	private String email;
 	private String password;
 	private Boolean invito = false;
-	private int facebook_id;
+	private long facebook_id;
 
 	// riferimenti
 	
@@ -22,7 +22,7 @@ public class Utente  {
 		this.password=password;
 	}
 	
-	public Utente(String username, String nome, String cognome, String email, int facebook_id) {
+	public Utente(String username, String nome, String cognome, String email, long facebook_id) {
 		super();
 		this.username = username;
 		this.nome = nome;
@@ -83,11 +83,11 @@ public class Utente  {
 		this.invito = invito;
 	}
 
-	public int getFacebook_id() {
+	public long getFacebook_id() {
 		return facebook_id;
 	}
 
-	public void setFacebook_id(int facebook_id) {
+	public void setFacebook_id(long facebook_id) {
 		this.facebook_id = facebook_id;
 	}
 }

@@ -4,14 +4,13 @@ function Utente(username, nome, cognome, email, password) {
 }
 
 function getCredenzialiForm() {
-	console.log("aaaaaaaaaaaaaaaaaaaaaaa");
 	var campi = $("#formLogin").find("input");
 
 	var campo = campi.eq(0);
 	var username = campo.val();
 
 	campo = campi.eq(1);
-	var password = campo.val();
+	var password = hex_sha1(campo.val());
 	
 	var nome, cognome, email = null;
 	var utente = new Utente(username, nome, cognome, email, password);
@@ -19,7 +18,6 @@ function getCredenzialiForm() {
 }
 
 function controlLoginUtente(form) {
-	console.log("bbbbbbbbbbbbbb");
 
 	var successBoolean = false;
 	var credenziali = getCredenzialiForm();
@@ -67,7 +65,6 @@ function controlLoginUtente(form) {
 				successBoolean = false;
 			} else if (data == 0) {
 				form.Password.value='';
-//				successBoolean = true;
 				location.href = "Home"
 			}
 

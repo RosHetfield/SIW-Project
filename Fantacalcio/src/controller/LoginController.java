@@ -27,7 +27,6 @@ public class LoginController extends HttpServlet {
 	 */
 	public LoginController() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -54,17 +53,23 @@ public class LoginController extends HttpServlet {
 
 				Utente utente = (Utente) mapper.readValue(jsString, Utente.class);
 				response.setContentType("text/html");
+				System.out.println(utente.getPassword() + " " + utente.getFacebook_id());
 				Utente result = DBManager.getInstance().getUtente().findByPrimaryKey(utente.getUsername());
 				System.out.println(result.getUsername() + " utende " + result.getPassword() + " passuord");
 				if (result.getUsername() != null) {
-					if (result.getPassword().equals(utente.getPassword())) {
+					if ((result.getPassword() != null && result.getPassword().equals(utente.getPassword())) || (result.getFacebook_id() == utente.getFacebook_id() && result.getPassword() == null)) {
 						HttpSession session = request.getSession();
 						session.setAttribute("Username", utente.getUsername());
-//						response.sendRedirect("Home");
 						response.getWriter().print(0);
 					}
-					else 
-						response.getWriter().print(1); 
+					else{
+						response.getWriter().print(1); 						
+					}
+				} else if(result.getPassword() == null) {
+					DBManager.getInstance().getUtente().save(utente);
+					HttpSession session = request.getSession();
+					session.setAttribute("Username", utente.getUsername());
+					response.getWriter().print(0);
 				} else {
 					response.getWriter().print(2);
 				}

@@ -28,7 +28,7 @@ public class UtenteDAOJdbc implements UtenteDAO {
 			statement.setString(3, utente.getCognome());
 			statement.setString(4, utente.getEmail());
 			statement.setString(5, utente.getPassword());
-			statement.setInt(6, utente.getFacebook_id());
+			statement.setLong(6, utente.getFacebook_id());
 			
 			
 			statement.executeUpdate();
@@ -62,7 +62,7 @@ public class UtenteDAOJdbc implements UtenteDAO {
 				utente.setCognome(result.getString("cognome"));
 				utente.setEmail(result.getString("email"));
 				utente.setPassword(result.getString("password"));
-				utente.setFacebook_id(result.getInt("facebook_id"));
+				utente.setFacebook_id(result.getLong("facebook_id"));
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
@@ -95,7 +95,7 @@ public class UtenteDAOJdbc implements UtenteDAO {
 				utente.setCognome(result.getString("cognome"));
 				utente.setEmail(result.getString("email"));
 				utente.setPassword(result.getString("password"));
-				utente.setFacebook_id(result.getInt("facebook_id"));
+				utente.setFacebook_id(result.getLong("facebook_id"));
 				
 				utenti.add(utente);
 			}

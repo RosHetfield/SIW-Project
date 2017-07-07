@@ -24,19 +24,27 @@ function CreateUtente() {
 	var email = campo.val();
 	
 	campo = campi.eq(4);
-	var password = campo.val();
+	var password = hex_sha1(campo.val());
 
 	campo = campi.eq(5);
-	var passwordCheck = campo;
+	var passwordCheck = hex_sha1(campo.val());
 	
-	var utente = new Utente(username, nome, cognome, email, password);
+	var utente = new Utente(username, nome, cognome, email, password, passwordCheck);
 	return utente;
 }
 
 function registraUtente(form) {
 
 	var utente = CreateUtente();
-	
+	if(utente.password != utente.passwordCheck) {
+		swal({
+			  title: "Attenzione!",
+			  text:"Password e Controllo Password diverse " + utente.password+ " " + utente.passwordCheck,
+			  type: "warning",
+			  confirmButtonText: "Riprova"
+			});
+		return false;
+	}
 	var registrazione = false;
 	var jsonUtente = {
 			username : utente.username,
@@ -44,7 +52,6 @@ function registraUtente(form) {
 			cognome : utente.cognome,
 			email : utente.email,
 			password : utente.password,
-			passwordCheck : utente.passwordCheck
 		};
 	
 		$.ajax({
