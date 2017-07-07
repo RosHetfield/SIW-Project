@@ -1,48 +1,45 @@
 
-
 <nav class="navbar navbar-default" role="navigation" id="NavbarHome">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-home">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="nav-home ">
-                <ul class="nav navbar-nav">
-                   
-                    <li id="Mercato">				
-                        <a href="Mercato" onclick="return mercato()">Mercato</a>
-                    </li>       
-                    
-                    <li id="GestioneFormazione">
-                        <a href="Formazione" onclick="return checkFormazione()">Gestione formazione</a>
-                    </li>
-                    <li id="Classifica">
-                        <a href="Classifica">Classifica</a>
-                    </li>
-                    <li id="Risultati">
-                        <a href="Risultati">Risultati</a>
-                    </li>
-                    <li id="Formazioni">
-                        <a href="StampaFormazioni">Formazioni</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-    
-    
-  	<script src="Script/gestioneFormazione.js"></script>
-    <script src="Script/gestioneMercato.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-  	<script src="js/sweetalert.min.js"></script>
-	<script src="js/sweetalert2.min.js"></script>
-    	
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#bs-example-navbar-collapse-2"
+				aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Squadra</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-2">
+			<ul class="nav navbar-nav">
+
+
+				<li id="Mercato"><a href="Mercato" onclick="return mercato()">Mercato</a>
+				</li>
+
+				<li id="GestioneFormazione"><a href="Formazione"
+					onclick="return checkFormazione()">Gestione formazione</a></li>
+				<li id="Classifica"><a href="Classifica">Classifica</a></li>
+				<li id="Risultati"><a href="Risultati">Risultati</a></li>
+				<li id="Formazioni"><a href="StampaFormazioni">Formazioni</a></li>
+			</ul>
+
+
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+
+
+<script src="Script/gestioneFormazione.js"></script>
+<script src="Script/gestioneMercato.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/sweetalert.min.js"></script>
+<script src="js/sweetalert2.min.js"></script>
+
