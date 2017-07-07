@@ -1,11 +1,7 @@
 package controller;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.Iterator;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -58,7 +53,6 @@ public class CaricaVotiController extends HttpServlet {
 		String campionato = (String) session.getAttribute("NomeCampionato");
 		System.out.println("ARRIVO?");
 		if (campionato != null) {
-
 
 			Part filePart = request.getPart("file");
 
@@ -103,8 +97,8 @@ public class CaricaVotiController extends HttpServlet {
 				int goalVittoria = (int) row.getCell(14).getNumericCellValue();
 				int goalPareggio = (int) row.getCell(15).getNumericCellValue();
 
-				double fantavoto = votazione + (goalFatto * 3) - (goalSubito) + assist_totali - (ammonito * 0.5) - (espulso)
-						- (autorete * 2) + (goalSuRigore * 2) + (rigoreParato * 3) - (rigoreSbagliato * 3)
+				double fantavoto = votazione + (goalFatto * 3) - (goalSubito) + assist_totali - (ammonito * 0.5)
+						- (espulso) - (autorete * 2) + (goalSuRigore * 2) + (rigoreParato * 3) - (rigoreSbagliato * 3)
 						+ goalVittoria + goalPareggio;
 
 				voto.setVoto(votazione);
@@ -125,7 +119,6 @@ public class CaricaVotiController extends HttpServlet {
 			}
 
 			votazioni.close();
-
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("CalcolaGiornata");
 			dispatcher.forward(request, response);

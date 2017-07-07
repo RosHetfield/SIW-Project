@@ -64,7 +64,6 @@ public class AperturaFormazioneController extends HttpServlet {
 					}
 					}
 					else{
-						System.out.println("non esiste nessuna partita");
 						response.getWriter().println(2);
 						
 					}

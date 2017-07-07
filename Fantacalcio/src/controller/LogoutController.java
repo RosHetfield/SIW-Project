@@ -16,41 +16,43 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/LogoutController")
 public class LogoutController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LogoutController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if((String)request.getSession().getAttribute("Username") != null) {
+	public LogoutController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		if ((String) request.getSession().getAttribute("Username") != null) {
 			HttpSession session = request.getSession();
 			session.removeAttribute("Username");
 			session.invalidate();
-			response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+			response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP
+																						// 1.1.
 			response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
 			response.setDateHeader("Expires", 0);
-			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("logout.html");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("logout.html");
 			dispatcher.forward(request, response);
-		}
-		else {
-			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("errore.jsp");
+		} else {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("errore.jsp");
 			dispatcher.forward(request, response);
 		}
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

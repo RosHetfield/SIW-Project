@@ -18,7 +18,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import model.Campionato;
 import model.Giocatore;
 import model.Giocatore_in_rosa;
-import model.Invito;
 import model.Squadra;
 import persistence.DBManager;
 
@@ -51,23 +50,20 @@ public class MercatoController extends HttpServlet {
 		String username = (String) request.getSession().getAttribute("Username");
 
 		if (username != null) {
-			System.out.println("Sessione Utente " + username);
 			String campionato = (String) request.getSession().getAttribute("campionato");
 
 			if (campionato != null) {
-				System.out.println("Sessione Campionato " + campionato);
 				Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
 				if (camp.isMercato()) {
-					System.out.println("MADONNA PUTTANA " + username);
 
 					String s = (String) request.getSession().getAttribute("squadra");
 					Squadra squadra = DBManager.getInstance().getSquadra().findByPrimaryKey(s);
 
 					Set<Giocatore_in_rosa> giocatori = squadra.getGiocatoriInRosa();
 					List<Giocatore> giocatoriInRosa = new ArrayList<Giocatore>();
-					
+
 					for (Giocatore_in_rosa giocatore : giocatori) {
-						if(!giocatore.isRimosso()){
+						if (!giocatore.isRimosso()) {
 							giocatoriInRosa.add(giocatore.getGiocatore());
 						}
 					}
@@ -81,14 +77,14 @@ public class MercatoController extends HttpServlet {
 
 					if (request.getParameterNames() != null) {
 						String jsRuolo = (String) request.getParameter("ruolo");
-						System.out.println(jsRuolo);
-						if(jsRuolo != null) {							
+						if (jsRuolo != null) {
 							ObjectMapper mapper = new ObjectMapper();
 							ruolo = mapper.readValue(jsRuolo, String.class);
 						}
 					}
 
-					List<Giocatore> giocatoriSvincolati = DBManager.getInstance().getGiocatore().getGiocatoriSvincolati(s, ruolo);
+					List<Giocatore> giocatoriSvincolati = DBManager.getInstance().getGiocatore()
+							.getGiocatoriSvincolati(s, ruolo);
 					request.setAttribute("giocatoriSvincolati", giocatoriSvincolati);
 					request.setAttribute("giocatoriInRosa", giocatoriInRosa);
 					request.setAttribute("crediti", squadra.getCrediti());
@@ -118,14 +114,11 @@ public class MercatoController extends HttpServlet {
 		String username = (String) request.getSession().getAttribute("Username");
 		response.setContentType("text/html");
 		if (username != null) {
-			System.out.println("Sessione Utente " + username);
 			String campionato = (String) request.getSession().getAttribute("campionato");
 
 			if (campionato != null) {
-				System.out.println("Sessione mmmmm " + campionato);
 				Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
 				if (camp.isMercato()) {
-					System.out.println("Mmmmmm " + username);
 					response.getWriter().print(0);
 
 				} else {

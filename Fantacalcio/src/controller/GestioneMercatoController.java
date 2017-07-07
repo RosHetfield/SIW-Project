@@ -1,9 +1,7 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,10 +13,8 @@ import org.json.JSONObject;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import model.Campionato;
 import model.Giocatore;
 import model.Giocatore_in_rosa;
-import model.Invito;
 import model.Squadra;
 import persistence.DBManager;
 
@@ -53,22 +49,16 @@ public class GestioneMercatoController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-			System.out.println("ASSO " + request.getParameter("giocatore"));
-			System.out.println("ASSO " + request.getParameter("risposta"));
 		if (request.getParameterNames().hasMoreElements()) {
 			response.setContentType("text/html");
 
 			String username = (String) request.getSession().getAttribute("Username");
-			System.out.println("PRIMA " + username);
 			if (username != null) {
 
-				System.out.println("Sessione UTENTE " + username);
 				String campionato = (String) request.getSession().getAttribute("campionato");
 				String squadra = (String) request.getSession().getAttribute("squadra");
 
-				if (campionato != null && squadra != null) {///// ??
-					System.out.println("Sessione CAMPIONATO uuuuu" + campionato);
-					System.out.println("Sessione SQUADRA uuuuu" + squadra);
+				if (campionato != null && squadra != null) {
 
 					Squadra s = DBManager.getInstance().getSquadra().findByPrimaryKey(squadra);
 					String jsGiocatore = request.getParameter("giocatore");
@@ -82,7 +72,6 @@ public class GestioneMercatoController extends HttpServlet {
 					try {
 						if (risposta.equals("t")) {
 							int res = inserisciInRosa(s, g);
-							System.out.println("RISULTATO " + res);
 							jsRes.put("status", res);
 							jsRes.put("crediti", s.getCrediti());
 							response.getWriter().print(jsRes);
@@ -94,7 +83,7 @@ public class GestioneMercatoController extends HttpServlet {
 					} catch (JSONException e) {
 						e.printStackTrace();
 					}
-					
+
 				}
 
 			}
@@ -105,8 +94,8 @@ public class GestioneMercatoController extends HttpServlet {
 		if ((squadra.getCrediti() - giocatore.getValore()) < 0) {
 			return 1;
 		}
-		int cont_ruolo = DBManager.getInstance().getGiocatore_in_rosa().n_giocatoriRuolo(squadra.getNome(),giocatore.getRuolo());
-		System.out.println("GGGGGGGGGGGGG");
+		int cont_ruolo = DBManager.getInstance().getGiocatore_in_rosa().n_giocatoriRuolo(squadra.getNome(),
+				giocatore.getRuolo());
 		switch (giocatore.getRuolo()) {
 		case "P": {
 			if (cont_ruolo == 3)
@@ -129,17 +118,17 @@ public class GestioneMercatoController extends HttpServlet {
 			break;
 		}
 		}
-//		inserire contrololo??????
+		// inserire contrololo??????
 		Giocatore_in_rosa gir = new Giocatore_in_rosa();
 		gir.setNomeGiocatore(giocatore.getNome());
 		gir.setSquadra(squadra.getNome());
 		squadra.setCrediti(squadra.getCrediti() - giocatore.getValore());
-		if(DBManager.getInstance().getGiocatore_in_rosa().findByPrimaryKey(giocatore.getNome(), squadra.getNome()) != null) {
+		if (DBManager.getInstance().getGiocatore_in_rosa().findByPrimaryKey(giocatore.getNome(),
+				squadra.getNome()) != null) {
 			gir.setRimosso(false);
 			DBManager.getInstance().getGiocatore_in_rosa().update(gir);
-		}
-		else {
-			DBManager.getInstance().getGiocatore_in_rosa().save(gir);			
+		} else {
+			DBManager.getInstance().getGiocatore_in_rosa().save(gir);
 		}
 		DBManager.getInstance().getSquadra().update(squadra);
 		return 0;

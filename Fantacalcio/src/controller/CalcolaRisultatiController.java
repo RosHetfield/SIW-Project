@@ -18,25 +18,27 @@ import persistence.DBManager;
 @WebServlet("/CalcolaRisultatiController")
 public class CalcolaRisultatiController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CalcolaRisultatiController() {
-        super();
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public CalcolaRisultatiController() {
+		super();
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String campionato = (String) request.getSession().getAttribute("NomeCampionato");
-		
+
 		System.out.println(request.getSession().getAttribute("Username"));
 		response.setContentType("text/html");
-		if(request.getSession().getAttribute("Username") != null &&  campionato != null) {
+		if (request.getSession().getAttribute("Username") != null && campionato != null) {
 			Partita p = DBManager.getInstance().getPartita().getUltimaGiornataGiocabile(campionato);
-			if(p != null) {
+			if (p != null) {
 				request.setAttribute("giornata", p.getGiornata());
 				RequestDispatcher dispatcher = request.getRequestDispatcher("calcolaGiornata.jsp");
 				dispatcher.forward(request, response);
@@ -50,9 +52,11 @@ public class CalcolaRisultatiController extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 
