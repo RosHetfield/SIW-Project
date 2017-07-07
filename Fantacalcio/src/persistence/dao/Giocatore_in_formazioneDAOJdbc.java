@@ -135,7 +135,6 @@ public class Giocatore_in_formazioneDAOJdbc implements Giocatore_in_formazioneDA
 				gif.setCampionato(result.getString("campionato"));
 				gif.setNomeGiocatoreRosa(result.getString("giocatore"));
 				gif.setSquadraGiocatoreRosa(result.getString("squadra"));
-				// aggiungere altri campi
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());

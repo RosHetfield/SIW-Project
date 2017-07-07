@@ -55,12 +55,10 @@ public class AperturaFormazioneController extends HttpServlet {
 					Partita part = DBManager.getInstance().getPartita().getUltimaGiornataGiocabile(campionato);
 					if(part != null){
 					if(apertura.equals("t")) {
-//						part.setAggiungiFormazione(true);
 						DBManager.getInstance().getPartita().update(part);
 						response.getWriter().println(0);
 					}
 					else if(apertura.equals("f")) {
-//						part.setAggiungiFormazione(false);
 						DBManager.getInstance().getPartita().update(part);
 						response.getWriter().println(1);
 					}
