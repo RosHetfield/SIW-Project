@@ -62,7 +62,6 @@ public class PartitaDAOJdbc implements PartitaDAO {
 				partita.setCampionato(result.getString("campionato"));
 				long secs = result.getDate("data").getTime();
 				partita.setData(new java.util.Date(secs));
-				//////////////////////////////////////////
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
