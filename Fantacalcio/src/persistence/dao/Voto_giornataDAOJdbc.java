@@ -5,10 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
-import model.Utente;
 import model.Voto_giornata;
 import persistence.DataSource;
 
@@ -80,7 +78,7 @@ public class Voto_giornataDAOJdbc implements Voto_giornataDAO {
 				voto_giornata = new Voto_giornata();
 
 				voto_giornata.setGiornata(result.getInt("giornata"));
-				voto_giornata.setNomeGiocatore(result.getString("giocatore"));			
+				voto_giornata.setNomeGiocatore(result.getString("giocatore"));
 				voto_giornata.setVoto(result.getDouble("voto"));
 				voto_giornata.setFantavoto(result.getDouble("fantaVoto"));
 				voto_giornata.setGoalFatto(result.getInt("gol_fatto"));
@@ -95,7 +93,6 @@ public class Voto_giornataDAOJdbc implements Voto_giornataDAO {
 				voto_giornata.setGoalVittoria(result.getInt("gol_vittoria"));
 				voto_giornata.setGoalPareggio(result.getInt("gol_pareggio"));
 
-				
 				voti_giornata.add(voto_giornata);
 			}
 		} catch (SQLException e) {
@@ -170,7 +167,7 @@ public class Voto_giornataDAOJdbc implements Voto_giornataDAO {
 				voto_giornata = new Voto_giornata();
 
 				voto_giornata.setGiornata(result.getInt("giornata"));
-				voto_giornata.setNomeGiocatore(result.getString("giocatore"));			
+				voto_giornata.setNomeGiocatore(result.getString("giocatore"));
 				voto_giornata.setVoto(result.getDouble("voto"));
 				voto_giornata.setFantavoto(result.getDouble("fantaVoto"));
 				voto_giornata.setGoalFatto(result.getInt("gol_fatto"));
@@ -185,7 +182,6 @@ public class Voto_giornataDAOJdbc implements Voto_giornataDAO {
 				voto_giornata.setGoalVittoria(result.getInt("gol_vittoria"));
 				voto_giornata.setGoalPareggio(result.getInt("gol_pareggio"));
 
-				
 				voti_giornata.add(voto_giornata);
 			}
 		} catch (SQLException e) {

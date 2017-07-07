@@ -8,16 +8,13 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import model.Campionato;
-import model.CampionatoProxy;
 import model.Invito;
-import model.Utente;
 import persistence.DataSource;
 
 public class InvitoDAOJdbc implements InvitoDAO {
-	
+
 	private DataSource dataSource;
-	
+
 	public InvitoDAOJdbc(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
@@ -29,8 +26,8 @@ public class InvitoDAOJdbc implements InvitoDAO {
 			String insert = "insert into invito(utente, campionato) values (?, ?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setString(1, invito.getUtente());
-			statement.setString(2, invito.getCampionato());			
-			
+			statement.setString(2, invito.getCampionato());
+
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
@@ -40,7 +37,7 @@ public class InvitoDAOJdbc implements InvitoDAO {
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
 			}
-			
+
 		}
 	}
 
@@ -58,7 +55,7 @@ public class InvitoDAOJdbc implements InvitoDAO {
 			ResultSet result = statement.executeQuery();
 
 			while (result.next()) {
-				Invito invito= new Invito();
+				Invito invito = new Invito();
 				invito = new Invito();
 				invito.setUtente(result.getString("utente"));
 				invito.setCampionato(result.getString("campionato"));
@@ -74,7 +71,7 @@ public class InvitoDAOJdbc implements InvitoDAO {
 			}
 		}
 
-		return inviti;	
+		return inviti;
 	}
 
 	@Override
@@ -89,7 +86,7 @@ public class InvitoDAOJdbc implements InvitoDAO {
 			ResultSet result = statement.executeQuery();
 			while (result.next()) {
 				invito = new Invito();
-				
+
 				invito.setUtente(result.getString("utente"));
 				invito.setCampionato(result.getString("campionato"));
 				inviti.add(invito);
@@ -102,11 +99,11 @@ public class InvitoDAOJdbc implements InvitoDAO {
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
 			}
-			
+
 		}
 		return inviti;
 	}
-	
+
 	public Invito findByUtenteCampionato(String utente, String campionato) {
 		Invito invito = null;
 		Connection connection = this.dataSource.getConnection();
@@ -135,17 +132,16 @@ public class InvitoDAOJdbc implements InvitoDAO {
 			}
 		}
 
-		return invito;	
+		return invito;
 	}
 
 	@Override
 	public void delete(Invito invito) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			
+
 			String insert = "delete from invito where utente = ? and campionato = ?";
 			PreparedStatement statement = connection.prepareStatement(insert);
-			System.out.println(invito.getUtente() + " " + invito.getCampionato());
 			statement.setString(1, invito.getUtente());
 			statement.setString(2, invito.getCampionato());
 			statement.executeUpdate();
@@ -157,7 +153,7 @@ public class InvitoDAOJdbc implements InvitoDAO {
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
 			}
-			
+
 		}
 
 	}
@@ -165,7 +161,7 @@ public class InvitoDAOJdbc implements InvitoDAO {
 	@Override
 	public List<Invito> findByCampionato(String campionato) {
 		List<Invito> inviti = new ArrayList<Invito>();
-		
+
 		Connection connection = this.dataSource.getConnection();
 		try {
 			PreparedStatement statement;
@@ -192,7 +188,7 @@ public class InvitoDAOJdbc implements InvitoDAO {
 			}
 		}
 
-		return inviti;	
+		return inviti;
 	}
 
 }

@@ -14,15 +14,14 @@ public class SquadraProxy extends Squadra {
 	private boolean firstLoadUtente = false;
 	private boolean firstLoadCampionato = false;
 	private boolean firstLoadGiocatori = false;
-	 
-	 
-	 public SquadraProxy(DataSource dataSource) {
-		 this.dataSource=dataSource;
+
+	public SquadraProxy(DataSource dataSource) {
+		this.dataSource = dataSource;
 	}
-	 
-	 public Utente getUtente() {
-		 if(!firstLoadUtente) {
-		 	Utente utente = null;
+
+	public Utente getUtente() {
+		if (!firstLoadUtente) {
+			Utente utente = null;
 			Connection connection = this.dataSource.getConnection();
 			try {
 				PreparedStatement statement;
@@ -50,13 +49,13 @@ public class SquadraProxy extends Squadra {
 			}
 			this.setUtente(utente);
 			firstLoadUtente = true;
-		 }
+		}
 		return super.getUtente();
-	 }
-	 
-	 public Campionato getCampionato() {
-		 if(!firstLoadCampionato) {
-		 	Campionato campionato = null;
+	}
+
+	public Campionato getCampionato() {
+		if (!firstLoadCampionato) {
+			Campionato campionato = null;
 			Connection connection = this.dataSource.getConnection();
 			try {
 				PreparedStatement statement;
@@ -81,46 +80,45 @@ public class SquadraProxy extends Squadra {
 			}
 			this.setCampionato(campionato);
 			firstLoadCampionato = true;
-		 }
-		return super.getCampionato();
-	 }
-	 
-		public Set<Giocatore_in_rosa> getGiocatoriInRosa() {
-			if(!firstLoadGiocatori) {
-				 Set<Giocatore_in_rosa> giocatori= new HashSet<Giocatore_in_rosa>();
-					Connection connection = this.dataSource.getConnection();
-					try {
-						PreparedStatement statement;
-						String query = "select gir.* from giocatore_in_rosa as gir where gir.squadra = ?";
-						statement = connection.prepareStatement(query);
-
-						statement.setString(1, getNome());
-
-						ResultSet result = statement.executeQuery();
-						while (result.next()) {
-							Giocatore_in_rosa giocatore = new Giocatore_in_rosaProxy(dataSource);
-							giocatore.setSquadra(result.getString("squadra"));
-							giocatore.setNomeGiocatore(result.getString("giocatore"));
-							giocatore.setCompleto(result.getBoolean("completo"));
-							giocatore.setRimosso(result.getBoolean("rimosso"));
-//							giocatore.getGiocatore();
-							System.out.println("GIOCATORE ROSA SQUADRA " + result.getString("squadra") + " "+ result.getString("giocatore") + " " + result.getBoolean("rimosso"));
-							giocatori.add(giocatore);
-						}
-						this.setGiocatoriInRosa(giocatori);
-						firstLoadGiocatori = true;
-					} catch (SQLException e) {
-						throw new RuntimeException(e.getMessage());
-					} finally {
-						try {
-							connection.close();
-						} catch (SQLException e) {
-							throw new RuntimeException(e.getMessage());
-						}
-					}
-					
-				 }
-				return super.getGiocatoriInRosa();
 		}
+		return super.getCampionato();
+	}
+
+	public Set<Giocatore_in_rosa> getGiocatoriInRosa() {
+		if (!firstLoadGiocatori) {
+			Set<Giocatore_in_rosa> giocatori = new HashSet<Giocatore_in_rosa>();
+			Connection connection = this.dataSource.getConnection();
+			try {
+				PreparedStatement statement;
+				String query = "select gir.* from giocatore_in_rosa as gir where gir.squadra = ?";
+				statement = connection.prepareStatement(query);
+
+				statement.setString(1, getNome());
+
+				ResultSet result = statement.executeQuery();
+				while (result.next()) {
+					Giocatore_in_rosa giocatore = new Giocatore_in_rosaProxy(dataSource);
+					giocatore.setSquadra(result.getString("squadra"));
+					giocatore.setNomeGiocatore(result.getString("giocatore"));
+					giocatore.setCompleto(result.getBoolean("completo"));
+					giocatore.setRimosso(result.getBoolean("rimosso"));
+
+					giocatori.add(giocatore);
+				}
+				this.setGiocatoriInRosa(giocatori);
+				firstLoadGiocatori = true;
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			} finally {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					throw new RuntimeException(e.getMessage());
+				}
+			}
+
+		}
+		return super.getGiocatoriInRosa();
+	}
 
 }

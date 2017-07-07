@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import model.Campionato;
@@ -31,7 +30,7 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 			statement.setString(1, campionato.getNome());
 			statement.setString(2, campionato.getPassword());
 			statement.setBoolean(3, campionato.isMercato());
-			
+
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
@@ -41,7 +40,7 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
 			}
-			
+
 		}
 	}
 
@@ -59,7 +58,7 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 			ResultSet result = statement.executeQuery();
 
 			if (result.next()) {
-				
+
 				campionato = new CampionatoProxy(this.dataSource);
 				campionato.setNome(result.getString("nome"));
 				campionato.setMercato(result.getBoolean("mercato"));
@@ -75,7 +74,7 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 			}
 		}
 
-		return campionato;	
+		return campionato;
 	}
 
 	@Override
@@ -88,11 +87,10 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 	public void update(Campionato campionato) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update = "update campionato set nome = ?, password = ?, mercato = ? "
-					+ "where nome = ?";
+			String update = "update campionato set nome = ?, password = ?, mercato = ? " + "where nome = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setString(1, campionato.getNome());
-			statement.setString(2, campionato.getPassword());			
+			statement.setString(2, campionato.getPassword());
 			statement.setBoolean(3, campionato.isMercato());
 			statement.setString(4, campionato.getNome());
 			statement.executeUpdate();
@@ -104,7 +102,7 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
 			}
-			
+
 		}
 
 	}
@@ -115,8 +113,9 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 
 	}
 
-	
-//	select utente.* from utente, squadra where squadra.campionato = 'a'  and not exists (select s.utente from squadra as s, utente as u where s.utente = utente.username)
+	// select utente.* from utente, squadra where squadra.campionato = 'a' and
+	// not exists (select s.utente from squadra as s, utente as u where s.utente
+	// = utente.username)
 
 	@Override
 	public List<Utente> possibiliGiocatori(String nomeCampionato) {
@@ -137,16 +136,16 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 				utente.setNome(result.getString("Nome"));
 				utente.setCognome(result.getString("Cognome"));
 				utente.setEmail(result.getString("Email"));
-				Invito invito = DBManager.getInstance().getInvito().findByUtenteCampionato(utente.getUsername(),nomeCampionato);
-				if(invito != null) {
-					
+				Invito invito = DBManager.getInstance().getInvito().findByUtenteCampionato(utente.getUsername(),
+						nomeCampionato);
+				if (invito != null) {
+
 					utente.setInvito(true);
-				}
-				else {
+				} else {
 					utente.setInvito(false);
 				}
 				utenti.add(utente);
-				
+
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
@@ -157,8 +156,7 @@ public class CampionatoDAOJdbc implements CampionatoDAO {
 				throw new RuntimeException(e.getMessage());
 			}
 		}
-		return utenti;	
+		return utenti;
 	}
-
 
 }

@@ -5,13 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import model.Giocatore;
-import model.Utente;
 import persistence.DataSource;
-import persistence.IdBroker;
 
 public class GiocatoreDAOJdbc implements GiocatoreDAO {
 	private DataSource dataSource;
@@ -74,8 +71,8 @@ public class GiocatoreDAOJdbc implements GiocatoreDAO {
 			}
 		}
 
-		return giocatore;	
-		
+		return giocatore;
+
 	}
 
 	@Override
@@ -167,7 +164,7 @@ public class GiocatoreDAOJdbc implements GiocatoreDAO {
 	@Override
 	public List<Giocatore> getGiocatoriSvincolati(String squadra, String ruolo) {
 		Connection connection = this.dataSource.getConnection();
-		List<Giocatore> giocatori= new ArrayList<Giocatore>();
+		List<Giocatore> giocatori = new ArrayList<Giocatore>();
 		try {
 			Giocatore giocatore;
 			String query = "select g.nome, g.ruolo, g.valore, g.squadra from giocatore as g where g.ruolo = ? and not exists "
@@ -175,16 +172,16 @@ public class GiocatoreDAOJdbc implements GiocatoreDAO {
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setString(1, ruolo);
 			statement.setString(2, squadra);
-			
+
 			ResultSet result = statement.executeQuery();
 			while (result.next()) {
 				giocatore = new Giocatore();
-				
+
 				giocatore.setNome(result.getString("nome"));
 				giocatore.setRuolo(result.getString("ruolo"));
 				giocatore.setSquadra(result.getString("squadra"));
 				giocatore.setValore(result.getInt("valore"));
-				
+
 				giocatori.add(giocatore);
 			}
 		} catch (SQLException e) {
@@ -195,7 +192,7 @@ public class GiocatoreDAOJdbc implements GiocatoreDAO {
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
 			}
-			
+
 		}
 		return giocatori;
 	}
@@ -203,7 +200,7 @@ public class GiocatoreDAOJdbc implements GiocatoreDAO {
 	@Override
 	public List<Giocatore> getGiocatoriInFormazione(int giornata) {
 		Connection connection = this.dataSource.getConnection();
-		List<Giocatore> giocatori= new ArrayList<Giocatore>();
+		List<Giocatore> giocatori = new ArrayList<Giocatore>();
 		try {
 			Giocatore giocatore;
 			String query = "select g.nome, g.ruolo, g.squadra from giocatore as g, giocatore_in_rosa as gr,"
@@ -211,15 +208,15 @@ public class GiocatoreDAOJdbc implements GiocatoreDAO {
 					+ " gr.giocatore= g.nome";
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setInt(1, giornata);
-			
+
 			ResultSet result = statement.executeQuery();
 			while (result.next()) {
 				giocatore = new Giocatore();
-				
+
 				giocatore.setNome(result.getString("nome"));
 				giocatore.setRuolo(result.getString("ruolo"));
 				giocatore.setSquadra(result.getString("squadra"));
-				
+
 				giocatori.add(giocatore);
 			}
 		} catch (SQLException e) {
@@ -230,7 +227,7 @@ public class GiocatoreDAOJdbc implements GiocatoreDAO {
 			} catch (SQLException e) {
 				throw new RuntimeException(e.getMessage());
 			}
-			
+
 		}
 		return giocatori;
 	}

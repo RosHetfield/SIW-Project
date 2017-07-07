@@ -27,7 +27,6 @@ public class PostgresqlDAO {
 	public PostgresqlDAO(String host, String port, String databaseName, String user, String password) {
 		try {
 			Class.forName("org.postgresql.Driver").newInstance();
-			// questi vanno messi in file di configurazione!!!
 			dataSource = new DataSource("jdbc:postgresql://" + host + ":" + port + "/" + databaseName, user, password);
 		} catch (Exception e) {
 			System.err.println("PostgresDAO.class: failed to load Postgres JDBC driver\n" + e);

@@ -1,26 +1,18 @@
 package model;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
-public class Campionato implements Serializable {
+public class Campionato {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -2476245844517669726L;
-	
 	private String nome;
 	private String password;
 	private boolean mercato = true;
 	// riferimenti
-	
+
 	private Set<Squadra> squadre;
 	private Set<Partita> partite;
-	
+
 	public Campionato(String nome, String password) {
 		super();
 		this.nome = nome;
@@ -64,19 +56,19 @@ public class Campionato implements Serializable {
 	public void setPartite(Set<Partita> partite) {
 		this.partite = partite;
 	}
-	
+
 	public void addSquadra(Squadra squadra) {
 		this.getSquadre().add(squadra);
 	}
-	
+
 	public void removeSquadra(Squadra squadra) {
 		this.getSquadre().remove(squadra);
 	}
-	
+
 	public void removePartita(Partita partita) {
 		this.getPartite().remove(partita);
 	}
-	
+
 	public void addPartita(Partita partita) {
 		this.getPartite().add(partita);
 	}

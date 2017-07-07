@@ -1,15 +1,8 @@
-	 package model;
+package model;
 
-import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Set;
 
-public class Squadra implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -3350928853887919277L;
+public class Squadra {
 
 	private String nome;
 	private int crediti;
@@ -17,12 +10,11 @@ public class Squadra implements Serializable {
 	// riferimenti
 	private Utente utente;
 	private Campionato campionato;
-	
+
 	private Set<Giocatore_in_rosa> giocatori;
 
-	//fare il costruttore... con parametri.................
-	
-	
+	// fare il costruttore... con parametri.................
+
 	public Squadra() {
 		super();
 	}
@@ -70,7 +62,7 @@ public class Squadra implements Serializable {
 	public void addGiocatore(Giocatore_in_rosa giocatore) {
 		this.getGiocatoriInRosa().add(giocatore);
 	}
-	
+
 	public void removeGiocatore(Giocatore_in_rosa giocatore) {
 		this.getGiocatoriInRosa().remove(giocatore);
 	}
