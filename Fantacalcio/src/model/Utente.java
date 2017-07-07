@@ -1,12 +1,6 @@
 package model;
 
-import java.io.Serializable;
-
-public class Utente implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 8687792190967732576L;
+public class Utente  {
 	
 	private String username;
 	private String nome;
@@ -14,11 +8,11 @@ public class Utente implements Serializable {
 	private String email;
 	private String password;
 	private Boolean invito = false;
+	private int facebook_id;
 
 	// riferimenti
 	
 	
-
 	public Utente(String username, String nome, String cognome, String email, String password) {
 		super();
 		this.username = username;
@@ -26,6 +20,15 @@ public class Utente implements Serializable {
 		this.cognome = cognome;
 		this.email = email;
 		this.password=password;
+	}
+	
+	public Utente(String username, String nome, String cognome, String email, int facebook_id) {
+		super();
+		this.username = username;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.email = email;
+		this.facebook_id = facebook_id;
 	}
 
 	public Utente() {
@@ -78,5 +81,13 @@ public class Utente implements Serializable {
 
 	public void setInvito(Boolean invito) {
 		this.invito = invito;
+	}
+
+	public int getFacebook_id() {
+		return facebook_id;
+	}
+
+	public void setFacebook_id(int facebook_id) {
+		this.facebook_id = facebook_id;
 	}
 }

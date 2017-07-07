@@ -8,9 +8,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import model.Campionato;
-import model.CampionatoProxy;
-import model.SquadraProxy;
 import model.Utente;
 import persistence.DataSource;
 
@@ -24,14 +21,14 @@ public class UtenteDAOJdbc implements UtenteDAO {
 	public void save(Utente utente) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String insert = "insert into utente(username, nome, cognome, email, password) values (?,?,?,?,?)";
+			String insert = "insert into utente(username, nome, cognome, email, password, facebook_id) values (?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setString(1, utente.getUsername() );
 			statement.setString(2, utente.getNome());
 			statement.setString(3, utente.getCognome());
 			statement.setString(4, utente.getEmail());
 			statement.setString(5, utente.getPassword());
-
+			statement.setInt(6, utente.getFacebook_id());
 			
 			
 			statement.executeUpdate();
@@ -52,7 +49,7 @@ public class UtenteDAOJdbc implements UtenteDAO {
 		Connection connection = this.dataSource.getConnection();
 		try {
 			PreparedStatement statement;
-			String query = "select * from utente where Username = ?";
+			String query = "select * from utente where username = ?";
 			statement = connection.prepareStatement(query);
 
 			statement.setString(1, id);
@@ -60,12 +57,12 @@ public class UtenteDAOJdbc implements UtenteDAO {
 			ResultSet result = statement.executeQuery();
 
 			if (result.next()) {
-				utente.setUsername(result.getString("Username"));
-				utente.setNome(result.getString("Nome"));
-				utente.setCognome(result.getString("Cognome"));
+				utente.setUsername(result.getString("username"));
+				utente.setNome(result.getString("nome"));
+				utente.setCognome(result.getString("cognome"));
 				utente.setEmail(result.getString("email"));
 				utente.setPassword(result.getString("password"));
-
+				utente.setFacebook_id(result.getInt("facebook_id"));
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
@@ -93,12 +90,12 @@ public class UtenteDAOJdbc implements UtenteDAO {
 			while (result.next()) {
 				utente = new Utente();
 				
-				utente.setUsername(result.getString("Username"));
-				utente.setNome(result.getString("Nome"));
-				utente.setCognome(result.getString("Cognome"));
+				utente.setUsername(result.getString("username"));
+				utente.setNome(result.getString("nome"));
+				utente.setCognome(result.getString("cognome"));
 				utente.setEmail(result.getString("email"));
 				utente.setPassword(result.getString("password"));
-
+				utente.setFacebook_id(result.getInt("facebook_id"));
 				
 				utenti.add(utente);
 			}
