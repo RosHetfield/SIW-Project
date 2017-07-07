@@ -294,4 +294,9 @@ input:checked + .slider:before {
 }
 
 .slider.round:before {
-  border-radius: 50%;
+  border-radius: 50%;}
+  
+.carousel-inner>.active{
+	min-height: 500px;
+	background-size: cover;
+	background-position:  center;}
