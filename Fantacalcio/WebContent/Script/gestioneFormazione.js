@@ -1,5 +1,4 @@
 function checkFormazione() {
-	console.log("sono la caccaaaaaaa");
 	var succ = false;
 	$.ajax({
 
@@ -35,7 +34,6 @@ function checkFormazione() {
 
 			}
 			if (data == 3) {
-				console.log("dda");
 				swal({
 					title : "Attenzione!",
 					text : "Rosa non completa",
@@ -52,19 +50,14 @@ function checkFormazione() {
 	return Boolean(succ)
 }
 
-
-
-
-
 function aperturaFormazione() {
-	
-	if($('#formazione_id').prop("checked")) {
+
+	if ($('#formazione_id').prop("checked")) {
 		var r = 't';
-	}
-	else {
+	} else {
 		var r = 'f';
 	}
-	
+
 	$.ajax({
 
 		async : true,
@@ -83,21 +76,21 @@ function aperturaFormazione() {
 				});
 
 			}
-			 if (data == 1) {
+			if (data == 1) {
 				swal({
 					title : "Formazione Chiuso!",
 					type : "success",
 					confirmButtonText : "Ok"
 				});
 			}
-			 if (data == 2) {
-					swal({
-						title : "Mercato Aperto!",
-						text : "Inserisci alla chiusura del mercato",
-						type : "error",
-						confirmButtonText : "Ok"
-					});
-				}
+			if (data == 2) {
+				swal({
+					title : "Mercato Aperto!",
+					text : "Inserisci alla chiusura del mercato",
+					type : "error",
+					confirmButtonText : "Ok"
+				});
+			}
 		},
 		error : function(data) {
 			swal({
@@ -113,8 +106,8 @@ function aperturaFormazione() {
 function salvaFormazione() {
 	var countForm = $("#tbody2 > tr").length;
 	var countPanc = $("#tbody3 > tr").length;
-	
-	if(countForm < 11 || countPanc < 7) {
+
+	if (countForm < 11 || countPanc < 7) {
 		swal({
 			title : "Attenzione!",
 			text : "Completare la formazione",
@@ -123,24 +116,18 @@ function salvaFormazione() {
 		});
 		return;
 	}
-	
-	console.log(countForm);
-	console.log(countPanc);
-	
+
 	var formazione = [];
 	var panchina = [];
-	
+
 	for (var i = 0; i < countForm; i++) {
-		formazione.push($('#tbody2').children().eq(i).attr('id'))		
+		formazione.push($('#tbody2').children().eq(i).attr('id'))
 	}
-	
+
 	for (var j = 0; j < countPanc; j++) {
-		panchina.push($('#tbody3').children().eq(j).attr('id'))		
+		panchina.push($('#tbody3').children().eq(j).attr('id'))
 	}
-	
-	console.log("Formazione " + formazione);
-	console.log("Panchina " + panchina);
-	
+
 	$.ajax({
 
 		async : true,
@@ -170,4 +157,3 @@ function salvaFormazione() {
 		}
 	});
 }
-

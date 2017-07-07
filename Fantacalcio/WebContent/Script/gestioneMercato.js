@@ -1,4 +1,3 @@
-
 function mercato() {
 
 	var succ = false;
@@ -32,14 +31,13 @@ function mercato() {
 }
 
 function aperturaMercato() {
-	
-	if($('#mercato').prop("checked")) {
+
+	if ($('#mercato').prop("checked")) {
 		var r = 't';
-	}
-	else {
+	} else {
 		var r = 'f';
 	}
-	
+
 	$.ajax({
 
 		async : true,
@@ -56,14 +54,14 @@ function aperturaMercato() {
 					type : "success",
 					confirmButtonText : "Ok"
 				});
-				
+
 			} else if (data == 1) {
 				swal({
 					title : "Mercato Chiuso!",
 					type : "success",
 					confirmButtonText : "Ok"
 				});
-	
+
 			} else if (data == 2) {
 				swal({
 					title : "Impossibile aprire il mercato!",
@@ -71,7 +69,7 @@ function aperturaMercato() {
 					type : "error",
 					confirmButtonText : "Ok"
 				});
-				$('#mercato').prop("checked",false);
+				$('#mercato').prop("checked", false);
 			}
 		},
 		error : function(data) {
@@ -85,115 +83,99 @@ function aperturaMercato() {
 	});
 }
 
-function rosa(g,r) {
-	$(document).ready(function(){
-//	var aggiungi = "<input id=\"aggiungi\" type=\"submit\" value=\"Aggiungi\" class=\"btn btn-primary btn-sm\" onclick=\"rosa(\''+g+'\',\'t\')";
-//	var rimuovi = $('<input id="rimuovi" type="submit" value="Rimuovi" class="btn btn-danger btn-sm" onclick="rosa(\''+g+'\',\'f\')">')
-	$.ajax({
+function rosa(g, r) {
+	$(document).ready(function() {
+		// var aggiungi = "<input id=\"aggiungi\" type=\"submit\"
+		// value=\"Aggiungi\" class=\"btn btn-primary btn-sm\"
+		// onclick=\"rosa(\''+g+'\',\'t\')";
+		// var rimuovi = $('<input id="rimuovi" type="submit" value="Rimuovi"
+		// class="btn btn-danger btn-sm" onclick="rosa(\''+g+'\',\'f\')">')
+		$.ajax({
 
-		async : false,
-		type : "POST",
-		url : "GestioneMercato",
-		datatype : "json",
-		data : {
-			giocatore : JSON.stringify(g),
-			risposta : JSON.stringify(r)
-		},
-		success : function(data) {
-			
-			var res = JSON.parse(data);
-			
-			if (res.status == 0) {
-				//console.log("ok");
-				//$('#' + g).find("#aggiungi").remove();
-				var table = $('#tabellaPartecipanti').DataTable();
-				table.row('#' + g).remove().draw( false );
-//				$('#' + g).find(".text-center").remove();
-//				$('#players_list').append($('#' + g));
+			async : false,
+			type : "POST",
+			url : "GestioneMercato",
+			datatype : "json",
+			data : {
+				giocatore : JSON.stringify(g),
+				risposta : JSON.stringify(r)
+			},
+			success : function(data) {
+
+				var res = JSON.parse(data);
+
+				if (res.status == 0) {
+					var table = $('#tabellaPartecipanti').DataTable();
+					table.row('#' + g).remove().draw(false);
+					swal({
+						title : "Giocatore " + g + " aggiunto!",
+						type : "success",
+						confirmButtonText : "Ok",
+						text : "Crediti rimanenti: " + res.crediti
+
+					});
+					setTimeout(function() {
+						location.href = "Mercato";
+					}, 2000);
+				} else if (res.status == 1) {
+					swal({
+						title : "Crediti insufficenti!",
+						type : "warning",
+						confirmButtonText : "Ok"
+					});
+				} else if (res.status == 2) {
+					swal({
+						title : "Numero massimo Portieri raggiunto!",
+						type : "warning",
+						confirmButtonText : "Ok"
+					});
+				} else if (res.status == 3) {
+					swal({
+						title : "Numero massimo Difensori raggiunto!",
+						type : "warning",
+						confirmButtonText : "Ok"
+					});
+				} else if (res.status == 4) {
+					swal({
+						title : "Numero massimo Centrocampisti raggiunto!",
+						type : "warning",
+						confirmButtonText : "Ok"
+					});
+				} else if (res.status == 5) {
+					swal({
+						title : "Numero massimo Attaccanti raggiunto!",
+						type : "warning",
+						confirmButtonText : "Ok"
+					});
+				} else if (res.status == 6) {
+					var table = $('#players_list');
+					table.find("#" + g).remove();
+					swal({
+						title : "Giocatore " + g + " rimosso!",
+						type : "success",
+						confirmButtonText : "Ok",
+						text : "Crediti rimanenti: " + res.crediti
+					});
+					setTimeout(function() {
+						location.href = "Mercato";
+					}, 2000);
+				}
+			},
+			error : function(data) {
 				swal({
-					title : "Giocatore " + g + " aggiunto!",
-					type : "success",
-					confirmButtonText : "Ok",
-					text: "Crediti rimanenti: " + res.crediti
-				
-				});
-				setTimeout(function (){
-					location.href = "Mercato";
-				}, 2000);
-			}
-			else if (res.status == 1) {
-				swal({
-					title : "Crediti insufficenti!",
-					type : "warning",
+					title : "Errore!",
+					text : "Impossibile completare l'operazione",
+					type : "error",
 					confirmButtonText : "Ok"
 				});
 			}
-			else if (res.status == 2) {
-				swal({
-					title : "Numero massimo Portieri raggiunto!",
-					type : "warning",
-					confirmButtonText : "Ok"
-				});
-			}
-			else if (res.status == 3) {
-				swal({
-					title : "Numero massimo Difensori raggiunto!",
-					type : "warning",
-					confirmButtonText : "Ok"
-				});
-			}
-			else if (res.status == 4) { 
-				swal({
-					title : "Numero massimo Centrocampisti raggiunto!",
-					type : "warning",
-					confirmButtonText : "Ok"
-				});
-			}
-			else if (res.status == 5) {
-				swal({
-					title : "Numero massimo Attaccanti raggiunto!",
-					type : "warning",
-					confirmButtonText : "Ok"
-				});
-			}
-			else if (res.status == 6) {
-				var table = $('#players_list');
-				table.find("#"+g).remove();
-//				$('#' + g).find(".text-center").append(aggiungi);
-//				$('#tabellaPartecipanti').append($('#' + g));
-				//var t=$('#tabellaPartecipanti').DataTable();
-				
-				//t.row.add([
-				//	ru, g, s, v, aggiungi
-				//]).draw(true);
-				//table.find('.sorting_1 td:last').remove();
-				//$('#'+g + '> tbody:last-child').append(aggiungi);
-				swal({
-					title : "Giocatore " + g + " rimosso!",
-					type : "success",
-					confirmButtonText : "Ok",
-					text: "Crediti rimanenti: " + res.crediti
-				});
-				setTimeout(function (){
-					location.href = "Mercato";
-				}, 2000);
-			}
-		},
-		error : function(data) {
-			swal({
-				title : "Errore!",
-				text : "Impossibile completare l'operazione",
-				type : "error",
-				confirmButtonText : "Ok"
-			});
-		}
+		});
+
 	});
-	
-});
 }
 
 function salvaRosa() {
-	$(document).ready(function(){
+	$(document).ready(function() {
 		$.ajax({
 
 			async : true,
@@ -231,8 +213,6 @@ function salvaRosa() {
 	});
 }
 
-
-
 function ruolo(r) {
 
 	$.ajax({
@@ -246,7 +226,7 @@ function ruolo(r) {
 		},
 		success : function(data) {
 			location.href = "Mercato";
-		
+
 		},
 		error : function(data) {
 			swal({

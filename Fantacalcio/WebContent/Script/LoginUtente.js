@@ -51,8 +51,7 @@ function controlLoginUtente(form) {
 
 				successBoolean = false;
 
-			}
-			else if (data == 2) {
+			} else if (data == 2) {
 				swal({
 					title : "Username errato!",
 					type : "error",
@@ -61,16 +60,16 @@ function controlLoginUtente(form) {
 				form.Username.value = '';
 				form.Username.focus();
 				form.Username.select();
-				form.Password.value='';
+				form.Password.value = '';
 				successBoolean = false;
 			} else if (data == 0) {
-				form.Password.value='';
+				form.Password.value = '';
 				location.href = "Home"
 			}
 
 		},
 		error : function(data) {
-			form.Password.value='';
+			form.Password.value = '';
 			swal({
 				title : "Errore!",
 				text : "Impossibile completare il login.",

@@ -1,8 +1,8 @@
 function creaGiornata() {
-	
-	var currentDate = $( "#datepicker" ).datepicker( "getDate" );
 
-	if(currentDate.getTime() <= $.now()) {
+	var currentDate = $("#datepicker").datepicker("getDate");
+
+	if (currentDate.getTime() <= $.now()) {
 		swal({
 			title : "Attenzione!",
 			text : "Inserire una data valida",
@@ -11,38 +11,35 @@ function creaGiornata() {
 		});
 		return;
 	}
-	
+
 	$.ajax({
 
 		async : true,
 		type : "POST",
 		url : "CreaPartita",
 		datatype : "json",
-		data : { 
+		data : {
 			jsonData : JSON.stringify(currentDate)
 		},
 		success : function(data) {
 
 			var res = JSON.parse(data);
-			console.log(res);
-			if(res.status == 0) {				
+			if (res.status == 0) {
 				swal({
 					title : "Creata!",
 					text : "Giornata " + res.giornata + " creata!",
 					type : "success",
 					confirmButtonText : "Ok"
 				});
-				$('#mercato').prop('checked',false);
-			}
-			else if(res.status == 1) {
+				$('#mercato').prop('checked', false);
+			} else if (res.status == 1) {
 				swal({
 					title : "Attenzione!",
 					text : "Giornata " + res.giornata + " già creata!",
 					type : "warning",
 					confirmButtonText : "Ok"
 				});
-			}
-			else if(res.status == 2) {
+			} else if (res.status == 2) {
 				swal({
 					title : "Impossibile creare la giornata!",
 					text : "Calcolare la giornata " + res.giornata,
@@ -66,18 +63,18 @@ function creaGiornata() {
 }
 
 function calcola() {
-    var s;
+	var s;
 	$.ajax({
 
 		async : false,
 		type : "GET",
 		url : "CalcolaRisultati",
 		datatype : "json",
-		data : { },
+		data : {},
 		success : function(data) {
 			s = true;
-			
-			if(data == 1) {
+
+			if (data == 1) {
 				s = false;
 				swal({
 					title : "Attenzione!",
@@ -85,7 +82,7 @@ function calcola() {
 					type : "warning",
 					confirmButtonText : "Ok"
 				});
-				
+
 			}
 		},
 		error : function() {
@@ -100,5 +97,5 @@ function calcola() {
 		}
 	});
 	return Boolean(s);
-        
+
 }

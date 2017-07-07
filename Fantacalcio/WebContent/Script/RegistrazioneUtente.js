@@ -1,4 +1,3 @@
-
 function Utente(username, nome, cognome, email, password, passwordCheck) {
 	this.username = username;
 	this.nome = nome;
@@ -10,19 +9,19 @@ function Utente(username, nome, cognome, email, password, passwordCheck) {
 
 function CreateUtente() {
 	var campi = $("#formRegistrazione").find("input");
-	
+
 	var campo = campi.eq(0);
 	var username = campo.val();
-	
+
 	campo = campi.eq(1);
 	var nome = campo.val();
-	
+
 	campo = campi.eq(2);
 	var cognome = campo.val();
-	
+
 	campo = campi.eq(3);
 	var email = campo.val();
-	
+
 	campo = campi.eq(4);
 	var password = hex_sha1(campo.val());
 
@@ -39,7 +38,6 @@ function registraUtente(form) {
 	if(utente.password != utente.passwordCheck) {
 		swal({
 			  title: "Attenzione!",
-			  text:"Password e Controllo Password diverse " + utente.password+ " " + utente.passwordCheck,
 			  type: "warning",
 			  confirmButtonText: "Riprova"
 			});
@@ -87,27 +85,27 @@ function registraUtente(form) {
 				}
 			},
 
-			error : function(data) {
-				
-				swal({
-					  title: "Errore!",
-					  text:"Impossibile completare la registrazione",
-					  type: "error",
-					  confirmButtonText: "Riprova"
-					});
-				
-				registrazione = false;
-				form.Username.value='';
-				form.Password.value='';
-				form.Password_confirmation.value='';
-				form.Username.focus();
-				form.Username.scrollIntoView();
-			}
-			
-		});
 
-		return Boolean(registrazione);
+		error : function(data) {
+
+			swal({
+				title : "Errore!",
+				text : "Impossibile completare la registrazione",
+				type : "error",
+				confirmButtonText : "Riprova"
+			});
+
+			registrazione = false;
+			form.Username.value = '';
+			form.Password.value = '';
+			form.Password_confirmation.value = '';
+			form.Username.focus();
+			form.Username.scrollIntoView();
+		}
+
+	});
+
+	return Boolean(registrazione);
 }
 
 $(document).ready();
-
