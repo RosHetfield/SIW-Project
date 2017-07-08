@@ -42,7 +42,7 @@ public class LogoutController extends HttpServlet {
 		}
 		else {
 			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("errore.jsp");
+					.getRequestDispatcher("404.jsp");
 			dispatcher.forward(request, response);
 		}
 	}

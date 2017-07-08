@@ -63,7 +63,7 @@ public class GestioneCampionatoController extends HttpServlet {
 			dispatcher.forward(request, response);
 
 		} else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
 			dispatcher.forward(request, response);
 		}
 	}

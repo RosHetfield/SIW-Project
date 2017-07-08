@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +15,14 @@
 
 </head>
 <body>
+	<c:choose>
+		<c:when test="${Username == null}">
+			<%@ include file="../fragments/header.html"%>
+		</c:when>
+		<c:otherwise>
+			<%@ include file="../fragments/navbar.html"%>
+		</c:otherwise>
+	</c:choose>
 
 
 	<div class="container-fluid box text-center">
@@ -23,15 +34,12 @@
 
 
 
-	<div id="footload"></div>
+	<%@ include file="../fragments/footer.html"%>
+
 
 	<script src="Script/jquery-3.1.1.min.js" type="text/javascript"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		$(function() {
-			$("#footload").load("fragments/footer.html");
-		});
-	</script>
+
 
 </body>
 </html>

@@ -115,13 +115,13 @@ public class RisultatiController extends HttpServlet {
 				dispatcher.forward(request, response);
 			}
 			else{
-				RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
 				dispatcher.forward(request, response);
 			}
 
 		}
 		else{
-			RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
 			dispatcher.forward(request, response);
 		}
 
@@ -131,7 +131,6 @@ public class RisultatiController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

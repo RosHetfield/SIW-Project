@@ -39,7 +39,7 @@ public class ClassificaController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("sono in classifica controller get");
 	//	if (request.getParameterNames().hasMoreElements()) {
-
+		if(request.getSession().getAttribute("Username") != null) {
 			response.setContentType("text/html");
 			HttpSession session = request.getSession();
 			String campionato = (String) session.getAttribute("campionato");
@@ -84,14 +84,17 @@ public class ClassificaController extends HttpServlet {
 
 				
 				
-			}
-			else{
+			}else {
 				System.out.println("sono in else");
-
-				RequestDispatcher dispatcher = request.getRequestDispatcher("error.html");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
 				dispatcher.forward(request, response);
 			}
-		
+			
+		} else {
+			System.out.println("sono in else");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 
 	/**

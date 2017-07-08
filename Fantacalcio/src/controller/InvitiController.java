@@ -72,7 +72,7 @@ public class InvitiController extends HttpServlet {
 				}
 
 				else {
-					RequestDispatcher dispatcher = request.getRequestDispatcher("errore.jsp");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
 					dispatcher.forward(request, response);
 				}
 //			}

@@ -46,7 +46,7 @@ public class HomeController extends HttpServlet {
 				dispatcher.forward(request, response);
 			}
 			else {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("errore.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
 				dispatcher.forward(request, response);
 			}
 		}
@@ -71,7 +71,7 @@ public class HomeController extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("Home.jsp");
 			dispatcher.forward(request, response);
 			} else{
-				RequestDispatcher dispatcher = request.getRequestDispatcher("errore.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
 				dispatcher.forward(request, response);
 			}
 		}

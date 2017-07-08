@@ -34,7 +34,8 @@ public class CalcolaRisultatiController extends HttpServlet {
 		
 		System.out.println(request.getSession().getAttribute("Username"));
 		response.setContentType("text/html");
-		if(request.getSession().getAttribute("Username") != null &&  campionato != null) {
+		String user = (String)request.getSession().getAttribute("Username");
+		if(user != null &&  campionato != null) {
 			Partita p = DBManager.getInstance().getPartita().getUltimaGiornataGiocabile(campionato);
 			if(p != null) {
 				request.setAttribute("giornata", p.getGiornata());
@@ -44,7 +45,7 @@ public class CalcolaRisultatiController extends HttpServlet {
 				response.getWriter().print(1);
 			}
 		} else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
 			dispatcher.forward(request, response);
 		}
 	}

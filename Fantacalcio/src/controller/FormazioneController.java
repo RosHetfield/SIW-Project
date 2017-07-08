@@ -151,10 +151,13 @@ public class FormazioneController extends HttpServlet {
 				// dispatcher.forward(request, response);
 				// }
 				//
+			} else {
+				RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
+				dispatcher.forward(request, response);
 			}
 
 		} else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("errore.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
 			dispatcher.forward(request, response);
 		}
 	}
@@ -197,7 +200,7 @@ public class FormazioneController extends HttpServlet {
 			}
 
 		} else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("errore.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
 			dispatcher.forward(request, response);
 		}
 	}

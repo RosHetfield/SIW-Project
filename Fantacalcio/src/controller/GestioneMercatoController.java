@@ -95,8 +95,14 @@ public class GestioneMercatoController extends HttpServlet {
 						e.printStackTrace();
 					}
 					
+				}else{
+					RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
+					dispatcher.forward(request, response);
 				}
 
+			}else{
+				RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
+				dispatcher.forward(request, response);
 			}
 		}
 	}

@@ -33,7 +33,6 @@ public class StampaFormazioniController extends HttpServlet {
 	 */
 	public StampaFormazioniController() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -82,12 +81,12 @@ public class StampaFormazioniController extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("stampaFormazioni.jsp");
 				dispatcher.forward(request, response);
 			} else {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
 				dispatcher.forward(request, response);
 			}
 
 		} else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
 			dispatcher.forward(request, response);
 		}
 
