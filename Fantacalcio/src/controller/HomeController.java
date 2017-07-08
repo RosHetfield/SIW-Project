@@ -19,29 +19,30 @@ import persistence.DBManager;
 @WebServlet("/HomeController")
 public class HomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public HomeController() {
-        super();
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public HomeController() {
+		super();
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		if (!request.getParameterNames().hasMoreElements()) {
 
-			
 			String username = (String) request.getSession().getAttribute("Username");
-			
-			List<String> campionatiUtente=DBManager.getInstance().getUtente().getCampionati(username);
-			
-			if(username != null) {
+
+			List<String> campionatiUtente = DBManager.getInstance().getUtente().getCampionati(username);
+
+			if (username != null) {
 				request.getSession().setAttribute("CampionatiUtente", campionatiUtente);
-//				request.setAttribute("Username", username);
+				// request.setAttribute("Username", username);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("Home.jsp");
 				dispatcher.forward(request, response);
 			}
@@ -54,10 +55,12 @@ public class HomeController extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		TOGLIERE
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TOGLIERE
 		if (request.getParameterNames().hasMoreElements()) {
 
 			HttpSession session = request.getSession(false);
@@ -72,13 +75,11 @@ public class HomeController extends HttpServlet {
 			dispatcher.forward(request, response);
 			} else{
 				RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
+
 				dispatcher.forward(request, response);
 			}
 		}
-		
-	
 
 	}
-	
 
 }

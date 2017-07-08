@@ -2,7 +2,6 @@ package controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpSession;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import model.Campionato;
-import model.Utente;
 import persistence.DBManager;
 
 /**
@@ -48,22 +46,16 @@ public class LoginCampionatoController extends HttpServlet {
 			throws ServletException, IOException {
 		if (request.getParameterNames().hasMoreElements()) {
 			String username = (String) request.getSession().getAttribute("Username");
-			System.out.println("SESSIONE" + username);
 
 			String jsString = request.getParameter("credenzialiAmministratore");
-			System.out.println(jsString + " parametro");
 			if (jsString != null) {
 				ObjectMapper mapper = new ObjectMapper();
 
 				Campionato campionato = (Campionato) mapper.readValue(jsString, Campionato.class);
 				response.setContentType("text/html");
 				Campionato result = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato.getNome());
-				System.out.println(result.getNome());
-				// System.out.println(result.getUsername() + " utende " +
-				// result.getPassword() + " passuord");
 				if (result.getNome() != null) {
 					if (result.getPassword().equals(campionato.getPassword())) {
-						// response.setStatus(HttpServletResponse.SC_OK);
 						HttpSession session = request.getSession();
 						session.setAttribute("NomeCampionato", campionato.getNome());
 						response.getWriter().print(0);
@@ -73,9 +65,7 @@ public class LoginCampionatoController extends HttpServlet {
 					response.getWriter().print(2);
 				}
 			}
-			
-		
-			
+
 		}
 	}
 

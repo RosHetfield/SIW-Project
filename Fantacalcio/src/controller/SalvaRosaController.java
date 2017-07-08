@@ -38,18 +38,16 @@ public class SalvaRosaController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		response.setContentType("text/html");
 		String username = (String) request.getSession().getAttribute("Username");
-		System.out.println("PRIMA " + username);
 		if (username != null) {
 
-			System.out.println("Sessione UTENTE " + username);
 			String campionato = (String) request.getSession().getAttribute("campionato");
 			String squadra = (String) request.getSession().getAttribute("squadra");
 
 			if (campionato != null && squadra != null) {
 				boolean completa = isCompleta(squadra);
-				if(completa) {
+				if (completa) {
 					DBManager.getInstance().getGiocatore_in_rosa().updateAll(squadra, completa);
 					response.getWriter().println(0);
 				} else {
@@ -58,18 +56,18 @@ public class SalvaRosaController extends HttpServlet {
 			}
 		}
 	}
-	
+
 	private boolean isCompleta(String squadra) {
-		if((DBManager.getInstance().getGiocatore_in_rosa().n_giocatoriRuolo(squadra, "P")) < 3) {
+		if ((DBManager.getInstance().getGiocatore_in_rosa().n_giocatoriRuolo(squadra, "P")) < 3) {
 			return false;
 		}
-		if((DBManager.getInstance().getGiocatore_in_rosa().n_giocatoriRuolo(squadra, "D")) < 8) {
+		if ((DBManager.getInstance().getGiocatore_in_rosa().n_giocatoriRuolo(squadra, "D")) < 8) {
 			return false;
 		}
-		if((DBManager.getInstance().getGiocatore_in_rosa().n_giocatoriRuolo(squadra, "C")) < 8) {
+		if ((DBManager.getInstance().getGiocatore_in_rosa().n_giocatoriRuolo(squadra, "C")) < 8) {
 			return false;
 		}
-		if((DBManager.getInstance().getGiocatore_in_rosa().n_giocatoriRuolo(squadra, "A")) < 6) {
+		if ((DBManager.getInstance().getGiocatore_in_rosa().n_giocatoriRuolo(squadra, "A")) < 6) {
 			return false;
 		}
 		return true;

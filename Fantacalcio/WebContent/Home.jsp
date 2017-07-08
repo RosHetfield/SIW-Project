@@ -142,7 +142,7 @@
 							if (campionati.isEmpty()) {
 						%>
 
-						<a href="#" class="list-group-item">Nessun campionato</a>
+						<a class="list-group-item">Nessun campionato</a>
 						<%
 							} else {
 						%>
@@ -161,32 +161,6 @@
 			</div>
 		</div>
 
-
-
-
-
-
-		<div class="row">
-			<div class="box">
-				<div class="col-lg-12">
-					<hr>
-					<h2 class="intro-text text-center">
-						Build a website <strong>worth visiting</strong>
-					</h2>
-					<hr>
-					<div class="col-lg-4">
-						<p>INSERIRE PUBBLICITA</p>
-					</div>
-					<div class="col-lg-4">
-						<p>INSERIRE PUBBLICITA</p>
-					</div>
-					<div class="col-lg-4">
-						<p>INSERIRE PUBBLICITA</p>
-					</div>
-				</div>
-			</div>
-		</div>
-
 	</div>
 
 
@@ -198,7 +172,7 @@
 
 
 	<%@ include file="../fragments/footer.html"%>
-	
+
 	<!-- jQuery -->
 	<script src="Script/jquery-3.1.1.min.js" type="text/javascript"></script>
 
@@ -209,9 +183,9 @@
 	<script src="Script/CreaCampionato.js"></script>
 	<script src="Script/caricaCampionato.js"></script>
 	<script src="Script/loginCampionato.js"></script>
-	
+
 	<!-- Custom JavaScript -->
-	<script src="Script/modal.js"></script>	
+	<script src="Script/modal.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#home-btn').css({

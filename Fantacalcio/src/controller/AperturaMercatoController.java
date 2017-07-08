@@ -11,7 +11,6 @@ import javax.servlet.http.HttpSession;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import model.Campionato;
-import model.Invito;
 import model.Partita;
 import persistence.DBManager;
 
@@ -60,18 +59,15 @@ public class AperturaMercatoController extends HttpServlet {
 					Campionato camp = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
 					if (apertura.equals("t")) {
 						Partita giornata = DBManager.getInstance().getPartita().getUltimaGiornataGiocabile(campionato);
-						Partita partita = DBManager.getInstance().getPartita().findByPrimaryKey(giornata.getGiornata(), campionato);
-						if(partita == null) {
+						if (giornata == null) {
 							camp.setMercato(true);
 							DBManager.getInstance().getCampionato().update(camp);
 							response.getWriter().println(0);
-						}
-						else if (partita.getData().getTime() < System.currentTimeMillis()) {
+						} else if (giornata.getData().getTime() < System.currentTimeMillis()) {
 							camp.setMercato(true);
 							DBManager.getInstance().getCampionato().update(camp);
 							response.getWriter().println(0);
-						}
-						else {
+						} else {
 							response.getWriter().println(2);
 						}
 					} else if (apertura.equals("f")) {

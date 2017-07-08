@@ -53,9 +53,7 @@ public class CreaPartitaController extends HttpServlet {
 			response.setContentType("text/html");
 			String campionato = (String) session.getAttribute("NomeCampionato");
 			if (campionato != null) {
-				// Campionato camp =
-				// DBManager.getInstance().getCampionato().findByPrimaryKey(campionato);
-				System.out.println("FFFFF " + campionato);
+
 				JSONObject jsRes = new JSONObject();
 				Partita p = DBManager.getInstance().getPartita().getUltimaGiornataGiocabile(campionato);
 				if (p != null) {
@@ -68,7 +66,6 @@ public class CreaPartitaController extends HttpServlet {
 					}
 				} else {
 					int ultima_giornata = DBManager.getInstance().getVoto_giornata().getUltimaGiornata();
-					System.out.println("ULTIMA " + ultima_giornata);
 					if (ultima_giornata != -1) {
 						++ultima_giornata;
 

@@ -23,20 +23,23 @@ import persistence.DBManager;
 @WebServlet("/ClassificaController")
 public class ClassificaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
 	private int giornata = 0;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ClassificaController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ClassificaController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		System.out.println("sono in classifica controller get");
 	//	if (request.getParameterNames().hasMoreElements()) {
 		if(request.getSession().getAttribute("Username") != null) {
@@ -98,9 +101,11 @@ public class ClassificaController extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

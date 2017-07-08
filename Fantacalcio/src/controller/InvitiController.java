@@ -1,8 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.Collection;
-import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -17,7 +15,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import model.Campionato;
 import model.Invito;
 import model.Squadra;
-import model.SquadraProxy;
 import model.Utente;
 import persistence.DBManager;
 
@@ -42,41 +39,27 @@ public class InvitiController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-//		if (request.getParameterNames().hasMoreElements()) {
-//			String jsInvito = (String) request.getParameter("invito");
-//			String jsRisposta = (String) request.getParameter("risposta");
-			response.setContentType("text/html");
-//			if (jsRisposta != null && jsInvito != null) {
-				
-				String username = (String) request.getSession().getAttribute("Username");
+		// if (request.getParameterNames().hasMoreElements()) {
+		// String jsInvito = (String) request.getParameter("invito");
+		// String jsRisposta = (String) request.getParameter("risposta");
+		response.setContentType("text/html");
+		// if (jsRisposta != null && jsInvito != null) {
 
-				if (username != null) {
-					System.out.println("MADONNA PUTTANA " + username);
-//					ObjectMapper mapper = new ObjectMapper();
-//					
-//					Invito invito = (Invito) mapper.readValue(jsInvito, Invito.class);
-//					if(jsRisposta.equals("r"))
-//					{
-//						DBManager.getInstance().getInvito().delete(invito);
-//					}
-//					else if(jsRisposta.equals("a")){}
-//					
-					List<Invito> result = DBManager.getInstance().getInvito().findByUtente(username);
+		String username = (String) request.getSession().getAttribute("Username");
 
-					request.setAttribute("Inviti", result);
-					request.setAttribute("CampionatiUtente",
-							(List<String>) request.getSession().getAttribute("CampionatiUtente"));
-					RequestDispatcher dispatcher = request.getRequestDispatcher("Inviti.jsp");
-					dispatcher.forward(request, response);
+		if (username != null) {
+			List<Invito> result = DBManager.getInstance().getInvito().findByUtente(username);
 
-				}
+			request.setAttribute("Inviti", result);
+			request.setAttribute("CampionatiUtente",
+					(List<String>) request.getSession().getAttribute("CampionatiUtente"));
+			RequestDispatcher dispatcher = request.getRequestDispatcher("Inviti.jsp");
+			dispatcher.forward(request, response);
 
-				else {
-					RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
-					dispatcher.forward(request, response);
-				}
-//			}
-//		}
+		} else {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 
 	/**
@@ -86,52 +69,49 @@ public class InvitiController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		if (request.getParameterNames().hasMoreElements()) {
-		String jsInvito = (String) request.getParameter("invito");
-		String jsRisposta = (String) request.getParameter("risposta");
-		response.setContentType("text/html");
-		if (jsRisposta != null && jsInvito != null) {
-			
-			String username = (String) request.getSession().getAttribute("Username");
+			String jsInvito = (String) request.getParameter("invito");
+			String jsRisposta = (String) request.getParameter("risposta");
+			response.setContentType("text/html");
+			if (jsRisposta != null && jsInvito != null) {
 
-			if (username != null) {
-				ObjectMapper mapper = new ObjectMapper();
-				
-				Invito invito = (Invito) mapper.readValue(jsInvito, Invito.class);
-				String risposta = (String) mapper.readValue(jsRisposta, String.class);
-				if(risposta.equals("r"))
-				{
-					DBManager.getInstance().getInvito().delete(invito);
-				}
-				else if(risposta.equals("a")) {
-					String jsSquadra = (String) request.getParameter("squadra");
-					String squadra = (String) mapper.readValue(jsSquadra, String.class);
-					if(creaSquadra(invito, squadra)) {						
-						response.getWriter().print(0);
+				String username = (String) request.getSession().getAttribute("Username");
+
+				if (username != null) {
+					ObjectMapper mapper = new ObjectMapper();
+
+					Invito invito = (Invito) mapper.readValue(jsInvito, Invito.class);
+					String risposta = (String) mapper.readValue(jsRisposta, String.class);
+					if (risposta.equals("r")) {
 						DBManager.getInstance().getInvito().delete(invito);
+					} else if (risposta.equals("a")) {
+						String jsSquadra = (String) request.getParameter("squadra");
+						String squadra = (String) mapper.readValue(jsSquadra, String.class);
+						if (creaSquadra(invito, squadra)) {
+							response.getWriter().print(0);
+							DBManager.getInstance().getInvito().delete(invito);
+						} else {
+							response.getWriter().print(1);
+						}
 					}
-					else {
-						response.getWriter().print(1);
-					}
+
+					List<Invito> result = DBManager.getInstance().getInvito().findByUtente(username);
+
+					request.setAttribute("Inviti", result);
+					request.setAttribute("CampionatiUtente",
+							(List<String>) request.getSession().getAttribute("CampionatiUtente"));
+
 				}
-				
-				List<Invito> result = DBManager.getInstance().getInvito().findByUtente(username);
 
-				request.setAttribute("Inviti", result);
-				request.setAttribute("CampionatiUtente",
-						(List<String>) request.getSession().getAttribute("CampionatiUtente"));
-
-			}
-
-			else {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("errore.jsp");
-				dispatcher.forward(request, response);
+				else {
+					RequestDispatcher dispatcher = request.getRequestDispatcher("errore.jsp");
+					dispatcher.forward(request, response);
+				}
 			}
 		}
 	}
-	}
-	
-	private boolean creaSquadra(Invito invito,String squadra) {
-		if(DBManager.getInstance().getSquadra().findByPrimaryKey(squadra) != null) {
+
+	private boolean creaSquadra(Invito invito, String squadra) {
+		if (DBManager.getInstance().getSquadra().findByPrimaryKey(squadra) != null) {
 			return false;
 		}
 		Utente utente = DBManager.getInstance().getUtente().findByPrimaryKey(invito.getUtente());

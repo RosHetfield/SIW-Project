@@ -20,61 +20,53 @@ import persistence.DBManager;
 public class RegistrazioneController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * Default constructor. 
-     */
-    public RegistrazioneController() {
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * Default constructor.
+	 */
+	public RegistrazioneController() {
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doPost(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		System.out.println("########################################");
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		if (request.getParameterNames().hasMoreElements()) {
-			 
+
 			String jsString = request.getParameter("utenteRegistrazione");
-			System.out.println(jsString);
 			if (jsString != null) {
 
 				ObjectMapper mapper = new ObjectMapper();
 
 				Utente utente = (Utente) mapper.readValue(jsString, Utente.class);
-				
+
 				Utente checkUtente = DBManager.getInstance().getUtente().findByPrimaryKey(utente.getUsername());
-				System.out.println("check "+checkUtente.getUsername());
 				response.setContentType("text/html");
-			
-				if(checkUtente.getUsername() != null) {
+
+				if (checkUtente.getUsername() != null) {
 					response.getWriter().print(1);
-					
-//					response.setContentType("text/html"); 
-				}
-				else {
-//					response.setContentType("text/html"); 
+
+				} else {
 					DBManager.getInstance().getUtente().save(utente);
 					HttpSession session = request.getSession();
 					session.setAttribute("Username", utente.getUsername());
 					response.getWriter().print(0);
 				}
-				System.out.println(utente.getUsername());
-				System.out.println(utente.getNome());
-				System.out.println(utente.getCognome());
-				System.out.println(utente.getEmail());
-				System.out.println(utente.getPassword()); 
 
 			}
-			
+
 		}
 	}
 

@@ -33,8 +33,6 @@ public class CampionatoProxy extends Campionato {
 				while (result.next()) {
 					Squadra squadra = new SquadraProxy(this.dataSource);
 					squadra.setNome(result.getString("Nome"));
-					// Utente utente = squadra.getUtente();//togliere
-					// squadra.setUtente(utente);
 					squadra.setCrediti(result.getInt("Crediti"));
 
 					s.add(squadra);

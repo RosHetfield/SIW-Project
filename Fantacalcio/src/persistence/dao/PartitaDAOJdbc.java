@@ -62,7 +62,6 @@ public class PartitaDAOJdbc implements PartitaDAO {
 				partita.setCampionato(result.getString("campionato"));
 				long secs = result.getDate("data").getTime();
 				partita.setData(new java.util.Date(secs));
-				//////////////////////////////////////////
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
@@ -116,38 +115,6 @@ public class PartitaDAOJdbc implements PartitaDAO {
 	public List<Partita> findAll() {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public Partita getPartitaGiocabile(String campionato) {
-		//// Connection connection = this.dataSource.getConnection();
-		Partita partita = null;
-		// try {
-		// PreparedStatement statement;
-		// String query = "select * from partita where
-		// \"aggiungiFormazione\"=true and campionato = ?";
-		// statement = connection.prepareStatement(query);
-		// statement.setString(1, campionato);
-		//
-		// ResultSet result = statement.executeQuery();
-		//
-		// if (result.next()) {
-		// partita=new Partita();
-		// partita.setAggiungiFormazione(result.getBoolean("aggiungiFormazione"));
-		// partita.setGiornata(result.getInt("giornata"));
-		// //////////////////
-		// }
-		// } catch (SQLException e) {
-		// throw new RuntimeException(e.getMessage());
-		// } finally {
-		// try {
-		// connection.close();
-		// } catch (SQLException e) {
-		// throw new RuntimeException(e.getMessage());
-		// }
-		// }
-		//
-		return partita;
 	}
 
 	@Override

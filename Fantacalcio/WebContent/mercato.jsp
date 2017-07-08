@@ -257,7 +257,9 @@
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
+
 	<script src="js/sweetalert.min.js"></script>
+	<script src="js/sweetalert2.min.js"></script>
 
 	<!-- Table JavaScript library -->
 	<script src="js/jquery-1.12.4.js"></script>
@@ -266,10 +268,11 @@
 
 	<!-- Custom JavaScript -->
 	<script src="Script/gestioneMercato.js"></script>
+	<script src="Script/gestioneFormazione.js"></script>
 	<script src="Script/loginCampionato.js"></script>
 	<script src="Script/modal.js"></script>
-	
-	
+
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#tabellaPartecipanti').DataTable();
@@ -282,9 +285,9 @@
 			});
 		});
 	</script>
-	
-	
-	
+
+
+
 
 </body>
 </html>

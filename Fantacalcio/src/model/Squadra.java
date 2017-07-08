@@ -11,9 +11,8 @@ public class Squadra {
 	private Utente utente;
 	private Campionato campionato;
 
-	private Set<Giocatore_in_rosa> giocatori;
-
-	// fare il costruttore... con parametri.................
+	private Set<Giocatore_in_rosa> giocatori;	
+	
 
 	public Squadra() {
 		super();

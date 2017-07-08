@@ -3,7 +3,6 @@ package controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -15,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.Giocatore;
 import model.Giocatore_in_formazione;
 import model.Partita;
 import model.Squadra;
@@ -49,12 +47,7 @@ public class StampaFormazioniController extends HttpServlet {
 			String squadra = (String) request.getSession().getAttribute("squadra");
 			if (campionato != null && squadra != null) {
 
-				// restituisco l'ultima giornata creata e nella quale possone
-				// essere presenti formazioni
 				Partita giornata = DBManager.getInstance().getPartita().getUltimaGiornataGiocabile(campionato);
-				// Partita partita =
-				// DBManager.getInstance().getPartita().findByPrimaryKey(giornata.getGiornata(),
-				// campionato);
 				Set<Squadra> squadreCampionato = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato)
 						.getSquadre();
 				request.setAttribute("ultimaGiornata", -1);
@@ -70,7 +63,7 @@ public class StampaFormazioniController extends HttpServlet {
 									.compareTo(o1.getGiocatoreInRosa().getGiocatore().getRuolo());
 						}
 					});
-					
+
 					request.setAttribute("ultimaGiornata", giornata.getGiornata());
 
 				}

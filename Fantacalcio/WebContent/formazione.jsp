@@ -49,16 +49,18 @@
 
 
 <style>
-#tbody1, #tbody2, #tbody3 {
+#tbody1, #tbody2, #tbody3 > tr{
 	border: 1px solid #eee;
 	width: 142px;
-	min-height: 20px;
+	min-height: 200px;
 	list-style-type: none;
 	margin: 0;
 	padding: 5px 0 0 0;
 	float: left;
 	margin-right: 10px;
 }
+
+
 
 fieldset {
 	border: 0;
@@ -365,16 +367,25 @@ tbody>tr {
 	</div>
 
 	<script src="js/bootstrap.min.js"></script>
+
+	<script src="js/sweetalert.min.js"></script>
+	<script src="js/sweetalert2.min.js"></script>
+
 	<script src="Script/formazione.js"></script>
 	<script src="Script/gestioneFormazione.js"></script>
-		<script src="Script/loginCampionato.js"></script>
-<script type="text/javascript">
+	<script src="Script/loginCampionato.js"></script>
+	<script src="Script/gestioneMercato.js"></script>
+
+
+
+	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#GestioneFormazione').css({
 				'background-color' : '#e7e7e7'
 			});
 		});
 	</script>
+
 
 
 </body>
