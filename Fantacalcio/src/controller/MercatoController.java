@@ -81,7 +81,7 @@ public class MercatoController extends HttpServlet {
 							ruolo = mapper.readValue(jsRuolo, String.class);
 						}
 					}
-
+					
 					List<Giocatore> giocatoriSvincolati = DBManager.getInstance().getGiocatore()
 							.getGiocatoriSvincolati(s, ruolo);
 					request.setAttribute("giocatoriSvincolati", giocatoriSvincolati);

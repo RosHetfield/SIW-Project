@@ -54,7 +54,7 @@ public class LoginCampionatoController extends HttpServlet {
 				Campionato campionato = (Campionato) mapper.readValue(jsString, Campionato.class);
 				response.setContentType("text/html");
 				Campionato result = DBManager.getInstance().getCampionato().findByPrimaryKey(campionato.getNome());
-				if (result.getNome() != null) {
+				if (result != null) {
 					if (result.getPassword().equals(campionato.getPassword())) {
 						HttpSession session = request.getSession();
 						session.setAttribute("NomeCampionato", campionato.getNome());

@@ -10,7 +10,7 @@ public interface ClassificaDAO {
 	
 	public void save(Classifica classifica); 
 	public Classifica findByPrimaryKey(int giornata, String squadra);
-	public Classifica getUltimoRisultatoClassifica(String squadra);
+	public Classifica getUltimoRisultatoClassifica(int giornata, String squadra);
 	public List<Classifica> getClassificaGiornata(int giornata, String campionato);   
 	public RisultatoGiornata getRisultatoGiornata(int giornata, String squadra);
 	public int getPartiteGiocate(String squadra);

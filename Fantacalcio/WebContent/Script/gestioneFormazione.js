@@ -120,12 +120,12 @@ function salvaFormazione() {
 	var formazione = [];
 	var panchina = [];
 
-	for (var i = 0; i < countForm; i++) {
-		formazione.push($('#tbody2').children().eq(i).attr('id'))
+	for (var i = 1; i < countForm; i++) {
+		formazione.push($('#tbody2').children().eq(i).attr('id'));
 	}
 
-	for (var j = 0; j < countPanc; j++) {
-		panchina.push($('#tbody3').children().eq(j).attr('id'))
+	for (var j = 1; j < countPanc; j++) {
+		panchina.push($('#tbody3').children().eq(j).attr('id'));
 	}
 
 	$.ajax({

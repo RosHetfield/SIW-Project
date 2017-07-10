@@ -76,7 +76,6 @@ function loginCampionato(form) {
 		}
 
 	});
-
 	return Boolean(successBoolean);
 }
 

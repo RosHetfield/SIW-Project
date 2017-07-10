@@ -61,7 +61,7 @@ public class CaricaVotiController extends HttpServlet {
 			XSSFWorkbook votazioni;
 			votazioni = new XSSFWorkbook(fileContent);
 			XSSFSheet sheet = votazioni.getSheetAt(0);
-
+			int giornata = DBManager.getInstance().getPartita().getUltimaGiornataGiocabile(campionato).getGiornata();
 			Row row;
 			for (int i = 4; i <= sheet.getLastRowNum(); i++) {
 				row = sheet.getRow(i);
@@ -72,7 +72,7 @@ public class CaricaVotiController extends HttpServlet {
 					continue;
 				}
 				Voto_giornata voto = new Voto_giornata();
-				voto.setGiornata(1);// passare attr req
+				voto.setGiornata(giornata);
 				voto.setNomeGiocatore(row.getCell(2).getStringCellValue());
 				int votazione = 0;
 				if (row.getCell(3).getCellType() == Cell.CELL_TYPE_STRING) {

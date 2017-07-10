@@ -53,16 +53,17 @@ public class ClassificaDAOJdbc implements ClassificaDAO {
 	}
 
 	@Override
-	public Classifica getUltimoRisultatoClassifica(String squadra) {
+	public Classifica getUltimoRisultatoClassifica(int giornata, String squadra) {
 		Classifica classifica = null;
 		Connection connection = this.dataSource.getConnection();
 		try {
 			PreparedStatement statement;
 			String query = "select * from classifica "
-					+ "where giornata = (select max(giornata) from classifica where squadra = ?)";
+					+ "where squadra = ? and giornata = ?";
 			statement = connection.prepareStatement(query);
 
 			statement.setString(1, squadra);
+			statement.setInt(2, giornata);
 
 			ResultSet result = statement.executeQuery();
 
@@ -93,7 +94,7 @@ public class ClassificaDAOJdbc implements ClassificaDAO {
 		Connection connection = this.dataSource.getConnection();
 		try {
 			PreparedStatement statement;
-			String query = "select * from classifica where giornata = ? and campionato = ? order by totale";
+			String query = "select * from classifica where giornata = ? and campionato = ? order by totale desc";
 			statement = connection.prepareStatement(query);
 
 			statement.setInt(1, giornata);

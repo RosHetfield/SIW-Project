@@ -52,7 +52,6 @@
 #tbody1, #tbody2, #tbody3 > tr{
 	border: 1px solid #eee;
 	width: 142px;
-	min-height: 200px;
 	list-style-type: none;
 	margin: 0;
 }

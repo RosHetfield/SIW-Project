@@ -1,5 +1,4 @@
 function caricaGiornata(g) {
-	$(document).ready(function() {
 
 		$.ajax({
 
@@ -24,5 +23,4 @@ function caricaGiornata(g) {
 			}
 		});
 
-	});
 }

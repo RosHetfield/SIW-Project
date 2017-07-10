@@ -34,6 +34,7 @@ $('#btnUpload').click(function() {
 					if (data == 0) {
 						swal({
 							title : "Voti caricati con successo!",
+							text: "Giornata calcolata.",
 							type : "success",
 							confirmButtonText : "Ok"
 						});

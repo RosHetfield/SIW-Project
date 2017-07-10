@@ -82,7 +82,7 @@
 			<div class="col-lg-12  box">
 				<hr>
 				<h2 class="intro-text text-center">Classifica giornata
-					${giornata}</h2>
+					${giornataStorico}</h2>
 				<hr>
 
 				<table id="tabellaClassifica"

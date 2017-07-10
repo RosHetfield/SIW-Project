@@ -45,7 +45,7 @@
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 
-					<li><a class="btn btn-sm  " href="GestioneCampionato">Gestione</a></li>
+					<li><a class="btn btn-sm  " href="GestioneCampionato">Gestione Campionato</a></li>
 					<li><a class="btn btn-sm btn-info "
 						href="LogoutAmministratore">Log Out</a></li>
 				</ul>

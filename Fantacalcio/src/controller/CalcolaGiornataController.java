@@ -31,7 +31,6 @@ public class CalcolaGiornataController extends HttpServlet {
 	 */
 	public CalcolaGiornataController() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -77,11 +76,12 @@ public class CalcolaGiornataController extends HttpServlet {
 					totale_giornata = risultato_giornata.getTotale();
 				}
 				Classifica ultimo_risultato = DBManager.getInstance().getClassifica()
-						.getUltimoRisultatoClassifica(squadra.getNome());
+						.getUltimoRisultatoClassifica((giornata.getGiornata() - 1), squadra.getNome());
 				if (ultimo_risultato != null) {
 					totale = ultimo_risultato.getTotale();
 				}
 				double somma_risultati = totale_giornata + totale;
+				System.out.println(totale_giornata + " GIORNATA "+totale+" ULTIMO "+somma_risultati+ " FINALE ");
 				Classifica classifica = new Classifica(squadra.getNome(), giornata.getGiornata(), partite_giocate,
 						campionato, somma_risultati);
 				DBManager.getInstance().getClassifica().save(classifica);

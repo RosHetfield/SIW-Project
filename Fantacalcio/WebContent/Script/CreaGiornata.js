@@ -84,6 +84,16 @@ function calcola() {
 				});
 
 			}
+			else if (data == 2) {
+				s = false;
+				swal({
+					title : "Attenzione!",
+					text : "Partita non ancora giocata.",
+					type : "warning",
+					confirmButtonText : "Ok"
+				});
+
+			}
 		},
 		error : function() {
 			s = false;

@@ -40,10 +40,16 @@ public class CalcolaRisultatiController extends HttpServlet {
 		if(user != null &&  campionato != null) {
 			Partita p = DBManager.getInstance().getPartita().getUltimaGiornataGiocabile(campionato);
 			if (p != null) {
-				request.setAttribute("giornata", p.getGiornata());
-				RequestDispatcher dispatcher = request.getRequestDispatcher("calcolaGiornata.jsp");
-				dispatcher.forward(request, response);
-			} else {
+				if (p.getData().getTime() < System.currentTimeMillis()) {
+					request.setAttribute("giornata", p.getGiornata());
+					RequestDispatcher dispatcher = request.getRequestDispatcher("calcolaGiornata.jsp");
+					dispatcher.forward(request, response);			
+				}
+				else {
+					response.getWriter().print(2);
+				}
+			}
+			else {
 				response.getWriter().print(1);
 			}
 		} else {
