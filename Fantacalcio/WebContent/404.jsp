@@ -10,7 +10,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+<!-- Navbar CSS -->
+<link href="css/sweetalert.css" type="text/css" rel="stylesheet" />
+<link href="css/modal.css" type="text/css" rel="stylesheet" />
+<link href="css/sweetalert2.css" type="text/css" rel="stylesheet" />
+
+<!-- Custom CSS -->
 <link href="css/business-casual.css" rel="stylesheet" />
 
 </head>
@@ -37,8 +45,18 @@
 	<%@ include file="../fragments/footer.html"%>
 
 
+	
+		<!-- jQuery -->
 	<script src="Script/jquery-3.1.1.min.js" type="text/javascript"></script>
+
+	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/sweetalert.min.js"></script>
+	<script src="js/sweetalert2.min.js"></script>
+	<script src="Script/loginCampionato.js"></script>
+
+	<!-- Custom JavaScript -->
+	<script src="Script/modal.js"></script>
 
 
 </body>
