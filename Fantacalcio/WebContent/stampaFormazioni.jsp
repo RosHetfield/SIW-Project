@@ -110,7 +110,7 @@
 							<thead>
 
 								<tr class="active">
-									<td colspan="8">In campo</td>
+									<td colspan="8" class="text-center"><h5>In campo</h5></td>
 								</tr>
 
 
@@ -165,7 +165,7 @@
 							<thead>
 
 								<tr class="active">
-									<td colspan="8">In panchina</td>
+									<td colspan="8" class="text-center"><h5>In panchina</h5></td>
 								</tr>
 
 

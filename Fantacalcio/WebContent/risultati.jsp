@@ -70,7 +70,10 @@
 
 
 		<div class="row">
-			<div class="box ">
+			<div class="box text-center">
+				<hr>
+				Giornate
+				<hr>
 				<div class="col-lg-12 ">
 					<ol class="list-inline">
 						<c:forEach var="name" begin="1" end="${ultimaGiornata}" step="1">
@@ -113,7 +116,7 @@
 							<thead>
 
 								<tr class="active">
-									<td colspan="8">In campo</td>
+									<td colspan="8" class="text-center"><h5>In campo</h5></td>
 								</tr>
 
 
@@ -122,15 +125,15 @@
 
 									<td>Nome Calciatore</td>
 
-									<td class="text-center"><span class="hidden-xs">
+									<td ><span class="hidden-xs">
 											Voto</span> <span class="visible-xs" data-toggle="tooltip"
 										title="Voto">V</span></td>
 
-									<td class="text-center"><span class="hidden-xs">
+									<td><span class="hidden-xs">
 											Fantavoto</span> <span class="visible-xs" data-toggle="tooltip"
 										title="Fanta Voto">FV</span></td>
 
-									<td class="text-center"><span class="hidden-xs">
+									<td ><span class="hidden-xs">
 											Squadra</span> <span class="visible-xs" data-toggle="tooltip"
 										title="Squadra">S</span></td>
 								</tr>
@@ -233,7 +236,7 @@
 							<thead>
 
 								<tr class="active">
-									<td colspan="8">In panchina</td>
+									<td colspan="8" class="text-center"><h5>In panchina</h5></td>
 								</tr>
 
 
@@ -243,15 +246,15 @@
 
 									<td>Nome Calciatore</td>
 
-									<td class="text-center"><span class="hidden-xs">
+									<td ><span class="hidden-xs">
 											Voto</span> <span class="visible-xs" data-toggle="tooltip"
 										title="Voto">V</span></td>
 
-									<td class="text-center"><span class="hidden-xs">
+									<td><span class="hidden-xs">
 											Fantavoto</span> <span class="visible-xs" data-toggle="tooltip"
 										title="Fanta Voto">FV</span></td>
 
-									<td class="text-center"><span class="hidden-xs">
+									<td><span class="hidden-xs">
 											Squadra</span> <span class="visible-xs" data-toggle="tooltip"
 										title="Squadra">S</span></td>
 								</tr>
