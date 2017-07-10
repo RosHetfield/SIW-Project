@@ -55,9 +55,6 @@
 	min-height: 200px;
 	list-style-type: none;
 	margin: 0;
-	padding: 5px 0 0 0;
-	float: left;
-	margin-right: 10px;
 }
 
 
@@ -89,12 +86,6 @@ select {
 	background-color: #F9F9F9;
 }
 
-tbody>tr {
-	min-height: 10px;
-	margin: 1em;
-	padding: 1em;
-}
-
 #tbody1, #tbody2, #tbody3 {
 	border: 1px solid #eee;
 	width: 142px;
@@ -114,8 +105,11 @@ tbody>tr {
 	<%@ include file="../fragments/homeNavbar.html"%>
 
 
-	<div class="  col-lg-12 box">
-		<div class="col-lg-6 ">
+	<div class="col-lg-12 box">
+		<div class="col-lg-6 text-center">
+		<div class="col-lg-12 text-center">
+		<h4>Modulo:</h4>
+		</div>
 			<select id="myselect">
 				<option value="1">4-4-2</option>
 				<option value="2">4-3-3</option>
@@ -124,7 +118,7 @@ tbody>tr {
 			</select>
 
 		</div>
-		<div class="col-lg-6 ">
+		<div class="col-lg-6 " style="padding-top : 1em;">
 			<button type="button" class="btn btn-primary btn-block"
 				onclick="salvaFormazione()">Salva formazione</button>
 
@@ -141,18 +135,18 @@ tbody>tr {
 				<thead>
 
 					<tr class="active">
-						<td colspan="8">Rosa</td>
+						<td class="text-center" colspan="8"><h5>Rosa</h5></td>
 					</tr>
 
 
 					<tr class="bg-slate-300">
-						<td>Ruolo</td>
+						<td class="">Ruolo</td>
 
-						<td class="text-center" colspan="1"><span class="hidden-xs">
+						<td class="" colspan="1"><span class="hidden-xs">
 								Nome</span> <span class="visible-xs" data-toggle="tooltip" title="Nome">N</span>
 						</td>
 
-						<td class="text-center"><span class="hidden-xs">
+						<td class=""><span class="hidden-xs">
 								Squadra</span> <span class="visible-xs" data-toggle="tooltip"
 							title="Squadra">S</span></td>
 					</tr>
@@ -174,8 +168,8 @@ tbody>tr {
 					<%
 						} else {
 					%>
+					<tr class="sort-disabled"><td></td><td></td><td></td></tr>
 					<c:forEach var="p" items="${giocatoriInRosa}">
-
 
 						<tr id="${p.nome}" class="${p.ruolo}">
 
@@ -213,24 +207,7 @@ tbody>tr {
 						}
 					%>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 				</tbody>
-
-
-
-
 
 			</table>
 		</div>
@@ -241,18 +218,18 @@ tbody>tr {
 				<thead>
 
 					<tr class="active">
-						<td colspan="8">In Campo</td>
+						<td class="text-center" colspan="8"><h5>In Campo</h5></td>
 					</tr>
 
 
 					<tr class="bg-slate-300">
-						<td>Ruolo</td>
+						<td class="">Ruolo</td>
 
-						<td class="text-center" colspan="1"><span class="hidden-xs">
+						<td class="" colspan="1"><span class="hidden-xs">
 								Nome</span> <span class="visible-xs" data-toggle="tooltip" title="Nome">N</span>
 						</td>
 
-						<td class="text-center"><span class="hidden-xs">
+						<td class=""><span class="hidden-xs">
 								Squadra</span> <span class="visible-xs" data-toggle="tooltip"
 							title="Squadra">S</span></td>
 					</tr>
@@ -260,8 +237,8 @@ tbody>tr {
 
 				<tbody id="tbody2" class="connectedSortable">
 
+					<tr class="sort-disabled"><td></td><td></td><td></td></tr>
 					<c:forEach var="p" items="${giocatoriInFormazione}">
-
 
 						<tr id="${p.nome}" class="${p.ruolo}">
 
@@ -292,8 +269,9 @@ tbody>tr {
 							<td class=""><span class="" data-toggle="tooltip"
 								title="Squadra">${p.squadra} </span></td>
 
-
+						
 						</tr>
+						
 					</c:forEach>
 
 
@@ -304,25 +282,25 @@ tbody>tr {
 				<thead>
 
 					<tr class="active">
-						<td colspan="8">In Panchina</td>
+						<td class="text-center" colspan="8"><h5>In Panchina</h5></td>
 					</tr>
 
 
 					<tr class="bg-slate-300">
-						<td>Ruolo</td>
+						<td class="">Ruolo</td>
 
-						<td class="text-center" colspan="1"><span class="hidden-xs">
+						<td class="" colspan="1"><span class="hidden-xs">
 								Nome</span> <span class="visible-xs" data-toggle="tooltip" title="Nome">N</span>
 						</td>
 
-						<td class="text-center"><span class="hidden-xs">
+						<td class=""><span class="hidden-xs">
 								Squadra</span> <span class="visible-xs" data-toggle="tooltip"
 							title="Squadra">S</span></td>
 					</tr>
 				</thead>
 
 				<tbody id="tbody3" class="connectedSortable">
-
+					<tr class="sort-disabled"><td></td><td></td><td></td></tr>
 					<c:forEach var="p" items="${giocatoriInPanchina}">
 
 

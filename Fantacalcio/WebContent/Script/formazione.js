@@ -140,7 +140,7 @@ function init() {
 	$("#tbody1").sortable({
 		helper : fixHelper,
 		connectWith : ".connectedSortable",
-		items : "tr",
+		items : ">*:not(.sort-disabled)",
 		start : startMoving,
 		stop : stopMoving,
 		receive : receiveAll
@@ -149,7 +149,7 @@ function init() {
 	$("#tbody2").sortable({
 		helper : fixHelper,
 		connectWith : ".connectedSortable",
-		items : "tr",
+		items : ">*:not(.sort-disabled)",
 		start : startMoving,
 		stop : stopMoving,
 		receive : receivePT
@@ -158,7 +158,7 @@ function init() {
 	$("#tbody3").sortable({
 		helper : fixHelper,
 		connectWith : ".connectedSortable",
-		items : "tr",
+		items : ">*:not(.sort-disabled)",
 		start : startMoving,
 		stop : stopMoving,
 		receive : receivePP
