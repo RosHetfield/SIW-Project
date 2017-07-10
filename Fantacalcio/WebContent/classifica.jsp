@@ -62,7 +62,10 @@
 
 		<!-- indice giornate -->
 		<div class="row">
-			<div class="box ">
+			<div class="box text-center">
+				<hr>
+				Giornate
+				<hr>
 				<div class="col-lg-12 ">
 					<ol class="list-inline">
 						<c:forEach var="name" begin="1" end="${giornata}" step="1">
