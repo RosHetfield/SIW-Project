@@ -35,7 +35,6 @@ public class MercatoController extends HttpServlet {
 	 */
 	public MercatoController() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

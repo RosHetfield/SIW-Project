@@ -67,7 +67,6 @@ function registraCampionato(form) {
 			form.Nome_Campionato.value = '';
 			form.Nome_Campionato.focus();
 			form.Nome_Campionato.scrollIntoView();
-			// return false;
 			registrazione = false;
 
 		}
@@ -78,4 +77,3 @@ function registraCampionato(form) {
 
 }
 
-$(document).ready();

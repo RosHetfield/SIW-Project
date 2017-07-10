@@ -10,7 +10,7 @@ function getCredenzialiForm() {
 	var username = campo.val();
 
 	campo = campi.eq(1);
-	var password = campo.val();
+	var password = hex_sha1(campo.val());
 	
 	var nome, cognome, email = null;
 	var utente = new Utente(username, nome, cognome, email, password);
@@ -83,5 +83,3 @@ function controlLoginUtente(form) {
 
 	return Boolean(successBoolean);
 }
-
-$(document).ready();

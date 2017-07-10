@@ -85,11 +85,6 @@ function aperturaMercato() {
 
 function rosa(g, r) {
 	$(document).ready(function() {
-		// var aggiungi = "<input id=\"aggiungi\" type=\"submit\"
-		// value=\"Aggiungi\" class=\"btn btn-primary btn-sm\"
-		// onclick=\"rosa(\''+g+'\',\'t\')";
-		// var rimuovi = $('<input id="rimuovi" type="submit" value="Rimuovi"
-		// class="btn btn-danger btn-sm" onclick="rosa(\''+g+'\',\'f\')">')
 		$.ajax({
 
 			async : false,

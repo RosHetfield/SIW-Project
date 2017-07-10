@@ -108,4 +108,3 @@ function registraUtente(form) {
 	return Boolean(registrazione);
 }
 
-$(document).ready();

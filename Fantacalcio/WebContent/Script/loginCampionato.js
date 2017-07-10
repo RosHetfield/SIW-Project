@@ -80,4 +80,3 @@ function loginCampionato(form) {
 	return Boolean(successBoolean);
 }
 
-$(document).ready();
