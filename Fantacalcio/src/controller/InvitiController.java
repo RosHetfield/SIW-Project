@@ -30,7 +30,6 @@ public class InvitiController extends HttpServlet {
 	 */
 	public InvitiController() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -39,11 +38,8 @@ public class InvitiController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// if (request.getParameterNames().hasMoreElements()) {
-		// String jsInvito = (String) request.getParameter("invito");
-		// String jsRisposta = (String) request.getParameter("risposta");
+
 		response.setContentType("text/html");
-		// if (jsRisposta != null && jsInvito != null) {
 
 		String username = (String) request.getSession().getAttribute("Username");
 

@@ -26,7 +26,6 @@ public class InvioInvitoController extends HttpServlet {
 	 */
 	public InvioInvitoController() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

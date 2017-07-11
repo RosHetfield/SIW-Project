@@ -34,7 +34,6 @@ public class CalcolaRisultatiController extends HttpServlet {
 			throws ServletException, IOException {
 		String campionato = (String) request.getSession().getAttribute("NomeCampionato");
 
-		System.out.println(request.getSession().getAttribute("Username"));
 		response.setContentType("text/html");
 		String user = (String)request.getSession().getAttribute("Username");
 		if(user != null &&  campionato != null) {

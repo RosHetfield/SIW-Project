@@ -40,57 +40,45 @@ public class ClassificaController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("sono in classifica controller get");
-	//	if (request.getParameterNames().hasMoreElements()) {
-		if(request.getSession().getAttribute("Username") != null) {
+		if (request.getSession().getAttribute("Username") != null) {
 			response.setContentType("text/html");
 			HttpSession session = request.getSession();
 			String campionato = (String) session.getAttribute("campionato");
-			String squadra= (String)request.getSession().getAttribute("squadra");
-			
-		
-			if (campionato != null && squadra!=null) {
-				
-				System.out.println("sono in if");
-				
+			String squadra = (String) request.getSession().getAttribute("squadra");
+
+			if (campionato != null && squadra != null) {
+
 				Partita partita = DBManager.getInstance().getPartita().getUltimaCalcolata(campionato);
-				if(!primo && partita != null) {
+				if (!primo && partita != null) {
 					giornataStorico = partita.getGiornata();
 					primo = true;
 				}
-				
+
 				String jsGiornata = (String) request.getParameter("giornata");
 				if (jsGiornata != null) {
-					System.out.println(jsGiornata);							
-						ObjectMapper mapper = new ObjectMapper();
-						giornataStorico = mapper.readValue(jsGiornata, int.class);
-						System.out.println("ARRIVO " + giornataStorico);
-					}
-			
-				System.out.println(giornataStorico + " GGG");
-				List<Classifica> classifica = DBManager.getInstance().getClassifica().getClassificaGiornata(giornataStorico, campionato);
-				System.out.println("CLASSIFICA " + classifica);
-				if(classifica != null) {
+					ObjectMapper mapper = new ObjectMapper();
+					giornataStorico = mapper.readValue(jsGiornata, int.class);
+				}
+
+				List<Classifica> classifica = DBManager.getInstance().getClassifica()
+						.getClassificaGiornata(giornataStorico, campionato);
+				if (classifica != null) {
 					request.setAttribute("giornataStorico", giornataStorico);
 					request.setAttribute("giornata", partita.getGiornata());
-					request.setAttribute("classifica", classifica);					
+					request.setAttribute("classifica", classifica);
 				} else {
 					request.setAttribute("classifica", null);
 				}
-				
+
 				RequestDispatcher dispatcher = request.getRequestDispatcher("classifica.jsp");
 				dispatcher.forward(request, response);
 
-				
-				
-			}else {
-				System.out.println("sono in else");
+			} else {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
 				dispatcher.forward(request, response);
 			}
-			
+
 		} else {
-			System.out.println("sono in else");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
 			dispatcher.forward(request, response);
 		}

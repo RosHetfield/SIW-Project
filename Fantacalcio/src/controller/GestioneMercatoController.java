@@ -31,7 +31,6 @@ public class GestioneMercatoController extends HttpServlet {
 	 */
 	public GestioneMercatoController() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -41,7 +40,6 @@ public class GestioneMercatoController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// doPost(request, response);
 	}
 
 	/**
@@ -84,13 +82,13 @@ public class GestioneMercatoController extends HttpServlet {
 					} catch (JSONException e) {
 						e.printStackTrace();
 					}
-					
-				}else{
+
+				} else {
 					RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
 					dispatcher.forward(request, response);
 				}
 
-			}else{
+			} else {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
 				dispatcher.forward(request, response);
 			}
@@ -125,7 +123,6 @@ public class GestioneMercatoController extends HttpServlet {
 			break;
 		}
 		}
-		// inserire contrololo??????
 		Giocatore_in_rosa gir = new Giocatore_in_rosa();
 		gir.setNomeGiocatore(giocatore.getNome());
 		gir.setSquadra(squadra.getNome());

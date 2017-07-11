@@ -51,7 +51,6 @@ public class CaricaVotiController extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String campionato = (String) session.getAttribute("NomeCampionato");
-		System.out.println("ARRIVO?");
 		if (campionato != null) {
 
 			Part filePart = request.getPart("file");

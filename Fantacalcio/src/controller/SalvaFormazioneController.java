@@ -24,7 +24,6 @@ public class SalvaFormazioneController extends HttpServlet {
 	 */
 	public SalvaFormazioneController() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

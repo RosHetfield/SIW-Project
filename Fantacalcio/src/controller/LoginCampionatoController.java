@@ -26,7 +26,6 @@ public class LoginCampionatoController extends HttpServlet {
 	 */
 	public LoginCampionatoController() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

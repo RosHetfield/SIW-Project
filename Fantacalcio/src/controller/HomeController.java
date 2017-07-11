@@ -42,7 +42,6 @@ public class HomeController extends HttpServlet {
 
 			if (username != null) {
 				request.getSession().setAttribute("CampionatiUtente", campionatiUtente);
-				// request.setAttribute("Username", username);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("Home.jsp");
 				dispatcher.forward(request, response);
 			}
@@ -60,8 +59,7 @@ public class HomeController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TOGLIERE
-		if (request.getParameterNames().hasMoreElements()) {
+				if (request.getParameterNames().hasMoreElements()) {
 
 			HttpSession session = request.getSession(false);
 			String username  = (String)session.getAttribute("Username");

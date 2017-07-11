@@ -53,14 +53,12 @@ public class CalcolaGiornataController extends HttpServlet {
 				boolean trovato = false;
 				for (Voto_giornata voto_giornata : voti) {
 					if (voto_giornata.getNomeGiocatore().equals(g.getNomeGiocatoreRosa())) {
-						System.out.println(
-								voto_giornata.getNomeGiocatore() + " " + g.getNomeGiocatoreRosa() + " trovato");
+
 						trovato = true;
 						break;
 					}
 				}
 				if (!trovato && n_sostituzioni < 3) {
-					System.out.println(g.getNomeGiocatoreRosa() + " non trovato");
 					if (sostituzione(g, partita, voti))
 						n_sostituzioni++;
 				}
@@ -81,7 +79,6 @@ public class CalcolaGiornataController extends HttpServlet {
 					totale = ultimo_risultato.getTotale();
 				}
 				double somma_risultati = totale_giornata + totale;
-				System.out.println(totale_giornata + " GIORNATA "+totale+" ULTIMO "+somma_risultati+ " FINALE ");
 				Classifica classifica = new Classifica(squadra.getNome(), giornata.getGiornata(), partite_giocate,
 						campionato, somma_risultati);
 				DBManager.getInstance().getClassifica().save(classifica);
@@ -111,15 +108,11 @@ public class CalcolaGiornataController extends HttpServlet {
 					if (giocatore.getNomeGiocatoreRosa().equals(voto.getNomeGiocatore())) {
 						if (primo) {
 							n_formazione = giocatore.getN_formazione();
-							System.out.println("primo " + giocatore.getNomeGiocatoreRosa() + " "
-									+ giocatore.getN_formazione() + " " + n_formazione);
 							gif = giocatore;
 							primo = false;
 						}
 						if (giocatore.getN_formazione() < n_formazione) {
 							n_formazione = giocatore.getN_formazione();
-							System.out.println("minimo " + giocatore.getNomeGiocatoreRosa() + " "
-									+ giocatore.getN_formazione() + " " + n_formazione);
 							gif = giocatore;
 						}
 					}

@@ -30,7 +30,6 @@ public class GestioneCampionatoController extends HttpServlet {
 	 */
 	public GestioneCampionatoController() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

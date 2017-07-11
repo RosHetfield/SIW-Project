@@ -24,7 +24,6 @@ public class RegistrazioneController extends HttpServlet {
 	 * Default constructor.
 	 */
 	public RegistrazioneController() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

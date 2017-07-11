@@ -44,7 +44,6 @@ public class CreaCampionatoController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		System.out.println("classe creacampionato doPost");
 		if (request.getParameterNames().hasMoreElements()) {
 
 			String jsString = request.getParameter("credenzialiAmministratore");

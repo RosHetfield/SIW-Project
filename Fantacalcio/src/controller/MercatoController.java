@@ -43,7 +43,6 @@ public class MercatoController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// doPost(request, response);
 		response.setContentType("text/html");
 
 		String username = (String) request.getSession().getAttribute("Username");
@@ -81,7 +80,7 @@ public class MercatoController extends HttpServlet {
 							ruolo = mapper.readValue(jsRuolo, String.class);
 						}
 					}
-					
+
 					List<Giocatore> giocatoriSvincolati = DBManager.getInstance().getGiocatore()
 							.getGiocatoriSvincolati(s, ruolo);
 					request.setAttribute("giocatoriSvincolati", giocatoriSvincolati);
@@ -96,7 +95,7 @@ public class MercatoController extends HttpServlet {
 					dispatcher.forward(request, response);
 				}
 
-			}else {
+			} else {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
 				dispatcher.forward(request, response);
 			}

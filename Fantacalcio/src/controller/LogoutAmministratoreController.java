@@ -22,7 +22,6 @@ public class LogoutAmministratoreController extends HttpServlet {
 	 */
 	public LogoutAmministratoreController() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -35,10 +34,8 @@ public class LogoutAmministratoreController extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.removeAttribute("NomeCampionato");
 			response.sendRedirect("Home");
-		}
-		else {
-			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("404.jsp");
+		} else {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("404.jsp");
 			dispatcher.forward(request, response);
 		}
 	}

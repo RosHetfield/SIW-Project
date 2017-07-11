@@ -21,7 +21,6 @@ public class SalvaRosaController extends HttpServlet {
 	 */
 	public SalvaRosaController() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
