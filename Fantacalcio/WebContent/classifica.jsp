@@ -64,7 +64,7 @@
 		<div class="row">
 			<div class="box text-center">
 				<hr>
-				Giornate
+				<h5>Giornate</h5>
 				<hr>
 				<div class="col-lg-12 ">
 					<ol class="list-inline">
@@ -83,10 +83,13 @@
 		<!-- tabella classifica -->
 		<div class="row ">
 			<div class="col-lg-12  box">
-				<hr>
-				<h2 class="intro-text text-center">Classifica giornata
-					${giornataStorico}</h2>
-				<hr>
+
+				<h3 class="text-center">
+					<span>Classifica Giornata ${giornataStorico} <i
+						class="pull-left "></i>
+					</span>
+				</h3>
+
 
 				<table id="tabellaClassifica"
 					class="table table-striped table-bordered">

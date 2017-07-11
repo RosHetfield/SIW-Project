@@ -72,7 +72,7 @@
 		<div class="row">
 			<div class="box text-center">
 				<hr>
-				Giornate
+				<h5>Giornate</h5>
 				<hr>
 				<div class="col-lg-12 ">
 					<ol class="list-inline">
